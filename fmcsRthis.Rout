@@ -1,80 +1,0 @@
-
-R version 3.0.3 (2014-03-06) -- "Warm Puppy"
-Copyright (C) 2014 The R Foundation for Statistical Computing
-Platform: x86_64-pc-linux-gnu (64-bit)
-
-R is free software and comes with ABSOLUTELY NO WARRANTY.
-You are welcome to redistribute it under certain conditions.
-Type 'license()' or 'licence()' for distribution details.
-
-  Natural language support but running in an English locale
-
-R is a collaborative project with many contributors.
-Type 'contributors()' for more information and
-'citation()' on how to cite R or R packages in publications.
-
-Type 'demo()' for some demos, 'help()' for on-line help, or
-'help.start()' for an HTML browser interface to help.
-Type 'q()' to quit R.
-
-[Previously saved workspace restored]
-
-> ##################
-> library(ChemmineR)
-> ##################
-> files<-list.files(pattern="RaikhelPNAS.sdf", recursive=F)
-> ##################
-> sdfset<-read.SDFset(files[1])
-> ##################
-> #valid<-validSDF(sdfset)
-> #sdfset<-sdfset[valid]
-> #
-> cid(sdfset)<-gsub("_","",sdfid(sdfset))
-> #
-> apset<-sdf2ap(sdfset)
-> #sdfset<-sdfset[!sapply(as(apset,"list"),length)==1]
-> #cid(sdfset)<-sdfid(sdfset)
-> ###########################
-> #cid(sdfset)<-datablocktag(sdfset,tag="Click_ID")
-> 
-> ##################
-> cluster<-cmp.cluster(apset, cutoff=c(0.5,0.6,0.7,0.8))
- |                                           / 1 % -                                           \ 2 % |                                           / 3 % -                                           \ 4 % |                                           / 5 % -                                           \ 6 % |                                           / 7 % -                                           \ 8 % |                                           / 9 % -                                           \ 10 % |                                           / 11 % -                                           \ 12 % |                                           / 13 % -                                           \ 14 % |                                           / 15 %                                           - 16 %
-sorting result...
-> 
-> #pdf(file="ClidNeighbors.pdf")
-> png(file="ClidNeighbors.png")
-> 
-> par(mfrow = c(2,2))
-> 
-> plot.default(x=rownames(cluster), y=cluster$CLID_0.5, ylim=c(0,160))
-> plot.default(x=rownames(cluster), y=cluster$CLID_0.6, ylim=c(0,160))
-> plot.default(x=rownames(cluster), y=cluster$CLID_0.7, ylim=c(0,160))
-> plot.default(x=rownames(cluster), y=cluster$CLID_0.8, ylim=c(0,160))
-> ################
-> dev.off()
-null device 
-          1 
-> ################
-> library(fmcsR)
-> ################
-> png(file="hclust_fmcsR_cladogram.png", width=1200, height=1200, units="px")
-> ##################
-> d <- sapply(cid(sdfset), function(x)
-+ fmcsBatch(sdfset[x], sdfset, au=0, bu=0,
-+ matching.mode="aromatic")[,"Overlap_Coefficient"])
-> ##################
-> ##################
-> ##################
-> hc <- hclust(as.dist(1-d), method="complete")
-> hc[["labels"]] <- cid(sdfset)
-> plot(as.dendrogram(hc), edgePar=list(col=4, lwd=2), horiz=TRUE, main="hclust of fmcsR tanimoto distances")
-> dev.off()
-null device 
-          1 
-> ##################
-> save.image("fmcsR_space.rda", compress=T)
-> 
-> proc.time()
-   user  system elapsed 
-  8.788   0.036   8.822 
