@@ -27,21 +27,36 @@ Let us consider, for a moment, how our health may be adversely impacted by envir
 
 ![Small molecules and Risk](https://github.com/andrewdefries/andrewdefries.github.io/blob/master/Images/SmallMoleculesAndRisk.png "Let us consider the big picture of small problems")
 
-Cheminformatics Brief 
+Cheminformatics Brief Intro
 =============================
 
 In the field of cheminformatics structural information of small molecules is used to make a create several forms of representation for downstream use in computational pipelines. The goal is to determine biological pathways where a particular small molecule is of therapeutic or research importance (cite). This fantastic feat is possible as we have inherited an immensity of data from the field of medicine and specifically genomics. Currently, as a public, we are sitting on this data or ignoring it. 
 
 ![Cheminformatics Brief](https://github.com/andrewdefries/andrewdefries.github.io/blob/master/Images/CheminformaticsOverview_01.png)
 
-![Cheminformatics Brief](https://github.com/andrewdefries/andrewdefries.github.io/blob/master/Images/CheminformaticsOverview_02.png)
-
 
 Therefore it is my attempt, here, to tie a couple of pieces of data together to gain understanding and answer, "what is a pesticide?".
 
+Visualizing Chemical Space with RGL
+==============================
 
+To simplify our examination of thousands of chemicals we can create visual representations based on chemical differences in a 3D axis. RGL a popular package in R makes this quite easy. The graphs are also available as static images or as a webGL canvas.
 
+![Chemical Space with RGL](https://github.com/andrewdefries/andrewdefries.github.io/blob/master/Images/ChemicalSpaceRGL.png)
 
+Visualizing Nearest Neighbors in large tables
+=============================================
+
+Sometimes the best way to view relationships is in a table. Therefore, the Tanimoto similarity relationships of small molecules in the dataset have been calculated and used to embed compounds into html tables for quick browsing. Soon images will be clickable and lead to annotated compound homepages.
+
+![Nearest neighbor tables](https://github.com/andrewdefries/andrewdefries.github.io/blob/master/Images/CheminformaticsHwriter.png)
+
+Chemical Reports in Latex with mol2chemfig
+==========================================
+
+A report is not complete without the ability to write a PDF document. To use chemical structures in our reports an open source workflow is available using the Latex package mol2chemfig that converts smiles to tikz drawings.
+
+![Chemical Reports mol2chemfig](https://github.com/andrewdefries/andrewdefries.github.io/blob/master/Images/CheminformaticsMol2chemfig.png)
 HTML Gallery
 =============
 To view the html gallery of the projects click below:
