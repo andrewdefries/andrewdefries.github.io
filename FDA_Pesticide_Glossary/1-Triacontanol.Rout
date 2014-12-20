@@ -20,7 +20,7 @@ Type 'q()' to quit R.
 [Previously saved workspace restored]
 
 > library("knitr")
-> 
+> library("rgl")
 > #knit("1-Triacontanol.Rmd")
 > #markdownToHTML('1-Triacontanol.md', '1-Triacontanol.html', options=c("use_xhml"))
 > #system("pandoc -s 1-Triacontanol.html -o 1-Triacontanol.pdf")
@@ -60,4 +60,4 @@ output file: 1-Triacontanol.md
 > 
 > proc.time()
    user  system elapsed 
-  0.464   0.040   0.500 
+  1.348   0.272   1.781 

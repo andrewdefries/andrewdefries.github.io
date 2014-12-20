@@ -17,8 +17,10 @@ Type 'demo()' for some demos, 'help()' for on-line help, or
 'help.start()' for an HTML browser interface to help.
 Type 'q()' to quit R.
 
+[Previously saved workspace restored]
+
 > library("knitr")
-> 
+> library("rgl")
 > #knit("Coumaphos.Rmd")
 > #markdownToHTML('Coumaphos.md', 'Coumaphos.html', options=c("use_xhml"))
 > #system("pandoc -s Coumaphos.html -o Coumaphos.pdf")
@@ -28,8 +30,29 @@ Type 'q()' to quit R.
 
 
 processing file: Coumaphos.Rmd
-  |                                                                         |                                                                 |   0%  |                                                                         |.................................................................| 100%
+  |                                                                         |                                                                 |   0%  |                                                                         |...........                                                      |  17%
   ordinary text without R code
+
+  |                                                                         |......................                                           |  33%
+label: setup (with options) 
+List of 1
+ $ results: chr "asis"
+
+  |                                                                         |................................                                 |  50%
+  ordinary text without R code
+
+  |                                                                         |...........................................                      |  67%
+label: testgl (with options) 
+List of 1
+ $ webgl: logi TRUE
+
+  |                                                                         |......................................................           |  83%
+  ordinary text without R code
+
+  |                                                                         |.................................................................| 100%
+label: testgl2 (with options) 
+List of 1
+ $ webgl: logi TRUE
 
 
 output file: Coumaphos.md
@@ -37,4 +60,4 @@ output file: Coumaphos.md
 > 
 > proc.time()
    user  system elapsed 
-  0.292   0.020   0.303 
+  1.544   0.192   1.856 

@@ -20,7 +20,7 @@ Type 'q()' to quit R.
 [Previously saved workspace restored]
 
 > library("knitr")
-> 
+> library("rgl")
 > #knit("4-methylbenzoate.Rmd")
 > #markdownToHTML('4-methylbenzoate.md', '4-methylbenzoate.html', options=c("use_xhml"))
 > #system("pandoc -s 4-methylbenzoate.html -o 4-methylbenzoate.pdf")
@@ -60,4 +60,4 @@ output file: 4-methylbenzoate.md
 > 
 > proc.time()
    user  system elapsed 
-  0.492   0.024   0.512 
+  1.564   0.208   1.893 

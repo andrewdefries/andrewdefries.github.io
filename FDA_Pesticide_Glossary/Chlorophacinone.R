@@ -1,5 +1,5 @@
 library("knitr")
-
+library("rgl")
 #knit("Chlorophacinone.Rmd")
 #markdownToHTML('Chlorophacinone.md', 'Chlorophacinone.html', options=c("use_xhml"))
 #system("pandoc -s Chlorophacinone.html -o Chlorophacinone.pdf")

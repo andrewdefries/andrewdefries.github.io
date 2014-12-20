@@ -1,5 +1,5 @@
 library("knitr")
-
+library("rgl")
 #knit("Arsonic_Acid.Rmd")
 #markdownToHTML('Arsonic_Acid.md', 'Arsonic_Acid.html', options=c("use_xhml"))
 #system("pandoc -s Arsonic_Acid.html -o Arsonic_Acid.pdf")

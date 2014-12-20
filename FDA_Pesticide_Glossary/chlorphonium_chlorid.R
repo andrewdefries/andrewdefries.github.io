@@ -1,5 +1,5 @@
 library("knitr")
-
+library("rgl")
 #knit("chlorphonium_chlorid.Rmd")
 #markdownToHTML('chlorphonium_chlorid.md', 'chlorphonium_chlorid.html', options=c("use_xhml"))
 #system("pandoc -s chlorphonium_chlorid.html -o chlorphonium_chlorid.pdf")

@@ -17,8 +17,10 @@ Type 'demo()' for some demos, 'help()' for on-line help, or
 'help.start()' for an HTML browser interface to help.
 Type 'q()' to quit R.
 
+[Previously saved workspace restored]
+
 > library("knitr")
-> 
+> library("rgl")
 > #knit("N'-(4-bromo-3-chloro.Rmd")
 > #markdownToHTML('N'-(4-bromo-3-chloro.md', 'N'-(4-bromo-3-chloro.html', options=c("use_xhml"))
 > #system("pandoc -s N'-(4-bromo-3-chloro.html -o N'-(4-bromo-3-chloro.pdf")
@@ -28,4 +30,4 @@ Type 'q()' to quit R.
 + 
 > proc.time()
    user  system elapsed 
-  0.268   0.024   0.282 
+  0.540   0.036   0.581 

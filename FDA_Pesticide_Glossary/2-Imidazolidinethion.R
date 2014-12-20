@@ -1,5 +1,5 @@
 library("knitr")
-
+library("rgl")
 #knit("2-Imidazolidinethion.Rmd")
 #markdownToHTML('2-Imidazolidinethion.md', '2-Imidazolidinethion.html', options=c("use_xhml"))
 #system("pandoc -s 2-Imidazolidinethion.html -o 2-Imidazolidinethion.pdf")

@@ -17,8 +17,10 @@ Type 'demo()' for some demos, 'help()' for on-line help, or
 'help.start()' for an HTML browser interface to help.
 Type 'q()' to quit R.
 
+[Previously saved workspace restored]
+
 > library("knitr")
-> 
+> library("rgl")
 > #knit("N,N-dimethyl-1,2,3-t.Rmd")
 > #markdownToHTML('N,N-dimethyl-1,2,3-t.md', 'N,N-dimethyl-1,2,3-t.html', options=c("use_xhml"))
 > #system("pandoc -s N,N-dimethyl-1,2,3-t.html -o N,N-dimethyl-1,2,3-t.pdf")
@@ -28,13 +30,35 @@ Type 'q()' to quit R.
 
 
 processing file: N,N-dimethyl-1,2,3-t.Rmd
-  |                                                                         |                                                                 |   0%  |                                                                         |.................................................................| 100%
+  |                                                                         |                                                                 |   0%  |                                                                         |...........                                                      |  17%
   ordinary text without R code
 
+  |                                                                         |......................                                           |  33%
+label: setup (with options) 
+List of 1
+ $ results: chr "asis"
 
-output file: N,N-dimethyl-1,2,3-t.md
+  |                                                                         |................................                                 |  50%
+  ordinary text without R code
 
-> 
-> proc.time()
-   user  system elapsed 
-  0.280   0.028   0.300 
+  |                                                                         |...........................................                      |  67%
+label: testgl (with options) 
+List of 1
+ $ webgl: logi TRUE
+
+  |                                                                         |......................................................           |  83%
+  ordinary text without R code
+
+  |                                                                         |.................................................................| 100%
+label: testgl2 (with options) 
+List of 1
+ $ webgl: logi TRUE
+
+Quitting from lines 24-32 (N,N-dimethyl-1,2,3-t.Rmd) 
+Error in parse(text = x, srcfile = src) : <text>:2:2: unexpected ','
+1: open3d()
+2: N,
+    ^
+Calls: knit2html ... evaluate -> parse_all -> parse_all.character -> parse
+
+Execution halted

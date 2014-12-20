@@ -1,5 +1,5 @@
 library("knitr")
-
+library("rgl")
 #knit("fenaminosulf.Rmd")
 #markdownToHTML('fenaminosulf.md', 'fenaminosulf.html', options=c("use_xhml"))
 #system("pandoc -s fenaminosulf.html -o fenaminosulf.pdf")

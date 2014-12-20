@@ -1,5 +1,5 @@
 library("knitr")
-
+library("rgl")
 #knit("(carboxymethylamino).Rmd")
 #markdownToHTML('(carboxymethylamino).md', '(carboxymethylamino).html', options=c("use_xhml"))
 #system("pandoc -s (carboxymethylamino).html -o (carboxymethylamino).pdf")

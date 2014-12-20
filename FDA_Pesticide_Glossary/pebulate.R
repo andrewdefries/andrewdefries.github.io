@@ -1,5 +1,5 @@
 library("knitr")
-
+library("rgl")
 #knit("pebulate.Rmd")
 #markdownToHTML('pebulate.md', 'pebulate.html', options=c("use_xhml"))
 #system("pandoc -s pebulate.html -o pebulate.pdf")

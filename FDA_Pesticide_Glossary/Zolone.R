@@ -1,5 +1,5 @@
 library("knitr")
-
+library("rgl")
 #knit("Zolone.Rmd")
 #markdownToHTML('Zolone.md', 'Zolone.html', options=c("use_xhml"))
 #system("pandoc -s Zolone.html -o Zolone.pdf")

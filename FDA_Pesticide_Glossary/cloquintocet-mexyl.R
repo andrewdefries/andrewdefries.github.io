@@ -1,5 +1,5 @@
 library("knitr")
-
+library("rgl")
 #knit("cloquintocet-mexyl.Rmd")
 #markdownToHTML('cloquintocet-mexyl.md', 'cloquintocet-mexyl.html', options=c("use_xhml"))
 #system("pandoc -s cloquintocet-mexyl.html -o cloquintocet-mexyl.pdf")

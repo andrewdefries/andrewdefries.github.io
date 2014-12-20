@@ -20,7 +20,7 @@ Type 'q()' to quit R.
 [Previously saved workspace restored]
 
 > library("knitr")
-> 
+> library("rgl")
 > #knit("4-Aminopyridinen.Rmd")
 > #markdownToHTML('4-Aminopyridinen.md', '4-Aminopyridinen.html', options=c("use_xhml"))
 > #system("pandoc -s 4-Aminopyridinen.html -o 4-Aminopyridinen.pdf")
@@ -60,4 +60,4 @@ output file: 4-Aminopyridinen.md
 > 
 > proc.time()
    user  system elapsed 
-  0.460   0.048   0.503 
+  1.432   0.228   1.791 

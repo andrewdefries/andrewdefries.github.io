@@ -1,5 +1,5 @@
 library("knitr")
-
+library("rgl")
 #knit("ferbam.Rmd")
 #markdownToHTML('ferbam.md', 'ferbam.html', options=c("use_xhml"))
 #system("pandoc -s ferbam.html -o ferbam.pdf")

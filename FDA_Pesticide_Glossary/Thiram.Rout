@@ -17,8 +17,10 @@ Type 'demo()' for some demos, 'help()' for on-line help, or
 'help.start()' for an HTML browser interface to help.
 Type 'q()' to quit R.
 
+[Previously saved workspace restored]
+
 > library("knitr")
-> 
+> library("rgl")
 > #knit("Thiram.Rmd")
 > #markdownToHTML('Thiram.md', 'Thiram.html', options=c("use_xhml"))
 > #system("pandoc -s Thiram.html -o Thiram.pdf")
@@ -28,8 +30,29 @@ Type 'q()' to quit R.
 
 
 processing file: Thiram.Rmd
-  |                                                                         |                                                                 |   0%  |                                                                         |.................................................................| 100%
+  |                                                                         |                                                                 |   0%  |                                                                         |...........                                                      |  17%
   ordinary text without R code
+
+  |                                                                         |......................                                           |  33%
+label: setup (with options) 
+List of 1
+ $ results: chr "asis"
+
+  |                                                                         |................................                                 |  50%
+  ordinary text without R code
+
+  |                                                                         |...........................................                      |  67%
+label: testgl (with options) 
+List of 1
+ $ webgl: logi TRUE
+
+  |                                                                         |......................................................           |  83%
+  ordinary text without R code
+
+  |                                                                         |.................................................................| 100%
+label: testgl2 (with options) 
+List of 1
+ $ webgl: logi TRUE
 
 
 output file: Thiram.md
@@ -37,4 +60,4 @@ output file: Thiram.md
 > 
 > proc.time()
    user  system elapsed 
-  0.272   0.040   0.303 
+  1.068   0.204   1.485 

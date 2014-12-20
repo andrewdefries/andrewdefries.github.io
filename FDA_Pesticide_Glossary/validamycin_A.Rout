@@ -17,8 +17,10 @@ Type 'demo()' for some demos, 'help()' for on-line help, or
 'help.start()' for an HTML browser interface to help.
 Type 'q()' to quit R.
 
+[Previously saved workspace restored]
+
 > library("knitr")
-> 
+> library("rgl")
 > #knit("validamycin_A.Rmd")
 > #markdownToHTML('validamycin_A.md', 'validamycin_A.html', options=c("use_xhml"))
 > #system("pandoc -s validamycin_A.html -o validamycin_A.pdf")
@@ -28,8 +30,29 @@ Type 'q()' to quit R.
 
 
 processing file: validamycin_A.Rmd
-  |                                                                         |                                                                 |   0%  |                                                                         |.................................................................| 100%
+  |                                                                         |                                                                 |   0%  |                                                                         |...........                                                      |  17%
   ordinary text without R code
+
+  |                                                                         |......................                                           |  33%
+label: setup (with options) 
+List of 1
+ $ results: chr "asis"
+
+  |                                                                         |................................                                 |  50%
+  ordinary text without R code
+
+  |                                                                         |...........................................                      |  67%
+label: testgl (with options) 
+List of 1
+ $ webgl: logi TRUE
+
+  |                                                                         |......................................................           |  83%
+  ordinary text without R code
+
+  |                                                                         |.................................................................| 100%
+label: testgl2 (with options) 
+List of 1
+ $ webgl: logi TRUE
 
 
 output file: validamycin_A.md
@@ -37,4 +60,4 @@ output file: validamycin_A.md
 > 
 > proc.time()
    user  system elapsed 
-  0.284   0.028   0.304 
+  1.056   0.236   1.489 

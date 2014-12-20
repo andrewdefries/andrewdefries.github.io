@@ -1,5 +1,5 @@
 library("knitr")
-
+library("rgl")
 #knit("fluazuron.Rmd")
 #markdownToHTML('fluazuron.md', 'fluazuron.html', options=c("use_xhml"))
 #system("pandoc -s fluazuron.html -o fluazuron.pdf")

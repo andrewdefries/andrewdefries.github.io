@@ -1,5 +1,5 @@
 library("knitr")
-
+library("rgl")
 #knit("daimuron.Rmd")
 #markdownToHTML('daimuron.md', 'daimuron.html', options=c("use_xhml"))
 #system("pandoc -s daimuron.html -o daimuron.pdf")

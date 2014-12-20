@@ -1,5 +1,5 @@
 library("knitr")
-
+library("rgl")
 #knit("propanamine.Rmd")
 #markdownToHTML('propanamine.md', 'propanamine.html', options=c("use_xhml"))
 #system("pandoc -s propanamine.html -o propanamine.pdf")

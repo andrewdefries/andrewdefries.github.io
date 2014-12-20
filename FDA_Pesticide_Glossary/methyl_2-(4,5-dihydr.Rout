@@ -17,8 +17,10 @@ Type 'demo()' for some demos, 'help()' for on-line help, or
 'help.start()' for an HTML browser interface to help.
 Type 'q()' to quit R.
 
+[Previously saved workspace restored]
+
 > library("knitr")
-> 
+> library("rgl")
 > #knit("methyl_2-(4,5-dihydr.Rmd")
 > #markdownToHTML('methyl_2-(4,5-dihydr.md', 'methyl_2-(4,5-dihydr.html', options=c("use_xhml"))
 > #system("pandoc -s methyl_2-(4,5-dihydr.html -o methyl_2-(4,5-dihydr.pdf")
@@ -28,13 +30,35 @@ Type 'q()' to quit R.
 
 
 processing file: methyl_2-(4,5-dihydr.Rmd
-  |                                                                         |                                                                 |   0%  |                                                                         |.................................................................| 100%
+  |                                                                         |                                                                 |   0%  |                                                                         |...........                                                      |  17%
   ordinary text without R code
 
+  |                                                                         |......................                                           |  33%
+label: setup (with options) 
+List of 1
+ $ results: chr "asis"
 
-output file: methyl_2-(4,5-dihydr.md
+  |                                                                         |................................                                 |  50%
+  ordinary text without R code
 
-> 
-> proc.time()
-   user  system elapsed 
-  0.276   0.032   0.302 
+  |                                                                         |...........................................                      |  67%
+label: testgl (with options) 
+List of 1
+ $ webgl: logi TRUE
+
+  |                                                                         |......................................................           |  83%
+  ordinary text without R code
+
+  |                                                                         |.................................................................| 100%
+label: testgl2 (with options) 
+List of 1
+ $ webgl: logi TRUE
+
+Quitting from lines 24-32 (methyl_2-(4,5-dihydr.Rmd) 
+Error in parse(text = x, srcfile = src) : <text>:2:12: unexpected ','
+1: open3d()
+2: methyl_2-(4,
+              ^
+Calls: knit2html ... evaluate -> parse_all -> parse_all.character -> parse
+
+Execution halted

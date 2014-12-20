@@ -17,8 +17,10 @@ Type 'demo()' for some demos, 'help()' for on-line help, or
 'help.start()' for an HTML browser interface to help.
 Type 'q()' to quit R.
 
+[Previously saved workspace restored]
+
 > library("knitr")
-> 
+> library("rgl")
 > #knit("acetic_acid-2-heptad.Rmd")
 > #markdownToHTML('acetic_acid-2-heptad.md', 'acetic_acid-2-heptad.html', options=c("use_xhml"))
 > #system("pandoc -s acetic_acid-2-heptad.html -o acetic_acid-2-heptad.pdf")
@@ -28,8 +30,29 @@ Type 'q()' to quit R.
 
 
 processing file: acetic_acid-2-heptad.Rmd
-  |                                                                         |                                                                 |   0%  |                                                                         |.................................................................| 100%
+  |                                                                         |                                                                 |   0%  |                                                                         |...........                                                      |  17%
   ordinary text without R code
+
+  |                                                                         |......................                                           |  33%
+label: setup (with options) 
+List of 1
+ $ results: chr "asis"
+
+  |                                                                         |................................                                 |  50%
+  ordinary text without R code
+
+  |                                                                         |...........................................                      |  67%
+label: testgl (with options) 
+List of 1
+ $ webgl: logi TRUE
+
+  |                                                                         |......................................................           |  83%
+  ordinary text without R code
+
+  |                                                                         |.................................................................| 100%
+label: testgl2 (with options) 
+List of 1
+ $ webgl: logi TRUE
 
 
 output file: acetic_acid-2-heptad.md
@@ -37,4 +60,4 @@ output file: acetic_acid-2-heptad.md
 > 
 > proc.time()
    user  system elapsed 
-  0.264   0.044   0.301 
+  1.436   0.232   1.778 

@@ -1,5 +1,5 @@
 library("knitr")
-
+library("rgl")
 #knit("neburon.Rmd")
 #markdownToHTML('neburon.md', 'neburon.html', options=c("use_xhml"))
 #system("pandoc -s neburon.html -o neburon.pdf")

@@ -17,8 +17,10 @@ Type 'demo()' for some demos, 'help()' for on-line help, or
 'help.start()' for an HTML browser interface to help.
 Type 'q()' to quit R.
 
+[Previously saved workspace restored]
+
 > library("knitr")
-> 
+> library("rgl")
 > #knit("oxyimino-2-(methylth.Rmd")
 > #markdownToHTML('oxyimino-2-(methylth.md', 'oxyimino-2-(methylth.html', options=c("use_xhml"))
 > #system("pandoc -s oxyimino-2-(methylth.html -o oxyimino-2-(methylth.pdf")
@@ -28,13 +30,35 @@ Type 'q()' to quit R.
 
 
 processing file: oxyimino-2-(methylth.Rmd
-  |                                                                         |                                                                 |   0%  |                                                                         |.................................................................| 100%
+  |                                                                         |                                                                 |   0%  |                                                                         |...........                                                      |  17%
   ordinary text without R code
 
+  |                                                                         |......................                                           |  33%
+label: setup (with options) 
+List of 1
+ $ results: chr "asis"
 
-output file: oxyimino-2-(methylth.md
+  |                                                                         |................................                                 |  50%
+  ordinary text without R code
 
-> 
-> proc.time()
-   user  system elapsed 
-  0.256   0.060   0.308 
+  |                                                                         |...........................................                      |  67%
+label: testgl (with options) 
+List of 1
+ $ webgl: logi TRUE
+
+  |                                                                         |......................................................           |  83%
+  ordinary text without R code
+
+  |                                                                         |.................................................................| 100%
+label: testgl2 (with options) 
+List of 1
+ $ webgl: logi TRUE
+
+Quitting from lines 24-32 (oxyimino-2-(methylth.Rmd) 
+Error in parse(text = x, srcfile = src) : <text>:3:1: unexpected symbol
+2: oxyimino-2-(methylth<-read.table("oxyimino-2-(methylth.xyz")
+3: x
+   ^
+Calls: knit2html ... evaluate -> parse_all -> parse_all.character -> parse
+
+Execution halted

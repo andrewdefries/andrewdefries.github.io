@@ -1,5 +1,5 @@
 library("knitr")
-
+library("rgl")
 #knit("oxadiargyl.Rmd")
 #markdownToHTML('oxadiargyl.md', 'oxadiargyl.html', options=c("use_xhml"))
 #system("pandoc -s oxadiargyl.html -o oxadiargyl.pdf")

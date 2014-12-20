@@ -1,5 +1,5 @@
 library("knitr")
-
+library("rgl")
 #knit("hexaflumuron.Rmd")
 #markdownToHTML('hexaflumuron.md', 'hexaflumuron.html', options=c("use_xhml"))
 #system("pandoc -s hexaflumuron.html -o hexaflumuron.pdf")

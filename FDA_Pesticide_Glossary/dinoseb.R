@@ -1,5 +1,5 @@
 library("knitr")
-
+library("rgl")
 #knit("dinoseb.Rmd")
 #markdownToHTML('dinoseb.md', 'dinoseb.html', options=c("use_xhml"))
 #system("pandoc -s dinoseb.html -o dinoseb.pdf")

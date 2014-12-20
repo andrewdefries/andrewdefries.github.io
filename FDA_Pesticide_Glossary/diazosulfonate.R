@@ -1,5 +1,5 @@
 library("knitr")
-
+library("rgl")
 #knit("diazosulfonate.Rmd")
 #markdownToHTML('diazosulfonate.md', 'diazosulfonate.html', options=c("use_xhml"))
 #system("pandoc -s diazosulfonate.html -o diazosulfonate.pdf")

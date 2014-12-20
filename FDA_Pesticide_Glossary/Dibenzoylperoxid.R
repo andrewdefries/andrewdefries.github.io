@@ -1,5 +1,5 @@
 library("knitr")
-
+library("rgl")
 #knit("Dibenzoylperoxid.Rmd")
 #markdownToHTML('Dibenzoylperoxid.md', 'Dibenzoylperoxid.html', options=c("use_xhml"))
 #system("pandoc -s Dibenzoylperoxid.html -o Dibenzoylperoxid.pdf")

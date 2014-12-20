@@ -17,15 +17,48 @@ Type 'demo()' for some demos, 'help()' for on-line help, or
 'help.start()' for an HTML browser interface to help.
 Type 'q()' to quit R.
 
+[Previously saved workspace restored]
+
 > library("knitr")
-> 
+> library("rgl")
 > #knit("N-_methyl-N-_(hexylo.Rmd")
 > #markdownToHTML('N-_methyl-N-_(hexylo.md', 'N-_methyl-N-_(hexylo.html', options=c("use_xhml"))
 > #system("pandoc -s N-_methyl-N-_(hexylo.html -o N-_methyl-N-_(hexylo.pdf")
 > 
 > 
 > knit2html('N-_methyl-N-_(hexylo.Rmd')
-Error in renderMarkdown(file = NULL, output = NULL, text, renderer = "HTML",  : 
-  CHAR() can only be applied to a 'CHARSXP', not a 'NULL'
-Calls: knit2html -> <Anonymous> -> renderMarkdown -> .Call
+
+
+processing file: N-_methyl-N-_(hexylo.Rmd
+  |                                                                         |                                                                 |   0%  |                                                                         |...........                                                      |  17%
+  ordinary text without R code
+
+  |                                                                         |......................                                           |  33%
+label: setup (with options) 
+List of 1
+ $ results: chr "asis"
+
+  |                                                                         |................................                                 |  50%
+  ordinary text without R code
+
+  |                                                                         |...........................................                      |  67%
+label: testgl (with options) 
+List of 1
+ $ webgl: logi TRUE
+
+  |                                                                         |......................................................           |  83%
+  ordinary text without R code
+
+  |                                                                         |.................................................................| 100%
+label: testgl2 (with options) 
+List of 1
+ $ webgl: logi TRUE
+
+Quitting from lines 24-32 (N-_methyl-N-_(hexylo.Rmd) 
+Error in parse(text = x, srcfile = src) : <text>:2:3: unexpected input
+1: open3d()
+2: N-_
+     ^
+Calls: knit2html ... evaluate -> parse_all -> parse_all.character -> parse
+
 Execution halted

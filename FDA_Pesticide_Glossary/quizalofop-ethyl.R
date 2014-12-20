@@ -1,5 +1,5 @@
 library("knitr")
-
+library("rgl")
 #knit("quizalofop-ethyl.Rmd")
 #markdownToHTML('quizalofop-ethyl.md', 'quizalofop-ethyl.html', options=c("use_xhml"))
 #system("pandoc -s quizalofop-ethyl.html -o quizalofop-ethyl.pdf")

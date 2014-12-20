@@ -1,5 +1,5 @@
 library("knitr")
-
+library("rgl")
 #knit("Acrylate.Rmd")
 #markdownToHTML('Acrylate.md', 'Acrylate.html', options=c("use_xhml"))
 #system("pandoc -s Acrylate.html -o Acrylate.pdf")

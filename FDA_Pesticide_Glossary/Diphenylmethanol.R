@@ -1,5 +1,5 @@
 library("knitr")
-
+library("rgl")
 #knit("Diphenylmethanol.Rmd")
 #markdownToHTML('Diphenylmethanol.md', 'Diphenylmethanol.html', options=c("use_xhml"))
 #system("pandoc -s Diphenylmethanol.html -o Diphenylmethanol.pdf")

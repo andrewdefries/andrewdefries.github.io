@@ -20,7 +20,7 @@ Type 'q()' to quit R.
 [Previously saved workspace restored]
 
 > library("knitr")
-> 
+> library("rgl")
 > #knit("2-Imidazolidinethion.Rmd")
 > #markdownToHTML('2-Imidazolidinethion.md', '2-Imidazolidinethion.html', options=c("use_xhml"))
 > #system("pandoc -s 2-Imidazolidinethion.html -o 2-Imidazolidinethion.pdf")
@@ -60,4 +60,4 @@ output file: 2-Imidazolidinethion.md
 > 
 > proc.time()
    user  system elapsed 
-  0.464   0.040   0.499 
+  1.408   0.244   1.781 

@@ -1,5 +1,5 @@
 library("knitr")
-
+library("rgl")
 #knit("diflufenican.Rmd")
 #markdownToHTML('diflufenican.md', 'diflufenican.html', options=c("use_xhml"))
 #system("pandoc -s diflufenican.html -o diflufenican.pdf")

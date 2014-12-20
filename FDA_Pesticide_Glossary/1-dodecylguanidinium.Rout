@@ -20,7 +20,7 @@ Type 'q()' to quit R.
 [Previously saved workspace restored]
 
 > library("knitr")
-> 
+> library("rgl")
 > #knit("1-dodecylguanidinium.Rmd")
 > #markdownToHTML('1-dodecylguanidinium.md', '1-dodecylguanidinium.html', options=c("use_xhml"))
 > #system("pandoc -s 1-dodecylguanidinium.html -o 1-dodecylguanidinium.pdf")
@@ -60,4 +60,4 @@ output file: 1-dodecylguanidinium.md
 > 
 > proc.time()
    user  system elapsed 
-  0.464   0.036   0.497 
+  1.144   0.260   1.542 

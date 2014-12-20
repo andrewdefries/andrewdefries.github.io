@@ -17,8 +17,10 @@ Type 'demo()' for some demos, 'help()' for on-line help, or
 'help.start()' for an HTML browser interface to help.
 Type 'q()' to quit R.
 
+[Previously saved workspace restored]
+
 > library("knitr")
-> 
+> library("rgl")
 > #knit("methyl_6-(4-isopropy.Rmd")
 > #markdownToHTML('methyl_6-(4-isopropy.md', 'methyl_6-(4-isopropy.html', options=c("use_xhml"))
 > #system("pandoc -s methyl_6-(4-isopropy.html -o methyl_6-(4-isopropy.pdf")
@@ -28,13 +30,35 @@ Type 'q()' to quit R.
 
 
 processing file: methyl_6-(4-isopropy.Rmd
-  |                                                                         |                                                                 |   0%  |                                                                         |.................................................................| 100%
+  |                                                                         |                                                                 |   0%  |                                                                         |...........                                                      |  17%
   ordinary text without R code
 
+  |                                                                         |......................                                           |  33%
+label: setup (with options) 
+List of 1
+ $ results: chr "asis"
 
-output file: methyl_6-(4-isopropy.md
+  |                                                                         |................................                                 |  50%
+  ordinary text without R code
 
-> 
-> proc.time()
-   user  system elapsed 
-  0.280   0.036   0.307 
+  |                                                                         |...........................................                      |  67%
+label: testgl (with options) 
+List of 1
+ $ webgl: logi TRUE
+
+  |                                                                         |......................................................           |  83%
+  ordinary text without R code
+
+  |                                                                         |.................................................................| 100%
+label: testgl2 (with options) 
+List of 1
+ $ webgl: logi TRUE
+
+Quitting from lines 24-32 (methyl_6-(4-isopropy.Rmd) 
+Error in parse(text = x, srcfile = src) : <text>:3:1: unexpected symbol
+2: methyl_6-(4-isopropy<-read.table("methyl_6-(4-isopropy.xyz")
+3: x
+   ^
+Calls: knit2html ... evaluate -> parse_all -> parse_all.character -> parse
+
+Execution halted

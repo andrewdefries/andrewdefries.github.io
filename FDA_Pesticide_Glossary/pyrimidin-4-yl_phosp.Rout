@@ -17,15 +17,47 @@ Type 'demo()' for some demos, 'help()' for on-line help, or
 'help.start()' for an HTML browser interface to help.
 Type 'q()' to quit R.
 
+[Previously saved workspace restored]
+
 > library("knitr")
-> 
+> library("rgl")
 > #knit("pyrimidin-4-yl_phosp.Rmd")
 > #markdownToHTML('pyrimidin-4-yl_phosp.md', 'pyrimidin-4-yl_phosp.html', options=c("use_xhml"))
 > #system("pandoc -s pyrimidin-4-yl_phosp.html -o pyrimidin-4-yl_phosp.pdf")
 > 
 > 
 > knit2html('pyrimidin-4-yl_phosp.Rmd')
-Error in renderMarkdown(file = NULL, output = NULL, text, renderer = "HTML",  : 
-  CHAR() can only be applied to a 'CHARSXP', not a 'NULL'
-Calls: knit2html -> <Anonymous> -> renderMarkdown -> .Call
-Execution halted
+
+
+processing file: pyrimidin-4-yl_phosp.Rmd
+  |                                                                         |                                                                 |   0%  |                                                                         |...........                                                      |  17%
+  ordinary text without R code
+
+  |                                                                         |......................                                           |  33%
+label: setup (with options) 
+List of 1
+ $ results: chr "asis"
+
+  |                                                                         |................................                                 |  50%
+  ordinary text without R code
+
+  |                                                                         |...........................................                      |  67%
+label: testgl (with options) 
+List of 1
+ $ webgl: logi TRUE
+
+  |                                                                         |......................................................           |  83%
+  ordinary text without R code
+
+  |                                                                         |.................................................................| 100%
+label: testgl2 (with options) 
+List of 1
+ $ webgl: logi TRUE
+
+
+output file: pyrimidin-4-yl_phosp.md
+
+> 
+> proc.time()
+   user  system elapsed 
+  1.040   0.248   1.476 

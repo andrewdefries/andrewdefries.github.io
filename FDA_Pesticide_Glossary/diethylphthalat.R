@@ -1,5 +1,5 @@
 library("knitr")
-
+library("rgl")
 #knit("diethylphthalat.Rmd")
 #markdownToHTML('diethylphthalat.md', 'diethylphthalat.html', options=c("use_xhml"))
 #system("pandoc -s diethylphthalat.html -o diethylphthalat.pdf")

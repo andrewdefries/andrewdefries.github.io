@@ -1,5 +1,5 @@
 library("knitr")
-
+library("rgl")
 #knit("cloethocarb.Rmd")
 #markdownToHTML('cloethocarb.md', 'cloethocarb.html', options=c("use_xhml"))
 #system("pandoc -s cloethocarb.html -o cloethocarb.pdf")

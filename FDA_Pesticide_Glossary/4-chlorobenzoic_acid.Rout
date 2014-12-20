@@ -20,7 +20,7 @@ Type 'q()' to quit R.
 [Previously saved workspace restored]
 
 > library("knitr")
-> 
+> library("rgl")
 > #knit("4-chlorobenzoic_acid.Rmd")
 > #markdownToHTML('4-chlorobenzoic_acid.md', '4-chlorobenzoic_acid.html', options=c("use_xhml"))
 > #system("pandoc -s 4-chlorobenzoic_acid.html -o 4-chlorobenzoic_acid.pdf")
@@ -60,4 +60,4 @@ output file: 4-chlorobenzoic_acid.md
 > 
 > proc.time()
    user  system elapsed 
-  0.468   0.040   0.503 
+  1.532   0.156   1.819 

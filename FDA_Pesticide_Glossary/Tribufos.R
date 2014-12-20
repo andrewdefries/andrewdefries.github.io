@@ -1,5 +1,5 @@
 library("knitr")
-
+library("rgl")
 #knit("Tribufos.Rmd")
 #markdownToHTML('Tribufos.md', 'Tribufos.html', options=c("use_xhml"))
 #system("pandoc -s Tribufos.html -o Tribufos.pdf")

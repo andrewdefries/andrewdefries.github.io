@@ -1,5 +1,5 @@
 library("knitr")
-
+library("rgl")
 #knit("N-dimethylaminosucci.Rmd")
 #markdownToHTML('N-dimethylaminosucci.md', 'N-dimethylaminosucci.html', options=c("use_xhml"))
 #system("pandoc -s N-dimethylaminosucci.html -o N-dimethylaminosucci.pdf")

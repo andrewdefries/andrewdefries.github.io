@@ -1,5 +1,5 @@
 library("knitr")
-
+library("rgl")
 #knit("methfuroxam.Rmd")
 #markdownToHTML('methfuroxam.md', 'methfuroxam.html', options=c("use_xhml"))
 #system("pandoc -s methfuroxam.html -o methfuroxam.pdf")

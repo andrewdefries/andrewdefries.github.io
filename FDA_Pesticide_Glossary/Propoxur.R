@@ -1,5 +1,5 @@
 library("knitr")
-
+library("rgl")
 #knit("Propoxur.Rmd")
 #markdownToHTML('Propoxur.md', 'Propoxur.html', options=c("use_xhml"))
 #system("pandoc -s Propoxur.html -o Propoxur.pdf")

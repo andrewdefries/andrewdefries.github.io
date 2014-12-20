@@ -17,8 +17,10 @@ Type 'demo()' for some demos, 'help()' for on-line help, or
 'help.start()' for an HTML browser interface to help.
 Type 'q()' to quit R.
 
+[Previously saved workspace restored]
+
 > library("knitr")
-> 
+> library("rgl")
 > #knit("ethylan_1,1'-(2,2-di.Rmd")
 > #markdownToHTML('ethylan_1,1'-(2,2-di.md', 'ethylan_1,1'-(2,2-di.html', options=c("use_xhml"))
 > #system("pandoc -s ethylan_1,1'-(2,2-di.html -o ethylan_1,1'-(2,2-di.pdf")

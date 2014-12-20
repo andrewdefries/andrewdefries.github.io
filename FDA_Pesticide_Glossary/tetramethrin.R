@@ -1,5 +1,5 @@
 library("knitr")
-
+library("rgl")
 #knit("tetramethrin.Rmd")
 #markdownToHTML('tetramethrin.md', 'tetramethrin.html', options=c("use_xhml"))
 #system("pandoc -s tetramethrin.html -o tetramethrin.pdf")

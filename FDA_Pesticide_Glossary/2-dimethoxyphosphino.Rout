@@ -20,7 +20,7 @@ Type 'q()' to quit R.
 [Previously saved workspace restored]
 
 > library("knitr")
-> 
+> library("rgl")
 > #knit("2-dimethoxyphosphino.Rmd")
 > #markdownToHTML('2-dimethoxyphosphino.md', '2-dimethoxyphosphino.html', options=c("use_xhml"))
 > #system("pandoc -s 2-dimethoxyphosphino.html -o 2-dimethoxyphosphino.pdf")
@@ -60,4 +60,4 @@ output file: 2-dimethoxyphosphino.md
 > 
 > proc.time()
    user  system elapsed 
-  0.464   0.048   0.509 
+  1.404   0.232   1.743 

@@ -17,8 +17,10 @@ Type 'demo()' for some demos, 'help()' for on-line help, or
 'help.start()' for an HTML browser interface to help.
 Type 'q()' to quit R.
 
+[Previously saved workspace restored]
+
 > library("knitr")
-> 
+> library("rgl")
 > #knit("chromafenozide.Rmd")
 > #markdownToHTML('chromafenozide.md', 'chromafenozide.html', options=c("use_xhml"))
 > #system("pandoc -s chromafenozide.html -o chromafenozide.pdf")
@@ -28,8 +30,29 @@ Type 'q()' to quit R.
 
 
 processing file: chromafenozide.Rmd
-  |                                                                         |                                                                 |   0%  |                                                                         |.................................................................| 100%
+  |                                                                         |                                                                 |   0%  |                                                                         |...........                                                      |  17%
   ordinary text without R code
+
+  |                                                                         |......................                                           |  33%
+label: setup (with options) 
+List of 1
+ $ results: chr "asis"
+
+  |                                                                         |................................                                 |  50%
+  ordinary text without R code
+
+  |                                                                         |...........................................                      |  67%
+label: testgl (with options) 
+List of 1
+ $ webgl: logi TRUE
+
+  |                                                                         |......................................................           |  83%
+  ordinary text without R code
+
+  |                                                                         |.................................................................| 100%
+label: testgl2 (with options) 
+List of 1
+ $ webgl: logi TRUE
 
 
 output file: chromafenozide.md
@@ -37,4 +60,4 @@ output file: chromafenozide.md
 > 
 > proc.time()
    user  system elapsed 
-  0.288   0.020   0.300 
+  1.516   0.184   1.831 

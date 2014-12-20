@@ -17,8 +17,10 @@ Type 'demo()' for some demos, 'help()' for on-line help, or
 'help.start()' for an HTML browser interface to help.
 Type 'q()' to quit R.
 
+[Previously saved workspace restored]
+
 > library("knitr")
-> 
+> library("rgl")
 > #knit("[(E)-N-(6-chloro-3-p.Rmd")
 > #markdownToHTML('[(E)-N-(6-chloro-3-p.md', '[(E)-N-(6-chloro-3-p.html', options=c("use_xhml"))
 > #system("pandoc -s [(E)-N-(6-chloro-3-p.html -o [(E)-N-(6-chloro-3-p.pdf")
@@ -28,13 +30,35 @@ Type 'q()' to quit R.
 
 
 processing file: [(E)-N-(6-chloro-3-p.Rmd
-  |                                                                         |                                                                 |   0%  |                                                                         |.................................................................| 100%
+  |                                                                         |                                                                 |   0%  |                                                                         |...........                                                      |  17%
   ordinary text without R code
 
+  |                                                                         |......................                                           |  33%
+label: setup (with options) 
+List of 1
+ $ results: chr "asis"
 
-output file: [(E)-N-(6-chloro-3-p.md
+  |                                                                         |................................                                 |  50%
+  ordinary text without R code
 
-> 
-> proc.time()
-   user  system elapsed 
-  0.288   0.020   0.299 
+  |                                                                         |...........................................                      |  67%
+label: testgl (with options) 
+List of 1
+ $ webgl: logi TRUE
+
+  |                                                                         |......................................................           |  83%
+  ordinary text without R code
+
+  |                                                                         |.................................................................| 100%
+label: testgl2 (with options) 
+List of 1
+ $ webgl: logi TRUE
+
+Quitting from lines 24-32 ([(E)-N-(6-chloro-3-p.Rmd) 
+Error in parse(text = x, srcfile = src) : <text>:2:1: unexpected '['
+1: open3d()
+2: [
+   ^
+Calls: knit2html ... evaluate -> parse_all -> parse_all.character -> parse
+
+Execution halted

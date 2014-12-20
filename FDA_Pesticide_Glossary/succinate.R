@@ -1,5 +1,5 @@
 library("knitr")
-
+library("rgl")
 #knit("succinate.Rmd")
 #markdownToHTML('succinate.md', 'succinate.html', options=c("use_xhml"))
 #system("pandoc -s succinate.html -o succinate.pdf")

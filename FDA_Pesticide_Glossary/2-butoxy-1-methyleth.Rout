@@ -20,7 +20,7 @@ Type 'q()' to quit R.
 [Previously saved workspace restored]
 
 > library("knitr")
-> 
+> library("rgl")
 > #knit("2-butoxy-1-methyleth.Rmd")
 > #markdownToHTML('2-butoxy-1-methyleth.md', '2-butoxy-1-methyleth.html', options=c("use_xhml"))
 > #system("pandoc -s 2-butoxy-1-methyleth.html -o 2-butoxy-1-methyleth.pdf")
@@ -60,4 +60,4 @@ output file: 2-butoxy-1-methyleth.md
 > 
 > proc.time()
    user  system elapsed 
-  0.480   0.028   0.502 
+  1.500   0.176   1.792 

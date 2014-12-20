@@ -17,15 +17,47 @@ Type 'demo()' for some demos, 'help()' for on-line help, or
 'help.start()' for an HTML browser interface to help.
 Type 'q()' to quit R.
 
+[Previously saved workspace restored]
+
 > library("knitr")
-> 
+> library("rgl")
 > #knit("Nix.Rmd")
 > #markdownToHTML('Nix.md', 'Nix.html', options=c("use_xhml"))
 > #system("pandoc -s Nix.html -o Nix.pdf")
 > 
 > 
 > knit2html('Nix.Rmd')
-Error in renderMarkdown(file = NULL, output = NULL, text, renderer = "HTML",  : 
-  CHAR() can only be applied to a 'CHARSXP', not a 'NULL'
-Calls: knit2html -> <Anonymous> -> renderMarkdown -> .Call
-Execution halted
+
+
+processing file: Nix.Rmd
+  |                                                                         |                                                                 |   0%  |                                                                         |...........                                                      |  17%
+  ordinary text without R code
+
+  |                                                                         |......................                                           |  33%
+label: setup (with options) 
+List of 1
+ $ results: chr "asis"
+
+  |                                                                         |................................                                 |  50%
+  ordinary text without R code
+
+  |                                                                         |...........................................                      |  67%
+label: testgl (with options) 
+List of 1
+ $ webgl: logi TRUE
+
+  |                                                                         |......................................................           |  83%
+  ordinary text without R code
+
+  |                                                                         |.................................................................| 100%
+label: testgl2 (with options) 
+List of 1
+ $ webgl: logi TRUE
+
+
+output file: Nix.md
+
+> 
+> proc.time()
+   user  system elapsed 
+  1.476   0.252   1.919 

@@ -1,5 +1,5 @@
 library("knitr")
-
+library("rgl")
 #knit("tecloftalam.Rmd")
 #markdownToHTML('tecloftalam.md', 'tecloftalam.html', options=c("use_xhml"))
 #system("pandoc -s tecloftalam.html -o tecloftalam.pdf")

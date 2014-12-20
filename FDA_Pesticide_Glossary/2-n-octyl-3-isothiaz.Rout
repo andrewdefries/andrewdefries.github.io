@@ -20,7 +20,7 @@ Type 'q()' to quit R.
 [Previously saved workspace restored]
 
 > library("knitr")
-> 
+> library("rgl")
 > #knit("2-n-octyl-3-isothiaz.Rmd")
 > #markdownToHTML('2-n-octyl-3-isothiaz.md', '2-n-octyl-3-isothiaz.html', options=c("use_xhml"))
 > #system("pandoc -s 2-n-octyl-3-isothiaz.html -o 2-n-octyl-3-isothiaz.pdf")
@@ -60,4 +60,4 @@ output file: 2-n-octyl-3-isothiaz.md
 > 
 > proc.time()
    user  system elapsed 
-  0.464   0.048   0.506 
+  1.480   0.212   1.804 

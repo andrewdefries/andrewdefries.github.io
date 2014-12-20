@@ -17,15 +17,48 @@ Type 'demo()' for some demos, 'help()' for on-line help, or
 'help.start()' for an HTML browser interface to help.
 Type 'q()' to quit R.
 
+[Previously saved workspace restored]
+
 > library("knitr")
-> 
+> library("rgl")
 > #knit("ethyl_3,7-dimethyl-6.Rmd")
 > #markdownToHTML('ethyl_3,7-dimethyl-6.md', 'ethyl_3,7-dimethyl-6.html', options=c("use_xhml"))
 > #system("pandoc -s ethyl_3,7-dimethyl-6.html -o ethyl_3,7-dimethyl-6.pdf")
 > 
 > 
 > knit2html('ethyl_3,7-dimethyl-6.Rmd')
-Error in renderMarkdown(file = NULL, output = NULL, text, renderer = "HTML",  : 
-  CHAR() can only be applied to a 'CHARSXP', not a 'NULL'
-Calls: knit2html -> <Anonymous> -> renderMarkdown -> .Call
+
+
+processing file: ethyl_3,7-dimethyl-6.Rmd
+  |                                                                         |                                                                 |   0%  |                                                                         |...........                                                      |  17%
+  ordinary text without R code
+
+  |                                                                         |......................                                           |  33%
+label: setup (with options) 
+List of 1
+ $ results: chr "asis"
+
+  |                                                                         |................................                                 |  50%
+  ordinary text without R code
+
+  |                                                                         |...........................................                      |  67%
+label: testgl (with options) 
+List of 1
+ $ webgl: logi TRUE
+
+  |                                                                         |......................................................           |  83%
+  ordinary text without R code
+
+  |                                                                         |.................................................................| 100%
+label: testgl2 (with options) 
+List of 1
+ $ webgl: logi TRUE
+
+Quitting from lines 24-32 (ethyl_3,7-dimethyl-6.Rmd) 
+Error in parse(text = x, srcfile = src) : <text>:2:8: unexpected ','
+1: open3d()
+2: ethyl_3,
+          ^
+Calls: knit2html ... evaluate -> parse_all -> parse_all.character -> parse
+
 Execution halted

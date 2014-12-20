@@ -17,8 +17,10 @@ Type 'demo()' for some demos, 'help()' for on-line help, or
 'help.start()' for an HTML browser interface to help.
 Type 'q()' to quit R.
 
+[Previously saved workspace restored]
+
 > library("knitr")
-> 
+> library("rgl")
 > #knit("Phenothrin.Rmd")
 > #markdownToHTML('Phenothrin.md', 'Phenothrin.html', options=c("use_xhml"))
 > #system("pandoc -s Phenothrin.html -o Phenothrin.pdf")
@@ -28,8 +30,29 @@ Type 'q()' to quit R.
 
 
 processing file: Phenothrin.Rmd
-  |                                                                         |                                                                 |   0%  |                                                                         |.................................................................| 100%
+  |                                                                         |                                                                 |   0%  |                                                                         |...........                                                      |  17%
   ordinary text without R code
+
+  |                                                                         |......................                                           |  33%
+label: setup (with options) 
+List of 1
+ $ results: chr "asis"
+
+  |                                                                         |................................                                 |  50%
+  ordinary text without R code
+
+  |                                                                         |...........................................                      |  67%
+label: testgl (with options) 
+List of 1
+ $ webgl: logi TRUE
+
+  |                                                                         |......................................................           |  83%
+  ordinary text without R code
+
+  |                                                                         |.................................................................| 100%
+label: testgl2 (with options) 
+List of 1
+ $ webgl: logi TRUE
 
 
 output file: Phenothrin.md
@@ -37,4 +60,4 @@ output file: Phenothrin.md
 > 
 > proc.time()
    user  system elapsed 
-  0.308   0.028   0.327 
+  1.040   0.200   1.455 

@@ -17,8 +17,10 @@ Type 'demo()' for some demos, 'help()' for on-line help, or
 'help.start()' for an HTML browser interface to help.
 Type 'q()' to quit R.
 
+[Previously saved workspace restored]
+
 > library("knitr")
-> 
+> library("rgl")
 > #knit("potassium_2-(4-chlor.Rmd")
 > #markdownToHTML('potassium_2-(4-chlor.md', 'potassium_2-(4-chlor.html', options=c("use_xhml"))
 > #system("pandoc -s potassium_2-(4-chlor.html -o potassium_2-(4-chlor.pdf")
@@ -28,13 +30,35 @@ Type 'q()' to quit R.
 
 
 processing file: potassium_2-(4-chlor.Rmd
-  |                                                                         |                                                                 |   0%  |                                                                         |.................................................................| 100%
+  |                                                                         |                                                                 |   0%  |                                                                         |...........                                                      |  17%
   ordinary text without R code
 
+  |                                                                         |......................                                           |  33%
+label: setup (with options) 
+List of 1
+ $ results: chr "asis"
 
-output file: potassium_2-(4-chlor.md
+  |                                                                         |................................                                 |  50%
+  ordinary text without R code
 
-> 
-> proc.time()
-   user  system elapsed 
-  0.284   0.020   0.299 
+  |                                                                         |...........................................                      |  67%
+label: testgl (with options) 
+List of 1
+ $ webgl: logi TRUE
+
+  |                                                                         |......................................................           |  83%
+  ordinary text without R code
+
+  |                                                                         |.................................................................| 100%
+label: testgl2 (with options) 
+List of 1
+ $ webgl: logi TRUE
+
+Quitting from lines 24-32 (potassium_2-(4-chlor.Rmd) 
+Error in parse(text = x, srcfile = src) : <text>:3:1: unexpected symbol
+2: potassium_2-(4-chlor<-read.table("potassium_2-(4-chlor.xyz")
+3: x
+   ^
+Calls: knit2html ... evaluate -> parse_all -> parse_all.character -> parse
+
+Execution halted

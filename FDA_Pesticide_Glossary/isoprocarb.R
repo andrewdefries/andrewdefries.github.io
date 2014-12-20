@@ -1,5 +1,5 @@
 library("knitr")
-
+library("rgl")
 #knit("isoprocarb.Rmd")
 #markdownToHTML('isoprocarb.md', 'isoprocarb.html', options=c("use_xhml"))
 #system("pandoc -s isoprocarb.html -o isoprocarb.pdf")

@@ -1,5 +1,5 @@
 library("knitr")
-
+library("rgl")
 #knit("trimorfamid.Rmd")
 #markdownToHTML('trimorfamid.md', 'trimorfamid.html', options=c("use_xhml"))
 #system("pandoc -s trimorfamid.html -o trimorfamid.pdf")

@@ -17,8 +17,10 @@ Type 'demo()' for some demos, 'help()' for on-line help, or
 'help.start()' for an HTML browser interface to help.
 Type 'q()' to quit R.
 
+[Previously saved workspace restored]
+
 > library("knitr")
-> 
+> library("rgl")
 > #knit("triclosan.Rmd")
 > #markdownToHTML('triclosan.md', 'triclosan.html', options=c("use_xhml"))
 > #system("pandoc -s triclosan.html -o triclosan.pdf")
@@ -28,8 +30,29 @@ Type 'q()' to quit R.
 
 
 processing file: triclosan.Rmd
-  |                                                                         |                                                                 |   0%  |                                                                         |.................................................................| 100%
+  |                                                                         |                                                                 |   0%  |                                                                         |...........                                                      |  17%
   ordinary text without R code
+
+  |                                                                         |......................                                           |  33%
+label: setup (with options) 
+List of 1
+ $ results: chr "asis"
+
+  |                                                                         |................................                                 |  50%
+  ordinary text without R code
+
+  |                                                                         |...........................................                      |  67%
+label: testgl (with options) 
+List of 1
+ $ webgl: logi TRUE
+
+  |                                                                         |......................................................           |  83%
+  ordinary text without R code
+
+  |                                                                         |.................................................................| 100%
+label: testgl2 (with options) 
+List of 1
+ $ webgl: logi TRUE
 
 
 output file: triclosan.md
@@ -37,4 +60,4 @@ output file: triclosan.md
 > 
 > proc.time()
    user  system elapsed 
-  0.252   0.064   0.310 
+  1.048   0.264   1.495 

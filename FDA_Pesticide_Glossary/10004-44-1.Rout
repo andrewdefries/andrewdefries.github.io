@@ -17,8 +17,10 @@ Type 'demo()' for some demos, 'help()' for on-line help, or
 'help.start()' for an HTML browser interface to help.
 Type 'q()' to quit R.
 
+[Previously saved workspace restored]
+
 > library("knitr")
-> 
+> library("rgl")
 > #knit("10004-44-1.Rmd")
 > #markdownToHTML('10004-44-1.md', '10004-44-1.html', options=c("use_xhml"))
 > #system("pandoc -s 10004-44-1.html -o 10004-44-1.pdf")
@@ -58,4 +60,4 @@ output file: 10004-44-1.md
 > 
 > proc.time()
    user  system elapsed 
-  0.476   0.028   0.501 
+  1.248   0.268   2.229 

@@ -1,5 +1,5 @@
 library("knitr")
-
+library("rgl")
 #knit("dinitramine.Rmd")
 #markdownToHTML('dinitramine.md', 'dinitramine.html', options=c("use_xhml"))
 #system("pandoc -s dinitramine.html -o dinitramine.pdf")

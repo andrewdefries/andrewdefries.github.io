@@ -1,5 +1,5 @@
 library("knitr")
-
+library("rgl")
 #knit("phosphonate.Rmd")
 #markdownToHTML('phosphonate.md', 'phosphonate.html', options=c("use_xhml"))
 #system("pandoc -s phosphonate.html -o phosphonate.pdf")

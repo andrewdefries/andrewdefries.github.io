@@ -1,5 +1,5 @@
 library("knitr")
-
+library("rgl")
 #knit("Kasugamycin.Rmd")
 #markdownToHTML('Kasugamycin.md', 'Kasugamycin.html', options=c("use_xhml"))
 #system("pandoc -s Kasugamycin.html -o Kasugamycin.pdf")

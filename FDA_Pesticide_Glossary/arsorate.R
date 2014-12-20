@@ -1,5 +1,5 @@
 library("knitr")
-
+library("rgl")
 #knit("arsorate.Rmd")
 #markdownToHTML('arsorate.md', 'arsorate.html', options=c("use_xhml"))
 #system("pandoc -s arsorate.html -o arsorate.pdf")

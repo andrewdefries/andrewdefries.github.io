@@ -1,5 +1,5 @@
 library("knitr")
-
+library("rgl")
 #knit("Ethazol.Rmd")
 #markdownToHTML('Ethazol.md', 'Ethazol.html', options=c("use_xhml"))
 #system("pandoc -s Ethazol.html -o Ethazol.pdf")

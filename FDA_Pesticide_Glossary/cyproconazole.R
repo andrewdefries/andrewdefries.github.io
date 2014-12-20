@@ -1,5 +1,5 @@
 library("knitr")
-
+library("rgl")
 #knit("cyproconazole.Rmd")
 #markdownToHTML('cyproconazole.md', 'cyproconazole.html', options=c("use_xhml"))
 #system("pandoc -s cyproconazole.html -o cyproconazole.pdf")

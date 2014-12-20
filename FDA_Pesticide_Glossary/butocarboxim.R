@@ -1,5 +1,5 @@
 library("knitr")
-
+library("rgl")
 #knit("butocarboxim.Rmd")
 #markdownToHTML('butocarboxim.md', 'butocarboxim.html', options=c("use_xhml"))
 #system("pandoc -s butocarboxim.html -o butocarboxim.pdf")

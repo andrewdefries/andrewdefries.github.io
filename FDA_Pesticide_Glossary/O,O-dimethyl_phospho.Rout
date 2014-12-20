@@ -17,15 +17,48 @@ Type 'demo()' for some demos, 'help()' for on-line help, or
 'help.start()' for an HTML browser interface to help.
 Type 'q()' to quit R.
 
+[Previously saved workspace restored]
+
 > library("knitr")
-> 
+> library("rgl")
 > #knit("O,O-dimethyl_phospho.Rmd")
 > #markdownToHTML('O,O-dimethyl_phospho.md', 'O,O-dimethyl_phospho.html', options=c("use_xhml"))
 > #system("pandoc -s O,O-dimethyl_phospho.html -o O,O-dimethyl_phospho.pdf")
 > 
 > 
 > knit2html('O,O-dimethyl_phospho.Rmd')
-Error in renderMarkdown(file = NULL, output = NULL, text, renderer = "HTML",  : 
-  CHAR() can only be applied to a 'CHARSXP', not a 'NULL'
-Calls: knit2html -> <Anonymous> -> renderMarkdown -> .Call
+
+
+processing file: O,O-dimethyl_phospho.Rmd
+  |                                                                         |                                                                 |   0%  |                                                                         |...........                                                      |  17%
+  ordinary text without R code
+
+  |                                                                         |......................                                           |  33%
+label: setup (with options) 
+List of 1
+ $ results: chr "asis"
+
+  |                                                                         |................................                                 |  50%
+  ordinary text without R code
+
+  |                                                                         |...........................................                      |  67%
+label: testgl (with options) 
+List of 1
+ $ webgl: logi TRUE
+
+  |                                                                         |......................................................           |  83%
+  ordinary text without R code
+
+  |                                                                         |.................................................................| 100%
+label: testgl2 (with options) 
+List of 1
+ $ webgl: logi TRUE
+
+Quitting from lines 24-32 (O,O-dimethyl_phospho.Rmd) 
+Error in parse(text = x, srcfile = src) : <text>:2:2: unexpected ','
+1: open3d()
+2: O,
+    ^
+Calls: knit2html ... evaluate -> parse_all -> parse_all.character -> parse
+
 Execution halted

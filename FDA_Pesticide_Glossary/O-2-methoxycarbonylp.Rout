@@ -17,8 +17,10 @@ Type 'demo()' for some demos, 'help()' for on-line help, or
 'help.start()' for an HTML browser interface to help.
 Type 'q()' to quit R.
 
+[Previously saved workspace restored]
+
 > library("knitr")
-> 
+> library("rgl")
 > #knit("O-2-methoxycarbonylp.Rmd")
 > #markdownToHTML('O-2-methoxycarbonylp.md', 'O-2-methoxycarbonylp.html', options=c("use_xhml"))
 > #system("pandoc -s O-2-methoxycarbonylp.html -o O-2-methoxycarbonylp.pdf")
@@ -28,8 +30,29 @@ Type 'q()' to quit R.
 
 
 processing file: O-2-methoxycarbonylp.Rmd
-  |                                                                         |                                                                 |   0%  |                                                                         |.................................................................| 100%
+  |                                                                         |                                                                 |   0%  |                                                                         |...........                                                      |  17%
   ordinary text without R code
+
+  |                                                                         |......................                                           |  33%
+label: setup (with options) 
+List of 1
+ $ results: chr "asis"
+
+  |                                                                         |................................                                 |  50%
+  ordinary text without R code
+
+  |                                                                         |...........................................                      |  67%
+label: testgl (with options) 
+List of 1
+ $ webgl: logi TRUE
+
+  |                                                                         |......................................................           |  83%
+  ordinary text without R code
+
+  |                                                                         |.................................................................| 100%
+label: testgl2 (with options) 
+List of 1
+ $ webgl: logi TRUE
 
 
 output file: O-2-methoxycarbonylp.md
@@ -37,4 +60,4 @@ output file: O-2-methoxycarbonylp.md
 > 
 > proc.time()
    user  system elapsed 
-  0.304   0.012   0.305 
+  1.108   0.168   1.461 

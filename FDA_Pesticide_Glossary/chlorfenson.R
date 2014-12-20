@@ -1,5 +1,5 @@
 library("knitr")
-
+library("rgl")
 #knit("chlorfenson.Rmd")
 #markdownToHTML('chlorfenson.md', 'chlorfenson.html', options=c("use_xhml"))
 #system("pandoc -s chlorfenson.html -o chlorfenson.pdf")

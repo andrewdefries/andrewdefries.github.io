@@ -1,5 +1,5 @@
 library("knitr")
-
+library("rgl")
 #knit("3-(1-ethylpropyl)phe.Rmd")
 #markdownToHTML('3-(1-ethylpropyl)phe.md', '3-(1-ethylpropyl)phe.html', options=c("use_xhml"))
 #system("pandoc -s 3-(1-ethylpropyl)phe.html -o 3-(1-ethylpropyl)phe.pdf")

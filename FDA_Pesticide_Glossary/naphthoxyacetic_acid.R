@@ -1,5 +1,5 @@
 library("knitr")
-
+library("rgl")
 #knit("naphthoxyacetic_acid.Rmd")
 #markdownToHTML('naphthoxyacetic_acid.md', 'naphthoxyacetic_acid.html', options=c("use_xhml"))
 #system("pandoc -s naphthoxyacetic_acid.html -o naphthoxyacetic_acid.pdf")

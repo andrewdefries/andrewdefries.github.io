@@ -17,8 +17,10 @@ Type 'demo()' for some demos, 'help()' for on-line help, or
 'help.start()' for an HTML browser interface to help.
 Type 'q()' to quit R.
 
+[Previously saved workspace restored]
+
 > library("knitr")
-> 
+> library("rgl")
 > #knit("Isopropyl_phenylacet.Rmd")
 > #markdownToHTML('Isopropyl_phenylacet.md', 'Isopropyl_phenylacet.html', options=c("use_xhml"))
 > #system("pandoc -s Isopropyl_phenylacet.html -o Isopropyl_phenylacet.pdf")
@@ -28,8 +30,29 @@ Type 'q()' to quit R.
 
 
 processing file: Isopropyl_phenylacet.Rmd
-  |                                                                         |                                                                 |   0%  |                                                                         |.................................................................| 100%
+  |                                                                         |                                                                 |   0%  |                                                                         |...........                                                      |  17%
   ordinary text without R code
+
+  |                                                                         |......................                                           |  33%
+label: setup (with options) 
+List of 1
+ $ results: chr "asis"
+
+  |                                                                         |................................                                 |  50%
+  ordinary text without R code
+
+  |                                                                         |...........................................                      |  67%
+label: testgl (with options) 
+List of 1
+ $ webgl: logi TRUE
+
+  |                                                                         |......................................................           |  83%
+  ordinary text without R code
+
+  |                                                                         |.................................................................| 100%
+label: testgl2 (with options) 
+List of 1
+ $ webgl: logi TRUE
 
 
 output file: Isopropyl_phenylacet.md
@@ -37,4 +60,4 @@ output file: Isopropyl_phenylacet.md
 > 
 > proc.time()
    user  system elapsed 
-  0.296   0.024   0.313 
+  1.528   0.216   1.864 

@@ -1,5 +1,5 @@
 library("knitr")
-
+library("rgl")
 #knit("FICAM.Rmd")
 #markdownToHTML('FICAM.md', 'FICAM.html', options=c("use_xhml"))
 #system("pandoc -s FICAM.html -o FICAM.pdf")

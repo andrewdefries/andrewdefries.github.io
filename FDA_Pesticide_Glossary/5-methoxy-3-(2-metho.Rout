@@ -17,8 +17,10 @@ Type 'demo()' for some demos, 'help()' for on-line help, or
 'help.start()' for an HTML browser interface to help.
 Type 'q()' to quit R.
 
+[Previously saved workspace restored]
+
 > library("knitr")
-> 
+> library("rgl")
 > #knit("5-methoxy-3-(2-metho.Rmd")
 > #markdownToHTML('5-methoxy-3-(2-metho.md', '5-methoxy-3-(2-metho.html', options=c("use_xhml"))
 > #system("pandoc -s 5-methoxy-3-(2-metho.html -o 5-methoxy-3-(2-metho.pdf")
@@ -28,13 +30,35 @@ Type 'q()' to quit R.
 
 
 processing file: 5-methoxy-3-(2-metho.Rmd
-  |                                                                         |                                                                 |   0%  |                                                                         |.................................................................| 100%
+  |                                                                         |                                                                 |   0%  |                                                                         |...........                                                      |  17%
   ordinary text without R code
 
+  |                                                                         |......................                                           |  33%
+label: setup (with options) 
+List of 1
+ $ results: chr "asis"
 
-output file: 5-methoxy-3-(2-metho.md
+  |                                                                         |................................                                 |  50%
+  ordinary text without R code
 
-> 
-> proc.time()
-   user  system elapsed 
-  0.280   0.028   0.302 
+  |                                                                         |...........................................                      |  67%
+label: testgl (with options) 
+List of 1
+ $ webgl: logi TRUE
+
+  |                                                                         |......................................................           |  83%
+  ordinary text without R code
+
+  |                                                                         |.................................................................| 100%
+label: testgl2 (with options) 
+List of 1
+ $ webgl: logi TRUE
+
+Quitting from lines 24-32 (5-methoxy-3-(2-metho.Rmd) 
+Error in parse(text = x, srcfile = src) : <text>:3:1: unexpected symbol
+2: 5-methoxy-3-(2-metho<-read.table("5-methoxy-3-(2-metho.xyz")
+3: x
+   ^
+Calls: knit2html ... evaluate -> parse_all -> parse_all.character -> parse
+
+Execution halted

@@ -1,5 +1,5 @@
 library("knitr")
-
+library("rgl")
 #knit("Terbufos.Rmd")
 #markdownToHTML('Terbufos.md', 'Terbufos.html', options=c("use_xhml"))
 #system("pandoc -s Terbufos.html -o Terbufos.pdf")

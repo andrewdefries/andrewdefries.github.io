@@ -20,7 +20,7 @@ Type 'q()' to quit R.
 [Previously saved workspace restored]
 
 > library("knitr")
-> 
+> library("rgl")
 > #knit("3-isopropyl-5-methyl.Rmd")
 > #markdownToHTML('3-isopropyl-5-methyl.md', '3-isopropyl-5-methyl.html', options=c("use_xhml"))
 > #system("pandoc -s 3-isopropyl-5-methyl.html -o 3-isopropyl-5-methyl.pdf")
@@ -60,4 +60,4 @@ output file: 3-isopropyl-5-methyl.md
 > 
 > proc.time()
    user  system elapsed 
-  0.476   0.036   0.506 
+  1.448   0.160   1.736 

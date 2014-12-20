@@ -1,5 +1,5 @@
 library("knitr")
-
+library("rgl")
 #knit("Dalapon.Rmd")
 #markdownToHTML('Dalapon.md', 'Dalapon.html', options=c("use_xhml"))
 #system("pandoc -s Dalapon.html -o Dalapon.pdf")

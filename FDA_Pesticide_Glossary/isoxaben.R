@@ -1,5 +1,5 @@
 library("knitr")
-
+library("rgl")
 #knit("isoxaben.Rmd")
 #markdownToHTML('isoxaben.md', 'isoxaben.html', options=c("use_xhml"))
 #system("pandoc -s isoxaben.html -o isoxaben.pdf")

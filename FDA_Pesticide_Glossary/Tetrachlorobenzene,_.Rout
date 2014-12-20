@@ -17,15 +17,48 @@ Type 'demo()' for some demos, 'help()' for on-line help, or
 'help.start()' for an HTML browser interface to help.
 Type 'q()' to quit R.
 
+[Previously saved workspace restored]
+
 > library("knitr")
-> 
+> library("rgl")
 > #knit("Tetrachlorobenzene,_.Rmd")
 > #markdownToHTML('Tetrachlorobenzene,_.md', 'Tetrachlorobenzene,_.html', options=c("use_xhml"))
 > #system("pandoc -s Tetrachlorobenzene,_.html -o Tetrachlorobenzene,_.pdf")
 > 
 > 
 > knit2html('Tetrachlorobenzene,_.Rmd')
-Error in renderMarkdown(file = NULL, output = NULL, text, renderer = "HTML",  : 
-  CHAR() can only be applied to a 'CHARSXP', not a 'NULL'
-Calls: knit2html -> <Anonymous> -> renderMarkdown -> .Call
+
+
+processing file: Tetrachlorobenzene,_.Rmd
+  |                                                                         |                                                                 |   0%  |                                                                         |...........                                                      |  17%
+  ordinary text without R code
+
+  |                                                                         |......................                                           |  33%
+label: setup (with options) 
+List of 1
+ $ results: chr "asis"
+
+  |                                                                         |................................                                 |  50%
+  ordinary text without R code
+
+  |                                                                         |...........................................                      |  67%
+label: testgl (with options) 
+List of 1
+ $ webgl: logi TRUE
+
+  |                                                                         |......................................................           |  83%
+  ordinary text without R code
+
+  |                                                                         |.................................................................| 100%
+label: testgl2 (with options) 
+List of 1
+ $ webgl: logi TRUE
+
+Quitting from lines 24-32 (Tetrachlorobenzene,_.Rmd) 
+Error in parse(text = x, srcfile = src) : <text>:2:19: unexpected ','
+1: open3d()
+2: Tetrachlorobenzene,
+                     ^
+Calls: knit2html ... evaluate -> parse_all -> parse_all.character -> parse
+
 Execution halted

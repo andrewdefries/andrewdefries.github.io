@@ -17,15 +17,48 @@ Type 'demo()' for some demos, 'help()' for on-line help, or
 'help.start()' for an HTML browser interface to help.
 Type 'q()' to quit R.
 
+[Previously saved workspace restored]
+
 > library("knitr")
-> 
+> library("rgl")
 > #knit("methyl_methyl_[2-[[[.Rmd")
 > #markdownToHTML('methyl_methyl_[2-[[[.md', 'methyl_methyl_[2-[[[.html', options=c("use_xhml"))
 > #system("pandoc -s methyl_methyl_[2-[[[.html -o methyl_methyl_[2-[[[.pdf")
 > 
 > 
 > knit2html('methyl_methyl_[2-[[[.Rmd')
-Error in renderMarkdown(file = NULL, output = NULL, text, renderer = "HTML",  : 
-  CHAR() can only be applied to a 'CHARSXP', not a 'NULL'
-Calls: knit2html -> <Anonymous> -> renderMarkdown -> .Call
+
+
+processing file: methyl_methyl_[2-[[[.Rmd
+  |                                                                         |                                                                 |   0%  |                                                                         |...........                                                      |  17%
+  ordinary text without R code
+
+  |                                                                         |......................                                           |  33%
+label: setup (with options) 
+List of 1
+ $ results: chr "asis"
+
+  |                                                                         |................................                                 |  50%
+  ordinary text without R code
+
+  |                                                                         |...........................................                      |  67%
+label: testgl (with options) 
+List of 1
+ $ webgl: logi TRUE
+
+  |                                                                         |......................................................           |  83%
+  ordinary text without R code
+
+  |                                                                         |.................................................................| 100%
+label: testgl2 (with options) 
+List of 1
+ $ webgl: logi TRUE
+
+Quitting from lines 24-32 (methyl_methyl_[2-[[[.Rmd) 
+Error in parse(text = x, srcfile = src) : <text>:2:18: unexpected '[['
+1: open3d()
+2: methyl_methyl_[2-[[
+                    ^
+Calls: knit2html ... evaluate -> parse_all -> parse_all.character -> parse
+
 Execution halted

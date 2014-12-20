@@ -1,5 +1,5 @@
 library("knitr")
-
+library("rgl")
 #knit("pyrithiobac.Rmd")
 #markdownToHTML('pyrithiobac.md', 'pyrithiobac.html', options=c("use_xhml"))
 #system("pandoc -s pyrithiobac.html -o pyrithiobac.pdf")

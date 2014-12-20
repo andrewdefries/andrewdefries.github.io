@@ -1,5 +1,5 @@
 library("knitr")
-
+library("rgl")
 #knit("methylcarbamate.Rmd")
 #markdownToHTML('methylcarbamate.md', 'methylcarbamate.html', options=c("use_xhml"))
 #system("pandoc -s methylcarbamate.html -o methylcarbamate.pdf")

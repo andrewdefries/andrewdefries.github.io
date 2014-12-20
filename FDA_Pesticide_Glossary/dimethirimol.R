@@ -1,5 +1,5 @@
 library("knitr")
-
+library("rgl")
 #knit("dimethirimol.Rmd")
 #markdownToHTML('dimethirimol.md', 'dimethirimol.html', options=c("use_xhml"))
 #system("pandoc -s dimethirimol.html -o dimethirimol.pdf")

@@ -1,5 +1,5 @@
 library("knitr")
-
+library("rgl")
 #knit("fenpropimorph.Rmd")
 #markdownToHTML('fenpropimorph.md', 'fenpropimorph.html', options=c("use_xhml"))
 #system("pandoc -s fenpropimorph.html -o fenpropimorph.pdf")

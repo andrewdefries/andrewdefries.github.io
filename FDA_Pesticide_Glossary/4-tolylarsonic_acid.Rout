@@ -20,7 +20,7 @@ Type 'q()' to quit R.
 [Previously saved workspace restored]
 
 > library("knitr")
-> 
+> library("rgl")
 > #knit("4-tolylarsonic_acid.Rmd")
 > #markdownToHTML('4-tolylarsonic_acid.md', '4-tolylarsonic_acid.html', options=c("use_xhml"))
 > #system("pandoc -s 4-tolylarsonic_acid.html -o 4-tolylarsonic_acid.pdf")
@@ -60,4 +60,4 @@ output file: 4-tolylarsonic_acid.md
 > 
 > proc.time()
    user  system elapsed 
-  0.456   0.056   0.506 
+  1.520   0.236   1.867 

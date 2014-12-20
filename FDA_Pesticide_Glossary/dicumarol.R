@@ -1,5 +1,5 @@
 library("knitr")
-
+library("rgl")
 #knit("dicumarol.Rmd")
 #markdownToHTML('dicumarol.md', 'dicumarol.html', options=c("use_xhml"))
 #system("pandoc -s dicumarol.html -o dicumarol.pdf")

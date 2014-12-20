@@ -20,7 +20,7 @@ Type 'q()' to quit R.
 [Previously saved workspace restored]
 
 > library("knitr")
-> 
+> library("rgl")
 > #knit("(2-chloroethyl)trime.Rmd")
 > #markdownToHTML('(2-chloroethyl)trime.md', '(2-chloroethyl)trime.html', options=c("use_xhml"))
 > #system("pandoc -s (2-chloroethyl)trime.html -o (2-chloroethyl)trime.pdf")

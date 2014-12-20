@@ -20,7 +20,7 @@ Type 'q()' to quit R.
 [Previously saved workspace restored]
 
 > library("knitr")
-> 
+> library("rgl")
 > #knit("2,2'-Dipyridyldisulf.Rmd")
 > #markdownToHTML('2,2'-Dipyridyldisulf.md', '2,2'-Dipyridyldisulf.html', options=c("use_xhml"))
 > #system("pandoc -s 2,2'-Dipyridyldisulf.html -o 2,2'-Dipyridyldisulf.pdf")
@@ -30,4 +30,4 @@ Type 'q()' to quit R.
 + 
 > proc.time()
    user  system elapsed 
-  0.260   0.028   0.280 
+  0.508   0.032   0.540 

@@ -1,5 +1,5 @@
 library("knitr")
-
+library("rgl")
 #knit("furalaxyl.Rmd")
 #markdownToHTML('furalaxyl.md', 'furalaxyl.html', options=c("use_xhml"))
 #system("pandoc -s furalaxyl.html -o furalaxyl.pdf")

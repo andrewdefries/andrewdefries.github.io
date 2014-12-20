@@ -17,8 +17,10 @@ Type 'demo()' for some demos, 'help()' for on-line help, or
 'help.start()' for an HTML browser interface to help.
 Type 'q()' to quit R.
 
+[Previously saved workspace restored]
+
 > library("knitr")
-> 
+> library("rgl")
 > #knit("5-((4-chlorophenyl)s.Rmd")
 > #markdownToHTML('5-((4-chlorophenyl)s.md', '5-((4-chlorophenyl)s.html', options=c("use_xhml"))
 > #system("pandoc -s 5-((4-chlorophenyl)s.html -o 5-((4-chlorophenyl)s.pdf")
@@ -28,13 +30,35 @@ Type 'q()' to quit R.
 
 
 processing file: 5-((4-chlorophenyl)s.Rmd
-  |                                                                         |                                                                 |   0%  |                                                                         |.................................................................| 100%
+  |                                                                         |                                                                 |   0%  |                                                                         |...........                                                      |  17%
   ordinary text without R code
 
+  |                                                                         |......................                                           |  33%
+label: setup (with options) 
+List of 1
+ $ results: chr "asis"
 
-output file: 5-((4-chlorophenyl)s.md
+  |                                                                         |................................                                 |  50%
+  ordinary text without R code
 
-> 
-> proc.time()
-   user  system elapsed 
-  0.292   0.024   0.309 
+  |                                                                         |...........................................                      |  67%
+label: testgl (with options) 
+List of 1
+ $ webgl: logi TRUE
+
+  |                                                                         |......................................................           |  83%
+  ordinary text without R code
+
+  |                                                                         |.................................................................| 100%
+label: testgl2 (with options) 
+List of 1
+ $ webgl: logi TRUE
+
+Quitting from lines 24-32 (5-((4-chlorophenyl)s.Rmd) 
+Error in parse(text = x, srcfile = src) : <text>:2:20: unexpected symbol
+1: open3d()
+2: 5-((4-chlorophenyl)s
+                      ^
+Calls: knit2html ... evaluate -> parse_all -> parse_all.character -> parse
+
+Execution halted

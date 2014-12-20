@@ -1,5 +1,5 @@
 library("knitr")
-
+library("rgl")
 #knit("Crotoxyphos.Rmd")
 #markdownToHTML('Crotoxyphos.md', 'Crotoxyphos.html', options=c("use_xhml"))
 #system("pandoc -s Crotoxyphos.html -o Crotoxyphos.pdf")

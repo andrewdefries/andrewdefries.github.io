@@ -1,5 +1,5 @@
 library("knitr")
-
+library("rgl")
 #knit("Vinclozolin.Rmd")
 #markdownToHTML('Vinclozolin.md', 'Vinclozolin.html', options=c("use_xhml"))
 #system("pandoc -s Vinclozolin.html -o Vinclozolin.pdf")

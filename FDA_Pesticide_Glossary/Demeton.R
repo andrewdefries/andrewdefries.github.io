@@ -1,5 +1,5 @@
 library("knitr")
-
+library("rgl")
 #knit("Demeton.Rmd")
 #markdownToHTML('Demeton.md', 'Demeton.html', options=c("use_xhml"))
 #system("pandoc -s Demeton.html -o Demeton.pdf")

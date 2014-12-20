@@ -1,0 +1,4047 @@
+---
+output:
+  html_document:
+    self_contained: no
+---
+
+```r
+library(knitr)
+knit_hooks$set(webgl = hook_webgl)
+cat('<script type="text/javascript">', readLines(system.file('WebGL', 'CanvasMatrix.js', package = 'rgl')), '</script>', sep = '\n')
+```
+
+<script type="text/javascript">
+CanvasMatrix4=function(m){if(typeof m=='object'){if("length"in m&&m.length>=16){this.load(m[0],m[1],m[2],m[3],m[4],m[5],m[6],m[7],m[8],m[9],m[10],m[11],m[12],m[13],m[14],m[15]);return}else if(m instanceof CanvasMatrix4){this.load(m);return}}this.makeIdentity()};CanvasMatrix4.prototype.load=function(){if(arguments.length==1&&typeof arguments[0]=='object'){var matrix=arguments[0];if("length"in matrix&&matrix.length==16){this.m11=matrix[0];this.m12=matrix[1];this.m13=matrix[2];this.m14=matrix[3];this.m21=matrix[4];this.m22=matrix[5];this.m23=matrix[6];this.m24=matrix[7];this.m31=matrix[8];this.m32=matrix[9];this.m33=matrix[10];this.m34=matrix[11];this.m41=matrix[12];this.m42=matrix[13];this.m43=matrix[14];this.m44=matrix[15];return}if(arguments[0]instanceof CanvasMatrix4){this.m11=matrix.m11;this.m12=matrix.m12;this.m13=matrix.m13;this.m14=matrix.m14;this.m21=matrix.m21;this.m22=matrix.m22;this.m23=matrix.m23;this.m24=matrix.m24;this.m31=matrix.m31;this.m32=matrix.m32;this.m33=matrix.m33;this.m34=matrix.m34;this.m41=matrix.m41;this.m42=matrix.m42;this.m43=matrix.m43;this.m44=matrix.m44;return}}this.makeIdentity()};CanvasMatrix4.prototype.getAsArray=function(){return[this.m11,this.m12,this.m13,this.m14,this.m21,this.m22,this.m23,this.m24,this.m31,this.m32,this.m33,this.m34,this.m41,this.m42,this.m43,this.m44]};CanvasMatrix4.prototype.getAsWebGLFloatArray=function(){return new WebGLFloatArray(this.getAsArray())};CanvasMatrix4.prototype.makeIdentity=function(){this.m11=1;this.m12=0;this.m13=0;this.m14=0;this.m21=0;this.m22=1;this.m23=0;this.m24=0;this.m31=0;this.m32=0;this.m33=1;this.m34=0;this.m41=0;this.m42=0;this.m43=0;this.m44=1};CanvasMatrix4.prototype.transpose=function(){var tmp=this.m12;this.m12=this.m21;this.m21=tmp;tmp=this.m13;this.m13=this.m31;this.m31=tmp;tmp=this.m14;this.m14=this.m41;this.m41=tmp;tmp=this.m23;this.m23=this.m32;this.m32=tmp;tmp=this.m24;this.m24=this.m42;this.m42=tmp;tmp=this.m34;this.m34=this.m43;this.m43=tmp};CanvasMatrix4.prototype.invert=function(){var det=this._determinant4x4();if(Math.abs(det)<1e-8)return null;this._makeAdjoint();this.m11/=det;this.m12/=det;this.m13/=det;this.m14/=det;this.m21/=det;this.m22/=det;this.m23/=det;this.m24/=det;this.m31/=det;this.m32/=det;this.m33/=det;this.m34/=det;this.m41/=det;this.m42/=det;this.m43/=det;this.m44/=det};CanvasMatrix4.prototype.translate=function(x,y,z){if(x==undefined)x=0;if(y==undefined)y=0;if(z==undefined)z=0;var matrix=new CanvasMatrix4();matrix.m41=x;matrix.m42=y;matrix.m43=z;this.multRight(matrix)};CanvasMatrix4.prototype.scale=function(x,y,z){if(x==undefined)x=1;if(z==undefined){if(y==undefined){y=x;z=x}else z=1}else if(y==undefined)y=x;var matrix=new CanvasMatrix4();matrix.m11=x;matrix.m22=y;matrix.m33=z;this.multRight(matrix)};CanvasMatrix4.prototype.rotate=function(angle,x,y,z){angle=angle/180*Math.PI;angle/=2;var sinA=Math.sin(angle);var cosA=Math.cos(angle);var sinA2=sinA*sinA;var length=Math.sqrt(x*x+y*y+z*z);if(length==0){x=0;y=0;z=1}else if(length!=1){x/=length;y/=length;z/=length}var mat=new CanvasMatrix4();if(x==1&&y==0&&z==0){mat.m11=1;mat.m12=0;mat.m13=0;mat.m21=0;mat.m22=1-2*sinA2;mat.m23=2*sinA*cosA;mat.m31=0;mat.m32=-2*sinA*cosA;mat.m33=1-2*sinA2;mat.m14=mat.m24=mat.m34=0;mat.m41=mat.m42=mat.m43=0;mat.m44=1}else if(x==0&&y==1&&z==0){mat.m11=1-2*sinA2;mat.m12=0;mat.m13=-2*sinA*cosA;mat.m21=0;mat.m22=1;mat.m23=0;mat.m31=2*sinA*cosA;mat.m32=0;mat.m33=1-2*sinA2;mat.m14=mat.m24=mat.m34=0;mat.m41=mat.m42=mat.m43=0;mat.m44=1}else if(x==0&&y==0&&z==1){mat.m11=1-2*sinA2;mat.m12=2*sinA*cosA;mat.m13=0;mat.m21=-2*sinA*cosA;mat.m22=1-2*sinA2;mat.m23=0;mat.m31=0;mat.m32=0;mat.m33=1;mat.m14=mat.m24=mat.m34=0;mat.m41=mat.m42=mat.m43=0;mat.m44=1}else{var x2=x*x;var y2=y*y;var z2=z*z;mat.m11=1-2*(y2+z2)*sinA2;mat.m12=2*(x*y*sinA2+z*sinA*cosA);mat.m13=2*(x*z*sinA2-y*sinA*cosA);mat.m21=2*(y*x*sinA2-z*sinA*cosA);mat.m22=1-2*(z2+x2)*sinA2;mat.m23=2*(y*z*sinA2+x*sinA*cosA);mat.m31=2*(z*x*sinA2+y*sinA*cosA);mat.m32=2*(z*y*sinA2-x*sinA*cosA);mat.m33=1-2*(x2+y2)*sinA2;mat.m14=mat.m24=mat.m34=0;mat.m41=mat.m42=mat.m43=0;mat.m44=1}this.multRight(mat)};CanvasMatrix4.prototype.multRight=function(mat){var m11=(this.m11*mat.m11+this.m12*mat.m21+this.m13*mat.m31+this.m14*mat.m41);var m12=(this.m11*mat.m12+this.m12*mat.m22+this.m13*mat.m32+this.m14*mat.m42);var m13=(this.m11*mat.m13+this.m12*mat.m23+this.m13*mat.m33+this.m14*mat.m43);var m14=(this.m11*mat.m14+this.m12*mat.m24+this.m13*mat.m34+this.m14*mat.m44);var m21=(this.m21*mat.m11+this.m22*mat.m21+this.m23*mat.m31+this.m24*mat.m41);var m22=(this.m21*mat.m12+this.m22*mat.m22+this.m23*mat.m32+this.m24*mat.m42);var m23=(this.m21*mat.m13+this.m22*mat.m23+this.m23*mat.m33+this.m24*mat.m43);var m24=(this.m21*mat.m14+this.m22*mat.m24+this.m23*mat.m34+this.m24*mat.m44);var m31=(this.m31*mat.m11+this.m32*mat.m21+this.m33*mat.m31+this.m34*mat.m41);var m32=(this.m31*mat.m12+this.m32*mat.m22+this.m33*mat.m32+this.m34*mat.m42);var m33=(this.m31*mat.m13+this.m32*mat.m23+this.m33*mat.m33+this.m34*mat.m43);var m34=(this.m31*mat.m14+this.m32*mat.m24+this.m33*mat.m34+this.m34*mat.m44);var m41=(this.m41*mat.m11+this.m42*mat.m21+this.m43*mat.m31+this.m44*mat.m41);var m42=(this.m41*mat.m12+this.m42*mat.m22+this.m43*mat.m32+this.m44*mat.m42);var m43=(this.m41*mat.m13+this.m42*mat.m23+this.m43*mat.m33+this.m44*mat.m43);var m44=(this.m41*mat.m14+this.m42*mat.m24+this.m43*mat.m34+this.m44*mat.m44);this.m11=m11;this.m12=m12;this.m13=m13;this.m14=m14;this.m21=m21;this.m22=m22;this.m23=m23;this.m24=m24;this.m31=m31;this.m32=m32;this.m33=m33;this.m34=m34;this.m41=m41;this.m42=m42;this.m43=m43;this.m44=m44};CanvasMatrix4.prototype.multLeft=function(mat){var m11=(mat.m11*this.m11+mat.m12*this.m21+mat.m13*this.m31+mat.m14*this.m41);var m12=(mat.m11*this.m12+mat.m12*this.m22+mat.m13*this.m32+mat.m14*this.m42);var m13=(mat.m11*this.m13+mat.m12*this.m23+mat.m13*this.m33+mat.m14*this.m43);var m14=(mat.m11*this.m14+mat.m12*this.m24+mat.m13*this.m34+mat.m14*this.m44);var m21=(mat.m21*this.m11+mat.m22*this.m21+mat.m23*this.m31+mat.m24*this.m41);var m22=(mat.m21*this.m12+mat.m22*this.m22+mat.m23*this.m32+mat.m24*this.m42);var m23=(mat.m21*this.m13+mat.m22*this.m23+mat.m23*this.m33+mat.m24*this.m43);var m24=(mat.m21*this.m14+mat.m22*this.m24+mat.m23*this.m34+mat.m24*this.m44);var m31=(mat.m31*this.m11+mat.m32*this.m21+mat.m33*this.m31+mat.m34*this.m41);var m32=(mat.m31*this.m12+mat.m32*this.m22+mat.m33*this.m32+mat.m34*this.m42);var m33=(mat.m31*this.m13+mat.m32*this.m23+mat.m33*this.m33+mat.m34*this.m43);var m34=(mat.m31*this.m14+mat.m32*this.m24+mat.m33*this.m34+mat.m34*this.m44);var m41=(mat.m41*this.m11+mat.m42*this.m21+mat.m43*this.m31+mat.m44*this.m41);var m42=(mat.m41*this.m12+mat.m42*this.m22+mat.m43*this.m32+mat.m44*this.m42);var m43=(mat.m41*this.m13+mat.m42*this.m23+mat.m43*this.m33+mat.m44*this.m43);var m44=(mat.m41*this.m14+mat.m42*this.m24+mat.m43*this.m34+mat.m44*this.m44);this.m11=m11;this.m12=m12;this.m13=m13;this.m14=m14;this.m21=m21;this.m22=m22;this.m23=m23;this.m24=m24;this.m31=m31;this.m32=m32;this.m33=m33;this.m34=m34;this.m41=m41;this.m42=m42;this.m43=m43;this.m44=m44};CanvasMatrix4.prototype.ortho=function(left,right,bottom,top,near,far){var tx=(left+right)/(left-right);var ty=(top+bottom)/(top-bottom);var tz=(far+near)/(far-near);var matrix=new CanvasMatrix4();matrix.m11=2/(left-right);matrix.m12=0;matrix.m13=0;matrix.m14=0;matrix.m21=0;matrix.m22=2/(top-bottom);matrix.m23=0;matrix.m24=0;matrix.m31=0;matrix.m32=0;matrix.m33=-2/(far-near);matrix.m34=0;matrix.m41=tx;matrix.m42=ty;matrix.m43=tz;matrix.m44=1;this.multRight(matrix)};CanvasMatrix4.prototype.frustum=function(left,right,bottom,top,near,far){var matrix=new CanvasMatrix4();var A=(right+left)/(right-left);var B=(top+bottom)/(top-bottom);var C=-(far+near)/(far-near);var D=-(2*far*near)/(far-near);matrix.m11=(2*near)/(right-left);matrix.m12=0;matrix.m13=0;matrix.m14=0;matrix.m21=0;matrix.m22=2*near/(top-bottom);matrix.m23=0;matrix.m24=0;matrix.m31=A;matrix.m32=B;matrix.m33=C;matrix.m34=-1;matrix.m41=0;matrix.m42=0;matrix.m43=D;matrix.m44=0;this.multRight(matrix)};CanvasMatrix4.prototype.perspective=function(fovy,aspect,zNear,zFar){var top=Math.tan(fovy*Math.PI/360)*zNear;var bottom=-top;var left=aspect*bottom;var right=aspect*top;this.frustum(left,right,bottom,top,zNear,zFar)};CanvasMatrix4.prototype.lookat=function(eyex,eyey,eyez,centerx,centery,centerz,upx,upy,upz){var matrix=new CanvasMatrix4();var zx=eyex-centerx;var zy=eyey-centery;var zz=eyez-centerz;var mag=Math.sqrt(zx*zx+zy*zy+zz*zz);if(mag){zx/=mag;zy/=mag;zz/=mag}var yx=upx;var yy=upy;var yz=upz;xx=yy*zz-yz*zy;xy=-yx*zz+yz*zx;xz=yx*zy-yy*zx;yx=zy*xz-zz*xy;yy=-zx*xz+zz*xx;yx=zx*xy-zy*xx;mag=Math.sqrt(xx*xx+xy*xy+xz*xz);if(mag){xx/=mag;xy/=mag;xz/=mag}mag=Math.sqrt(yx*yx+yy*yy+yz*yz);if(mag){yx/=mag;yy/=mag;yz/=mag}matrix.m11=xx;matrix.m12=xy;matrix.m13=xz;matrix.m14=0;matrix.m21=yx;matrix.m22=yy;matrix.m23=yz;matrix.m24=0;matrix.m31=zx;matrix.m32=zy;matrix.m33=zz;matrix.m34=0;matrix.m41=0;matrix.m42=0;matrix.m43=0;matrix.m44=1;matrix.translate(-eyex,-eyey,-eyez);this.multRight(matrix)};CanvasMatrix4.prototype._determinant2x2=function(a,b,c,d){return a*d-b*c};CanvasMatrix4.prototype._determinant3x3=function(a1,a2,a3,b1,b2,b3,c1,c2,c3){return a1*this._determinant2x2(b2,b3,c2,c3)-b1*this._determinant2x2(a2,a3,c2,c3)+c1*this._determinant2x2(a2,a3,b2,b3)};CanvasMatrix4.prototype._determinant4x4=function(){var a1=this.m11;var b1=this.m12;var c1=this.m13;var d1=this.m14;var a2=this.m21;var b2=this.m22;var c2=this.m23;var d2=this.m24;var a3=this.m31;var b3=this.m32;var c3=this.m33;var d3=this.m34;var a4=this.m41;var b4=this.m42;var c4=this.m43;var d4=this.m44;return a1*this._determinant3x3(b2,b3,b4,c2,c3,c4,d2,d3,d4)-b1*this._determinant3x3(a2,a3,a4,c2,c3,c4,d2,d3,d4)+c1*this._determinant3x3(a2,a3,a4,b2,b3,b4,d2,d3,d4)-d1*this._determinant3x3(a2,a3,a4,b2,b3,b4,c2,c3,c4)};CanvasMatrix4.prototype._makeAdjoint=function(){var a1=this.m11;var b1=this.m12;var c1=this.m13;var d1=this.m14;var a2=this.m21;var b2=this.m22;var c2=this.m23;var d2=this.m24;var a3=this.m31;var b3=this.m32;var c3=this.m33;var d3=this.m34;var a4=this.m41;var b4=this.m42;var c4=this.m43;var d4=this.m44;this.m11=this._determinant3x3(b2,b3,b4,c2,c3,c4,d2,d3,d4);this.m21=-this._determinant3x3(a2,a3,a4,c2,c3,c4,d2,d3,d4);this.m31=this._determinant3x3(a2,a3,a4,b2,b3,b4,d2,d3,d4);this.m41=-this._determinant3x3(a2,a3,a4,b2,b3,b4,c2,c3,c4);this.m12=-this._determinant3x3(b1,b3,b4,c1,c3,c4,d1,d3,d4);this.m22=this._determinant3x3(a1,a3,a4,c1,c3,c4,d1,d3,d4);this.m32=-this._determinant3x3(a1,a3,a4,b1,b3,b4,d1,d3,d4);this.m42=this._determinant3x3(a1,a3,a4,b1,b3,b4,c1,c3,c4);this.m13=this._determinant3x3(b1,b2,b4,c1,c2,c4,d1,d2,d4);this.m23=-this._determinant3x3(a1,a2,a4,c1,c2,c4,d1,d2,d4);this.m33=this._determinant3x3(a1,a2,a4,b1,b2,b4,d1,d2,d4);this.m43=-this._determinant3x3(a1,a2,a4,b1,b2,b4,c1,c2,c4);this.m14=-this._determinant3x3(b1,b2,b3,c1,c2,c3,d1,d2,d3);this.m24=this._determinant3x3(a1,a2,a3,c1,c2,c3,d1,d2,d3);this.m34=-this._determinant3x3(a1,a2,a3,b1,b2,b3,d1,d2,d3);this.m44=this._determinant3x3(a1,a2,a3,b1,b2,b3,c1,c2,c3)}
+</script>
+
+This works fine.
+
+
+```r
+x <- sort(rnorm(1000))
+y <- rnorm(1000)
+z <- rnorm(1000) + atan2(x,y)
+plot3d(x, y, z, col=rainbow(1000))
+```
+
+<canvas id="testgltextureCanvas" style="display: none;" width="256" height="256">
+Your browser does not support the HTML5 canvas element.</canvas>
+<!-- ****** points object 7 ****** -->
+<script id="testglvshader7" type="x-shader/x-vertex">
+attribute vec3 aPos;
+attribute vec4 aCol;
+uniform mat4 mvMatrix;
+uniform mat4 prMatrix;
+varying vec4 vCol;
+varying vec4 vPosition;
+void main(void) {
+vPosition = mvMatrix * vec4(aPos, 1.);
+gl_Position = prMatrix * vPosition;
+gl_PointSize = 3.;
+vCol = aCol;
+}
+</script>
+<script id="testglfshader7" type="x-shader/x-fragment"> 
+#ifdef GL_ES
+precision highp float;
+#endif
+varying vec4 vCol; // carries alpha
+varying vec4 vPosition;
+void main(void) {
+vec4 colDiff = vCol;
+vec4 lighteffect = colDiff;
+gl_FragColor = lighteffect;
+}
+</script> 
+<!-- ****** text object 9 ****** -->
+<script id="testglvshader9" type="x-shader/x-vertex">
+attribute vec3 aPos;
+attribute vec4 aCol;
+uniform mat4 mvMatrix;
+uniform mat4 prMatrix;
+varying vec4 vCol;
+varying vec4 vPosition;
+attribute vec2 aTexcoord;
+varying vec2 vTexcoord;
+uniform vec2 textScale;
+attribute vec2 aOfs;
+void main(void) {
+vCol = aCol;
+vTexcoord = aTexcoord;
+vec4 pos = prMatrix * mvMatrix * vec4(aPos, 1.);
+pos = pos/pos.w;
+gl_Position = pos + vec4(aOfs*textScale, 0.,0.);
+}
+</script>
+<script id="testglfshader9" type="x-shader/x-fragment"> 
+#ifdef GL_ES
+precision highp float;
+#endif
+varying vec4 vCol; // carries alpha
+varying vec4 vPosition;
+varying vec2 vTexcoord;
+uniform sampler2D uSampler;
+void main(void) {
+vec4 colDiff = vCol;
+vec4 lighteffect = colDiff;
+vec4 textureColor = lighteffect*texture2D(uSampler, vTexcoord);
+if (textureColor.a < 0.1)
+discard;
+else
+gl_FragColor = textureColor;
+}
+</script> 
+<!-- ****** text object 10 ****** -->
+<script id="testglvshader10" type="x-shader/x-vertex">
+attribute vec3 aPos;
+attribute vec4 aCol;
+uniform mat4 mvMatrix;
+uniform mat4 prMatrix;
+varying vec4 vCol;
+varying vec4 vPosition;
+attribute vec2 aTexcoord;
+varying vec2 vTexcoord;
+uniform vec2 textScale;
+attribute vec2 aOfs;
+void main(void) {
+vCol = aCol;
+vTexcoord = aTexcoord;
+vec4 pos = prMatrix * mvMatrix * vec4(aPos, 1.);
+pos = pos/pos.w;
+gl_Position = pos + vec4(aOfs*textScale, 0.,0.);
+}
+</script>
+<script id="testglfshader10" type="x-shader/x-fragment"> 
+#ifdef GL_ES
+precision highp float;
+#endif
+varying vec4 vCol; // carries alpha
+varying vec4 vPosition;
+varying vec2 vTexcoord;
+uniform sampler2D uSampler;
+void main(void) {
+vec4 colDiff = vCol;
+vec4 lighteffect = colDiff;
+vec4 textureColor = lighteffect*texture2D(uSampler, vTexcoord);
+if (textureColor.a < 0.1)
+discard;
+else
+gl_FragColor = textureColor;
+}
+</script> 
+<!-- ****** text object 11 ****** -->
+<script id="testglvshader11" type="x-shader/x-vertex">
+attribute vec3 aPos;
+attribute vec4 aCol;
+uniform mat4 mvMatrix;
+uniform mat4 prMatrix;
+varying vec4 vCol;
+varying vec4 vPosition;
+attribute vec2 aTexcoord;
+varying vec2 vTexcoord;
+uniform vec2 textScale;
+attribute vec2 aOfs;
+void main(void) {
+vCol = aCol;
+vTexcoord = aTexcoord;
+vec4 pos = prMatrix * mvMatrix * vec4(aPos, 1.);
+pos = pos/pos.w;
+gl_Position = pos + vec4(aOfs*textScale, 0.,0.);
+}
+</script>
+<script id="testglfshader11" type="x-shader/x-fragment"> 
+#ifdef GL_ES
+precision highp float;
+#endif
+varying vec4 vCol; // carries alpha
+varying vec4 vPosition;
+varying vec2 vTexcoord;
+uniform sampler2D uSampler;
+void main(void) {
+vec4 colDiff = vCol;
+vec4 lighteffect = colDiff;
+vec4 textureColor = lighteffect*texture2D(uSampler, vTexcoord);
+if (textureColor.a < 0.1)
+discard;
+else
+gl_FragColor = textureColor;
+}
+</script> 
+<!-- ****** lines object 12 ****** -->
+<script id="testglvshader12" type="x-shader/x-vertex">
+attribute vec3 aPos;
+attribute vec4 aCol;
+uniform mat4 mvMatrix;
+uniform mat4 prMatrix;
+varying vec4 vCol;
+varying vec4 vPosition;
+void main(void) {
+vPosition = mvMatrix * vec4(aPos, 1.);
+gl_Position = prMatrix * vPosition;
+vCol = aCol;
+}
+</script>
+<script id="testglfshader12" type="x-shader/x-fragment"> 
+#ifdef GL_ES
+precision highp float;
+#endif
+varying vec4 vCol; // carries alpha
+varying vec4 vPosition;
+void main(void) {
+vec4 colDiff = vCol;
+vec4 lighteffect = colDiff;
+gl_FragColor = lighteffect;
+}
+</script> 
+<!-- ****** text object 13 ****** -->
+<script id="testglvshader13" type="x-shader/x-vertex">
+attribute vec3 aPos;
+attribute vec4 aCol;
+uniform mat4 mvMatrix;
+uniform mat4 prMatrix;
+varying vec4 vCol;
+varying vec4 vPosition;
+attribute vec2 aTexcoord;
+varying vec2 vTexcoord;
+uniform vec2 textScale;
+attribute vec2 aOfs;
+void main(void) {
+vCol = aCol;
+vTexcoord = aTexcoord;
+vec4 pos = prMatrix * mvMatrix * vec4(aPos, 1.);
+pos = pos/pos.w;
+gl_Position = pos + vec4(aOfs*textScale, 0.,0.);
+}
+</script>
+<script id="testglfshader13" type="x-shader/x-fragment"> 
+#ifdef GL_ES
+precision highp float;
+#endif
+varying vec4 vCol; // carries alpha
+varying vec4 vPosition;
+varying vec2 vTexcoord;
+uniform sampler2D uSampler;
+void main(void) {
+vec4 colDiff = vCol;
+vec4 lighteffect = colDiff;
+vec4 textureColor = lighteffect*texture2D(uSampler, vTexcoord);
+if (textureColor.a < 0.1)
+discard;
+else
+gl_FragColor = textureColor;
+}
+</script> 
+<!-- ****** lines object 14 ****** -->
+<script id="testglvshader14" type="x-shader/x-vertex">
+attribute vec3 aPos;
+attribute vec4 aCol;
+uniform mat4 mvMatrix;
+uniform mat4 prMatrix;
+varying vec4 vCol;
+varying vec4 vPosition;
+void main(void) {
+vPosition = mvMatrix * vec4(aPos, 1.);
+gl_Position = prMatrix * vPosition;
+vCol = aCol;
+}
+</script>
+<script id="testglfshader14" type="x-shader/x-fragment"> 
+#ifdef GL_ES
+precision highp float;
+#endif
+varying vec4 vCol; // carries alpha
+varying vec4 vPosition;
+void main(void) {
+vec4 colDiff = vCol;
+vec4 lighteffect = colDiff;
+gl_FragColor = lighteffect;
+}
+</script> 
+<!-- ****** text object 15 ****** -->
+<script id="testglvshader15" type="x-shader/x-vertex">
+attribute vec3 aPos;
+attribute vec4 aCol;
+uniform mat4 mvMatrix;
+uniform mat4 prMatrix;
+varying vec4 vCol;
+varying vec4 vPosition;
+attribute vec2 aTexcoord;
+varying vec2 vTexcoord;
+uniform vec2 textScale;
+attribute vec2 aOfs;
+void main(void) {
+vCol = aCol;
+vTexcoord = aTexcoord;
+vec4 pos = prMatrix * mvMatrix * vec4(aPos, 1.);
+pos = pos/pos.w;
+gl_Position = pos + vec4(aOfs*textScale, 0.,0.);
+}
+</script>
+<script id="testglfshader15" type="x-shader/x-fragment"> 
+#ifdef GL_ES
+precision highp float;
+#endif
+varying vec4 vCol; // carries alpha
+varying vec4 vPosition;
+varying vec2 vTexcoord;
+uniform sampler2D uSampler;
+void main(void) {
+vec4 colDiff = vCol;
+vec4 lighteffect = colDiff;
+vec4 textureColor = lighteffect*texture2D(uSampler, vTexcoord);
+if (textureColor.a < 0.1)
+discard;
+else
+gl_FragColor = textureColor;
+}
+</script> 
+<!-- ****** lines object 16 ****** -->
+<script id="testglvshader16" type="x-shader/x-vertex">
+attribute vec3 aPos;
+attribute vec4 aCol;
+uniform mat4 mvMatrix;
+uniform mat4 prMatrix;
+varying vec4 vCol;
+varying vec4 vPosition;
+void main(void) {
+vPosition = mvMatrix * vec4(aPos, 1.);
+gl_Position = prMatrix * vPosition;
+vCol = aCol;
+}
+</script>
+<script id="testglfshader16" type="x-shader/x-fragment"> 
+#ifdef GL_ES
+precision highp float;
+#endif
+varying vec4 vCol; // carries alpha
+varying vec4 vPosition;
+void main(void) {
+vec4 colDiff = vCol;
+vec4 lighteffect = colDiff;
+gl_FragColor = lighteffect;
+}
+</script> 
+<!-- ****** text object 17 ****** -->
+<script id="testglvshader17" type="x-shader/x-vertex">
+attribute vec3 aPos;
+attribute vec4 aCol;
+uniform mat4 mvMatrix;
+uniform mat4 prMatrix;
+varying vec4 vCol;
+varying vec4 vPosition;
+attribute vec2 aTexcoord;
+varying vec2 vTexcoord;
+uniform vec2 textScale;
+attribute vec2 aOfs;
+void main(void) {
+vCol = aCol;
+vTexcoord = aTexcoord;
+vec4 pos = prMatrix * mvMatrix * vec4(aPos, 1.);
+pos = pos/pos.w;
+gl_Position = pos + vec4(aOfs*textScale, 0.,0.);
+}
+</script>
+<script id="testglfshader17" type="x-shader/x-fragment"> 
+#ifdef GL_ES
+precision highp float;
+#endif
+varying vec4 vCol; // carries alpha
+varying vec4 vPosition;
+varying vec2 vTexcoord;
+uniform sampler2D uSampler;
+void main(void) {
+vec4 colDiff = vCol;
+vec4 lighteffect = colDiff;
+vec4 textureColor = lighteffect*texture2D(uSampler, vTexcoord);
+if (textureColor.a < 0.1)
+discard;
+else
+gl_FragColor = textureColor;
+}
+</script> 
+<!-- ****** lines object 18 ****** -->
+<script id="testglvshader18" type="x-shader/x-vertex">
+attribute vec3 aPos;
+attribute vec4 aCol;
+uniform mat4 mvMatrix;
+uniform mat4 prMatrix;
+varying vec4 vCol;
+varying vec4 vPosition;
+void main(void) {
+vPosition = mvMatrix * vec4(aPos, 1.);
+gl_Position = prMatrix * vPosition;
+vCol = aCol;
+}
+</script>
+<script id="testglfshader18" type="x-shader/x-fragment"> 
+#ifdef GL_ES
+precision highp float;
+#endif
+varying vec4 vCol; // carries alpha
+varying vec4 vPosition;
+void main(void) {
+vec4 colDiff = vCol;
+vec4 lighteffect = colDiff;
+gl_FragColor = lighteffect;
+}
+</script> 
+<script type="text/javascript"> 
+function getShader ( gl, id ){
+var shaderScript = document.getElementById ( id );
+var str = "";
+var k = shaderScript.firstChild;
+while ( k ){
+if ( k.nodeType == 3 ) str += k.textContent;
+k = k.nextSibling;
+}
+var shader;
+if ( shaderScript.type == "x-shader/x-fragment" )
+shader = gl.createShader ( gl.FRAGMENT_SHADER );
+else if ( shaderScript.type == "x-shader/x-vertex" )
+shader = gl.createShader(gl.VERTEX_SHADER);
+else return null;
+gl.shaderSource(shader, str);
+gl.compileShader(shader);
+if (gl.getShaderParameter(shader, gl.COMPILE_STATUS) == 0)
+alert(gl.getShaderInfoLog(shader));
+return shader;
+}
+var min = Math.min;
+var max = Math.max;
+var sqrt = Math.sqrt;
+var sin = Math.sin;
+var acos = Math.acos;
+var tan = Math.tan;
+var SQRT2 = Math.SQRT2;
+var PI = Math.PI;
+var log = Math.log;
+var exp = Math.exp;
+function testglwebGLStart() {
+var debug = function(msg) {
+document.getElementById("testgldebug").innerHTML = msg;
+}
+debug("");
+var canvas = document.getElementById("testglcanvas");
+if (!window.WebGLRenderingContext){
+debug(" Your browser does not support WebGL. See <a href=\"http://get.webgl.org\">http://get.webgl.org</a>");
+return;
+}
+var gl;
+try {
+// Try to grab the standard context. If it fails, fallback to experimental.
+gl = canvas.getContext("webgl") 
+|| canvas.getContext("experimental-webgl");
+}
+catch(e) {}
+if ( !gl ) {
+debug(" Your browser appears to support WebGL, but did not create a WebGL context.  See <a href=\"http://get.webgl.org\">http://get.webgl.org</a>");
+return;
+}
+var width = 505;  var height = 505;
+canvas.width = width;   canvas.height = height;
+var prMatrix = new CanvasMatrix4();
+var mvMatrix = new CanvasMatrix4();
+var normMatrix = new CanvasMatrix4();
+var saveMat = new CanvasMatrix4();
+saveMat.makeIdentity();
+var distance;
+var posLoc = 0;
+var colLoc = 1;
+var zoom = new Object();
+var fov = new Object();
+var userMatrix = new Object();
+var activeSubscene = 1;
+zoom[1] = 1;
+fov[1] = 30;
+userMatrix[1] = new CanvasMatrix4();
+userMatrix[1].load([
+1, 0, 0, 0,
+0, 0.3420201, -0.9396926, 0,
+0, 0.9396926, 0.3420201, 0,
+0, 0, 0, 1
+]);
+function getPowerOfTwo(value) {
+var pow = 1;
+while(pow<value) {
+pow *= 2;
+}
+return pow;
+}
+function handleLoadedTexture(texture, textureCanvas) {
+gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, true);
+gl.bindTexture(gl.TEXTURE_2D, texture);
+gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, textureCanvas);
+gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
+gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR_MIPMAP_NEAREST);
+gl.generateMipmap(gl.TEXTURE_2D);
+gl.bindTexture(gl.TEXTURE_2D, null);
+}
+function loadImageToTexture(filename, texture) {   
+var canvas = document.getElementById("testgltextureCanvas");
+var ctx = canvas.getContext("2d");
+var image = new Image();
+image.onload = function() {
+var w = image.width;
+var h = image.height;
+var canvasX = getPowerOfTwo(w);
+var canvasY = getPowerOfTwo(h);
+canvas.width = canvasX;
+canvas.height = canvasY;
+ctx.imageSmoothingEnabled = true;
+ctx.drawImage(image, 0, 0, canvasX, canvasY);
+handleLoadedTexture(texture, canvas);
+drawScene();
+}
+image.src = filename;
+}  	   
+function drawTextToCanvas(text, cex) {
+var canvasX, canvasY;
+var textX, textY;
+var textHeight = 20 * cex;
+var textColour = "white";
+var fontFamily = "Arial";
+var backgroundColour = "rgba(0,0,0,0)";
+var canvas = document.getElementById("testgltextureCanvas");
+var ctx = canvas.getContext("2d");
+ctx.font = textHeight+"px "+fontFamily;
+canvasX = 1;
+var widths = [];
+for (var i = 0; i < text.length; i++)  {
+widths[i] = ctx.measureText(text[i]).width;
+canvasX = (widths[i] > canvasX) ? widths[i] : canvasX;
+}	  
+canvasX = getPowerOfTwo(canvasX);
+var offset = 2*textHeight; // offset to first baseline
+var skip = 2*textHeight;   // skip between baselines	  
+canvasY = getPowerOfTwo(offset + text.length*skip);
+canvas.width = canvasX;
+canvas.height = canvasY;
+ctx.fillStyle = backgroundColour;
+ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+ctx.fillStyle = textColour;
+ctx.textAlign = "left";
+ctx.textBaseline = "alphabetic";
+ctx.font = textHeight+"px "+fontFamily;
+for(var i = 0; i < text.length; i++) {
+textY = i*skip + offset;
+ctx.fillText(text[i], 0,  textY);
+}
+return {canvasX:canvasX, canvasY:canvasY,
+widths:widths, textHeight:textHeight,
+offset:offset, skip:skip};
+}
+// ****** points object 7 ******
+var prog7  = gl.createProgram();
+gl.attachShader(prog7, getShader( gl, "testglvshader7" ));
+gl.attachShader(prog7, getShader( gl, "testglfshader7" ));
+//  Force aPos to location 0, aCol to location 1 
+gl.bindAttribLocation(prog7, 0, "aPos");
+gl.bindAttribLocation(prog7, 1, "aCol");
+gl.linkProgram(prog7);
+var v=new Float32Array([
+-2.99435, -0.1482337, -1.622553, 1, 0, 0, 1,
+-2.894345, 1.71726, 0.9750021, 1, 0.007843138, 0, 1,
+-2.875929, 1.027582, -2.448845, 1, 0.01176471, 0, 1,
+-2.793223, -0.3804085, -2.268098, 1, 0.01960784, 0, 1,
+-2.718587, -2.069734, -1.270066, 1, 0.02352941, 0, 1,
+-2.700871, -0.4811111, -2.373087, 1, 0.03137255, 0, 1,
+-2.659264, 1.824112, -0.3619736, 1, 0.03529412, 0, 1,
+-2.593992, 0.5283091, 0.217717, 1, 0.04313726, 0, 1,
+-2.56334, -0.4594836, -1.732319, 1, 0.04705882, 0, 1,
+-2.530589, 1.711611, -0.4617893, 1, 0.05490196, 0, 1,
+-2.505591, 0.642021, -0.2501836, 1, 0.05882353, 0, 1,
+-2.486418, 0.5210132, 0.02136173, 1, 0.06666667, 0, 1,
+-2.463259, 0.359178, -1.657276, 1, 0.07058824, 0, 1,
+-2.423966, 0.4678801, -1.813359, 1, 0.07843138, 0, 1,
+-2.379898, 0.4185638, -1.717189, 1, 0.08235294, 0, 1,
+-2.371548, -2.610761, -1.661655, 1, 0.09019608, 0, 1,
+-2.367219, 0.06292752, -1.448667, 1, 0.09411765, 0, 1,
+-2.362205, -0.248878, -1.348505, 1, 0.1019608, 0, 1,
+-2.35245, 1.340495, -2.477379, 1, 0.1098039, 0, 1,
+-2.314054, 1.213025, -1.643129, 1, 0.1137255, 0, 1,
+-2.277625, -0.4689046, -0.6260686, 1, 0.1215686, 0, 1,
+-2.240421, 0.02820619, -0.8341925, 1, 0.1254902, 0, 1,
+-2.207377, 0.06666069, -0.3051386, 1, 0.1333333, 0, 1,
+-2.199404, 0.3123615, -0.2986182, 1, 0.1372549, 0, 1,
+-2.194405, 0.5667221, -1.174394, 1, 0.145098, 0, 1,
+-2.116813, 0.3832847, -0.8454542, 1, 0.1490196, 0, 1,
+-2.108401, 0.1683293, -1.78178, 1, 0.1568628, 0, 1,
+-2.101276, 0.6396909, -2.085349, 1, 0.1607843, 0, 1,
+-2.100995, 0.9037956, -1.589487, 1, 0.1686275, 0, 1,
+-2.082786, 1.204519, -2.163038, 1, 0.172549, 0, 1,
+-2.059975, -0.6366234, -0.3372858, 1, 0.1803922, 0, 1,
+-2.038699, -1.43274, -1.243053, 1, 0.1843137, 0, 1,
+-2.037168, 1.820275, -1.237846, 1, 0.1921569, 0, 1,
+-2.020028, 0.3116655, -0.2286229, 1, 0.1960784, 0, 1,
+-1.993061, -0.7560292, -2.430656, 1, 0.2039216, 0, 1,
+-1.972073, -0.5672413, -0.4103575, 1, 0.2117647, 0, 1,
+-1.960604, -0.1507956, -3.737585, 1, 0.2156863, 0, 1,
+-1.955454, -0.2958911, -2.138084, 1, 0.2235294, 0, 1,
+-1.928475, 1.887976, -0.818652, 1, 0.227451, 0, 1,
+-1.913085, -1.455288, -0.5336038, 1, 0.2352941, 0, 1,
+-1.909946, 0.03742279, -1.309325, 1, 0.2392157, 0, 1,
+-1.903973, -2.367945, -1.80981, 1, 0.2470588, 0, 1,
+-1.875575, -0.2678906, -1.159691, 1, 0.2509804, 0, 1,
+-1.865054, -0.6663022, 1.246062, 1, 0.2588235, 0, 1,
+-1.857327, 1.302551, -1.441635, 1, 0.2627451, 0, 1,
+-1.837001, -0.1966143, -1.122099, 1, 0.2705882, 0, 1,
+-1.829722, -0.2104145, -0.8717247, 1, 0.2745098, 0, 1,
+-1.82588, -0.4403543, -2.696306, 1, 0.282353, 0, 1,
+-1.818742, -0.6840262, -1.110006, 1, 0.2862745, 0, 1,
+-1.796045, 2.254658, -0.05040073, 1, 0.2941177, 0, 1,
+-1.785316, 1.396788, -1.356824, 1, 0.3019608, 0, 1,
+-1.781644, 0.1906149, -0.6129469, 1, 0.3058824, 0, 1,
+-1.777754, -0.5983689, -2.117196, 1, 0.3137255, 0, 1,
+-1.754568, 0.3342906, -0.7324313, 1, 0.3176471, 0, 1,
+-1.742512, -0.5452009, -3.60811, 1, 0.3254902, 0, 1,
+-1.742355, -0.1057124, -0.9122112, 1, 0.3294118, 0, 1,
+-1.726357, 0.4804013, 0.3625846, 1, 0.3372549, 0, 1,
+-1.702384, -0.4964473, -2.729861, 1, 0.3411765, 0, 1,
+-1.683839, 0.01733631, -4.251996, 1, 0.3490196, 0, 1,
+-1.672778, -0.1500716, -0.5946935, 1, 0.3529412, 0, 1,
+-1.66703, 0.7273087, -0.8291892, 1, 0.3607843, 0, 1,
+-1.665908, 0.2196113, -2.183005, 1, 0.3647059, 0, 1,
+-1.642124, -0.8329772, -1.28985, 1, 0.372549, 0, 1,
+-1.641886, 1.443932, -0.4319425, 1, 0.3764706, 0, 1,
+-1.628567, -0.5094345, -2.254295, 1, 0.3843137, 0, 1,
+-1.60319, -1.081507, -1.376223, 1, 0.3882353, 0, 1,
+-1.595523, -0.04445282, -0.7830784, 1, 0.3960784, 0, 1,
+-1.580253, 0.9287998, 0.03977628, 1, 0.4039216, 0, 1,
+-1.573889, 1.042248, 0.001998702, 1, 0.4078431, 0, 1,
+-1.572795, 1.990061, -1.647775, 1, 0.4156863, 0, 1,
+-1.569843, -1.516394, -3.147951, 1, 0.4196078, 0, 1,
+-1.542336, -1.002294, -3.082553, 1, 0.427451, 0, 1,
+-1.538852, -0.2452943, -0.3703122, 1, 0.4313726, 0, 1,
+-1.532852, -0.3137183, -2.019876, 1, 0.4392157, 0, 1,
+-1.524376, -1.329666, -1.38985, 1, 0.4431373, 0, 1,
+-1.518389, -0.3665301, -1.552483, 1, 0.4509804, 0, 1,
+-1.51473, -0.5056947, -1.718193, 1, 0.454902, 0, 1,
+-1.513923, -1.007927, -0.8224422, 1, 0.4627451, 0, 1,
+-1.509943, -1.431691, -2.537617, 1, 0.4666667, 0, 1,
+-1.498667, -0.6999708, -0.3102801, 1, 0.4745098, 0, 1,
+-1.488317, 0.5759305, -0.4668913, 1, 0.4784314, 0, 1,
+-1.476307, -0.4189474, -2.23317, 1, 0.4862745, 0, 1,
+-1.466056, 1.097142, -1.665804, 1, 0.4901961, 0, 1,
+-1.459994, -0.1113, -3.776636, 1, 0.4980392, 0, 1,
+-1.457661, 2.288077, -1.012107, 1, 0.5058824, 0, 1,
+-1.450064, -1.055954, -2.231786, 1, 0.509804, 0, 1,
+-1.436128, 0.3617462, -4.055816, 1, 0.5176471, 0, 1,
+-1.413812, 0.2211201, -1.670977, 1, 0.5215687, 0, 1,
+-1.412692, -0.5675424, -2.051636, 1, 0.5294118, 0, 1,
+-1.405292, -0.4698151, -3.240149, 1, 0.5333334, 0, 1,
+-1.395834, -0.1958589, -3.833059, 1, 0.5411765, 0, 1,
+-1.395287, -0.8210477, -2.031881, 1, 0.5450981, 0, 1,
+-1.391593, -1.924401, -0.7617907, 1, 0.5529412, 0, 1,
+-1.379213, -0.7659047, -1.138776, 1, 0.5568628, 0, 1,
+-1.371145, -0.3219264, -2.863897, 1, 0.5647059, 0, 1,
+-1.366724, 0.03868906, -1.025862, 1, 0.5686275, 0, 1,
+-1.365994, -0.2645983, -0.9560283, 1, 0.5764706, 0, 1,
+-1.362632, -1.418909, -1.282036, 1, 0.5803922, 0, 1,
+-1.34865, -0.1779817, -1.905791, 1, 0.5882353, 0, 1,
+-1.342871, 0.9517797, -0.2478809, 1, 0.5921569, 0, 1,
+-1.329591, 1.008422, -2.167675, 1, 0.6, 0, 1,
+-1.328171, 0.1132736, -2.810203, 1, 0.6078432, 0, 1,
+-1.327722, 0.6268048, -1.561371, 1, 0.6117647, 0, 1,
+-1.323396, 0.9439179, -0.9303823, 1, 0.6196079, 0, 1,
+-1.319363, 0.02219931, -2.369479, 1, 0.6235294, 0, 1,
+-1.307477, -0.01649942, -1.624564, 1, 0.6313726, 0, 1,
+-1.295608, -0.5543942, -2.235052, 1, 0.6352941, 0, 1,
+-1.293805, -0.4749004, -3.589328, 1, 0.6431373, 0, 1,
+-1.291579, -0.02676829, -0.8804807, 1, 0.6470588, 0, 1,
+-1.285984, -1.007721, -3.466991, 1, 0.654902, 0, 1,
+-1.285287, 0.9953299, 0.976146, 1, 0.6588235, 0, 1,
+-1.283493, 0.208852, -2.470903, 1, 0.6666667, 0, 1,
+-1.281783, 1.478996, -0.00387246, 1, 0.6705883, 0, 1,
+-1.278677, -0.6990607, -0.7746183, 1, 0.6784314, 0, 1,
+-1.275048, 0.5102491, -1.410263, 1, 0.682353, 0, 1,
+-1.263097, -0.1887315, -3.445861, 1, 0.6901961, 0, 1,
+-1.261463, 0.9040136, -1.991139, 1, 0.6941177, 0, 1,
+-1.25802, 0.6287153, 0.8498156, 1, 0.7019608, 0, 1,
+-1.251798, -0.3735188, -0.4535237, 1, 0.7098039, 0, 1,
+-1.248417, 1.178445, 0.2979559, 1, 0.7137255, 0, 1,
+-1.244744, -1.33757, -2.147114, 1, 0.7215686, 0, 1,
+-1.241118, -1.400997, -1.287399, 1, 0.7254902, 0, 1,
+-1.238787, -0.4960656, -3.467332, 1, 0.7333333, 0, 1,
+-1.233951, -1.23333, -2.70526, 1, 0.7372549, 0, 1,
+-1.223765, 0.4981367, -3.95554, 1, 0.7450981, 0, 1,
+-1.220534, 0.5327063, -0.5065278, 1, 0.7490196, 0, 1,
+-1.210472, 0.5057676, -0.4494948, 1, 0.7568628, 0, 1,
+-1.207739, -0.07868948, -0.770195, 1, 0.7607843, 0, 1,
+-1.197482, 0.9766235, 0.82267, 1, 0.7686275, 0, 1,
+-1.192649, 0.9665861, -2.752868, 1, 0.772549, 0, 1,
+-1.188753, 0.9235523, -0.8687281, 1, 0.7803922, 0, 1,
+-1.179005, -0.6012092, -1.822294, 1, 0.7843137, 0, 1,
+-1.178357, -2.379369, -2.683813, 1, 0.7921569, 0, 1,
+-1.17097, -1.032469, -1.449386, 1, 0.7960784, 0, 1,
+-1.165346, 1.19235, 0.2063165, 1, 0.8039216, 0, 1,
+-1.157495, -1.054402, -2.018807, 1, 0.8117647, 0, 1,
+-1.150501, 1.154655, -0.6497843, 1, 0.8156863, 0, 1,
+-1.145249, -0.9881526, -1.295117, 1, 0.8235294, 0, 1,
+-1.139582, 0.4727756, -0.08138522, 1, 0.827451, 0, 1,
+-1.135857, -0.1589226, -3.125452, 1, 0.8352941, 0, 1,
+-1.132969, -0.1075875, -0.310797, 1, 0.8392157, 0, 1,
+-1.127626, -0.2560133, -0.8157883, 1, 0.8470588, 0, 1,
+-1.123367, 0.8067916, -1.341618, 1, 0.8509804, 0, 1,
+-1.123222, 1.00032, 0.2628132, 1, 0.8588235, 0, 1,
+-1.115635, -0.002955923, -0.7214547, 1, 0.8627451, 0, 1,
+-1.111143, 0.13964, -0.6735362, 1, 0.8705882, 0, 1,
+-1.102268, -1.359368, -2.227326, 1, 0.8745098, 0, 1,
+-1.101945, 0.3605479, -1.356288, 1, 0.8823529, 0, 1,
+-1.100858, -1.723343, -4.855506, 1, 0.8862745, 0, 1,
+-1.094654, -0.6873871, -2.839012, 1, 0.8941177, 0, 1,
+-1.092215, -0.7250571, -3.09447, 1, 0.8980392, 0, 1,
+-1.090487, 0.4203862, -0.8861707, 1, 0.9058824, 0, 1,
+-1.085356, -2.213744, -3.813303, 1, 0.9137255, 0, 1,
+-1.084082, 1.123726, -1.656447, 1, 0.9176471, 0, 1,
+-1.065111, -0.4943866, -2.552839, 1, 0.9254902, 0, 1,
+-1.059415, -1.157896, 0.4809364, 1, 0.9294118, 0, 1,
+-1.053393, 0.4297877, -2.605278, 1, 0.9372549, 0, 1,
+-1.046987, -0.02515757, -3.700437, 1, 0.9411765, 0, 1,
+-1.042079, 0.9454599, -2.223496, 1, 0.9490196, 0, 1,
+-1.039445, -0.497549, -2.096461, 1, 0.9529412, 0, 1,
+-1.033979, 1.478564, -1.691364, 1, 0.9607843, 0, 1,
+-1.025407, 0.6436816, 1.409444, 1, 0.9647059, 0, 1,
+-1.020992, -1.562906, -2.409425, 1, 0.972549, 0, 1,
+-1.018114, -1.121027, -2.613371, 1, 0.9764706, 0, 1,
+-1.017005, 0.292484, -2.070923, 1, 0.9843137, 0, 1,
+-1.016228, -0.2252127, -0.7540353, 1, 0.9882353, 0, 1,
+-1.007909, -0.576411, -1.991373, 1, 0.9960784, 0, 1,
+-0.9965972, -0.9835937, -1.592717, 0.9960784, 1, 0, 1,
+-0.9955531, -1.259712, -2.21424, 0.9921569, 1, 0, 1,
+-0.9907352, 0.9142464, -0.2038354, 0.9843137, 1, 0, 1,
+-0.9901724, 0.3494421, -1.450471, 0.9803922, 1, 0, 1,
+-0.9578276, -0.6380762, -1.548416, 0.972549, 1, 0, 1,
+-0.953949, 0.006982927, -2.036994, 0.9686275, 1, 0, 1,
+-0.9498895, 2.270403, -1.932032, 0.9607843, 1, 0, 1,
+-0.9484193, 1.522362, -1.265758, 0.9568627, 1, 0, 1,
+-0.9432428, -1.413233, -1.66974, 0.9490196, 1, 0, 1,
+-0.937337, 0.03599314, -1.010666, 0.945098, 1, 0, 1,
+-0.9368376, -1.83264, -3.443704, 0.9372549, 1, 0, 1,
+-0.935169, -0.1192864, -3.409979, 0.9333333, 1, 0, 1,
+-0.9327101, 2.42253, -0.2914264, 0.9254902, 1, 0, 1,
+-0.9310668, -0.284059, -1.252961, 0.9215686, 1, 0, 1,
+-0.9263464, 1.652852, -0.9745691, 0.9137255, 1, 0, 1,
+-0.9254236, -0.1558543, -0.5111088, 0.9098039, 1, 0, 1,
+-0.9242054, 1.585802, 0.8764865, 0.9019608, 1, 0, 1,
+-0.9238587, -0.5213118, -1.769349, 0.8941177, 1, 0, 1,
+-0.9222588, 0.8301597, 0.4377307, 0.8901961, 1, 0, 1,
+-0.921799, 0.5567519, -0.957193, 0.8823529, 1, 0, 1,
+-0.9217432, 0.9205638, 0.439294, 0.8784314, 1, 0, 1,
+-0.91855, -0.6859121, -2.220022, 0.8705882, 1, 0, 1,
+-0.9169719, -0.6288763, -1.947015, 0.8666667, 1, 0, 1,
+-0.9154459, -0.6013902, -2.294297, 0.8588235, 1, 0, 1,
+-0.913499, -0.8238086, -1.788452, 0.854902, 1, 0, 1,
+-0.913497, 0.5208964, -1.365639, 0.8470588, 1, 0, 1,
+-0.9103084, -0.00362636, -2.185921, 0.8431373, 1, 0, 1,
+-0.9048578, -0.7358264, -1.378169, 0.8352941, 1, 0, 1,
+-0.904789, 0.5533008, 0.9375248, 0.8313726, 1, 0, 1,
+-0.9029242, 1.403171, -0.07350048, 0.8235294, 1, 0, 1,
+-0.9028896, -1.675179, -1.40625, 0.8196079, 1, 0, 1,
+-0.900363, -1.034405, -2.913783, 0.8117647, 1, 0, 1,
+-0.8949184, -0.2099133, -2.096132, 0.8078431, 1, 0, 1,
+-0.8900239, 0.1371994, 0.4167884, 0.8, 1, 0, 1,
+-0.8885875, 1.363852, -0.726482, 0.7921569, 1, 0, 1,
+-0.8792999, -0.4057617, -3.266852, 0.7882353, 1, 0, 1,
+-0.8736544, 1.113103, -1.934654, 0.7803922, 1, 0, 1,
+-0.86999, -1.064921, -1.9891, 0.7764706, 1, 0, 1,
+-0.8680748, -0.7229943, -2.381299, 0.7686275, 1, 0, 1,
+-0.8677654, -0.1889649, -1.455594, 0.7647059, 1, 0, 1,
+-0.8665396, 1.31901, -1.742165, 0.7568628, 1, 0, 1,
+-0.8659958, 0.850611, -1.036416, 0.7529412, 1, 0, 1,
+-0.8643733, 0.5241851, -0.6017727, 0.7450981, 1, 0, 1,
+-0.8628865, -0.523604, -1.583028, 0.7411765, 1, 0, 1,
+-0.8577474, -2.269975, -2.649748, 0.7333333, 1, 0, 1,
+-0.8514308, -0.763593, -3.130574, 0.7294118, 1, 0, 1,
+-0.85094, -0.2824724, -0.2509054, 0.7215686, 1, 0, 1,
+-0.8495634, -0.1707714, 0.1284734, 0.7176471, 1, 0, 1,
+-0.8443844, -1.18528, -1.771346, 0.7098039, 1, 0, 1,
+-0.8443066, 0.3261586, -3.207039, 0.7058824, 1, 0, 1,
+-0.8442363, 0.7527061, 0.6709251, 0.6980392, 1, 0, 1,
+-0.83966, -1.465909, -2.141762, 0.6901961, 1, 0, 1,
+-0.8365324, -0.2353221, -0.5391391, 0.6862745, 1, 0, 1,
+-0.8250865, 0.01532045, -1.818933, 0.6784314, 1, 0, 1,
+-0.8091499, -0.3948972, 1.445139, 0.6745098, 1, 0, 1,
+-0.8082305, -0.4000291, -1.637475, 0.6666667, 1, 0, 1,
+-0.8080956, -1.098312, -3.602725, 0.6627451, 1, 0, 1,
+-0.8074922, -1.1892, -1.864166, 0.654902, 1, 0, 1,
+-0.8028415, -0.3734632, -3.436722, 0.6509804, 1, 0, 1,
+-0.7961406, -0.3308266, -1.994883, 0.6431373, 1, 0, 1,
+-0.7943478, 1.051367, -1.155176, 0.6392157, 1, 0, 1,
+-0.7940264, 1.088837, 0.1365597, 0.6313726, 1, 0, 1,
+-0.7874584, 1.322513, 0.5688286, 0.627451, 1, 0, 1,
+-0.7842907, -0.902582, -2.875892, 0.6196079, 1, 0, 1,
+-0.782937, 0.3462768, -2.149146, 0.6156863, 1, 0, 1,
+-0.7771338, 0.8442321, -1.038072, 0.6078432, 1, 0, 1,
+-0.7750765, 0.285234, -0.9255672, 0.6039216, 1, 0, 1,
+-0.7718168, 1.578324, 0.6744244, 0.5960785, 1, 0, 1,
+-0.7716308, -0.004002917, -2.465987, 0.5882353, 1, 0, 1,
+-0.7673655, -0.2460572, -0.1786575, 0.5843138, 1, 0, 1,
+-0.759725, -1.318358, -0.4356176, 0.5764706, 1, 0, 1,
+-0.7571245, -0.8287374, -2.923119, 0.572549, 1, 0, 1,
+-0.7564504, -0.5807253, -2.304423, 0.5647059, 1, 0, 1,
+-0.7559198, -0.50157, -2.341306, 0.5607843, 1, 0, 1,
+-0.7548158, -0.7203711, 0.2468958, 0.5529412, 1, 0, 1,
+-0.7506251, 1.681789, 0.1658887, 0.5490196, 1, 0, 1,
+-0.7496167, -1.290842, -2.831991, 0.5411765, 1, 0, 1,
+-0.7472118, 0.01275749, -1.485262, 0.5372549, 1, 0, 1,
+-0.7441634, -2.485807, -1.817629, 0.5294118, 1, 0, 1,
+-0.739634, 0.09425084, -1.391896, 0.5254902, 1, 0, 1,
+-0.7381373, 0.6069221, -0.5466249, 0.5176471, 1, 0, 1,
+-0.7372908, -1.138053, -0.6636793, 0.5137255, 1, 0, 1,
+-0.7274027, -1.987603, -2.197729, 0.5058824, 1, 0, 1,
+-0.7267158, -0.001729114, -2.204296, 0.5019608, 1, 0, 1,
+-0.7182858, 0.1420234, -2.029955, 0.4941176, 1, 0, 1,
+-0.7153934, 0.4767087, -0.7099233, 0.4862745, 1, 0, 1,
+-0.7137597, -0.4383154, -2.169549, 0.4823529, 1, 0, 1,
+-0.7072419, -1.543571, -4.791895, 0.4745098, 1, 0, 1,
+-0.7068327, -0.4200835, -0.2630282, 0.4705882, 1, 0, 1,
+-0.7061779, 2.88449, -1.333017, 0.4627451, 1, 0, 1,
+-0.7037604, -1.198072, -1.353793, 0.4588235, 1, 0, 1,
+-0.7013941, 1.280775, -0.2780375, 0.4509804, 1, 0, 1,
+-0.6852232, 0.217103, -0.8032631, 0.4470588, 1, 0, 1,
+-0.6810765, 0.3911294, -0.9216178, 0.4392157, 1, 0, 1,
+-0.6799096, -0.7150463, -1.465986, 0.4352941, 1, 0, 1,
+-0.6779888, -0.560062, -0.9140909, 0.427451, 1, 0, 1,
+-0.6750157, -0.9099163, -1.567582, 0.4235294, 1, 0, 1,
+-0.6741666, -0.752915, -2.515367, 0.4156863, 1, 0, 1,
+-0.6721739, -0.7075404, -2.552163, 0.4117647, 1, 0, 1,
+-0.6661582, 0.7978959, -1.369524, 0.4039216, 1, 0, 1,
+-0.6645881, -0.3806592, -1.019769, 0.3960784, 1, 0, 1,
+-0.663011, -0.4504506, -1.257601, 0.3921569, 1, 0, 1,
+-0.6606365, 0.4928201, -0.2208591, 0.3843137, 1, 0, 1,
+-0.659467, 0.2580186, 0.8874763, 0.3803922, 1, 0, 1,
+-0.6593312, 0.2658881, -1.883757, 0.372549, 1, 0, 1,
+-0.6532346, 0.6765865, -0.9487582, 0.3686275, 1, 0, 1,
+-0.6524367, -0.371433, -3.352946, 0.3607843, 1, 0, 1,
+-0.648358, -0.2299436, -0.6649852, 0.3568628, 1, 0, 1,
+-0.6471434, 1.25716, -1.074024, 0.3490196, 1, 0, 1,
+-0.6469196, 0.146893, -2.665239, 0.345098, 1, 0, 1,
+-0.6467929, -1.135915, -2.628026, 0.3372549, 1, 0, 1,
+-0.6421961, -0.680733, -2.742392, 0.3333333, 1, 0, 1,
+-0.6419807, 0.6163911, 0.9903972, 0.3254902, 1, 0, 1,
+-0.6385751, 0.4498073, -2.469191, 0.3215686, 1, 0, 1,
+-0.6359262, 0.2880007, -0.4021178, 0.3137255, 1, 0, 1,
+-0.6258822, 0.7356986, 0.9821549, 0.3098039, 1, 0, 1,
+-0.6236539, -0.3818329, -0.8696285, 0.3019608, 1, 0, 1,
+-0.6219113, 1.42297, -0.8750376, 0.2941177, 1, 0, 1,
+-0.6181678, 0.6823616, -0.113144, 0.2901961, 1, 0, 1,
+-0.6139014, 0.6535037, 0.1263841, 0.282353, 1, 0, 1,
+-0.6125325, 0.5757732, -1.326288, 0.2784314, 1, 0, 1,
+-0.6089832, 1.80099, -0.1447749, 0.2705882, 1, 0, 1,
+-0.6082291, -0.1833349, -1.224175, 0.2666667, 1, 0, 1,
+-0.6068449, -0.2779686, -2.750519, 0.2588235, 1, 0, 1,
+-0.6029378, 0.7583911, 0.8768849, 0.254902, 1, 0, 1,
+-0.5967203, -0.4016163, -1.532049, 0.2470588, 1, 0, 1,
+-0.5958708, -1.499337, -1.882361, 0.2431373, 1, 0, 1,
+-0.5942296, -0.05221717, -1.999802, 0.2352941, 1, 0, 1,
+-0.5935544, -0.6564677, -1.896403, 0.2313726, 1, 0, 1,
+-0.5897351, -0.2789869, -1.343519, 0.2235294, 1, 0, 1,
+-0.5882301, -0.2298047, -2.892064, 0.2196078, 1, 0, 1,
+-0.5849991, 1.157569, 0.8898444, 0.2117647, 1, 0, 1,
+-0.5816171, -0.7560998, -1.61791, 0.2078431, 1, 0, 1,
+-0.5816095, -0.2986124, -2.092222, 0.2, 1, 0, 1,
+-0.5815405, 0.3817262, -1.560612, 0.1921569, 1, 0, 1,
+-0.5710609, -0.7685527, -3.005941, 0.1882353, 1, 0, 1,
+-0.5689941, -0.08662163, -1.34586, 0.1803922, 1, 0, 1,
+-0.5688812, -0.1176914, -1.353322, 0.1764706, 1, 0, 1,
+-0.5640139, 0.9832091, 0.8897719, 0.1686275, 1, 0, 1,
+-0.5638517, 0.2086712, -1.618808, 0.1647059, 1, 0, 1,
+-0.5630336, -0.06784739, -1.774598, 0.1568628, 1, 0, 1,
+-0.5616609, -0.02589844, -2.406251, 0.1529412, 1, 0, 1,
+-0.5612563, 1.134365, -0.6300318, 0.145098, 1, 0, 1,
+-0.5547582, 0.7841594, 1.439586, 0.1411765, 1, 0, 1,
+-0.5505593, -0.3617543, -2.721642, 0.1333333, 1, 0, 1,
+-0.5496768, -0.8971086, -2.004627, 0.1294118, 1, 0, 1,
+-0.5490335, 1.831425, -2.563077, 0.1215686, 1, 0, 1,
+-0.54803, 0.8729594, -1.379649, 0.1176471, 1, 0, 1,
+-0.5446371, 0.2787856, -2.07744, 0.1098039, 1, 0, 1,
+-0.5429948, 0.5037798, 0.4951125, 0.1058824, 1, 0, 1,
+-0.5416723, 0.2051508, -2.296459, 0.09803922, 1, 0, 1,
+-0.5402476, 0.5358825, 0.7613359, 0.09019608, 1, 0, 1,
+-0.5332182, -0.2359118, -0.5956538, 0.08627451, 1, 0, 1,
+-0.5329568, 0.4789484, 0.007218041, 0.07843138, 1, 0, 1,
+-0.5298837, 0.4420583, -2.128175, 0.07450981, 1, 0, 1,
+-0.5298259, -0.1588024, -1.633269, 0.06666667, 1, 0, 1,
+-0.5268765, -0.04875347, -1.111044, 0.0627451, 1, 0, 1,
+-0.526769, 1.000177, -1.271306, 0.05490196, 1, 0, 1,
+-0.5253327, -0.6246076, -2.907796, 0.05098039, 1, 0, 1,
+-0.5238718, -0.9409158, -2.230247, 0.04313726, 1, 0, 1,
+-0.5213539, -0.8654037, -2.670236, 0.03921569, 1, 0, 1,
+-0.5180546, 0.6457283, 1.156119, 0.03137255, 1, 0, 1,
+-0.513827, 0.9879391, 0.3685144, 0.02745098, 1, 0, 1,
+-0.5135237, 0.2395647, -1.010838, 0.01960784, 1, 0, 1,
+-0.5119333, 0.6073766, -1.693114, 0.01568628, 1, 0, 1,
+-0.5114704, 0.5870148, -1.560151, 0.007843138, 1, 0, 1,
+-0.5076591, -0.1273793, -1.865326, 0.003921569, 1, 0, 1,
+-0.5050211, 1.004588, -1.429211, 0, 1, 0.003921569, 1,
+-0.5047675, -0.09679206, -0.6600134, 0, 1, 0.01176471, 1,
+-0.5027957, -0.9330511, -1.851267, 0, 1, 0.01568628, 1,
+-0.5020289, -0.06029041, -1.252525, 0, 1, 0.02352941, 1,
+-0.5009835, -0.6142949, -2.679916, 0, 1, 0.02745098, 1,
+-0.4963384, -1.413876, -2.43313, 0, 1, 0.03529412, 1,
+-0.4933981, -0.9617488, -1.936188, 0, 1, 0.03921569, 1,
+-0.4933016, -0.7138824, -4.690397, 0, 1, 0.04705882, 1,
+-0.4915226, 0.5747965, 0.3707553, 0, 1, 0.05098039, 1,
+-0.4899282, -1.082687, -2.552523, 0, 1, 0.05882353, 1,
+-0.4863401, -0.05761769, -1.860049, 0, 1, 0.0627451, 1,
+-0.4815638, -1.822075, -2.570814, 0, 1, 0.07058824, 1,
+-0.4813882, -1.527782, 0.4624064, 0, 1, 0.07450981, 1,
+-0.4793079, 0.4710997, -1.301382, 0, 1, 0.08235294, 1,
+-0.4784724, 0.42148, -0.5859844, 0, 1, 0.08627451, 1,
+-0.4778098, -2.130573, -2.625045, 0, 1, 0.09411765, 1,
+-0.4740572, 0.8551254, -0.1102729, 0, 1, 0.1019608, 1,
+-0.4739747, -0.4892242, -3.078173, 0, 1, 0.1058824, 1,
+-0.4670263, 0.2432838, -2.80533, 0, 1, 0.1137255, 1,
+-0.4658038, -1.44766, -3.406227, 0, 1, 0.1176471, 1,
+-0.4650824, 1.183067, -0.9624694, 0, 1, 0.1254902, 1,
+-0.4638711, -0.6566557, -2.510181, 0, 1, 0.1294118, 1,
+-0.4633664, 0.560005, -2.171937, 0, 1, 0.1372549, 1,
+-0.4617871, -1.251878, -1.738845, 0, 1, 0.1411765, 1,
+-0.4600028, -1.306407, -1.437645, 0, 1, 0.1490196, 1,
+-0.4523548, 1.027578, 2.425024, 0, 1, 0.1529412, 1,
+-0.4514843, 0.2934376, -2.125363, 0, 1, 0.1607843, 1,
+-0.4470716, 1.971126, -0.8015217, 0, 1, 0.1647059, 1,
+-0.4437293, 0.9122539, -0.1433173, 0, 1, 0.172549, 1,
+-0.4418973, -0.3459583, -2.671763, 0, 1, 0.1764706, 1,
+-0.4414896, 0.504036, -1.587399, 0, 1, 0.1843137, 1,
+-0.4390488, -0.8530159, -2.952914, 0, 1, 0.1882353, 1,
+-0.434928, 0.6422329, -0.4172199, 0, 1, 0.1960784, 1,
+-0.434357, -1.141789, -2.700353, 0, 1, 0.2039216, 1,
+-0.4341166, -0.2534733, -2.83498, 0, 1, 0.2078431, 1,
+-0.4333816, 1.067001, -0.3453397, 0, 1, 0.2156863, 1,
+-0.4310378, -0.3586106, -2.313496, 0, 1, 0.2196078, 1,
+-0.4225859, -0.06425545, -2.680486, 0, 1, 0.227451, 1,
+-0.4207765, -0.1207467, -1.363278, 0, 1, 0.2313726, 1,
+-0.4199065, 1.14194, 0.499818, 0, 1, 0.2392157, 1,
+-0.4190889, 0.9537709, 0.6927692, 0, 1, 0.2431373, 1,
+-0.416511, -0.0703721, -1.341768, 0, 1, 0.2509804, 1,
+-0.4159261, 0.3450621, 0.6906892, 0, 1, 0.254902, 1,
+-0.4113751, -2.057227, -1.016881, 0, 1, 0.2627451, 1,
+-0.40905, 0.988466, -1.065872, 0, 1, 0.2666667, 1,
+-0.4065015, -0.2827828, -1.552662, 0, 1, 0.2745098, 1,
+-0.4023767, 0.05491586, -2.295692, 0, 1, 0.2784314, 1,
+-0.3987292, 0.5835506, 0.8990532, 0, 1, 0.2862745, 1,
+-0.3975891, -1.51252, 0.1791144, 0, 1, 0.2901961, 1,
+-0.3970284, 0.3931469, 0.4006078, 0, 1, 0.2980392, 1,
+-0.3959722, -0.109334, -2.656164, 0, 1, 0.3058824, 1,
+-0.3943012, -0.7071643, -1.623658, 0, 1, 0.3098039, 1,
+-0.3905884, 1.093378, 0.4244904, 0, 1, 0.3176471, 1,
+-0.3871734, -1.186014, -4.752306, 0, 1, 0.3215686, 1,
+-0.3870654, 1.374753, -1.053826, 0, 1, 0.3294118, 1,
+-0.3843109, 0.7421815, 0.2142639, 0, 1, 0.3333333, 1,
+-0.3834071, 1.76208, 1.121502, 0, 1, 0.3411765, 1,
+-0.3775844, -0.1641712, -2.659358, 0, 1, 0.345098, 1,
+-0.3769504, 1.686702, -0.5272392, 0, 1, 0.3529412, 1,
+-0.376766, 0.3087611, -2.809888, 0, 1, 0.3568628, 1,
+-0.3764878, 1.382858, 0.510821, 0, 1, 0.3647059, 1,
+-0.3721647, 0.7169347, -0.3095417, 0, 1, 0.3686275, 1,
+-0.3699112, -0.7820535, -1.699712, 0, 1, 0.3764706, 1,
+-0.3652347, -1.090621, -3.943516, 0, 1, 0.3803922, 1,
+-0.3638625, -1.05013, -2.405694, 0, 1, 0.3882353, 1,
+-0.3603719, -0.8444205, -4.735609, 0, 1, 0.3921569, 1,
+-0.3581962, -0.6376902, -3.381098, 0, 1, 0.4, 1,
+-0.3560787, 0.3540331, -1.231089, 0, 1, 0.4078431, 1,
+-0.3558162, 0.8239845, 0.730468, 0, 1, 0.4117647, 1,
+-0.3536527, 0.06883544, -2.20721, 0, 1, 0.4196078, 1,
+-0.3497925, -0.3477927, -3.992937, 0, 1, 0.4235294, 1,
+-0.3412028, -0.3528439, -5.564686, 0, 1, 0.4313726, 1,
+-0.3323098, -0.9532409, -2.630415, 0, 1, 0.4352941, 1,
+-0.3304146, 1.17766, 0.5209339, 0, 1, 0.4431373, 1,
+-0.3291121, 1.558659, 0.4894779, 0, 1, 0.4470588, 1,
+-0.3267527, -0.1132853, -1.076018, 0, 1, 0.454902, 1,
+-0.3255939, -0.09799791, -2.378777, 0, 1, 0.4588235, 1,
+-0.3198692, 1.460996, 0.4443681, 0, 1, 0.4666667, 1,
+-0.3195061, -0.2184976, -0.7812744, 0, 1, 0.4705882, 1,
+-0.3146149, -0.5713912, -2.487507, 0, 1, 0.4784314, 1,
+-0.3140198, -0.4183801, -0.5612438, 0, 1, 0.4823529, 1,
+-0.3125471, -1.146524, -1.690282, 0, 1, 0.4901961, 1,
+-0.3103348, 0.9118437, 0.5983369, 0, 1, 0.4941176, 1,
+-0.3096953, -1.12065, -2.474907, 0, 1, 0.5019608, 1,
+-0.3064021, 1.106826, -1.771923, 0, 1, 0.509804, 1,
+-0.3018319, -1.725287, -4.065645, 0, 1, 0.5137255, 1,
+-0.3008981, -1.018902, -1.530238, 0, 1, 0.5215687, 1,
+-0.2953448, 0.0692784, -1.54223, 0, 1, 0.5254902, 1,
+-0.2834462, -1.069939, -2.014391, 0, 1, 0.5333334, 1,
+-0.2812435, 0.5028669, -0.911956, 0, 1, 0.5372549, 1,
+-0.2777606, 0.9847451, 0.6270736, 0, 1, 0.5450981, 1,
+-0.276645, -0.7411058, -2.484395, 0, 1, 0.5490196, 1,
+-0.2729477, 0.5395075, -0.3812189, 0, 1, 0.5568628, 1,
+-0.2707562, -0.1909818, -2.77076, 0, 1, 0.5607843, 1,
+-0.2706046, 2.008497, -0.2199877, 0, 1, 0.5686275, 1,
+-0.2668991, 1.555409, -0.5309691, 0, 1, 0.572549, 1,
+-0.2635837, 1.869802, 0.4375871, 0, 1, 0.5803922, 1,
+-0.2608724, 1.073295, 1.077667, 0, 1, 0.5843138, 1,
+-0.2553701, -1.543572, -1.501425, 0, 1, 0.5921569, 1,
+-0.2551379, -1.037742, -3.344187, 0, 1, 0.5960785, 1,
+-0.2549243, 1.22037, -0.09717609, 0, 1, 0.6039216, 1,
+-0.2405309, -0.02512512, -0.7426745, 0, 1, 0.6117647, 1,
+-0.2348608, 0.02963396, -1.13066, 0, 1, 0.6156863, 1,
+-0.2344561, 0.3241443, -0.3979072, 0, 1, 0.6235294, 1,
+-0.2338607, -0.9099124, -4.317923, 0, 1, 0.627451, 1,
+-0.2327504, 1.109742, -1.03364, 0, 1, 0.6352941, 1,
+-0.2322842, 0.5949766, 0.4121328, 0, 1, 0.6392157, 1,
+-0.2316262, -0.4321828, -2.493663, 0, 1, 0.6470588, 1,
+-0.2295976, 0.7740377, -0.525791, 0, 1, 0.6509804, 1,
+-0.2286332, 1.007008, -0.3756871, 0, 1, 0.6588235, 1,
+-0.2208777, 0.2708125, 0.3039126, 0, 1, 0.6627451, 1,
+-0.2208214, 0.3353994, 0.3493486, 0, 1, 0.6705883, 1,
+-0.2169343, 0.7954498, 0.2921778, 0, 1, 0.6745098, 1,
+-0.2143471, 0.9664589, 0.4900334, 0, 1, 0.682353, 1,
+-0.2121782, -0.289106, -3.79179, 0, 1, 0.6862745, 1,
+-0.2062737, 0.8782341, -0.1203633, 0, 1, 0.6941177, 1,
+-0.2040342, -1.87075, -3.975902, 0, 1, 0.7019608, 1,
+-0.2017553, 0.9545895, 0.2140256, 0, 1, 0.7058824, 1,
+-0.2007213, -1.632173, -2.554263, 0, 1, 0.7137255, 1,
+-0.1956987, 0.8972016, -0.4716526, 0, 1, 0.7176471, 1,
+-0.1946465, 0.333678, 0.6278254, 0, 1, 0.7254902, 1,
+-0.1925511, -0.4284836, -2.340662, 0, 1, 0.7294118, 1,
+-0.1900242, -0.5246553, -2.855304, 0, 1, 0.7372549, 1,
+-0.1895389, 0.7442254, 0.1873879, 0, 1, 0.7411765, 1,
+-0.178502, 0.1327123, -0.5214408, 0, 1, 0.7490196, 1,
+-0.1754498, -0.4217266, -3.02317, 0, 1, 0.7529412, 1,
+-0.1707614, 1.820937, -0.5546581, 0, 1, 0.7607843, 1,
+-0.1688849, -0.5680739, -1.080893, 0, 1, 0.7647059, 1,
+-0.1672617, -0.06635329, -0.1360639, 0, 1, 0.772549, 1,
+-0.1672584, -1.263216, -0.2388677, 0, 1, 0.7764706, 1,
+-0.1598026, -1.184018, -2.363312, 0, 1, 0.7843137, 1,
+-0.1553703, -0.3584872, -1.209805, 0, 1, 0.7882353, 1,
+-0.1486663, -0.02308004, -0.8329748, 0, 1, 0.7960784, 1,
+-0.1465918, 2.993296, 0.04008754, 0, 1, 0.8039216, 1,
+-0.1436828, 0.6499426, -0.6454975, 0, 1, 0.8078431, 1,
+-0.141706, -0.6337607, -3.391494, 0, 1, 0.8156863, 1,
+-0.1334443, -0.02036998, -2.100601, 0, 1, 0.8196079, 1,
+-0.1320878, -0.7600127, -3.137725, 0, 1, 0.827451, 1,
+-0.1289842, 0.7395583, -0.8731962, 0, 1, 0.8313726, 1,
+-0.1279794, 0.2618789, 0.3497437, 0, 1, 0.8392157, 1,
+-0.1274952, -0.1985283, -2.641138, 0, 1, 0.8431373, 1,
+-0.1259861, 0.7075501, -0.6494689, 0, 1, 0.8509804, 1,
+-0.123431, -1.01489, -3.202074, 0, 1, 0.854902, 1,
+-0.1226953, -0.7190685, -3.846166, 0, 1, 0.8627451, 1,
+-0.1183816, 2.375399, -0.5018969, 0, 1, 0.8666667, 1,
+-0.1167925, 0.1198708, -0.5136822, 0, 1, 0.8745098, 1,
+-0.1164505, -1.466237, -1.888486, 0, 1, 0.8784314, 1,
+-0.115353, -0.6020294, -3.783207, 0, 1, 0.8862745, 1,
+-0.1141634, -0.1026317, -0.302275, 0, 1, 0.8901961, 1,
+-0.1126538, 1.170703, -0.1524534, 0, 1, 0.8980392, 1,
+-0.1076292, 0.9899675, 0.8296273, 0, 1, 0.9058824, 1,
+-0.1058673, -0.04199854, -1.142503, 0, 1, 0.9098039, 1,
+-0.09909101, -0.0254731, -2.912959, 0, 1, 0.9176471, 1,
+-0.09868406, 0.4352729, -1.106437, 0, 1, 0.9215686, 1,
+-0.09721029, 0.4679208, 0.618817, 0, 1, 0.9294118, 1,
+-0.09363826, 0.001970751, -0.3082277, 0, 1, 0.9333333, 1,
+-0.09360033, -0.2619582, -3.300868, 0, 1, 0.9411765, 1,
+-0.09311104, 1.233575, 0.1377382, 0, 1, 0.945098, 1,
+-0.09106771, 1.357122, 0.4250841, 0, 1, 0.9529412, 1,
+-0.08843593, -0.1812245, -3.244195, 0, 1, 0.9568627, 1,
+-0.07448085, 1.274019, 1.025917, 0, 1, 0.9647059, 1,
+-0.07436243, -0.4604087, -4.893365, 0, 1, 0.9686275, 1,
+-0.07127129, -1.942644, -4.780304, 0, 1, 0.9764706, 1,
+-0.06821281, -0.5592513, -2.822361, 0, 1, 0.9803922, 1,
+-0.05880691, 2.743882, -2.355211, 0, 1, 0.9882353, 1,
+-0.05854587, -0.9254938, -0.21584, 0, 1, 0.9921569, 1,
+-0.05109943, -0.2295859, -3.262896, 0, 1, 1, 1,
+-0.05027924, 1.956354, 0.2320697, 0, 0.9921569, 1, 1,
+-0.03882242, -0.612313, -3.664462, 0, 0.9882353, 1, 1,
+-0.03697074, 1.545196, 1.948227, 0, 0.9803922, 1, 1,
+-0.03529362, 0.2179345, 1.163054, 0, 0.9764706, 1, 1,
+-0.02975799, -0.414975, -2.76714, 0, 0.9686275, 1, 1,
+-0.02811155, -2.166124, -4.193621, 0, 0.9647059, 1, 1,
+-0.02773741, -0.4263, -2.216737, 0, 0.9568627, 1, 1,
+-0.02684644, -0.2253841, -2.442236, 0, 0.9529412, 1, 1,
+-0.02411173, 0.05823536, -0.716899, 0, 0.945098, 1, 1,
+-0.02216677, -0.4229299, -2.412912, 0, 0.9411765, 1, 1,
+-0.02197628, 1.136457, 0.2854584, 0, 0.9333333, 1, 1,
+-0.02091657, 0.8013204, -0.6143156, 0, 0.9294118, 1, 1,
+-0.02018354, 2.585172, 0.1506266, 0, 0.9215686, 1, 1,
+-0.01962147, 0.3584057, 0.7669162, 0, 0.9176471, 1, 1,
+-0.006824147, -1.174672, -2.842775, 0, 0.9098039, 1, 1,
+-0.004987551, 0.2468122, -0.09480123, 0, 0.9058824, 1, 1,
+-0.00343011, -0.03216419, -3.449774, 0, 0.8980392, 1, 1,
+-0.0003412823, -0.1398278, -3.017683, 0, 0.8901961, 1, 1,
+0.0006207393, -0.43619, 3.925814, 0, 0.8862745, 1, 1,
+0.00135176, -0.08749032, 4.147543, 0, 0.8784314, 1, 1,
+0.005543953, 1.19883, -1.132908, 0, 0.8745098, 1, 1,
+0.006536122, -0.02473068, 2.58707, 0, 0.8666667, 1, 1,
+0.00743085, -1.884899, 3.092045, 0, 0.8627451, 1, 1,
+0.01217248, -1.845597, 4.446331, 0, 0.854902, 1, 1,
+0.01590411, 1.165516, -0.392936, 0, 0.8509804, 1, 1,
+0.02006224, -1.749715, 2.759947, 0, 0.8431373, 1, 1,
+0.02012856, 0.6282185, 0.3698058, 0, 0.8392157, 1, 1,
+0.02172676, -0.8593051, 3.673391, 0, 0.8313726, 1, 1,
+0.02278763, 0.02877582, 2.339171, 0, 0.827451, 1, 1,
+0.02844916, -1.034444, 4.345309, 0, 0.8196079, 1, 1,
+0.03352369, -1.085871, 3.891872, 0, 0.8156863, 1, 1,
+0.0365752, 0.1269847, -0.2802753, 0, 0.8078431, 1, 1,
+0.03681494, 1.092513, -0.8972873, 0, 0.8039216, 1, 1,
+0.03843195, -0.9608557, 4.723615, 0, 0.7960784, 1, 1,
+0.03867993, 0.3621672, 0.3017065, 0, 0.7882353, 1, 1,
+0.03912472, 1.542897, -0.2601768, 0, 0.7843137, 1, 1,
+0.04263288, 0.4032194, -0.1265498, 0, 0.7764706, 1, 1,
+0.04585887, 0.2819988, -1.425544, 0, 0.772549, 1, 1,
+0.05027897, -1.959737, 3.393883, 0, 0.7647059, 1, 1,
+0.05285493, -0.7156215, 2.827155, 0, 0.7607843, 1, 1,
+0.05294556, 0.4032927, -2.155373, 0, 0.7529412, 1, 1,
+0.05328787, -0.2846604, 3.693662, 0, 0.7490196, 1, 1,
+0.05415025, 1.644235, -0.5138867, 0, 0.7411765, 1, 1,
+0.05902994, 0.01604522, -0.6443436, 0, 0.7372549, 1, 1,
+0.06113202, -0.6257257, 2.847924, 0, 0.7294118, 1, 1,
+0.06262346, -2.020254, 3.022066, 0, 0.7254902, 1, 1,
+0.0626822, 0.6475107, 0.7722318, 0, 0.7176471, 1, 1,
+0.06472508, 0.09056561, 0.5306013, 0, 0.7137255, 1, 1,
+0.06825523, -0.1433541, 2.702333, 0, 0.7058824, 1, 1,
+0.06954784, -0.8432319, 3.327655, 0, 0.6980392, 1, 1,
+0.07227711, 0.6076681, -0.8824051, 0, 0.6941177, 1, 1,
+0.07817115, 0.4007322, 1.068855, 0, 0.6862745, 1, 1,
+0.08100246, 0.3427624, -0.2060186, 0, 0.682353, 1, 1,
+0.08512194, 0.7377635, 0.0549401, 0, 0.6745098, 1, 1,
+0.08542388, 2.004298, 2.225683, 0, 0.6705883, 1, 1,
+0.08834989, -1.013393, 1.699803, 0, 0.6627451, 1, 1,
+0.09273826, 0.3820072, 0.9448608, 0, 0.6588235, 1, 1,
+0.09278597, -1.241289, 3.091275, 0, 0.6509804, 1, 1,
+0.09311286, 0.1914966, 0.5302347, 0, 0.6470588, 1, 1,
+0.09674209, 0.4026027, 0.2803247, 0, 0.6392157, 1, 1,
+0.09763041, 0.07725176, 0.5809716, 0, 0.6352941, 1, 1,
+0.09823392, 1.602095, 0.9513277, 0, 0.627451, 1, 1,
+0.09841878, 1.065416, -1.974282, 0, 0.6235294, 1, 1,
+0.1010384, -0.8886952, 2.292809, 0, 0.6156863, 1, 1,
+0.1025877, 2.018474, -0.4252979, 0, 0.6117647, 1, 1,
+0.1058661, 0.1599758, 0.2992809, 0, 0.6039216, 1, 1,
+0.1062575, -0.8742605, 3.384562, 0, 0.5960785, 1, 1,
+0.1084769, -0.8885537, 2.295506, 0, 0.5921569, 1, 1,
+0.1085042, 1.711417, 1.624763, 0, 0.5843138, 1, 1,
+0.1098455, 0.5723201, -0.6761071, 0, 0.5803922, 1, 1,
+0.1109931, -0.3620373, 1.723506, 0, 0.572549, 1, 1,
+0.1177038, -0.01181157, 2.01371, 0, 0.5686275, 1, 1,
+0.1225146, 0.1451206, 0.2361452, 0, 0.5607843, 1, 1,
+0.122784, 0.6122522, -0.7694517, 0, 0.5568628, 1, 1,
+0.1237, -0.08717196, 1.30901, 0, 0.5490196, 1, 1,
+0.1243272, 0.6961969, -1.188106, 0, 0.5450981, 1, 1,
+0.1246284, -0.6430672, 1.647293, 0, 0.5372549, 1, 1,
+0.1281298, 2.684799, 1.509341, 0, 0.5333334, 1, 1,
+0.1387944, 2.199272, 1.311291, 0, 0.5254902, 1, 1,
+0.1395379, -0.3483466, 2.462364, 0, 0.5215687, 1, 1,
+0.1399906, 1.073161, 1.57269, 0, 0.5137255, 1, 1,
+0.1402946, 0.1994914, 0.5496123, 0, 0.509804, 1, 1,
+0.1416043, -1.247895, 2.334624, 0, 0.5019608, 1, 1,
+0.1460961, 0.4694194, -1.320534, 0, 0.4941176, 1, 1,
+0.1487464, -0.08547064, 1.841593, 0, 0.4901961, 1, 1,
+0.1520481, -0.5882434, 2.68342, 0, 0.4823529, 1, 1,
+0.1530734, 0.4941917, 0.8726482, 0, 0.4784314, 1, 1,
+0.1540384, -0.07725088, 0.5387735, 0, 0.4705882, 1, 1,
+0.1561636, -0.09619731, 2.790347, 0, 0.4666667, 1, 1,
+0.1571731, -0.9525775, 1.695984, 0, 0.4588235, 1, 1,
+0.1641277, 0.9729016, 0.9566523, 0, 0.454902, 1, 1,
+0.1655588, 0.6398503, -1.12824, 0, 0.4470588, 1, 1,
+0.172362, -1.107228, 4.300053, 0, 0.4431373, 1, 1,
+0.1746223, 0.9066353, -0.8873492, 0, 0.4352941, 1, 1,
+0.1754652, 1.840704, -0.1140156, 0, 0.4313726, 1, 1,
+0.1769358, 1.116189, 2.287907, 0, 0.4235294, 1, 1,
+0.1857287, 1.312294, -1.765826, 0, 0.4196078, 1, 1,
+0.1866664, 1.598148, 0.04908356, 0, 0.4117647, 1, 1,
+0.1898731, 0.05083089, 0.628961, 0, 0.4078431, 1, 1,
+0.1996586, 0.9614409, -1.064416, 0, 0.4, 1, 1,
+0.2086479, -0.8669024, 3.355017, 0, 0.3921569, 1, 1,
+0.2089342, -0.7263874, 3.562561, 0, 0.3882353, 1, 1,
+0.2152575, 1.556736, -1.057069, 0, 0.3803922, 1, 1,
+0.2192319, -1.732838, 4.416431, 0, 0.3764706, 1, 1,
+0.2211665, -1.322363, 3.038331, 0, 0.3686275, 1, 1,
+0.2215689, 1.397869, 1.404594, 0, 0.3647059, 1, 1,
+0.2324179, -0.9803804, 3.226683, 0, 0.3568628, 1, 1,
+0.2422122, -0.583786, 1.381432, 0, 0.3529412, 1, 1,
+0.2431715, 0.7385389, 0.3697667, 0, 0.345098, 1, 1,
+0.2444202, -0.2666318, 1.898042, 0, 0.3411765, 1, 1,
+0.2481758, 1.387742, 1.100138, 0, 0.3333333, 1, 1,
+0.2511989, 0.03795156, 1.570814, 0, 0.3294118, 1, 1,
+0.2524268, 1.135868, -0.6213508, 0, 0.3215686, 1, 1,
+0.2560983, 0.8169318, 1.41868, 0, 0.3176471, 1, 1,
+0.2568049, -0.6373886, 3.919619, 0, 0.3098039, 1, 1,
+0.2575814, -0.2278252, 0.5876369, 0, 0.3058824, 1, 1,
+0.2602342, -0.1753342, 2.386116, 0, 0.2980392, 1, 1,
+0.2604169, 0.2955289, 1.00195, 0, 0.2901961, 1, 1,
+0.2611773, 0.2014933, 0.06224429, 0, 0.2862745, 1, 1,
+0.2691631, -0.05305275, 1.705269, 0, 0.2784314, 1, 1,
+0.2709062, -1.392794, 1.99981, 0, 0.2745098, 1, 1,
+0.2758526, -0.5804021, 3.382759, 0, 0.2666667, 1, 1,
+0.2784586, -1.109845, 4.005054, 0, 0.2627451, 1, 1,
+0.2787534, 0.3033723, 1.068228, 0, 0.254902, 1, 1,
+0.2813129, -0.2956674, 0.3061998, 0, 0.2509804, 1, 1,
+0.2830991, -1.772537, 3.96702, 0, 0.2431373, 1, 1,
+0.2886357, 1.397869, -1.871687, 0, 0.2392157, 1, 1,
+0.2899459, -1.576417, 2.667969, 0, 0.2313726, 1, 1,
+0.2935866, -0.7838927, 3.621391, 0, 0.227451, 1, 1,
+0.2982586, -0.201783, 2.166257, 0, 0.2196078, 1, 1,
+0.3000029, -0.9543421, 3.279037, 0, 0.2156863, 1, 1,
+0.3119915, -0.1305447, 1.529471, 0, 0.2078431, 1, 1,
+0.314474, -0.2129416, 0.4504945, 0, 0.2039216, 1, 1,
+0.3202772, 0.2195977, -1.743439, 0, 0.1960784, 1, 1,
+0.3266265, -2.099818, 1.542712, 0, 0.1882353, 1, 1,
+0.3290544, 0.8263168, 0.08618366, 0, 0.1843137, 1, 1,
+0.3297562, 0.1255352, 1.911561, 0, 0.1764706, 1, 1,
+0.3306684, 1.09287, -0.9837303, 0, 0.172549, 1, 1,
+0.331269, -0.4860125, 1.579558, 0, 0.1647059, 1, 1,
+0.342105, 0.1383949, 1.321547, 0, 0.1607843, 1, 1,
+0.3458498, 1.202737, -0.5829827, 0, 0.1529412, 1, 1,
+0.3541035, 2.051259, 0.9802344, 0, 0.1490196, 1, 1,
+0.3573715, -1.506189, 3.611081, 0, 0.1411765, 1, 1,
+0.3591403, -0.2918157, 4.04578, 0, 0.1372549, 1, 1,
+0.3622751, -0.5854736, 2.581668, 0, 0.1294118, 1, 1,
+0.3628025, 0.5550342, -0.2776135, 0, 0.1254902, 1, 1,
+0.3644987, -0.3785137, 3.287621, 0, 0.1176471, 1, 1,
+0.3696395, 1.238911, 0.2798755, 0, 0.1137255, 1, 1,
+0.3740133, 1.063756, 0.9300184, 0, 0.1058824, 1, 1,
+0.3770592, -0.09105024, 1.730457, 0, 0.09803922, 1, 1,
+0.3777139, 1.184362, 0.3643656, 0, 0.09411765, 1, 1,
+0.3783728, -1.806997, 3.292834, 0, 0.08627451, 1, 1,
+0.381687, 1.034557, -0.315819, 0, 0.08235294, 1, 1,
+0.3859003, 0.1508359, 0.5402565, 0, 0.07450981, 1, 1,
+0.3868003, 0.4231591, 0.005082986, 0, 0.07058824, 1, 1,
+0.3886012, -0.5843029, 2.505261, 0, 0.0627451, 1, 1,
+0.3926367, -0.2047985, 1.8535, 0, 0.05882353, 1, 1,
+0.3953358, 1.305102, 1.749894, 0, 0.05098039, 1, 1,
+0.4017637, 0.6206861, 1.307701, 0, 0.04705882, 1, 1,
+0.4033196, 1.448508, 0.7383416, 0, 0.03921569, 1, 1,
+0.4126032, -1.456189, 4.478543, 0, 0.03529412, 1, 1,
+0.4146728, 0.2194346, 1.058935, 0, 0.02745098, 1, 1,
+0.4154159, 0.5325471, -0.1919495, 0, 0.02352941, 1, 1,
+0.4162335, 0.4070857, 1.308091, 0, 0.01568628, 1, 1,
+0.4210449, -0.1541605, 1.427737, 0, 0.01176471, 1, 1,
+0.4242902, -0.4852754, 2.462205, 0, 0.003921569, 1, 1,
+0.428626, 0.1207294, 0.6436202, 0.003921569, 0, 1, 1,
+0.4297164, -0.7806185, 1.029048, 0.007843138, 0, 1, 1,
+0.4335844, 0.3580511, 0.4024133, 0.01568628, 0, 1, 1,
+0.4368501, 1.269614, -0.1489023, 0.01960784, 0, 1, 1,
+0.4390782, 1.161848, 1.357555, 0.02745098, 0, 1, 1,
+0.4437371, 1.139798, -0.7174537, 0.03137255, 0, 1, 1,
+0.4532598, -0.9136606, 3.301962, 0.03921569, 0, 1, 1,
+0.4605124, 1.293189, -2.0787, 0.04313726, 0, 1, 1,
+0.4612269, -0.9740127, 5.268515, 0.05098039, 0, 1, 1,
+0.4649922, -1.112396, 2.463728, 0.05490196, 0, 1, 1,
+0.4729955, -2.018962, 1.041705, 0.0627451, 0, 1, 1,
+0.4737954, -1.211163, 3.703732, 0.06666667, 0, 1, 1,
+0.4774175, 1.030443, 0.7487682, 0.07450981, 0, 1, 1,
+0.4777568, -0.5629169, 1.129634, 0.07843138, 0, 1, 1,
+0.482014, 0.1463818, 3.440225, 0.08627451, 0, 1, 1,
+0.4849593, 1.51643, 0.5961067, 0.09019608, 0, 1, 1,
+0.4914779, 0.6013641, -1.931004, 0.09803922, 0, 1, 1,
+0.491762, 0.6405616, 0.05498945, 0.1058824, 0, 1, 1,
+0.4931424, -0.8737251, 1.603478, 0.1098039, 0, 1, 1,
+0.4971713, 0.4307016, 1.822476, 0.1176471, 0, 1, 1,
+0.4994614, 0.1019385, 1.253349, 0.1215686, 0, 1, 1,
+0.5026028, 0.8921911, -0.7217615, 0.1294118, 0, 1, 1,
+0.5051642, 1.721354, 1.364191, 0.1333333, 0, 1, 1,
+0.5054426, -0.2194322, 1.776364, 0.1411765, 0, 1, 1,
+0.5083115, 0.3123443, -0.4014136, 0.145098, 0, 1, 1,
+0.5118458, 0.5166873, 0.5505184, 0.1529412, 0, 1, 1,
+0.5145351, -0.08349928, 2.354747, 0.1568628, 0, 1, 1,
+0.5147453, 1.419689, -0.59075, 0.1647059, 0, 1, 1,
+0.5193185, 1.229154, -0.4812794, 0.1686275, 0, 1, 1,
+0.5294584, 0.05538565, 2.396348, 0.1764706, 0, 1, 1,
+0.5299461, 1.399161, -1.653186, 0.1803922, 0, 1, 1,
+0.5337262, -1.929126, 0.6503393, 0.1882353, 0, 1, 1,
+0.5338228, 0.3120677, 1.631538, 0.1921569, 0, 1, 1,
+0.5416458, 1.131975, 1.694506, 0.2, 0, 1, 1,
+0.5438712, -1.038093, 1.496942, 0.2078431, 0, 1, 1,
+0.5465362, 0.3504128, 3.629117, 0.2117647, 0, 1, 1,
+0.5490209, 0.689009, 1.762527, 0.2196078, 0, 1, 1,
+0.5559584, 1.478121, 0.5987066, 0.2235294, 0, 1, 1,
+0.5580932, 0.56757, 0.8496174, 0.2313726, 0, 1, 1,
+0.5584376, 0.9068205, -0.1578025, 0.2352941, 0, 1, 1,
+0.5605083, 0.01410135, 0.4866473, 0.2431373, 0, 1, 1,
+0.5663113, 2.666705, -0.09350479, 0.2470588, 0, 1, 1,
+0.56749, 0.7067617, 0.4957935, 0.254902, 0, 1, 1,
+0.5684369, -0.3722655, 2.537678, 0.2588235, 0, 1, 1,
+0.5744309, 0.5781468, 0.6199449, 0.2666667, 0, 1, 1,
+0.5779315, -0.9398933, 3.885402, 0.2705882, 0, 1, 1,
+0.579994, 0.3472843, -0.7672271, 0.2784314, 0, 1, 1,
+0.5821425, -1.923738, 3.054087, 0.282353, 0, 1, 1,
+0.5847496, 0.1686633, 1.627249, 0.2901961, 0, 1, 1,
+0.5922362, -0.08666674, 3.844544, 0.2941177, 0, 1, 1,
+0.5934855, -0.9686069, 1.636858, 0.3019608, 0, 1, 1,
+0.5975151, -0.6140119, 2.486046, 0.3098039, 0, 1, 1,
+0.6101838, 0.7687248, -0.4559001, 0.3137255, 0, 1, 1,
+0.6144217, 0.02608865, 1.301114, 0.3215686, 0, 1, 1,
+0.6160244, 0.617542, 0.4200687, 0.3254902, 0, 1, 1,
+0.6246931, 0.6639326, 0.4636517, 0.3333333, 0, 1, 1,
+0.6273862, -0.1703314, 1.7193, 0.3372549, 0, 1, 1,
+0.6279435, -0.08686455, 2.469219, 0.345098, 0, 1, 1,
+0.6288851, -0.678436, 2.924794, 0.3490196, 0, 1, 1,
+0.6302139, -0.3261399, 1.463644, 0.3568628, 0, 1, 1,
+0.6352938, 0.6629019, -1.531196, 0.3607843, 0, 1, 1,
+0.6382805, -1.051383, 3.445112, 0.3686275, 0, 1, 1,
+0.6428497, 1.287239, 0.654746, 0.372549, 0, 1, 1,
+0.6436588, -0.6567255, 3.178475, 0.3803922, 0, 1, 1,
+0.6473444, 0.732589, 1.15772, 0.3843137, 0, 1, 1,
+0.6486084, 1.416047, 1.936148, 0.3921569, 0, 1, 1,
+0.6530874, -1.042356, 2.70154, 0.3960784, 0, 1, 1,
+0.6564177, -0.2120194, 2.336918, 0.4039216, 0, 1, 1,
+0.6627076, -0.4165418, 2.618491, 0.4117647, 0, 1, 1,
+0.6627887, -0.4882289, 2.03229, 0.4156863, 0, 1, 1,
+0.6631428, -0.3506146, 2.926687, 0.4235294, 0, 1, 1,
+0.6639985, 1.353357, -0.3162336, 0.427451, 0, 1, 1,
+0.6682911, -1.015734, 4.40272, 0.4352941, 0, 1, 1,
+0.6751292, -0.8952175, 0.9515496, 0.4392157, 0, 1, 1,
+0.6773317, -1.939243, 4.024179, 0.4470588, 0, 1, 1,
+0.6804417, 1.014727, 1.82987, 0.4509804, 0, 1, 1,
+0.683916, -1.162801, 2.348233, 0.4588235, 0, 1, 1,
+0.684795, -1.08523, 2.579347, 0.4627451, 0, 1, 1,
+0.6852371, 0.04674594, 2.061469, 0.4705882, 0, 1, 1,
+0.6854503, -0.1293198, 2.902535, 0.4745098, 0, 1, 1,
+0.686066, -0.1626843, 0.5111471, 0.4823529, 0, 1, 1,
+0.6924806, -0.274747, 3.702046, 0.4862745, 0, 1, 1,
+0.6991057, -2.837345, 2.096397, 0.4941176, 0, 1, 1,
+0.7051652, 0.7078821, -0.6716317, 0.5019608, 0, 1, 1,
+0.7066263, -0.9039779, 3.502346, 0.5058824, 0, 1, 1,
+0.7122744, 1.186932, 2.162882, 0.5137255, 0, 1, 1,
+0.7143437, 0.605729, 1.272627, 0.5176471, 0, 1, 1,
+0.7149718, -1.56046, 3.938849, 0.5254902, 0, 1, 1,
+0.7213514, -0.3863663, 2.817851, 0.5294118, 0, 1, 1,
+0.7225603, 1.343242, -1.250589, 0.5372549, 0, 1, 1,
+0.7262082, 1.664762, -0.3188844, 0.5411765, 0, 1, 1,
+0.7293929, -0.01915065, 0.8329981, 0.5490196, 0, 1, 1,
+0.7354862, -0.5348933, 0.3167202, 0.5529412, 0, 1, 1,
+0.7498204, 0.1095435, 2.783878, 0.5607843, 0, 1, 1,
+0.750672, -0.5784604, 2.846255, 0.5647059, 0, 1, 1,
+0.7510622, -1.811955, 2.753088, 0.572549, 0, 1, 1,
+0.7534541, 0.5245515, 2.306025, 0.5764706, 0, 1, 1,
+0.7549202, 0.1475944, 1.694165, 0.5843138, 0, 1, 1,
+0.7570561, -0.01775191, 0.8996407, 0.5882353, 0, 1, 1,
+0.76108, 0.1636997, 0.7779728, 0.5960785, 0, 1, 1,
+0.7768086, 0.3162258, 0.1822505, 0.6039216, 0, 1, 1,
+0.7772601, 0.9319162, -0.3464765, 0.6078432, 0, 1, 1,
+0.7817656, -1.364316, 1.444819, 0.6156863, 0, 1, 1,
+0.7827188, -1.635583, 1.116595, 0.6196079, 0, 1, 1,
+0.7864965, 1.233452, 1.602118, 0.627451, 0, 1, 1,
+0.7879067, -0.9577863, 0.332715, 0.6313726, 0, 1, 1,
+0.7888184, 1.499714, 1.763512, 0.6392157, 0, 1, 1,
+0.7892706, 0.4390758, -1.56696, 0.6431373, 0, 1, 1,
+0.7896933, 1.133513, 2.41878, 0.6509804, 0, 1, 1,
+0.7959693, 1.285154, 1.223117, 0.654902, 0, 1, 1,
+0.7964947, -0.9366075, 2.148342, 0.6627451, 0, 1, 1,
+0.8009657, 0.6779868, -0.9265239, 0.6666667, 0, 1, 1,
+0.8013281, -1.506353, 2.09161, 0.6745098, 0, 1, 1,
+0.8031253, -0.2249656, 3.411161, 0.6784314, 0, 1, 1,
+0.8068841, 2.234837, 0.6424026, 0.6862745, 0, 1, 1,
+0.8082033, 0.9920011, 0.3731437, 0.6901961, 0, 1, 1,
+0.8127695, 1.222048, 1.088502, 0.6980392, 0, 1, 1,
+0.8178245, 0.1210092, 2.039214, 0.7058824, 0, 1, 1,
+0.8179345, -0.01717551, 1.867058, 0.7098039, 0, 1, 1,
+0.8195559, -1.021945, 0.399983, 0.7176471, 0, 1, 1,
+0.822817, 0.8503043, 1.617189, 0.7215686, 0, 1, 1,
+0.8228983, -1.893675, 3.378557, 0.7294118, 0, 1, 1,
+0.824761, -0.1239231, 2.041934, 0.7333333, 0, 1, 1,
+0.8257387, 0.7231541, 2.634323, 0.7411765, 0, 1, 1,
+0.831995, -0.6476741, 1.277861, 0.7450981, 0, 1, 1,
+0.8334714, -0.5784371, 2.432808, 0.7529412, 0, 1, 1,
+0.8365319, 0.9306729, 0.05627484, 0.7568628, 0, 1, 1,
+0.8420376, -1.787056, 1.67079, 0.7647059, 0, 1, 1,
+0.8428352, -0.07803554, 1.308104, 0.7686275, 0, 1, 1,
+0.847546, -1.315124, 2.76566, 0.7764706, 0, 1, 1,
+0.8476058, 0.6715782, 2.2817, 0.7803922, 0, 1, 1,
+0.8588649, -0.4556497, 2.559472, 0.7882353, 0, 1, 1,
+0.8673307, -0.7162933, 1.162224, 0.7921569, 0, 1, 1,
+0.8702028, 0.7757159, 1.330754, 0.8, 0, 1, 1,
+0.8713529, -1.659516, 1.825657, 0.8078431, 0, 1, 1,
+0.8757746, -0.03108365, 0.3522399, 0.8117647, 0, 1, 1,
+0.8809273, 2.146287, 1.580979, 0.8196079, 0, 1, 1,
+0.8825365, 0.074059, 2.347462, 0.8235294, 0, 1, 1,
+0.8831107, -0.585299, 2.327754, 0.8313726, 0, 1, 1,
+0.8836063, 0.7152789, -0.008253961, 0.8352941, 0, 1, 1,
+0.8851535, 0.8071239, 0.09743137, 0.8431373, 0, 1, 1,
+0.8912719, 0.5741827, 1.318584, 0.8470588, 0, 1, 1,
+0.8925797, 0.2236051, 1.916156, 0.854902, 0, 1, 1,
+0.8939109, 0.4979364, 0.4602959, 0.8588235, 0, 1, 1,
+0.8962529, -2.424573, 2.018845, 0.8666667, 0, 1, 1,
+0.901697, 1.018138, 0.9563593, 0.8705882, 0, 1, 1,
+0.9050538, -1.091509, 1.320239, 0.8784314, 0, 1, 1,
+0.9069787, 0.1074715, 1.867641, 0.8823529, 0, 1, 1,
+0.9124328, 1.279647, -0.2773656, 0.8901961, 0, 1, 1,
+0.9153049, 0.3001309, 0.8915308, 0.8941177, 0, 1, 1,
+0.9172933, 0.4937645, 2.871092, 0.9019608, 0, 1, 1,
+0.9251419, -1.690041, 2.12482, 0.9098039, 0, 1, 1,
+0.9264064, -0.5116064, 0.9662517, 0.9137255, 0, 1, 1,
+0.9283691, -0.9027563, 3.690855, 0.9215686, 0, 1, 1,
+0.936767, 0.2072537, -0.6006698, 0.9254902, 0, 1, 1,
+0.9402055, 0.4758724, -0.3915568, 0.9333333, 0, 1, 1,
+0.9414713, -0.3220392, -0.4259216, 0.9372549, 0, 1, 1,
+0.9428404, -0.3808351, 3.471728, 0.945098, 0, 1, 1,
+0.9449281, 0.1300734, 0.6489713, 0.9490196, 0, 1, 1,
+0.9482418, -0.002114479, 2.044082, 0.9568627, 0, 1, 1,
+0.9486173, -0.5116388, 3.82419, 0.9607843, 0, 1, 1,
+0.9499218, 0.6044852, 2.417537, 0.9686275, 0, 1, 1,
+0.9527759, -0.6075712, 0.004269286, 0.972549, 0, 1, 1,
+0.9551695, -0.02018723, 1.714164, 0.9803922, 0, 1, 1,
+0.9614922, -0.6939423, 3.473938, 0.9843137, 0, 1, 1,
+0.9637978, -0.5297318, 2.385213, 0.9921569, 0, 1, 1,
+0.9660126, -0.0445616, 0.9264667, 0.9960784, 0, 1, 1,
+0.9672965, -0.1886664, 2.917382, 1, 0, 0.9960784, 1,
+0.9738401, -0.4760267, 1.470502, 1, 0, 0.9882353, 1,
+0.9860486, -1.943658, 2.566136, 1, 0, 0.9843137, 1,
+0.9860784, -0.6005254, 1.801204, 1, 0, 0.9764706, 1,
+0.9952515, -0.06990607, 2.170028, 1, 0, 0.972549, 1,
+1.001279, -0.2353731, 4.157594, 1, 0, 0.9647059, 1,
+1.002435, 1.658225, -0.5242676, 1, 0, 0.9607843, 1,
+1.005546, -0.4384885, 2.265358, 1, 0, 0.9529412, 1,
+1.008152, -0.6660484, 2.137501, 1, 0, 0.9490196, 1,
+1.016454, 0.9382151, -0.05453119, 1, 0, 0.9411765, 1,
+1.019474, 0.2612547, 2.061648, 1, 0, 0.9372549, 1,
+1.020403, -0.02331351, 2.071887, 1, 0, 0.9294118, 1,
+1.024394, 1.471826, 0.7741789, 1, 0, 0.9254902, 1,
+1.026938, 0.2084448, 0.5490823, 1, 0, 0.9176471, 1,
+1.029999, -1.885632, 0.9350529, 1, 0, 0.9137255, 1,
+1.030314, -1.341149, 0.5106708, 1, 0, 0.9058824, 1,
+1.033162, 1.576864, 0.2019175, 1, 0, 0.9019608, 1,
+1.033193, -2.588409, 3.984794, 1, 0, 0.8941177, 1,
+1.038211, 1.00063, 0.5956043, 1, 0, 0.8862745, 1,
+1.040759, -1.184721, 2.234148, 1, 0, 0.8823529, 1,
+1.046665, -0.6161815, 0.5311304, 1, 0, 0.8745098, 1,
+1.047369, -0.0260704, 3.352598, 1, 0, 0.8705882, 1,
+1.057789, -1.750531, 2.053585, 1, 0, 0.8627451, 1,
+1.06451, -0.2034013, 0.1194829, 1, 0, 0.8588235, 1,
+1.06507, 0.390635, 1.943075, 1, 0, 0.8509804, 1,
+1.073615, -0.3065897, 2.923817, 1, 0, 0.8470588, 1,
+1.076745, -0.4494228, 3.276314, 1, 0, 0.8392157, 1,
+1.083952, -0.393107, 1.874631, 1, 0, 0.8352941, 1,
+1.094267, 0.6029789, 0.239529, 1, 0, 0.827451, 1,
+1.103337, -0.4353897, 2.048531, 1, 0, 0.8235294, 1,
+1.110283, -0.01759703, 1.658688, 1, 0, 0.8156863, 1,
+1.113823, 1.861281, 1.21008, 1, 0, 0.8117647, 1,
+1.121805, -0.622498, -1.550414, 1, 0, 0.8039216, 1,
+1.130051, 0.5834075, 1.233106, 1, 0, 0.7960784, 1,
+1.132364, 0.3254849, 1.53022, 1, 0, 0.7921569, 1,
+1.141561, 0.4961021, 1.173086, 1, 0, 0.7843137, 1,
+1.149077, 0.002323631, 0.895216, 1, 0, 0.7803922, 1,
+1.149339, -0.5295771, 0.2472905, 1, 0, 0.772549, 1,
+1.153564, -1.931806, 2.772306, 1, 0, 0.7686275, 1,
+1.199222, -0.8958079, 1.79609, 1, 0, 0.7607843, 1,
+1.207476, -1.825272, 4.750073, 1, 0, 0.7568628, 1,
+1.207689, 1.043927, 0.4451971, 1, 0, 0.7490196, 1,
+1.209812, -0.3620599, 2.204261, 1, 0, 0.7450981, 1,
+1.215713, -0.7770007, 1.643797, 1, 0, 0.7372549, 1,
+1.218114, 1.638538, 0.636067, 1, 0, 0.7333333, 1,
+1.218385, 0.6332459, -0.2166358, 1, 0, 0.7254902, 1,
+1.227273, -1.21253, 2.79844, 1, 0, 0.7215686, 1,
+1.230101, 0.2385843, 1.719796, 1, 0, 0.7137255, 1,
+1.230249, -0.1311417, 2.96446, 1, 0, 0.7098039, 1,
+1.231573, -1.36155, 3.095042, 1, 0, 0.7019608, 1,
+1.235984, -0.9178967, 2.006304, 1, 0, 0.6941177, 1,
+1.23637, 0.7614137, 0.390277, 1, 0, 0.6901961, 1,
+1.237764, -2.347202, 2.99456, 1, 0, 0.682353, 1,
+1.239244, -0.7566797, 4.63973, 1, 0, 0.6784314, 1,
+1.24719, 0.8965911, 3.407641, 1, 0, 0.6705883, 1,
+1.25044, -0.1790354, 2.057479, 1, 0, 0.6666667, 1,
+1.251483, -0.6064454, 1.63921, 1, 0, 0.6588235, 1,
+1.253228, -1.434255, 3.426141, 1, 0, 0.654902, 1,
+1.256699, 1.312653, 0.2191239, 1, 0, 0.6470588, 1,
+1.259405, 1.205853, 0.3341278, 1, 0, 0.6431373, 1,
+1.263429, 0.8017308, 2.274416, 1, 0, 0.6352941, 1,
+1.266437, 0.04576818, 1.73055, 1, 0, 0.6313726, 1,
+1.271764, -0.766554, 1.610733, 1, 0, 0.6235294, 1,
+1.274444, -1.539531, 2.533748, 1, 0, 0.6196079, 1,
+1.278242, 0.4708737, -1.423439, 1, 0, 0.6117647, 1,
+1.280345, -0.02216477, 2.507813, 1, 0, 0.6078432, 1,
+1.284221, -2.52907, 2.157628, 1, 0, 0.6, 1,
+1.284693, 0.4796267, 0.1069701, 1, 0, 0.5921569, 1,
+1.292124, -0.5089839, 1.9305, 1, 0, 0.5882353, 1,
+1.292637, -0.4742192, 1.455195, 1, 0, 0.5803922, 1,
+1.297504, -1.124785, 2.590002, 1, 0, 0.5764706, 1,
+1.297512, -0.819067, -0.04213427, 1, 0, 0.5686275, 1,
+1.300797, 1.128378, 0.8305326, 1, 0, 0.5647059, 1,
+1.300952, 0.5739835, 0.2053247, 1, 0, 0.5568628, 1,
+1.301061, -0.01194276, 2.188858, 1, 0, 0.5529412, 1,
+1.302223, 1.086103, 0.4495279, 1, 0, 0.5450981, 1,
+1.302571, 0.1697704, 0.4956947, 1, 0, 0.5411765, 1,
+1.302723, -0.5529204, 1.916335, 1, 0, 0.5333334, 1,
+1.310968, -0.2855113, 1.702713, 1, 0, 0.5294118, 1,
+1.318042, -1.433681, 4.523377, 1, 0, 0.5215687, 1,
+1.320235, 0.8272156, 0.6447884, 1, 0, 0.5176471, 1,
+1.332591, -0.9562465, 2.230109, 1, 0, 0.509804, 1,
+1.336498, -0.8208554, 3.437868, 1, 0, 0.5058824, 1,
+1.3419, -0.08680867, 0.624756, 1, 0, 0.4980392, 1,
+1.35353, 0.1390004, 1.783883, 1, 0, 0.4901961, 1,
+1.357401, -2.254805, 2.294593, 1, 0, 0.4862745, 1,
+1.360738, 0.3643571, -0.4628469, 1, 0, 0.4784314, 1,
+1.363533, 0.07850771, 3.381729, 1, 0, 0.4745098, 1,
+1.372169, 0.1383966, 0.562586, 1, 0, 0.4666667, 1,
+1.373215, 0.9276496, 0.1916055, 1, 0, 0.4627451, 1,
+1.399923, 1.49925, 0.5717021, 1, 0, 0.454902, 1,
+1.412072, -1.827819, 1.895877, 1, 0, 0.4509804, 1,
+1.41573, 0.9069214, -0.5420719, 1, 0, 0.4431373, 1,
+1.427816, -0.4904636, 0.0117992, 1, 0, 0.4392157, 1,
+1.43823, -1.008657, 3.394723, 1, 0, 0.4313726, 1,
+1.447504, 1.398138, 0.438958, 1, 0, 0.427451, 1,
+1.448952, 0.7533083, 1.392189, 1, 0, 0.4196078, 1,
+1.455399, -0.442336, 2.799558, 1, 0, 0.4156863, 1,
+1.459016, 0.3941901, 3.801568, 1, 0, 0.4078431, 1,
+1.459433, -2.383797, 1.608318, 1, 0, 0.4039216, 1,
+1.460984, 1.38962, 2.031239, 1, 0, 0.3960784, 1,
+1.480968, 1.75233, 0.6924549, 1, 0, 0.3882353, 1,
+1.494439, -0.1015777, 0.769097, 1, 0, 0.3843137, 1,
+1.511118, -0.1271121, 2.592771, 1, 0, 0.3764706, 1,
+1.523503, 0.4831061, 0.4999641, 1, 0, 0.372549, 1,
+1.538921, 0.2755301, 1.522864, 1, 0, 0.3647059, 1,
+1.568848, 0.5196471, 1.266571, 1, 0, 0.3607843, 1,
+1.576445, 0.3462079, 1.498652, 1, 0, 0.3529412, 1,
+1.577252, 0.2973777, 1.96522, 1, 0, 0.3490196, 1,
+1.582933, -1.206569, 2.474112, 1, 0, 0.3411765, 1,
+1.593382, 0.6412935, 0.2931349, 1, 0, 0.3372549, 1,
+1.596895, -2.02411, 3.293672, 1, 0, 0.3294118, 1,
+1.602327, 0.1105903, -0.6532499, 1, 0, 0.3254902, 1,
+1.602877, 1.233315, 1.358737, 1, 0, 0.3176471, 1,
+1.621702, -0.1516308, 2.646561, 1, 0, 0.3137255, 1,
+1.622986, 1.142865, -0.413317, 1, 0, 0.3058824, 1,
+1.644607, 0.4523915, 1.281337, 1, 0, 0.2980392, 1,
+1.678721, -0.6989533, 2.262928, 1, 0, 0.2941177, 1,
+1.685816, 0.6086399, -0.2550578, 1, 0, 0.2862745, 1,
+1.708909, -0.05735371, 0.8501841, 1, 0, 0.282353, 1,
+1.715826, -0.1407645, 2.574245, 1, 0, 0.2745098, 1,
+1.716156, 0.8430454, 0.6645296, 1, 0, 0.2705882, 1,
+1.750412, 1.082965, 0.5734426, 1, 0, 0.2627451, 1,
+1.755374, 1.143624, 1.697522, 1, 0, 0.2588235, 1,
+1.760362, -0.4808373, 1.827089, 1, 0, 0.2509804, 1,
+1.765744, 2.688943, 1.267078, 1, 0, 0.2470588, 1,
+1.779089, 1.617548, 1.840158, 1, 0, 0.2392157, 1,
+1.798833, -0.7594545, 1.402139, 1, 0, 0.2352941, 1,
+1.79891, -1.293537, 2.644422, 1, 0, 0.227451, 1,
+1.800798, -1.37913, 1.766492, 1, 0, 0.2235294, 1,
+1.804497, 0.298936, 1.868664, 1, 0, 0.2156863, 1,
+1.804744, -1.445739, 1.506163, 1, 0, 0.2117647, 1,
+1.812489, 0.5728844, 1.00025, 1, 0, 0.2039216, 1,
+1.838558, 0.7054676, 0.1482729, 1, 0, 0.1960784, 1,
+1.852118, -0.800083, 0.5143604, 1, 0, 0.1921569, 1,
+1.85353, 0.6342831, 0.80065, 1, 0, 0.1843137, 1,
+1.85821, 1.484834, -0.2062548, 1, 0, 0.1803922, 1,
+1.859123, -0.6798905, 1.67633, 1, 0, 0.172549, 1,
+1.934481, -0.06650335, 0.7570726, 1, 0, 0.1686275, 1,
+1.944796, 1.272522, -0.2637079, 1, 0, 0.1607843, 1,
+1.94635, 1.024189, 1.244642, 1, 0, 0.1568628, 1,
+1.948908, -0.2234838, -0.04199657, 1, 0, 0.1490196, 1,
+1.977801, -0.8242324, 1.292437, 1, 0, 0.145098, 1,
+1.986424, 0.09613238, -0.6668947, 1, 0, 0.1372549, 1,
+1.993417, -1.313157, 0.7719069, 1, 0, 0.1333333, 1,
+2.0412, 0.6656815, 0.6748676, 1, 0, 0.1254902, 1,
+2.065847, 1.282922, 2.19839, 1, 0, 0.1215686, 1,
+2.100843, 0.02147019, 3.18003, 1, 0, 0.1137255, 1,
+2.123167, 0.2245996, 1.616709, 1, 0, 0.1098039, 1,
+2.136652, -0.1901971, 1.090304, 1, 0, 0.1019608, 1,
+2.150966, 0.07383522, 1.434391, 1, 0, 0.09411765, 1,
+2.171744, -0.7301382, 0.7938353, 1, 0, 0.09019608, 1,
+2.219647, -0.4761966, 2.961684, 1, 0, 0.08235294, 1,
+2.22754, 2.140235, 0.2659988, 1, 0, 0.07843138, 1,
+2.29131, 0.6273408, 2.035053, 1, 0, 0.07058824, 1,
+2.300637, -1.19604, 0.9162179, 1, 0, 0.06666667, 1,
+2.323667, -1.153107, 1.966355, 1, 0, 0.05882353, 1,
+2.382721, 1.106057, 0.03890352, 1, 0, 0.05490196, 1,
+2.398438, -2.898803, 2.520865, 1, 0, 0.04705882, 1,
+2.462046, 0.7521241, 2.002677, 1, 0, 0.04313726, 1,
+2.478015, 0.392219, 0.657138, 1, 0, 0.03529412, 1,
+2.481511, -0.927736, 2.426019, 1, 0, 0.03137255, 1,
+2.505948, -0.4756807, 1.694887, 1, 0, 0.02352941, 1,
+2.814084, 0.1158087, 1.079018, 1, 0, 0.01960784, 1,
+2.871908, 0.8090715, 0.2583163, 1, 0, 0.01176471, 1,
+3.222342, 0.168986, 2.683367, 1, 0, 0.007843138, 1
+]);
+var buf7 = gl.createBuffer();
+gl.bindBuffer(gl.ARRAY_BUFFER, buf7);
+gl.bufferData(gl.ARRAY_BUFFER, v, gl.STATIC_DRAW);
+var mvMatLoc7 = gl.getUniformLocation(prog7,"mvMatrix");
+var prMatLoc7 = gl.getUniformLocation(prog7,"prMatrix");
+// ****** text object 9 ******
+var prog9  = gl.createProgram();
+gl.attachShader(prog9, getShader( gl, "testglvshader9" ));
+gl.attachShader(prog9, getShader( gl, "testglfshader9" ));
+//  Force aPos to location 0, aCol to location 1 
+gl.bindAttribLocation(prog9, 0, "aPos");
+gl.bindAttribLocation(prog9, 1, "aCol");
+gl.linkProgram(prog9);
+var texts = [
+"x"
+];
+var texinfo = drawTextToCanvas(texts, 1);	 
+var canvasX9 = texinfo.canvasX;
+var canvasY9 = texinfo.canvasY;
+var ofsLoc9 = gl.getAttribLocation(prog9, "aOfs");
+var texture9 = gl.createTexture();
+var texLoc9 = gl.getAttribLocation(prog9, "aTexcoord");
+var sampler9 = gl.getUniformLocation(prog9,"uSampler");
+handleLoadedTexture(texture9, document.getElementById("testgltextureCanvas"));
+var v=new Float32Array([
+0.1139956, -3.897514, -7.400914, 0, -0.5, 0.5, 0.5,
+0.1139956, -3.897514, -7.400914, 1, -0.5, 0.5, 0.5,
+0.1139956, -3.897514, -7.400914, 1, 1.5, 0.5, 0.5,
+0.1139956, -3.897514, -7.400914, 0, 1.5, 0.5, 0.5
+]);
+for (var i=0; i<1; i++) 
+for (var j=0; j<4; j++) {
+ind = 7*(4*i + j) + 3;
+v[ind+2] = 2*(v[ind]-v[ind+2])*texinfo.widths[i];
+v[ind+3] = 2*(v[ind+1]-v[ind+3])*texinfo.textHeight;
+v[ind] *= texinfo.widths[i]/texinfo.canvasX;
+v[ind+1] = 1.0-(texinfo.offset + i*texinfo.skip 
+- v[ind+1]*texinfo.textHeight)/texinfo.canvasY;
+}
+var f=new Uint16Array([
+0, 1, 2, 0, 2, 3
+]);
+var buf9 = gl.createBuffer();
+gl.bindBuffer(gl.ARRAY_BUFFER, buf9);
+gl.bufferData(gl.ARRAY_BUFFER, v, gl.STATIC_DRAW);
+var ibuf9 = gl.createBuffer();
+gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, ibuf9);
+gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, f, gl.STATIC_DRAW);
+var mvMatLoc9 = gl.getUniformLocation(prog9,"mvMatrix");
+var prMatLoc9 = gl.getUniformLocation(prog9,"prMatrix");
+var textScaleLoc9 = gl.getUniformLocation(prog9,"textScale");
+// ****** text object 10 ******
+var prog10  = gl.createProgram();
+gl.attachShader(prog10, getShader( gl, "testglvshader10" ));
+gl.attachShader(prog10, getShader( gl, "testglfshader10" ));
+//  Force aPos to location 0, aCol to location 1 
+gl.bindAttribLocation(prog10, 0, "aPos");
+gl.bindAttribLocation(prog10, 1, "aCol");
+gl.linkProgram(prog10);
+var texts = [
+"y"
+];
+var texinfo = drawTextToCanvas(texts, 1);	 
+var canvasX10 = texinfo.canvasX;
+var canvasY10 = texinfo.canvasY;
+var ofsLoc10 = gl.getAttribLocation(prog10, "aOfs");
+var texture10 = gl.createTexture();
+var texLoc10 = gl.getAttribLocation(prog10, "aTexcoord");
+var sampler10 = gl.getUniformLocation(prog10,"uSampler");
+handleLoadedTexture(texture10, document.getElementById("testgltextureCanvas"));
+var v=new Float32Array([
+-4.048079, 0.04724669, -7.400914, 0, -0.5, 0.5, 0.5,
+-4.048079, 0.04724669, -7.400914, 1, -0.5, 0.5, 0.5,
+-4.048079, 0.04724669, -7.400914, 1, 1.5, 0.5, 0.5,
+-4.048079, 0.04724669, -7.400914, 0, 1.5, 0.5, 0.5
+]);
+for (var i=0; i<1; i++) 
+for (var j=0; j<4; j++) {
+ind = 7*(4*i + j) + 3;
+v[ind+2] = 2*(v[ind]-v[ind+2])*texinfo.widths[i];
+v[ind+3] = 2*(v[ind+1]-v[ind+3])*texinfo.textHeight;
+v[ind] *= texinfo.widths[i]/texinfo.canvasX;
+v[ind+1] = 1.0-(texinfo.offset + i*texinfo.skip 
+- v[ind+1]*texinfo.textHeight)/texinfo.canvasY;
+}
+var f=new Uint16Array([
+0, 1, 2, 0, 2, 3
+]);
+var buf10 = gl.createBuffer();
+gl.bindBuffer(gl.ARRAY_BUFFER, buf10);
+gl.bufferData(gl.ARRAY_BUFFER, v, gl.STATIC_DRAW);
+var ibuf10 = gl.createBuffer();
+gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, ibuf10);
+gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, f, gl.STATIC_DRAW);
+var mvMatLoc10 = gl.getUniformLocation(prog10,"mvMatrix");
+var prMatLoc10 = gl.getUniformLocation(prog10,"prMatrix");
+var textScaleLoc10 = gl.getUniformLocation(prog10,"textScale");
+// ****** text object 11 ******
+var prog11  = gl.createProgram();
+gl.attachShader(prog11, getShader( gl, "testglvshader11" ));
+gl.attachShader(prog11, getShader( gl, "testglfshader11" ));
+//  Force aPos to location 0, aCol to location 1 
+gl.bindAttribLocation(prog11, 0, "aPos");
+gl.bindAttribLocation(prog11, 1, "aCol");
+gl.linkProgram(prog11);
+var texts = [
+"z"
+];
+var texinfo = drawTextToCanvas(texts, 1);	 
+var canvasX11 = texinfo.canvasX;
+var canvasY11 = texinfo.canvasY;
+var ofsLoc11 = gl.getAttribLocation(prog11, "aOfs");
+var texture11 = gl.createTexture();
+var texLoc11 = gl.getAttribLocation(prog11, "aTexcoord");
+var sampler11 = gl.getUniformLocation(prog11,"uSampler");
+handleLoadedTexture(texture11, document.getElementById("testgltextureCanvas"));
+var v=new Float32Array([
+-4.048079, -3.897514, -0.1480858, 0, -0.5, 0.5, 0.5,
+-4.048079, -3.897514, -0.1480858, 1, -0.5, 0.5, 0.5,
+-4.048079, -3.897514, -0.1480858, 1, 1.5, 0.5, 0.5,
+-4.048079, -3.897514, -0.1480858, 0, 1.5, 0.5, 0.5
+]);
+for (var i=0; i<1; i++) 
+for (var j=0; j<4; j++) {
+ind = 7*(4*i + j) + 3;
+v[ind+2] = 2*(v[ind]-v[ind+2])*texinfo.widths[i];
+v[ind+3] = 2*(v[ind+1]-v[ind+3])*texinfo.textHeight;
+v[ind] *= texinfo.widths[i]/texinfo.canvasX;
+v[ind+1] = 1.0-(texinfo.offset + i*texinfo.skip 
+- v[ind+1]*texinfo.textHeight)/texinfo.canvasY;
+}
+var f=new Uint16Array([
+0, 1, 2, 0, 2, 3
+]);
+var buf11 = gl.createBuffer();
+gl.bindBuffer(gl.ARRAY_BUFFER, buf11);
+gl.bufferData(gl.ARRAY_BUFFER, v, gl.STATIC_DRAW);
+var ibuf11 = gl.createBuffer();
+gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, ibuf11);
+gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, f, gl.STATIC_DRAW);
+var mvMatLoc11 = gl.getUniformLocation(prog11,"mvMatrix");
+var prMatLoc11 = gl.getUniformLocation(prog11,"prMatrix");
+var textScaleLoc11 = gl.getUniformLocation(prog11,"textScale");
+// ****** lines object 12 ******
+var prog12  = gl.createProgram();
+gl.attachShader(prog12, getShader( gl, "testglvshader12" ));
+gl.attachShader(prog12, getShader( gl, "testglfshader12" ));
+//  Force aPos to location 0, aCol to location 1 
+gl.bindAttribLocation(prog12, 0, "aPos");
+gl.bindAttribLocation(prog12, 1, "aCol");
+gl.linkProgram(prog12);
+var v=new Float32Array([
+-2, -2.987184, -5.727184,
+3, -2.987184, -5.727184,
+-2, -2.987184, -5.727184,
+-2, -3.138906, -6.006139,
+-1, -2.987184, -5.727184,
+-1, -3.138906, -6.006139,
+0, -2.987184, -5.727184,
+0, -3.138906, -6.006139,
+1, -2.987184, -5.727184,
+1, -3.138906, -6.006139,
+2, -2.987184, -5.727184,
+2, -3.138906, -6.006139,
+3, -2.987184, -5.727184,
+3, -3.138906, -6.006139
+]);
+var buf12 = gl.createBuffer();
+gl.bindBuffer(gl.ARRAY_BUFFER, buf12);
+gl.bufferData(gl.ARRAY_BUFFER, v, gl.STATIC_DRAW);
+var mvMatLoc12 = gl.getUniformLocation(prog12,"mvMatrix");
+var prMatLoc12 = gl.getUniformLocation(prog12,"prMatrix");
+// ****** text object 13 ******
+var prog13  = gl.createProgram();
+gl.attachShader(prog13, getShader( gl, "testglvshader13" ));
+gl.attachShader(prog13, getShader( gl, "testglfshader13" ));
+//  Force aPos to location 0, aCol to location 1 
+gl.bindAttribLocation(prog13, 0, "aPos");
+gl.bindAttribLocation(prog13, 1, "aCol");
+gl.linkProgram(prog13);
+var texts = [
+"-2",
+"-1",
+"0",
+"1",
+"2",
+"3"
+];
+var texinfo = drawTextToCanvas(texts, 1);	 
+var canvasX13 = texinfo.canvasX;
+var canvasY13 = texinfo.canvasY;
+var ofsLoc13 = gl.getAttribLocation(prog13, "aOfs");
+var texture13 = gl.createTexture();
+var texLoc13 = gl.getAttribLocation(prog13, "aTexcoord");
+var sampler13 = gl.getUniformLocation(prog13,"uSampler");
+handleLoadedTexture(texture13, document.getElementById("testgltextureCanvas"));
+var v=new Float32Array([
+-2, -3.442349, -6.564049, 0, -0.5, 0.5, 0.5,
+-2, -3.442349, -6.564049, 1, -0.5, 0.5, 0.5,
+-2, -3.442349, -6.564049, 1, 1.5, 0.5, 0.5,
+-2, -3.442349, -6.564049, 0, 1.5, 0.5, 0.5,
+-1, -3.442349, -6.564049, 0, -0.5, 0.5, 0.5,
+-1, -3.442349, -6.564049, 1, -0.5, 0.5, 0.5,
+-1, -3.442349, -6.564049, 1, 1.5, 0.5, 0.5,
+-1, -3.442349, -6.564049, 0, 1.5, 0.5, 0.5,
+0, -3.442349, -6.564049, 0, -0.5, 0.5, 0.5,
+0, -3.442349, -6.564049, 1, -0.5, 0.5, 0.5,
+0, -3.442349, -6.564049, 1, 1.5, 0.5, 0.5,
+0, -3.442349, -6.564049, 0, 1.5, 0.5, 0.5,
+1, -3.442349, -6.564049, 0, -0.5, 0.5, 0.5,
+1, -3.442349, -6.564049, 1, -0.5, 0.5, 0.5,
+1, -3.442349, -6.564049, 1, 1.5, 0.5, 0.5,
+1, -3.442349, -6.564049, 0, 1.5, 0.5, 0.5,
+2, -3.442349, -6.564049, 0, -0.5, 0.5, 0.5,
+2, -3.442349, -6.564049, 1, -0.5, 0.5, 0.5,
+2, -3.442349, -6.564049, 1, 1.5, 0.5, 0.5,
+2, -3.442349, -6.564049, 0, 1.5, 0.5, 0.5,
+3, -3.442349, -6.564049, 0, -0.5, 0.5, 0.5,
+3, -3.442349, -6.564049, 1, -0.5, 0.5, 0.5,
+3, -3.442349, -6.564049, 1, 1.5, 0.5, 0.5,
+3, -3.442349, -6.564049, 0, 1.5, 0.5, 0.5
+]);
+for (var i=0; i<6; i++) 
+for (var j=0; j<4; j++) {
+ind = 7*(4*i + j) + 3;
+v[ind+2] = 2*(v[ind]-v[ind+2])*texinfo.widths[i];
+v[ind+3] = 2*(v[ind+1]-v[ind+3])*texinfo.textHeight;
+v[ind] *= texinfo.widths[i]/texinfo.canvasX;
+v[ind+1] = 1.0-(texinfo.offset + i*texinfo.skip 
+- v[ind+1]*texinfo.textHeight)/texinfo.canvasY;
+}
+var f=new Uint16Array([
+0, 1, 2, 0, 2, 3,
+4, 5, 6, 4, 6, 7,
+8, 9, 10, 8, 10, 11,
+12, 13, 14, 12, 14, 15,
+16, 17, 18, 16, 18, 19,
+20, 21, 22, 20, 22, 23
+]);
+var buf13 = gl.createBuffer();
+gl.bindBuffer(gl.ARRAY_BUFFER, buf13);
+gl.bufferData(gl.ARRAY_BUFFER, v, gl.STATIC_DRAW);
+var ibuf13 = gl.createBuffer();
+gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, ibuf13);
+gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, f, gl.STATIC_DRAW);
+var mvMatLoc13 = gl.getUniformLocation(prog13,"mvMatrix");
+var prMatLoc13 = gl.getUniformLocation(prog13,"prMatrix");
+var textScaleLoc13 = gl.getUniformLocation(prog13,"textScale");
+// ****** lines object 14 ******
+var prog14  = gl.createProgram();
+gl.attachShader(prog14, getShader( gl, "testglvshader14" ));
+gl.attachShader(prog14, getShader( gl, "testglfshader14" ));
+//  Force aPos to location 0, aCol to location 1 
+gl.bindAttribLocation(prog14, 0, "aPos");
+gl.bindAttribLocation(prog14, 1, "aCol");
+gl.linkProgram(prog14);
+var v=new Float32Array([
+-3.087601, -2, -5.727184,
+-3.087601, 2, -5.727184,
+-3.087601, -2, -5.727184,
+-3.247681, -2, -6.006139,
+-3.087601, -1, -5.727184,
+-3.247681, -1, -6.006139,
+-3.087601, 0, -5.727184,
+-3.247681, 0, -6.006139,
+-3.087601, 1, -5.727184,
+-3.247681, 1, -6.006139,
+-3.087601, 2, -5.727184,
+-3.247681, 2, -6.006139
+]);
+var buf14 = gl.createBuffer();
+gl.bindBuffer(gl.ARRAY_BUFFER, buf14);
+gl.bufferData(gl.ARRAY_BUFFER, v, gl.STATIC_DRAW);
+var mvMatLoc14 = gl.getUniformLocation(prog14,"mvMatrix");
+var prMatLoc14 = gl.getUniformLocation(prog14,"prMatrix");
+// ****** text object 15 ******
+var prog15  = gl.createProgram();
+gl.attachShader(prog15, getShader( gl, "testglvshader15" ));
+gl.attachShader(prog15, getShader( gl, "testglfshader15" ));
+//  Force aPos to location 0, aCol to location 1 
+gl.bindAttribLocation(prog15, 0, "aPos");
+gl.bindAttribLocation(prog15, 1, "aCol");
+gl.linkProgram(prog15);
+var texts = [
+"-2",
+"-1",
+"0",
+"1",
+"2"
+];
+var texinfo = drawTextToCanvas(texts, 1);	 
+var canvasX15 = texinfo.canvasX;
+var canvasY15 = texinfo.canvasY;
+var ofsLoc15 = gl.getAttribLocation(prog15, "aOfs");
+var texture15 = gl.createTexture();
+var texLoc15 = gl.getAttribLocation(prog15, "aTexcoord");
+var sampler15 = gl.getUniformLocation(prog15,"uSampler");
+handleLoadedTexture(texture15, document.getElementById("testgltextureCanvas"));
+var v=new Float32Array([
+-3.56784, -2, -6.564049, 0, -0.5, 0.5, 0.5,
+-3.56784, -2, -6.564049, 1, -0.5, 0.5, 0.5,
+-3.56784, -2, -6.564049, 1, 1.5, 0.5, 0.5,
+-3.56784, -2, -6.564049, 0, 1.5, 0.5, 0.5,
+-3.56784, -1, -6.564049, 0, -0.5, 0.5, 0.5,
+-3.56784, -1, -6.564049, 1, -0.5, 0.5, 0.5,
+-3.56784, -1, -6.564049, 1, 1.5, 0.5, 0.5,
+-3.56784, -1, -6.564049, 0, 1.5, 0.5, 0.5,
+-3.56784, 0, -6.564049, 0, -0.5, 0.5, 0.5,
+-3.56784, 0, -6.564049, 1, -0.5, 0.5, 0.5,
+-3.56784, 0, -6.564049, 1, 1.5, 0.5, 0.5,
+-3.56784, 0, -6.564049, 0, 1.5, 0.5, 0.5,
+-3.56784, 1, -6.564049, 0, -0.5, 0.5, 0.5,
+-3.56784, 1, -6.564049, 1, -0.5, 0.5, 0.5,
+-3.56784, 1, -6.564049, 1, 1.5, 0.5, 0.5,
+-3.56784, 1, -6.564049, 0, 1.5, 0.5, 0.5,
+-3.56784, 2, -6.564049, 0, -0.5, 0.5, 0.5,
+-3.56784, 2, -6.564049, 1, -0.5, 0.5, 0.5,
+-3.56784, 2, -6.564049, 1, 1.5, 0.5, 0.5,
+-3.56784, 2, -6.564049, 0, 1.5, 0.5, 0.5
+]);
+for (var i=0; i<5; i++) 
+for (var j=0; j<4; j++) {
+ind = 7*(4*i + j) + 3;
+v[ind+2] = 2*(v[ind]-v[ind+2])*texinfo.widths[i];
+v[ind+3] = 2*(v[ind+1]-v[ind+3])*texinfo.textHeight;
+v[ind] *= texinfo.widths[i]/texinfo.canvasX;
+v[ind+1] = 1.0-(texinfo.offset + i*texinfo.skip 
+- v[ind+1]*texinfo.textHeight)/texinfo.canvasY;
+}
+var f=new Uint16Array([
+0, 1, 2, 0, 2, 3,
+4, 5, 6, 4, 6, 7,
+8, 9, 10, 8, 10, 11,
+12, 13, 14, 12, 14, 15,
+16, 17, 18, 16, 18, 19
+]);
+var buf15 = gl.createBuffer();
+gl.bindBuffer(gl.ARRAY_BUFFER, buf15);
+gl.bufferData(gl.ARRAY_BUFFER, v, gl.STATIC_DRAW);
+var ibuf15 = gl.createBuffer();
+gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, ibuf15);
+gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, f, gl.STATIC_DRAW);
+var mvMatLoc15 = gl.getUniformLocation(prog15,"mvMatrix");
+var prMatLoc15 = gl.getUniformLocation(prog15,"prMatrix");
+var textScaleLoc15 = gl.getUniformLocation(prog15,"textScale");
+// ****** lines object 16 ******
+var prog16  = gl.createProgram();
+gl.attachShader(prog16, getShader( gl, "testglvshader16" ));
+gl.attachShader(prog16, getShader( gl, "testglfshader16" ));
+//  Force aPos to location 0, aCol to location 1 
+gl.bindAttribLocation(prog16, 0, "aPos");
+gl.bindAttribLocation(prog16, 1, "aCol");
+gl.linkProgram(prog16);
+var v=new Float32Array([
+-3.087601, -2.987184, -4,
+-3.087601, -2.987184, 4,
+-3.087601, -2.987184, -4,
+-3.247681, -3.138906, -4,
+-3.087601, -2.987184, -2,
+-3.247681, -3.138906, -2,
+-3.087601, -2.987184, 0,
+-3.247681, -3.138906, 0,
+-3.087601, -2.987184, 2,
+-3.247681, -3.138906, 2,
+-3.087601, -2.987184, 4,
+-3.247681, -3.138906, 4
+]);
+var buf16 = gl.createBuffer();
+gl.bindBuffer(gl.ARRAY_BUFFER, buf16);
+gl.bufferData(gl.ARRAY_BUFFER, v, gl.STATIC_DRAW);
+var mvMatLoc16 = gl.getUniformLocation(prog16,"mvMatrix");
+var prMatLoc16 = gl.getUniformLocation(prog16,"prMatrix");
+// ****** text object 17 ******
+var prog17  = gl.createProgram();
+gl.attachShader(prog17, getShader( gl, "testglvshader17" ));
+gl.attachShader(prog17, getShader( gl, "testglfshader17" ));
+//  Force aPos to location 0, aCol to location 1 
+gl.bindAttribLocation(prog17, 0, "aPos");
+gl.bindAttribLocation(prog17, 1, "aCol");
+gl.linkProgram(prog17);
+var texts = [
+"-4",
+"-2",
+"0",
+"2",
+"4"
+];
+var texinfo = drawTextToCanvas(texts, 1);	 
+var canvasX17 = texinfo.canvasX;
+var canvasY17 = texinfo.canvasY;
+var ofsLoc17 = gl.getAttribLocation(prog17, "aOfs");
+var texture17 = gl.createTexture();
+var texLoc17 = gl.getAttribLocation(prog17, "aTexcoord");
+var sampler17 = gl.getUniformLocation(prog17,"uSampler");
+handleLoadedTexture(texture17, document.getElementById("testgltextureCanvas"));
+var v=new Float32Array([
+-3.56784, -3.442349, -4, 0, -0.5, 0.5, 0.5,
+-3.56784, -3.442349, -4, 1, -0.5, 0.5, 0.5,
+-3.56784, -3.442349, -4, 1, 1.5, 0.5, 0.5,
+-3.56784, -3.442349, -4, 0, 1.5, 0.5, 0.5,
+-3.56784, -3.442349, -2, 0, -0.5, 0.5, 0.5,
+-3.56784, -3.442349, -2, 1, -0.5, 0.5, 0.5,
+-3.56784, -3.442349, -2, 1, 1.5, 0.5, 0.5,
+-3.56784, -3.442349, -2, 0, 1.5, 0.5, 0.5,
+-3.56784, -3.442349, 0, 0, -0.5, 0.5, 0.5,
+-3.56784, -3.442349, 0, 1, -0.5, 0.5, 0.5,
+-3.56784, -3.442349, 0, 1, 1.5, 0.5, 0.5,
+-3.56784, -3.442349, 0, 0, 1.5, 0.5, 0.5,
+-3.56784, -3.442349, 2, 0, -0.5, 0.5, 0.5,
+-3.56784, -3.442349, 2, 1, -0.5, 0.5, 0.5,
+-3.56784, -3.442349, 2, 1, 1.5, 0.5, 0.5,
+-3.56784, -3.442349, 2, 0, 1.5, 0.5, 0.5,
+-3.56784, -3.442349, 4, 0, -0.5, 0.5, 0.5,
+-3.56784, -3.442349, 4, 1, -0.5, 0.5, 0.5,
+-3.56784, -3.442349, 4, 1, 1.5, 0.5, 0.5,
+-3.56784, -3.442349, 4, 0, 1.5, 0.5, 0.5
+]);
+for (var i=0; i<5; i++) 
+for (var j=0; j<4; j++) {
+ind = 7*(4*i + j) + 3;
+v[ind+2] = 2*(v[ind]-v[ind+2])*texinfo.widths[i];
+v[ind+3] = 2*(v[ind+1]-v[ind+3])*texinfo.textHeight;
+v[ind] *= texinfo.widths[i]/texinfo.canvasX;
+v[ind+1] = 1.0-(texinfo.offset + i*texinfo.skip 
+- v[ind+1]*texinfo.textHeight)/texinfo.canvasY;
+}
+var f=new Uint16Array([
+0, 1, 2, 0, 2, 3,
+4, 5, 6, 4, 6, 7,
+8, 9, 10, 8, 10, 11,
+12, 13, 14, 12, 14, 15,
+16, 17, 18, 16, 18, 19
+]);
+var buf17 = gl.createBuffer();
+gl.bindBuffer(gl.ARRAY_BUFFER, buf17);
+gl.bufferData(gl.ARRAY_BUFFER, v, gl.STATIC_DRAW);
+var ibuf17 = gl.createBuffer();
+gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, ibuf17);
+gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, f, gl.STATIC_DRAW);
+var mvMatLoc17 = gl.getUniformLocation(prog17,"mvMatrix");
+var prMatLoc17 = gl.getUniformLocation(prog17,"prMatrix");
+var textScaleLoc17 = gl.getUniformLocation(prog17,"textScale");
+// ****** lines object 18 ******
+var prog18  = gl.createProgram();
+gl.attachShader(prog18, getShader( gl, "testglvshader18" ));
+gl.attachShader(prog18, getShader( gl, "testglfshader18" ));
+//  Force aPos to location 0, aCol to location 1 
+gl.bindAttribLocation(prog18, 0, "aPos");
+gl.bindAttribLocation(prog18, 1, "aCol");
+gl.linkProgram(prog18);
+var v=new Float32Array([
+-3.087601, -2.987184, -5.727184,
+-3.087601, 3.081678, -5.727184,
+-3.087601, -2.987184, 5.431013,
+-3.087601, 3.081678, 5.431013,
+-3.087601, -2.987184, -5.727184,
+-3.087601, -2.987184, 5.431013,
+-3.087601, 3.081678, -5.727184,
+-3.087601, 3.081678, 5.431013,
+-3.087601, -2.987184, -5.727184,
+3.315592, -2.987184, -5.727184,
+-3.087601, -2.987184, 5.431013,
+3.315592, -2.987184, 5.431013,
+-3.087601, 3.081678, -5.727184,
+3.315592, 3.081678, -5.727184,
+-3.087601, 3.081678, 5.431013,
+3.315592, 3.081678, 5.431013,
+3.315592, -2.987184, -5.727184,
+3.315592, 3.081678, -5.727184,
+3.315592, -2.987184, 5.431013,
+3.315592, 3.081678, 5.431013,
+3.315592, -2.987184, -5.727184,
+3.315592, -2.987184, 5.431013,
+3.315592, 3.081678, -5.727184,
+3.315592, 3.081678, 5.431013
+]);
+var buf18 = gl.createBuffer();
+gl.bindBuffer(gl.ARRAY_BUFFER, buf18);
+gl.bufferData(gl.ARRAY_BUFFER, v, gl.STATIC_DRAW);
+var mvMatLoc18 = gl.getUniformLocation(prog18,"mvMatrix");
+var prMatLoc18 = gl.getUniformLocation(prog18,"prMatrix");
+gl.enable(gl.DEPTH_TEST);
+gl.depthFunc(gl.LEQUAL);
+gl.clearDepth(1.0);
+gl.clearColor(1,1,1,1);
+var xOffs = yOffs = 0,  drag  = 0;
+function multMV(M, v) {
+return [M.m11*v[0] + M.m12*v[1] + M.m13*v[2] + M.m14*v[3],
+M.m21*v[0] + M.m22*v[1] + M.m23*v[2] + M.m24*v[3],
+M.m31*v[0] + M.m32*v[1] + M.m33*v[2] + M.m34*v[3],
+M.m41*v[0] + M.m42*v[1] + M.m43*v[2] + M.m44*v[3]];
+}
+drawScene();
+function drawScene(){
+gl.depthMask(true);
+gl.disable(gl.BLEND);
+gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
+// ***** subscene 1 ****
+gl.viewport(0, 0, 504, 504);
+gl.scissor(0, 0, 504, 504);
+gl.clearColor(1, 1, 1, 1);
+gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
+var radius = 7.595624;
+var distance = 33.79379;
+var t = tan(fov[1]*PI/360);
+var near = distance - radius;
+var far = distance + radius;
+var hlen = t*near;
+var aspect = 1;
+prMatrix.makeIdentity();
+if (aspect > 1)
+prMatrix.frustum(-hlen*aspect*zoom[1], hlen*aspect*zoom[1], 
+-hlen*zoom[1], hlen*zoom[1], near, far);
+else  
+prMatrix.frustum(-hlen*zoom[1], hlen*zoom[1], 
+-hlen*zoom[1]/aspect, hlen*zoom[1]/aspect, 
+near, far);
+mvMatrix.makeIdentity();
+mvMatrix.translate( -0.1139956, -0.04724669, 0.1480858 );
+mvMatrix.scale( 1.282569, 1.353225, 0.7360094 );   
+mvMatrix.multRight( userMatrix[1] );
+mvMatrix.translate(-0, -0, -33.79379);
+// ****** points object 7 *******
+gl.useProgram(prog7);
+gl.bindBuffer(gl.ARRAY_BUFFER, buf7);
+gl.uniformMatrix4fv( prMatLoc7, false, new Float32Array(prMatrix.getAsArray()) );
+gl.uniformMatrix4fv( mvMatLoc7, false, new Float32Array(mvMatrix.getAsArray()) );
+gl.enableVertexAttribArray( posLoc );
+gl.enableVertexAttribArray( colLoc );
+gl.vertexAttribPointer(colLoc, 4, gl.FLOAT, false, 28, 12);
+gl.vertexAttribPointer(posLoc,  3, gl.FLOAT, false, 28,  0);
+gl.drawArrays(gl.POINTS, 0, 1000);
+// ****** text object 9 *******
+gl.useProgram(prog9);
+gl.bindBuffer(gl.ARRAY_BUFFER, buf9);
+gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, ibuf9);
+gl.uniformMatrix4fv( prMatLoc9, false, new Float32Array(prMatrix.getAsArray()) );
+gl.uniformMatrix4fv( mvMatLoc9, false, new Float32Array(mvMatrix.getAsArray()) );
+gl.uniform2f( textScaleLoc9, 0.001488095, 0.001488095);
+gl.enableVertexAttribArray( posLoc );
+gl.disableVertexAttribArray( colLoc );
+gl.vertexAttrib4f( colLoc, 0, 0, 0, 1 );
+gl.enableVertexAttribArray( texLoc9 );
+gl.vertexAttribPointer(texLoc9, 2, gl.FLOAT, false, 28, 12);
+gl.activeTexture(gl.TEXTURE0);
+gl.bindTexture(gl.TEXTURE_2D, texture9);
+gl.uniform1i( sampler9, 0);
+gl.enableVertexAttribArray( ofsLoc9 );
+gl.vertexAttribPointer(ofsLoc9, 2, gl.FLOAT, false, 28, 20);
+gl.vertexAttribPointer(posLoc,  3, gl.FLOAT, false, 28,  0);
+gl.drawElements(gl.TRIANGLES, 6, gl.UNSIGNED_SHORT, 0);
+// ****** text object 10 *******
+gl.useProgram(prog10);
+gl.bindBuffer(gl.ARRAY_BUFFER, buf10);
+gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, ibuf10);
+gl.uniformMatrix4fv( prMatLoc10, false, new Float32Array(prMatrix.getAsArray()) );
+gl.uniformMatrix4fv( mvMatLoc10, false, new Float32Array(mvMatrix.getAsArray()) );
+gl.uniform2f( textScaleLoc10, 0.001488095, 0.001488095);
+gl.enableVertexAttribArray( posLoc );
+gl.disableVertexAttribArray( colLoc );
+gl.vertexAttrib4f( colLoc, 0, 0, 0, 1 );
+gl.enableVertexAttribArray( texLoc10 );
+gl.vertexAttribPointer(texLoc10, 2, gl.FLOAT, false, 28, 12);
+gl.activeTexture(gl.TEXTURE0);
+gl.bindTexture(gl.TEXTURE_2D, texture10);
+gl.uniform1i( sampler10, 0);
+gl.enableVertexAttribArray( ofsLoc10 );
+gl.vertexAttribPointer(ofsLoc10, 2, gl.FLOAT, false, 28, 20);
+gl.vertexAttribPointer(posLoc,  3, gl.FLOAT, false, 28,  0);
+gl.drawElements(gl.TRIANGLES, 6, gl.UNSIGNED_SHORT, 0);
+// ****** text object 11 *******
+gl.useProgram(prog11);
+gl.bindBuffer(gl.ARRAY_BUFFER, buf11);
+gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, ibuf11);
+gl.uniformMatrix4fv( prMatLoc11, false, new Float32Array(prMatrix.getAsArray()) );
+gl.uniformMatrix4fv( mvMatLoc11, false, new Float32Array(mvMatrix.getAsArray()) );
+gl.uniform2f( textScaleLoc11, 0.001488095, 0.001488095);
+gl.enableVertexAttribArray( posLoc );
+gl.disableVertexAttribArray( colLoc );
+gl.vertexAttrib4f( colLoc, 0, 0, 0, 1 );
+gl.enableVertexAttribArray( texLoc11 );
+gl.vertexAttribPointer(texLoc11, 2, gl.FLOAT, false, 28, 12);
+gl.activeTexture(gl.TEXTURE0);
+gl.bindTexture(gl.TEXTURE_2D, texture11);
+gl.uniform1i( sampler11, 0);
+gl.enableVertexAttribArray( ofsLoc11 );
+gl.vertexAttribPointer(ofsLoc11, 2, gl.FLOAT, false, 28, 20);
+gl.vertexAttribPointer(posLoc,  3, gl.FLOAT, false, 28,  0);
+gl.drawElements(gl.TRIANGLES, 6, gl.UNSIGNED_SHORT, 0);
+// ****** lines object 12 *******
+gl.useProgram(prog12);
+gl.bindBuffer(gl.ARRAY_BUFFER, buf12);
+gl.uniformMatrix4fv( prMatLoc12, false, new Float32Array(prMatrix.getAsArray()) );
+gl.uniformMatrix4fv( mvMatLoc12, false, new Float32Array(mvMatrix.getAsArray()) );
+gl.enableVertexAttribArray( posLoc );
+gl.disableVertexAttribArray( colLoc );
+gl.vertexAttrib4f( colLoc, 0, 0, 0, 1 );
+gl.lineWidth( 1 );
+gl.vertexAttribPointer(posLoc,  3, gl.FLOAT, false, 12,  0);
+gl.drawArrays(gl.LINES, 0, 14);
+// ****** text object 13 *******
+gl.useProgram(prog13);
+gl.bindBuffer(gl.ARRAY_BUFFER, buf13);
+gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, ibuf13);
+gl.uniformMatrix4fv( prMatLoc13, false, new Float32Array(prMatrix.getAsArray()) );
+gl.uniformMatrix4fv( mvMatLoc13, false, new Float32Array(mvMatrix.getAsArray()) );
+gl.uniform2f( textScaleLoc13, 0.001488095, 0.001488095);
+gl.enableVertexAttribArray( posLoc );
+gl.disableVertexAttribArray( colLoc );
+gl.vertexAttrib4f( colLoc, 0, 0, 0, 1 );
+gl.enableVertexAttribArray( texLoc13 );
+gl.vertexAttribPointer(texLoc13, 2, gl.FLOAT, false, 28, 12);
+gl.activeTexture(gl.TEXTURE0);
+gl.bindTexture(gl.TEXTURE_2D, texture13);
+gl.uniform1i( sampler13, 0);
+gl.enableVertexAttribArray( ofsLoc13 );
+gl.vertexAttribPointer(ofsLoc13, 2, gl.FLOAT, false, 28, 20);
+gl.vertexAttribPointer(posLoc,  3, gl.FLOAT, false, 28,  0);
+gl.drawElements(gl.TRIANGLES, 36, gl.UNSIGNED_SHORT, 0);
+// ****** lines object 14 *******
+gl.useProgram(prog14);
+gl.bindBuffer(gl.ARRAY_BUFFER, buf14);
+gl.uniformMatrix4fv( prMatLoc14, false, new Float32Array(prMatrix.getAsArray()) );
+gl.uniformMatrix4fv( mvMatLoc14, false, new Float32Array(mvMatrix.getAsArray()) );
+gl.enableVertexAttribArray( posLoc );
+gl.disableVertexAttribArray( colLoc );
+gl.vertexAttrib4f( colLoc, 0, 0, 0, 1 );
+gl.lineWidth( 1 );
+gl.vertexAttribPointer(posLoc,  3, gl.FLOAT, false, 12,  0);
+gl.drawArrays(gl.LINES, 0, 12);
+// ****** text object 15 *******
+gl.useProgram(prog15);
+gl.bindBuffer(gl.ARRAY_BUFFER, buf15);
+gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, ibuf15);
+gl.uniformMatrix4fv( prMatLoc15, false, new Float32Array(prMatrix.getAsArray()) );
+gl.uniformMatrix4fv( mvMatLoc15, false, new Float32Array(mvMatrix.getAsArray()) );
+gl.uniform2f( textScaleLoc15, 0.001488095, 0.001488095);
+gl.enableVertexAttribArray( posLoc );
+gl.disableVertexAttribArray( colLoc );
+gl.vertexAttrib4f( colLoc, 0, 0, 0, 1 );
+gl.enableVertexAttribArray( texLoc15 );
+gl.vertexAttribPointer(texLoc15, 2, gl.FLOAT, false, 28, 12);
+gl.activeTexture(gl.TEXTURE0);
+gl.bindTexture(gl.TEXTURE_2D, texture15);
+gl.uniform1i( sampler15, 0);
+gl.enableVertexAttribArray( ofsLoc15 );
+gl.vertexAttribPointer(ofsLoc15, 2, gl.FLOAT, false, 28, 20);
+gl.vertexAttribPointer(posLoc,  3, gl.FLOAT, false, 28,  0);
+gl.drawElements(gl.TRIANGLES, 30, gl.UNSIGNED_SHORT, 0);
+// ****** lines object 16 *******
+gl.useProgram(prog16);
+gl.bindBuffer(gl.ARRAY_BUFFER, buf16);
+gl.uniformMatrix4fv( prMatLoc16, false, new Float32Array(prMatrix.getAsArray()) );
+gl.uniformMatrix4fv( mvMatLoc16, false, new Float32Array(mvMatrix.getAsArray()) );
+gl.enableVertexAttribArray( posLoc );
+gl.disableVertexAttribArray( colLoc );
+gl.vertexAttrib4f( colLoc, 0, 0, 0, 1 );
+gl.lineWidth( 1 );
+gl.vertexAttribPointer(posLoc,  3, gl.FLOAT, false, 12,  0);
+gl.drawArrays(gl.LINES, 0, 12);
+// ****** text object 17 *******
+gl.useProgram(prog17);
+gl.bindBuffer(gl.ARRAY_BUFFER, buf17);
+gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, ibuf17);
+gl.uniformMatrix4fv( prMatLoc17, false, new Float32Array(prMatrix.getAsArray()) );
+gl.uniformMatrix4fv( mvMatLoc17, false, new Float32Array(mvMatrix.getAsArray()) );
+gl.uniform2f( textScaleLoc17, 0.001488095, 0.001488095);
+gl.enableVertexAttribArray( posLoc );
+gl.disableVertexAttribArray( colLoc );
+gl.vertexAttrib4f( colLoc, 0, 0, 0, 1 );
+gl.enableVertexAttribArray( texLoc17 );
+gl.vertexAttribPointer(texLoc17, 2, gl.FLOAT, false, 28, 12);
+gl.activeTexture(gl.TEXTURE0);
+gl.bindTexture(gl.TEXTURE_2D, texture17);
+gl.uniform1i( sampler17, 0);
+gl.enableVertexAttribArray( ofsLoc17 );
+gl.vertexAttribPointer(ofsLoc17, 2, gl.FLOAT, false, 28, 20);
+gl.vertexAttribPointer(posLoc,  3, gl.FLOAT, false, 28,  0);
+gl.drawElements(gl.TRIANGLES, 30, gl.UNSIGNED_SHORT, 0);
+// ****** lines object 18 *******
+gl.useProgram(prog18);
+gl.bindBuffer(gl.ARRAY_BUFFER, buf18);
+gl.uniformMatrix4fv( prMatLoc18, false, new Float32Array(prMatrix.getAsArray()) );
+gl.uniformMatrix4fv( mvMatLoc18, false, new Float32Array(mvMatrix.getAsArray()) );
+gl.enableVertexAttribArray( posLoc );
+gl.disableVertexAttribArray( colLoc );
+gl.vertexAttrib4f( colLoc, 0, 0, 0, 1 );
+gl.lineWidth( 1 );
+gl.vertexAttribPointer(posLoc,  3, gl.FLOAT, false, 12,  0);
+gl.drawArrays(gl.LINES, 0, 24);
+gl.flush ();
+}
+var vpx0 = {
+1: 0
+};
+var vpy0 = {
+1: 0
+};
+var vpWidths = {
+1: 504
+};
+var vpHeights = {
+1: 504
+};
+var activeModel = {
+1: 1
+};
+var activeProjection = {
+1: 1
+};
+var whichSubscene = function(coords){
+if (0 <= coords.x && coords.x <= 504 && 0 <= coords.y && coords.y <= 504) return(1);
+return(1);
+}
+var translateCoords = function(subsceneid, coords){
+return {x:coords.x - vpx0[subsceneid], y:coords.y - vpy0[subsceneid]};
+}
+var vlen = function(v) {
+return sqrt(v[0]*v[0] + v[1]*v[1] + v[2]*v[2])
+}
+var xprod = function(a, b) {
+return [a[1]*b[2] - a[2]*b[1],
+a[2]*b[0] - a[0]*b[2],
+a[0]*b[1] - a[1]*b[0]];
+}
+var screenToVector = function(x, y) {
+var width = vpWidths[activeSubscene];
+var height = vpHeights[activeSubscene];
+var radius = max(width, height)/2.0;
+var cx = width/2.0;
+var cy = height/2.0;
+var px = (x-cx)/radius;
+var py = (y-cy)/radius;
+var plen = sqrt(px*px+py*py);
+if (plen > 1.e-6) { 
+px = px/plen;
+py = py/plen;
+}
+var angle = (SQRT2 - plen)/SQRT2*PI/2;
+var z = sin(angle);
+var zlen = sqrt(1.0 - z*z);
+px = px * zlen;
+py = py * zlen;
+return [px, py, z];
+}
+var rotBase;
+var trackballdown = function(x,y) {
+rotBase = screenToVector(x, y);
+saveMat.load(userMatrix[activeModel[activeSubscene]]);
+}
+var trackballmove = function(x,y) {
+var rotCurrent = screenToVector(x,y);
+var dot = rotBase[0]*rotCurrent[0] + 
+rotBase[1]*rotCurrent[1] + 
+rotBase[2]*rotCurrent[2];
+var angle = acos( dot/vlen(rotBase)/vlen(rotCurrent) )*180./PI;
+var axis = xprod(rotBase, rotCurrent);
+userMatrix[activeModel[activeSubscene]].load(saveMat);
+userMatrix[activeModel[activeSubscene]].rotate(angle, axis[0], axis[1], axis[2]);
+drawScene();
+}
+var y0zoom = 0;
+var zoom0 = 1;
+var zoomdown = function(x, y) {
+y0zoom = y;
+zoom0 = log(zoom[activeProjection[activeSubscene]]);
+}
+var zoommove = function(x, y) {
+zoom[activeProjection[activeSubscene]] = exp(zoom0 + (y-y0zoom)/height);
+drawScene();
+}
+var y0fov = 0;
+var fov0 = 1;
+var fovdown = function(x, y) {
+y0fov = y;
+fov0 = fov[activeProjection[activeSubscene]];
+}
+var fovmove = function(x, y) {
+fov[activeProjection[activeSubscene]] = max(1, min(179, fov0 + 180*(y-y0fov)/height));
+drawScene();
+}
+var mousedown = [trackballdown, zoomdown, fovdown];
+var mousemove = [trackballmove, zoommove, fovmove];
+function relMouseCoords(event){
+var totalOffsetX = 0;
+var totalOffsetY = 0;
+var currentElement = canvas;
+do{
+totalOffsetX += currentElement.offsetLeft;
+totalOffsetY += currentElement.offsetTop;
+}
+while(currentElement = currentElement.offsetParent)
+var canvasX = event.pageX - totalOffsetX;
+var canvasY = event.pageY - totalOffsetY;
+return {x:canvasX, y:canvasY}
+}
+canvas.onmousedown = function ( ev ){
+if (!ev.which) // Use w3c defns in preference to MS
+switch (ev.button) {
+case 0: ev.which = 1; break;
+case 1: 
+case 4: ev.which = 2; break;
+case 2: ev.which = 3;
+}
+drag = ev.which;
+var f = mousedown[drag-1];
+if (f) {
+var coords = relMouseCoords(ev);
+coords.y = height-coords.y;
+activeSubscene = whichSubscene(coords);
+coords = translateCoords(activeSubscene, coords);
+f(coords.x, coords.y); 
+ev.preventDefault();
+}
+}    
+canvas.onmouseup = function ( ev ){	
+drag = 0;
+}
+canvas.onmouseout = canvas.onmouseup;
+canvas.onmousemove = function ( ev ){
+if ( drag == 0 ) return;
+var f = mousemove[drag-1];
+if (f) {
+var coords = relMouseCoords(ev);
+coords.y = height - coords.y;
+coords = translateCoords(activeSubscene, coords);
+f(coords.x, coords.y);
+}
+}
+var wheelHandler = function(ev) {
+var del = 1.1;
+if (ev.shiftKey) del = 1.01;
+var ds = ((ev.detail || ev.wheelDelta) > 0) ? del : (1 / del);
+zoom[activeProjection[activeSubscene]] *= ds;
+drawScene();
+ev.preventDefault();
+};
+canvas.addEventListener("DOMMouseScroll", wheelHandler, false);
+canvas.addEventListener("mousewheel", wheelHandler, false);
+}
+</script>
+<canvas id="testglcanvas" width="1" height="1"></canvas> 
+<p id="testgldebug">
+You must enable Javascript to view this page properly.</p>
+<script>testglwebGLStart();</script>
+
+The following a 3D image is of Atrazine rendered from the 3D conformer file derived from here (http://pubchem.ncbi.nlm.nih.gov/compound/2256). The atoms are represented as spheres Nitrogen as blue, carbon as black, hydrogen as white, and chlorine as blue.
+
+
+```r
+open3d()
+```
+
+```
+## glX 
+##   2
+```
+
+```r
+Nix<-read.table("Nix.xyz")
+```
+
+```
+## Error in read.table("Nix.xyz"): no lines available in input
+```
+
+```r
+x<-Nix$V2
+```
+
+```
+## Error in eval(expr, envir, enclos): object 'Nix' not found
+```
+
+```r
+y<-Nix$V3
+```
+
+```
+## Error in eval(expr, envir, enclos): object 'Nix' not found
+```
+
+```r
+z<-Nix$V4
+```
+
+```
+## Error in eval(expr, envir, enclos): object 'Nix' not found
+```
+
+```r
+atomcolor=c(rep("blue", 1), rep("red", 5), rep("black", 7), rep("white", 15))
+#spheres3d(x, y, z, col=rainbow(1000))
+spheres3d(x, y, z, col=atomcolor)
+```
+
+<canvas id="testgl2textureCanvas" style="display: none;" width="256" height="256">
+Your browser does not support the HTML5 canvas element.</canvas>
+<!-- ****** spheres object 25 ****** -->
+<script id="testgl2vshader25" type="x-shader/x-vertex">
+attribute vec3 aPos;
+attribute vec4 aCol;
+uniform mat4 mvMatrix;
+uniform mat4 prMatrix;
+varying vec4 vCol;
+varying vec4 vPosition;
+attribute vec3 aNorm;
+uniform mat4 normMatrix;
+varying vec3 vNormal;
+void main(void) {
+vPosition = mvMatrix * vec4(aPos, 1.);
+gl_Position = prMatrix * vPosition;
+vCol = aCol;
+vNormal = normalize((normMatrix * vec4(aNorm, 1.)).xyz);
+}
+</script>
+<script id="testgl2fshader25" type="x-shader/x-fragment"> 
+#ifdef GL_ES
+precision highp float;
+#endif
+varying vec4 vCol; // carries alpha
+varying vec4 vPosition;
+varying vec3 vNormal;
+void main(void) {
+vec3 eye = normalize(-vPosition.xyz);
+const vec3 emission = vec3(0., 0., 0.);
+const vec3 ambient1 = vec3(0., 0., 0.);
+const vec3 specular1 = vec3(1., 1., 1.);// light*material
+const float shininess1 = 50.;
+vec4 colDiff1 = vec4(vCol.rgb * vec3(1., 1., 1.), vCol.a);
+const vec3 lightDir1 = vec3(0., 0., 1.);
+vec3 halfVec1 = normalize(lightDir1 + eye);
+vec4 lighteffect = vec4(emission, 0.);
+vec3 n = normalize(vNormal);
+n = -faceforward(n, n, eye);
+vec3 col1 = ambient1;
+float nDotL1 = dot(n, lightDir1);
+col1 = col1 + max(nDotL1, 0.) * colDiff1.rgb;
+col1 = col1 + pow(max(dot(halfVec1, n), 0.), shininess1) * specular1;
+lighteffect = lighteffect + vec4(col1, colDiff1.a);
+gl_FragColor = lighteffect;
+}
+</script> 
+<script type="text/javascript"> 
+function getShader ( gl, id ){
+var shaderScript = document.getElementById ( id );
+var str = "";
+var k = shaderScript.firstChild;
+while ( k ){
+if ( k.nodeType == 3 ) str += k.textContent;
+k = k.nextSibling;
+}
+var shader;
+if ( shaderScript.type == "x-shader/x-fragment" )
+shader = gl.createShader ( gl.FRAGMENT_SHADER );
+else if ( shaderScript.type == "x-shader/x-vertex" )
+shader = gl.createShader(gl.VERTEX_SHADER);
+else return null;
+gl.shaderSource(shader, str);
+gl.compileShader(shader);
+if (gl.getShaderParameter(shader, gl.COMPILE_STATUS) == 0)
+alert(gl.getShaderInfoLog(shader));
+return shader;
+}
+var min = Math.min;
+var max = Math.max;
+var sqrt = Math.sqrt;
+var sin = Math.sin;
+var acos = Math.acos;
+var tan = Math.tan;
+var SQRT2 = Math.SQRT2;
+var PI = Math.PI;
+var log = Math.log;
+var exp = Math.exp;
+function testgl2webGLStart() {
+var debug = function(msg) {
+document.getElementById("testgl2debug").innerHTML = msg;
+}
+debug("");
+var canvas = document.getElementById("testgl2canvas");
+if (!window.WebGLRenderingContext){
+debug(" Your browser does not support WebGL. See <a href=\"http://get.webgl.org\">http://get.webgl.org</a>");
+return;
+}
+var gl;
+try {
+// Try to grab the standard context. If it fails, fallback to experimental.
+gl = canvas.getContext("webgl") 
+|| canvas.getContext("experimental-webgl");
+}
+catch(e) {}
+if ( !gl ) {
+debug(" Your browser appears to support WebGL, but did not create a WebGL context.  See <a href=\"http://get.webgl.org\">http://get.webgl.org</a>");
+return;
+}
+var width = 505;  var height = 505;
+canvas.width = width;   canvas.height = height;
+var prMatrix = new CanvasMatrix4();
+var mvMatrix = new CanvasMatrix4();
+var normMatrix = new CanvasMatrix4();
+var saveMat = new CanvasMatrix4();
+saveMat.makeIdentity();
+var distance;
+var posLoc = 0;
+var colLoc = 1;
+var zoom = new Object();
+var fov = new Object();
+var userMatrix = new Object();
+var activeSubscene = 19;
+zoom[19] = 1;
+fov[19] = 30;
+userMatrix[19] = new CanvasMatrix4();
+userMatrix[19].load([
+1, 0, 0, 0,
+0, 0.3420201, -0.9396926, 0,
+0, 0.9396926, 0.3420201, 0,
+0, 0, 0, 1
+]);
+function getPowerOfTwo(value) {
+var pow = 1;
+while(pow<value) {
+pow *= 2;
+}
+return pow;
+}
+function handleLoadedTexture(texture, textureCanvas) {
+gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, true);
+gl.bindTexture(gl.TEXTURE_2D, texture);
+gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, textureCanvas);
+gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
+gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR_MIPMAP_NEAREST);
+gl.generateMipmap(gl.TEXTURE_2D);
+gl.bindTexture(gl.TEXTURE_2D, null);
+}
+function loadImageToTexture(filename, texture) {   
+var canvas = document.getElementById("testgl2textureCanvas");
+var ctx = canvas.getContext("2d");
+var image = new Image();
+image.onload = function() {
+var w = image.width;
+var h = image.height;
+var canvasX = getPowerOfTwo(w);
+var canvasY = getPowerOfTwo(h);
+canvas.width = canvasX;
+canvas.height = canvasY;
+ctx.imageSmoothingEnabled = true;
+ctx.drawImage(image, 0, 0, canvasX, canvasY);
+handleLoadedTexture(texture, canvas);
+drawScene();
+}
+image.src = filename;
+}  	   
+// ****** sphere object ******
+var v=new Float32Array([
+-1, 0, 0,
+1, 0, 0,
+0, -1, 0,
+0, 1, 0,
+0, 0, -1,
+0, 0, 1,
+-0.7071068, 0, -0.7071068,
+-0.7071068, -0.7071068, 0,
+0, -0.7071068, -0.7071068,
+-0.7071068, 0, 0.7071068,
+0, -0.7071068, 0.7071068,
+-0.7071068, 0.7071068, 0,
+0, 0.7071068, -0.7071068,
+0, 0.7071068, 0.7071068,
+0.7071068, -0.7071068, 0,
+0.7071068, 0, -0.7071068,
+0.7071068, 0, 0.7071068,
+0.7071068, 0.7071068, 0,
+-0.9349975, 0, -0.3546542,
+-0.9349975, -0.3546542, 0,
+-0.77044, -0.4507894, -0.4507894,
+0, -0.3546542, -0.9349975,
+-0.3546542, 0, -0.9349975,
+-0.4507894, -0.4507894, -0.77044,
+-0.3546542, -0.9349975, 0,
+0, -0.9349975, -0.3546542,
+-0.4507894, -0.77044, -0.4507894,
+-0.9349975, 0, 0.3546542,
+-0.77044, -0.4507894, 0.4507894,
+0, -0.9349975, 0.3546542,
+-0.4507894, -0.77044, 0.4507894,
+-0.3546542, 0, 0.9349975,
+0, -0.3546542, 0.9349975,
+-0.4507894, -0.4507894, 0.77044,
+-0.9349975, 0.3546542, 0,
+-0.77044, 0.4507894, -0.4507894,
+0, 0.9349975, -0.3546542,
+-0.3546542, 0.9349975, 0,
+-0.4507894, 0.77044, -0.4507894,
+0, 0.3546542, -0.9349975,
+-0.4507894, 0.4507894, -0.77044,
+-0.77044, 0.4507894, 0.4507894,
+0, 0.3546542, 0.9349975,
+-0.4507894, 0.4507894, 0.77044,
+0, 0.9349975, 0.3546542,
+-0.4507894, 0.77044, 0.4507894,
+0.9349975, -0.3546542, 0,
+0.9349975, 0, -0.3546542,
+0.77044, -0.4507894, -0.4507894,
+0.3546542, -0.9349975, 0,
+0.4507894, -0.77044, -0.4507894,
+0.3546542, 0, -0.9349975,
+0.4507894, -0.4507894, -0.77044,
+0.9349975, 0, 0.3546542,
+0.77044, -0.4507894, 0.4507894,
+0.3546542, 0, 0.9349975,
+0.4507894, -0.4507894, 0.77044,
+0.4507894, -0.77044, 0.4507894,
+0.9349975, 0.3546542, 0,
+0.77044, 0.4507894, -0.4507894,
+0.4507894, 0.4507894, -0.77044,
+0.3546542, 0.9349975, 0,
+0.4507894, 0.77044, -0.4507894,
+0.77044, 0.4507894, 0.4507894,
+0.4507894, 0.77044, 0.4507894,
+0.4507894, 0.4507894, 0.77044
+]);
+var f=new Uint16Array([
+0, 18, 19,
+6, 20, 18,
+7, 19, 20,
+19, 18, 20,
+4, 21, 22,
+8, 23, 21,
+6, 22, 23,
+22, 21, 23,
+2, 24, 25,
+7, 26, 24,
+8, 25, 26,
+25, 24, 26,
+7, 20, 26,
+6, 23, 20,
+8, 26, 23,
+26, 20, 23,
+0, 19, 27,
+7, 28, 19,
+9, 27, 28,
+27, 19, 28,
+2, 29, 24,
+10, 30, 29,
+7, 24, 30,
+24, 29, 30,
+5, 31, 32,
+9, 33, 31,
+10, 32, 33,
+32, 31, 33,
+9, 28, 33,
+7, 30, 28,
+10, 33, 30,
+33, 28, 30,
+0, 34, 18,
+11, 35, 34,
+6, 18, 35,
+18, 34, 35,
+3, 36, 37,
+12, 38, 36,
+11, 37, 38,
+37, 36, 38,
+4, 22, 39,
+6, 40, 22,
+12, 39, 40,
+39, 22, 40,
+6, 35, 40,
+11, 38, 35,
+12, 40, 38,
+40, 35, 38,
+0, 27, 34,
+9, 41, 27,
+11, 34, 41,
+34, 27, 41,
+5, 42, 31,
+13, 43, 42,
+9, 31, 43,
+31, 42, 43,
+3, 37, 44,
+11, 45, 37,
+13, 44, 45,
+44, 37, 45,
+11, 41, 45,
+9, 43, 41,
+13, 45, 43,
+45, 41, 43,
+1, 46, 47,
+14, 48, 46,
+15, 47, 48,
+47, 46, 48,
+2, 25, 49,
+8, 50, 25,
+14, 49, 50,
+49, 25, 50,
+4, 51, 21,
+15, 52, 51,
+8, 21, 52,
+21, 51, 52,
+15, 48, 52,
+14, 50, 48,
+8, 52, 50,
+52, 48, 50,
+1, 53, 46,
+16, 54, 53,
+14, 46, 54,
+46, 53, 54,
+5, 32, 55,
+10, 56, 32,
+16, 55, 56,
+55, 32, 56,
+2, 49, 29,
+14, 57, 49,
+10, 29, 57,
+29, 49, 57,
+14, 54, 57,
+16, 56, 54,
+10, 57, 56,
+57, 54, 56,
+1, 47, 58,
+15, 59, 47,
+17, 58, 59,
+58, 47, 59,
+4, 39, 51,
+12, 60, 39,
+15, 51, 60,
+51, 39, 60,
+3, 61, 36,
+17, 62, 61,
+12, 36, 62,
+36, 61, 62,
+17, 59, 62,
+15, 60, 59,
+12, 62, 60,
+62, 59, 60,
+1, 58, 53,
+17, 63, 58,
+16, 53, 63,
+53, 58, 63,
+3, 44, 61,
+13, 64, 44,
+17, 61, 64,
+61, 44, 64,
+5, 55, 42,
+16, 65, 55,
+13, 42, 65,
+42, 55, 65,
+16, 63, 65,
+17, 64, 63,
+13, 65, 64,
+65, 63, 64
+]);
+var sphereBuf = gl.createBuffer();
+gl.bindBuffer(gl.ARRAY_BUFFER, sphereBuf);
+gl.bufferData(gl.ARRAY_BUFFER, v, gl.STATIC_DRAW);
+var sphereIbuf = gl.createBuffer();
+gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, sphereIbuf);
+gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, f, gl.STATIC_DRAW);
+// ****** spheres object 25 ******
+var prog25  = gl.createProgram();
+gl.attachShader(prog25, getShader( gl, "testgl2vshader25" ));
+gl.attachShader(prog25, getShader( gl, "testgl2fshader25" ));
+//  Force aPos to location 0, aCol to location 1 
+gl.bindAttribLocation(prog25, 0, "aPos");
+gl.bindAttribLocation(prog25, 1, "aCol");
+gl.linkProgram(prog25);
+var v=new Float32Array([
+-2.99435, -0.1482337, -1.622553, 0, 0, 1, 1, 1,
+-2.894345, 1.71726, 0.9750021, 1, 0, 0, 1, 1,
+-2.875929, 1.027582, -2.448845, 1, 0, 0, 1, 1,
+-2.793223, -0.3804085, -2.268098, 1, 0, 0, 1, 1,
+-2.718587, -2.069734, -1.270066, 1, 0, 0, 1, 1,
+-2.700871, -0.4811111, -2.373087, 1, 0, 0, 1, 1,
+-2.659264, 1.824112, -0.3619736, 0, 0, 0, 1, 1,
+-2.593992, 0.5283091, 0.217717, 0, 0, 0, 1, 1,
+-2.56334, -0.4594836, -1.732319, 0, 0, 0, 1, 1,
+-2.530589, 1.711611, -0.4617893, 0, 0, 0, 1, 1,
+-2.505591, 0.642021, -0.2501836, 0, 0, 0, 1, 1,
+-2.486418, 0.5210132, 0.02136173, 0, 0, 0, 1, 1,
+-2.463259, 0.359178, -1.657276, 0, 0, 0, 1, 1,
+-2.423966, 0.4678801, -1.813359, 1, 1, 1, 1, 1,
+-2.379898, 0.4185638, -1.717189, 1, 1, 1, 1, 1,
+-2.371548, -2.610761, -1.661655, 1, 1, 1, 1, 1,
+-2.367219, 0.06292752, -1.448667, 1, 1, 1, 1, 1,
+-2.362205, -0.248878, -1.348505, 1, 1, 1, 1, 1,
+-2.35245, 1.340495, -2.477379, 1, 1, 1, 1, 1,
+-2.314054, 1.213025, -1.643129, 1, 1, 1, 1, 1,
+-2.277625, -0.4689046, -0.6260686, 1, 1, 1, 1, 1,
+-2.240421, 0.02820619, -0.8341925, 1, 1, 1, 1, 1,
+-2.207377, 0.06666069, -0.3051386, 1, 1, 1, 1, 1,
+-2.199404, 0.3123615, -0.2986182, 1, 1, 1, 1, 1,
+-2.194405, 0.5667221, -1.174394, 1, 1, 1, 1, 1,
+-2.116813, 0.3832847, -0.8454542, 1, 1, 1, 1, 1,
+-2.108401, 0.1683293, -1.78178, 1, 1, 1, 1, 1,
+-2.101276, 0.6396909, -2.085349, 1, 1, 1, 1, 1,
+-2.100995, 0.9037956, -1.589487, 0, 0, 1, 1, 1,
+-2.082786, 1.204519, -2.163038, 1, 0, 0, 1, 1,
+-2.059975, -0.6366234, -0.3372858, 1, 0, 0, 1, 1,
+-2.038699, -1.43274, -1.243053, 1, 0, 0, 1, 1,
+-2.037168, 1.820275, -1.237846, 1, 0, 0, 1, 1,
+-2.020028, 0.3116655, -0.2286229, 1, 0, 0, 1, 1,
+-1.993061, -0.7560292, -2.430656, 0, 0, 0, 1, 1,
+-1.972073, -0.5672413, -0.4103575, 0, 0, 0, 1, 1,
+-1.960604, -0.1507956, -3.737585, 0, 0, 0, 1, 1,
+-1.955454, -0.2958911, -2.138084, 0, 0, 0, 1, 1,
+-1.928475, 1.887976, -0.818652, 0, 0, 0, 1, 1,
+-1.913085, -1.455288, -0.5336038, 0, 0, 0, 1, 1,
+-1.909946, 0.03742279, -1.309325, 0, 0, 0, 1, 1,
+-1.903973, -2.367945, -1.80981, 1, 1, 1, 1, 1,
+-1.875575, -0.2678906, -1.159691, 1, 1, 1, 1, 1,
+-1.865054, -0.6663022, 1.246062, 1, 1, 1, 1, 1,
+-1.857327, 1.302551, -1.441635, 1, 1, 1, 1, 1,
+-1.837001, -0.1966143, -1.122099, 1, 1, 1, 1, 1,
+-1.829722, -0.2104145, -0.8717247, 1, 1, 1, 1, 1,
+-1.82588, -0.4403543, -2.696306, 1, 1, 1, 1, 1,
+-1.818742, -0.6840262, -1.110006, 1, 1, 1, 1, 1,
+-1.796045, 2.254658, -0.05040073, 1, 1, 1, 1, 1,
+-1.785316, 1.396788, -1.356824, 1, 1, 1, 1, 1,
+-1.781644, 0.1906149, -0.6129469, 1, 1, 1, 1, 1,
+-1.777754, -0.5983689, -2.117196, 1, 1, 1, 1, 1,
+-1.754568, 0.3342906, -0.7324313, 1, 1, 1, 1, 1,
+-1.742512, -0.5452009, -3.60811, 1, 1, 1, 1, 1,
+-1.742355, -0.1057124, -0.9122112, 1, 1, 1, 1, 1,
+-1.726357, 0.4804013, 0.3625846, 0, 0, 1, 1, 1,
+-1.702384, -0.4964473, -2.729861, 1, 0, 0, 1, 1,
+-1.683839, 0.01733631, -4.251996, 1, 0, 0, 1, 1,
+-1.672778, -0.1500716, -0.5946935, 1, 0, 0, 1, 1,
+-1.66703, 0.7273087, -0.8291892, 1, 0, 0, 1, 1,
+-1.665908, 0.2196113, -2.183005, 1, 0, 0, 1, 1,
+-1.642124, -0.8329772, -1.28985, 0, 0, 0, 1, 1,
+-1.641886, 1.443932, -0.4319425, 0, 0, 0, 1, 1,
+-1.628567, -0.5094345, -2.254295, 0, 0, 0, 1, 1,
+-1.60319, -1.081507, -1.376223, 0, 0, 0, 1, 1,
+-1.595523, -0.04445282, -0.7830784, 0, 0, 0, 1, 1,
+-1.580253, 0.9287998, 0.03977628, 0, 0, 0, 1, 1,
+-1.573889, 1.042248, 0.001998702, 0, 0, 0, 1, 1,
+-1.572795, 1.990061, -1.647775, 1, 1, 1, 1, 1,
+-1.569843, -1.516394, -3.147951, 1, 1, 1, 1, 1,
+-1.542336, -1.002294, -3.082553, 1, 1, 1, 1, 1,
+-1.538852, -0.2452943, -0.3703122, 1, 1, 1, 1, 1,
+-1.532852, -0.3137183, -2.019876, 1, 1, 1, 1, 1,
+-1.524376, -1.329666, -1.38985, 1, 1, 1, 1, 1,
+-1.518389, -0.3665301, -1.552483, 1, 1, 1, 1, 1,
+-1.51473, -0.5056947, -1.718193, 1, 1, 1, 1, 1,
+-1.513923, -1.007927, -0.8224422, 1, 1, 1, 1, 1,
+-1.509943, -1.431691, -2.537617, 1, 1, 1, 1, 1,
+-1.498667, -0.6999708, -0.3102801, 1, 1, 1, 1, 1,
+-1.488317, 0.5759305, -0.4668913, 1, 1, 1, 1, 1,
+-1.476307, -0.4189474, -2.23317, 1, 1, 1, 1, 1,
+-1.466056, 1.097142, -1.665804, 1, 1, 1, 1, 1,
+-1.459994, -0.1113, -3.776636, 1, 1, 1, 1, 1,
+-1.457661, 2.288077, -1.012107, 0, 0, 1, 1, 1,
+-1.450064, -1.055954, -2.231786, 1, 0, 0, 1, 1,
+-1.436128, 0.3617462, -4.055816, 1, 0, 0, 1, 1,
+-1.413812, 0.2211201, -1.670977, 1, 0, 0, 1, 1,
+-1.412692, -0.5675424, -2.051636, 1, 0, 0, 1, 1,
+-1.405292, -0.4698151, -3.240149, 1, 0, 0, 1, 1,
+-1.395834, -0.1958589, -3.833059, 0, 0, 0, 1, 1,
+-1.395287, -0.8210477, -2.031881, 0, 0, 0, 1, 1,
+-1.391593, -1.924401, -0.7617907, 0, 0, 0, 1, 1,
+-1.379213, -0.7659047, -1.138776, 0, 0, 0, 1, 1,
+-1.371145, -0.3219264, -2.863897, 0, 0, 0, 1, 1,
+-1.366724, 0.03868906, -1.025862, 0, 0, 0, 1, 1,
+-1.365994, -0.2645983, -0.9560283, 0, 0, 0, 1, 1,
+-1.362632, -1.418909, -1.282036, 1, 1, 1, 1, 1,
+-1.34865, -0.1779817, -1.905791, 1, 1, 1, 1, 1,
+-1.342871, 0.9517797, -0.2478809, 1, 1, 1, 1, 1,
+-1.329591, 1.008422, -2.167675, 1, 1, 1, 1, 1,
+-1.328171, 0.1132736, -2.810203, 1, 1, 1, 1, 1,
+-1.327722, 0.6268048, -1.561371, 1, 1, 1, 1, 1,
+-1.323396, 0.9439179, -0.9303823, 1, 1, 1, 1, 1,
+-1.319363, 0.02219931, -2.369479, 1, 1, 1, 1, 1,
+-1.307477, -0.01649942, -1.624564, 1, 1, 1, 1, 1,
+-1.295608, -0.5543942, -2.235052, 1, 1, 1, 1, 1,
+-1.293805, -0.4749004, -3.589328, 1, 1, 1, 1, 1,
+-1.291579, -0.02676829, -0.8804807, 1, 1, 1, 1, 1,
+-1.285984, -1.007721, -3.466991, 1, 1, 1, 1, 1,
+-1.285287, 0.9953299, 0.976146, 1, 1, 1, 1, 1,
+-1.283493, 0.208852, -2.470903, 1, 1, 1, 1, 1,
+-1.281783, 1.478996, -0.00387246, 0, 0, 1, 1, 1,
+-1.278677, -0.6990607, -0.7746183, 1, 0, 0, 1, 1,
+-1.275048, 0.5102491, -1.410263, 1, 0, 0, 1, 1,
+-1.263097, -0.1887315, -3.445861, 1, 0, 0, 1, 1,
+-1.261463, 0.9040136, -1.991139, 1, 0, 0, 1, 1,
+-1.25802, 0.6287153, 0.8498156, 1, 0, 0, 1, 1,
+-1.251798, -0.3735188, -0.4535237, 0, 0, 0, 1, 1,
+-1.248417, 1.178445, 0.2979559, 0, 0, 0, 1, 1,
+-1.244744, -1.33757, -2.147114, 0, 0, 0, 1, 1,
+-1.241118, -1.400997, -1.287399, 0, 0, 0, 1, 1,
+-1.238787, -0.4960656, -3.467332, 0, 0, 0, 1, 1,
+-1.233951, -1.23333, -2.70526, 0, 0, 0, 1, 1,
+-1.223765, 0.4981367, -3.95554, 0, 0, 0, 1, 1,
+-1.220534, 0.5327063, -0.5065278, 1, 1, 1, 1, 1,
+-1.210472, 0.5057676, -0.4494948, 1, 1, 1, 1, 1,
+-1.207739, -0.07868948, -0.770195, 1, 1, 1, 1, 1,
+-1.197482, 0.9766235, 0.82267, 1, 1, 1, 1, 1,
+-1.192649, 0.9665861, -2.752868, 1, 1, 1, 1, 1,
+-1.188753, 0.9235523, -0.8687281, 1, 1, 1, 1, 1,
+-1.179005, -0.6012092, -1.822294, 1, 1, 1, 1, 1,
+-1.178357, -2.379369, -2.683813, 1, 1, 1, 1, 1,
+-1.17097, -1.032469, -1.449386, 1, 1, 1, 1, 1,
+-1.165346, 1.19235, 0.2063165, 1, 1, 1, 1, 1,
+-1.157495, -1.054402, -2.018807, 1, 1, 1, 1, 1,
+-1.150501, 1.154655, -0.6497843, 1, 1, 1, 1, 1,
+-1.145249, -0.9881526, -1.295117, 1, 1, 1, 1, 1,
+-1.139582, 0.4727756, -0.08138522, 1, 1, 1, 1, 1,
+-1.135857, -0.1589226, -3.125452, 1, 1, 1, 1, 1,
+-1.132969, -0.1075875, -0.310797, 0, 0, 1, 1, 1,
+-1.127626, -0.2560133, -0.8157883, 1, 0, 0, 1, 1,
+-1.123367, 0.8067916, -1.341618, 1, 0, 0, 1, 1,
+-1.123222, 1.00032, 0.2628132, 1, 0, 0, 1, 1,
+-1.115635, -0.002955923, -0.7214547, 1, 0, 0, 1, 1,
+-1.111143, 0.13964, -0.6735362, 1, 0, 0, 1, 1,
+-1.102268, -1.359368, -2.227326, 0, 0, 0, 1, 1,
+-1.101945, 0.3605479, -1.356288, 0, 0, 0, 1, 1,
+-1.100858, -1.723343, -4.855506, 0, 0, 0, 1, 1,
+-1.094654, -0.6873871, -2.839012, 0, 0, 0, 1, 1,
+-1.092215, -0.7250571, -3.09447, 0, 0, 0, 1, 1,
+-1.090487, 0.4203862, -0.8861707, 0, 0, 0, 1, 1,
+-1.085356, -2.213744, -3.813303, 0, 0, 0, 1, 1,
+-1.084082, 1.123726, -1.656447, 1, 1, 1, 1, 1,
+-1.065111, -0.4943866, -2.552839, 1, 1, 1, 1, 1,
+-1.059415, -1.157896, 0.4809364, 1, 1, 1, 1, 1,
+-1.053393, 0.4297877, -2.605278, 1, 1, 1, 1, 1,
+-1.046987, -0.02515757, -3.700437, 1, 1, 1, 1, 1,
+-1.042079, 0.9454599, -2.223496, 1, 1, 1, 1, 1,
+-1.039445, -0.497549, -2.096461, 1, 1, 1, 1, 1,
+-1.033979, 1.478564, -1.691364, 1, 1, 1, 1, 1,
+-1.025407, 0.6436816, 1.409444, 1, 1, 1, 1, 1,
+-1.020992, -1.562906, -2.409425, 1, 1, 1, 1, 1,
+-1.018114, -1.121027, -2.613371, 1, 1, 1, 1, 1,
+-1.017005, 0.292484, -2.070923, 1, 1, 1, 1, 1,
+-1.016228, -0.2252127, -0.7540353, 1, 1, 1, 1, 1,
+-1.007909, -0.576411, -1.991373, 1, 1, 1, 1, 1,
+-0.9965972, -0.9835937, -1.592717, 1, 1, 1, 1, 1,
+-0.9955531, -1.259712, -2.21424, 0, 0, 1, 1, 1,
+-0.9907352, 0.9142464, -0.2038354, 1, 0, 0, 1, 1,
+-0.9901724, 0.3494421, -1.450471, 1, 0, 0, 1, 1,
+-0.9578276, -0.6380762, -1.548416, 1, 0, 0, 1, 1,
+-0.953949, 0.006982927, -2.036994, 1, 0, 0, 1, 1,
+-0.9498895, 2.270403, -1.932032, 1, 0, 0, 1, 1,
+-0.9484193, 1.522362, -1.265758, 0, 0, 0, 1, 1,
+-0.9432428, -1.413233, -1.66974, 0, 0, 0, 1, 1,
+-0.937337, 0.03599314, -1.010666, 0, 0, 0, 1, 1,
+-0.9368376, -1.83264, -3.443704, 0, 0, 0, 1, 1,
+-0.935169, -0.1192864, -3.409979, 0, 0, 0, 1, 1,
+-0.9327101, 2.42253, -0.2914264, 0, 0, 0, 1, 1,
+-0.9310668, -0.284059, -1.252961, 0, 0, 0, 1, 1,
+-0.9263464, 1.652852, -0.9745691, 1, 1, 1, 1, 1,
+-0.9254236, -0.1558543, -0.5111088, 1, 1, 1, 1, 1,
+-0.9242054, 1.585802, 0.8764865, 1, 1, 1, 1, 1,
+-0.9238587, -0.5213118, -1.769349, 1, 1, 1, 1, 1,
+-0.9222588, 0.8301597, 0.4377307, 1, 1, 1, 1, 1,
+-0.921799, 0.5567519, -0.957193, 1, 1, 1, 1, 1,
+-0.9217432, 0.9205638, 0.439294, 1, 1, 1, 1, 1,
+-0.91855, -0.6859121, -2.220022, 1, 1, 1, 1, 1,
+-0.9169719, -0.6288763, -1.947015, 1, 1, 1, 1, 1,
+-0.9154459, -0.6013902, -2.294297, 1, 1, 1, 1, 1,
+-0.913499, -0.8238086, -1.788452, 1, 1, 1, 1, 1,
+-0.913497, 0.5208964, -1.365639, 1, 1, 1, 1, 1,
+-0.9103084, -0.00362636, -2.185921, 1, 1, 1, 1, 1,
+-0.9048578, -0.7358264, -1.378169, 1, 1, 1, 1, 1,
+-0.904789, 0.5533008, 0.9375248, 1, 1, 1, 1, 1,
+-0.9029242, 1.403171, -0.07350048, 0, 0, 1, 1, 1,
+-0.9028896, -1.675179, -1.40625, 1, 0, 0, 1, 1,
+-0.900363, -1.034405, -2.913783, 1, 0, 0, 1, 1,
+-0.8949184, -0.2099133, -2.096132, 1, 0, 0, 1, 1,
+-0.8900239, 0.1371994, 0.4167884, 1, 0, 0, 1, 1,
+-0.8885875, 1.363852, -0.726482, 1, 0, 0, 1, 1,
+-0.8792999, -0.4057617, -3.266852, 0, 0, 0, 1, 1,
+-0.8736544, 1.113103, -1.934654, 0, 0, 0, 1, 1,
+-0.86999, -1.064921, -1.9891, 0, 0, 0, 1, 1,
+-0.8680748, -0.7229943, -2.381299, 0, 0, 0, 1, 1,
+-0.8677654, -0.1889649, -1.455594, 0, 0, 0, 1, 1,
+-0.8665396, 1.31901, -1.742165, 0, 0, 0, 1, 1,
+-0.8659958, 0.850611, -1.036416, 0, 0, 0, 1, 1,
+-0.8643733, 0.5241851, -0.6017727, 1, 1, 1, 1, 1,
+-0.8628865, -0.523604, -1.583028, 1, 1, 1, 1, 1,
+-0.8577474, -2.269975, -2.649748, 1, 1, 1, 1, 1,
+-0.8514308, -0.763593, -3.130574, 1, 1, 1, 1, 1,
+-0.85094, -0.2824724, -0.2509054, 1, 1, 1, 1, 1,
+-0.8495634, -0.1707714, 0.1284734, 1, 1, 1, 1, 1,
+-0.8443844, -1.18528, -1.771346, 1, 1, 1, 1, 1,
+-0.8443066, 0.3261586, -3.207039, 1, 1, 1, 1, 1,
+-0.8442363, 0.7527061, 0.6709251, 1, 1, 1, 1, 1,
+-0.83966, -1.465909, -2.141762, 1, 1, 1, 1, 1,
+-0.8365324, -0.2353221, -0.5391391, 1, 1, 1, 1, 1,
+-0.8250865, 0.01532045, -1.818933, 1, 1, 1, 1, 1,
+-0.8091499, -0.3948972, 1.445139, 1, 1, 1, 1, 1,
+-0.8082305, -0.4000291, -1.637475, 1, 1, 1, 1, 1,
+-0.8080956, -1.098312, -3.602725, 1, 1, 1, 1, 1,
+-0.8074922, -1.1892, -1.864166, 0, 0, 1, 1, 1,
+-0.8028415, -0.3734632, -3.436722, 1, 0, 0, 1, 1,
+-0.7961406, -0.3308266, -1.994883, 1, 0, 0, 1, 1,
+-0.7943478, 1.051367, -1.155176, 1, 0, 0, 1, 1,
+-0.7940264, 1.088837, 0.1365597, 1, 0, 0, 1, 1,
+-0.7874584, 1.322513, 0.5688286, 1, 0, 0, 1, 1,
+-0.7842907, -0.902582, -2.875892, 0, 0, 0, 1, 1,
+-0.782937, 0.3462768, -2.149146, 0, 0, 0, 1, 1,
+-0.7771338, 0.8442321, -1.038072, 0, 0, 0, 1, 1,
+-0.7750765, 0.285234, -0.9255672, 0, 0, 0, 1, 1,
+-0.7718168, 1.578324, 0.6744244, 0, 0, 0, 1, 1,
+-0.7716308, -0.004002917, -2.465987, 0, 0, 0, 1, 1,
+-0.7673655, -0.2460572, -0.1786575, 0, 0, 0, 1, 1,
+-0.759725, -1.318358, -0.4356176, 1, 1, 1, 1, 1,
+-0.7571245, -0.8287374, -2.923119, 1, 1, 1, 1, 1,
+-0.7564504, -0.5807253, -2.304423, 1, 1, 1, 1, 1,
+-0.7559198, -0.50157, -2.341306, 1, 1, 1, 1, 1,
+-0.7548158, -0.7203711, 0.2468958, 1, 1, 1, 1, 1,
+-0.7506251, 1.681789, 0.1658887, 1, 1, 1, 1, 1,
+-0.7496167, -1.290842, -2.831991, 1, 1, 1, 1, 1,
+-0.7472118, 0.01275749, -1.485262, 1, 1, 1, 1, 1,
+-0.7441634, -2.485807, -1.817629, 1, 1, 1, 1, 1,
+-0.739634, 0.09425084, -1.391896, 1, 1, 1, 1, 1,
+-0.7381373, 0.6069221, -0.5466249, 1, 1, 1, 1, 1,
+-0.7372908, -1.138053, -0.6636793, 1, 1, 1, 1, 1,
+-0.7274027, -1.987603, -2.197729, 1, 1, 1, 1, 1,
+-0.7267158, -0.001729114, -2.204296, 1, 1, 1, 1, 1,
+-0.7182858, 0.1420234, -2.029955, 1, 1, 1, 1, 1,
+-0.7153934, 0.4767087, -0.7099233, 0, 0, 1, 1, 1,
+-0.7137597, -0.4383154, -2.169549, 1, 0, 0, 1, 1,
+-0.7072419, -1.543571, -4.791895, 1, 0, 0, 1, 1,
+-0.7068327, -0.4200835, -0.2630282, 1, 0, 0, 1, 1,
+-0.7061779, 2.88449, -1.333017, 1, 0, 0, 1, 1,
+-0.7037604, -1.198072, -1.353793, 1, 0, 0, 1, 1,
+-0.7013941, 1.280775, -0.2780375, 0, 0, 0, 1, 1,
+-0.6852232, 0.217103, -0.8032631, 0, 0, 0, 1, 1,
+-0.6810765, 0.3911294, -0.9216178, 0, 0, 0, 1, 1,
+-0.6799096, -0.7150463, -1.465986, 0, 0, 0, 1, 1,
+-0.6779888, -0.560062, -0.9140909, 0, 0, 0, 1, 1,
+-0.6750157, -0.9099163, -1.567582, 0, 0, 0, 1, 1,
+-0.6741666, -0.752915, -2.515367, 0, 0, 0, 1, 1,
+-0.6721739, -0.7075404, -2.552163, 1, 1, 1, 1, 1,
+-0.6661582, 0.7978959, -1.369524, 1, 1, 1, 1, 1,
+-0.6645881, -0.3806592, -1.019769, 1, 1, 1, 1, 1,
+-0.663011, -0.4504506, -1.257601, 1, 1, 1, 1, 1,
+-0.6606365, 0.4928201, -0.2208591, 1, 1, 1, 1, 1,
+-0.659467, 0.2580186, 0.8874763, 1, 1, 1, 1, 1,
+-0.6593312, 0.2658881, -1.883757, 1, 1, 1, 1, 1,
+-0.6532346, 0.6765865, -0.9487582, 1, 1, 1, 1, 1,
+-0.6524367, -0.371433, -3.352946, 1, 1, 1, 1, 1,
+-0.648358, -0.2299436, -0.6649852, 1, 1, 1, 1, 1,
+-0.6471434, 1.25716, -1.074024, 1, 1, 1, 1, 1,
+-0.6469196, 0.146893, -2.665239, 1, 1, 1, 1, 1,
+-0.6467929, -1.135915, -2.628026, 1, 1, 1, 1, 1,
+-0.6421961, -0.680733, -2.742392, 1, 1, 1, 1, 1,
+-0.6419807, 0.6163911, 0.9903972, 1, 1, 1, 1, 1,
+-0.6385751, 0.4498073, -2.469191, 0, 0, 1, 1, 1,
+-0.6359262, 0.2880007, -0.4021178, 1, 0, 0, 1, 1,
+-0.6258822, 0.7356986, 0.9821549, 1, 0, 0, 1, 1,
+-0.6236539, -0.3818329, -0.8696285, 1, 0, 0, 1, 1,
+-0.6219113, 1.42297, -0.8750376, 1, 0, 0, 1, 1,
+-0.6181678, 0.6823616, -0.113144, 1, 0, 0, 1, 1,
+-0.6139014, 0.6535037, 0.1263841, 0, 0, 0, 1, 1,
+-0.6125325, 0.5757732, -1.326288, 0, 0, 0, 1, 1,
+-0.6089832, 1.80099, -0.1447749, 0, 0, 0, 1, 1,
+-0.6082291, -0.1833349, -1.224175, 0, 0, 0, 1, 1,
+-0.6068449, -0.2779686, -2.750519, 0, 0, 0, 1, 1,
+-0.6029378, 0.7583911, 0.8768849, 0, 0, 0, 1, 1,
+-0.5967203, -0.4016163, -1.532049, 0, 0, 0, 1, 1,
+-0.5958708, -1.499337, -1.882361, 1, 1, 1, 1, 1,
+-0.5942296, -0.05221717, -1.999802, 1, 1, 1, 1, 1,
+-0.5935544, -0.6564677, -1.896403, 1, 1, 1, 1, 1,
+-0.5897351, -0.2789869, -1.343519, 1, 1, 1, 1, 1,
+-0.5882301, -0.2298047, -2.892064, 1, 1, 1, 1, 1,
+-0.5849991, 1.157569, 0.8898444, 1, 1, 1, 1, 1,
+-0.5816171, -0.7560998, -1.61791, 1, 1, 1, 1, 1,
+-0.5816095, -0.2986124, -2.092222, 1, 1, 1, 1, 1,
+-0.5815405, 0.3817262, -1.560612, 1, 1, 1, 1, 1,
+-0.5710609, -0.7685527, -3.005941, 1, 1, 1, 1, 1,
+-0.5689941, -0.08662163, -1.34586, 1, 1, 1, 1, 1,
+-0.5688812, -0.1176914, -1.353322, 1, 1, 1, 1, 1,
+-0.5640139, 0.9832091, 0.8897719, 1, 1, 1, 1, 1,
+-0.5638517, 0.2086712, -1.618808, 1, 1, 1, 1, 1,
+-0.5630336, -0.06784739, -1.774598, 1, 1, 1, 1, 1,
+-0.5616609, -0.02589844, -2.406251, 0, 0, 1, 1, 1,
+-0.5612563, 1.134365, -0.6300318, 1, 0, 0, 1, 1,
+-0.5547582, 0.7841594, 1.439586, 1, 0, 0, 1, 1,
+-0.5505593, -0.3617543, -2.721642, 1, 0, 0, 1, 1,
+-0.5496768, -0.8971086, -2.004627, 1, 0, 0, 1, 1,
+-0.5490335, 1.831425, -2.563077, 1, 0, 0, 1, 1,
+-0.54803, 0.8729594, -1.379649, 0, 0, 0, 1, 1,
+-0.5446371, 0.2787856, -2.07744, 0, 0, 0, 1, 1,
+-0.5429948, 0.5037798, 0.4951125, 0, 0, 0, 1, 1,
+-0.5416723, 0.2051508, -2.296459, 0, 0, 0, 1, 1,
+-0.5402476, 0.5358825, 0.7613359, 0, 0, 0, 1, 1,
+-0.5332182, -0.2359118, -0.5956538, 0, 0, 0, 1, 1,
+-0.5329568, 0.4789484, 0.007218041, 0, 0, 0, 1, 1,
+-0.5298837, 0.4420583, -2.128175, 1, 1, 1, 1, 1,
+-0.5298259, -0.1588024, -1.633269, 1, 1, 1, 1, 1,
+-0.5268765, -0.04875347, -1.111044, 1, 1, 1, 1, 1,
+-0.526769, 1.000177, -1.271306, 1, 1, 1, 1, 1,
+-0.5253327, -0.6246076, -2.907796, 1, 1, 1, 1, 1,
+-0.5238718, -0.9409158, -2.230247, 1, 1, 1, 1, 1,
+-0.5213539, -0.8654037, -2.670236, 1, 1, 1, 1, 1,
+-0.5180546, 0.6457283, 1.156119, 1, 1, 1, 1, 1,
+-0.513827, 0.9879391, 0.3685144, 1, 1, 1, 1, 1,
+-0.5135237, 0.2395647, -1.010838, 1, 1, 1, 1, 1,
+-0.5119333, 0.6073766, -1.693114, 1, 1, 1, 1, 1,
+-0.5114704, 0.5870148, -1.560151, 1, 1, 1, 1, 1,
+-0.5076591, -0.1273793, -1.865326, 1, 1, 1, 1, 1,
+-0.5050211, 1.004588, -1.429211, 1, 1, 1, 1, 1,
+-0.5047675, -0.09679206, -0.6600134, 1, 1, 1, 1, 1,
+-0.5027957, -0.9330511, -1.851267, 0, 0, 1, 1, 1,
+-0.5020289, -0.06029041, -1.252525, 1, 0, 0, 1, 1,
+-0.5009835, -0.6142949, -2.679916, 1, 0, 0, 1, 1,
+-0.4963384, -1.413876, -2.43313, 1, 0, 0, 1, 1,
+-0.4933981, -0.9617488, -1.936188, 1, 0, 0, 1, 1,
+-0.4933016, -0.7138824, -4.690397, 1, 0, 0, 1, 1,
+-0.4915226, 0.5747965, 0.3707553, 0, 0, 0, 1, 1,
+-0.4899282, -1.082687, -2.552523, 0, 0, 0, 1, 1,
+-0.4863401, -0.05761769, -1.860049, 0, 0, 0, 1, 1,
+-0.4815638, -1.822075, -2.570814, 0, 0, 0, 1, 1,
+-0.4813882, -1.527782, 0.4624064, 0, 0, 0, 1, 1,
+-0.4793079, 0.4710997, -1.301382, 0, 0, 0, 1, 1,
+-0.4784724, 0.42148, -0.5859844, 0, 0, 0, 1, 1,
+-0.4778098, -2.130573, -2.625045, 1, 1, 1, 1, 1,
+-0.4740572, 0.8551254, -0.1102729, 1, 1, 1, 1, 1,
+-0.4739747, -0.4892242, -3.078173, 1, 1, 1, 1, 1,
+-0.4670263, 0.2432838, -2.80533, 1, 1, 1, 1, 1,
+-0.4658038, -1.44766, -3.406227, 1, 1, 1, 1, 1,
+-0.4650824, 1.183067, -0.9624694, 1, 1, 1, 1, 1,
+-0.4638711, -0.6566557, -2.510181, 1, 1, 1, 1, 1,
+-0.4633664, 0.560005, -2.171937, 1, 1, 1, 1, 1,
+-0.4617871, -1.251878, -1.738845, 1, 1, 1, 1, 1,
+-0.4600028, -1.306407, -1.437645, 1, 1, 1, 1, 1,
+-0.4523548, 1.027578, 2.425024, 1, 1, 1, 1, 1,
+-0.4514843, 0.2934376, -2.125363, 1, 1, 1, 1, 1,
+-0.4470716, 1.971126, -0.8015217, 1, 1, 1, 1, 1,
+-0.4437293, 0.9122539, -0.1433173, 1, 1, 1, 1, 1,
+-0.4418973, -0.3459583, -2.671763, 1, 1, 1, 1, 1,
+-0.4414896, 0.504036, -1.587399, 0, 0, 1, 1, 1,
+-0.4390488, -0.8530159, -2.952914, 1, 0, 0, 1, 1,
+-0.434928, 0.6422329, -0.4172199, 1, 0, 0, 1, 1,
+-0.434357, -1.141789, -2.700353, 1, 0, 0, 1, 1,
+-0.4341166, -0.2534733, -2.83498, 1, 0, 0, 1, 1,
+-0.4333816, 1.067001, -0.3453397, 1, 0, 0, 1, 1,
+-0.4310378, -0.3586106, -2.313496, 0, 0, 0, 1, 1,
+-0.4225859, -0.06425545, -2.680486, 0, 0, 0, 1, 1,
+-0.4207765, -0.1207467, -1.363278, 0, 0, 0, 1, 1,
+-0.4199065, 1.14194, 0.499818, 0, 0, 0, 1, 1,
+-0.4190889, 0.9537709, 0.6927692, 0, 0, 0, 1, 1,
+-0.416511, -0.0703721, -1.341768, 0, 0, 0, 1, 1,
+-0.4159261, 0.3450621, 0.6906892, 0, 0, 0, 1, 1,
+-0.4113751, -2.057227, -1.016881, 1, 1, 1, 1, 1,
+-0.40905, 0.988466, -1.065872, 1, 1, 1, 1, 1,
+-0.4065015, -0.2827828, -1.552662, 1, 1, 1, 1, 1,
+-0.4023767, 0.05491586, -2.295692, 1, 1, 1, 1, 1,
+-0.3987292, 0.5835506, 0.8990532, 1, 1, 1, 1, 1,
+-0.3975891, -1.51252, 0.1791144, 1, 1, 1, 1, 1,
+-0.3970284, 0.3931469, 0.4006078, 1, 1, 1, 1, 1,
+-0.3959722, -0.109334, -2.656164, 1, 1, 1, 1, 1,
+-0.3943012, -0.7071643, -1.623658, 1, 1, 1, 1, 1,
+-0.3905884, 1.093378, 0.4244904, 1, 1, 1, 1, 1,
+-0.3871734, -1.186014, -4.752306, 1, 1, 1, 1, 1,
+-0.3870654, 1.374753, -1.053826, 1, 1, 1, 1, 1,
+-0.3843109, 0.7421815, 0.2142639, 1, 1, 1, 1, 1,
+-0.3834071, 1.76208, 1.121502, 1, 1, 1, 1, 1,
+-0.3775844, -0.1641712, -2.659358, 1, 1, 1, 1, 1,
+-0.3769504, 1.686702, -0.5272392, 0, 0, 1, 1, 1,
+-0.376766, 0.3087611, -2.809888, 1, 0, 0, 1, 1,
+-0.3764878, 1.382858, 0.510821, 1, 0, 0, 1, 1,
+-0.3721647, 0.7169347, -0.3095417, 1, 0, 0, 1, 1,
+-0.3699112, -0.7820535, -1.699712, 1, 0, 0, 1, 1,
+-0.3652347, -1.090621, -3.943516, 1, 0, 0, 1, 1,
+-0.3638625, -1.05013, -2.405694, 0, 0, 0, 1, 1,
+-0.3603719, -0.8444205, -4.735609, 0, 0, 0, 1, 1,
+-0.3581962, -0.6376902, -3.381098, 0, 0, 0, 1, 1,
+-0.3560787, 0.3540331, -1.231089, 0, 0, 0, 1, 1,
+-0.3558162, 0.8239845, 0.730468, 0, 0, 0, 1, 1,
+-0.3536527, 0.06883544, -2.20721, 0, 0, 0, 1, 1,
+-0.3497925, -0.3477927, -3.992937, 0, 0, 0, 1, 1,
+-0.3412028, -0.3528439, -5.564686, 1, 1, 1, 1, 1,
+-0.3323098, -0.9532409, -2.630415, 1, 1, 1, 1, 1,
+-0.3304146, 1.17766, 0.5209339, 1, 1, 1, 1, 1,
+-0.3291121, 1.558659, 0.4894779, 1, 1, 1, 1, 1,
+-0.3267527, -0.1132853, -1.076018, 1, 1, 1, 1, 1,
+-0.3255939, -0.09799791, -2.378777, 1, 1, 1, 1, 1,
+-0.3198692, 1.460996, 0.4443681, 1, 1, 1, 1, 1,
+-0.3195061, -0.2184976, -0.7812744, 1, 1, 1, 1, 1,
+-0.3146149, -0.5713912, -2.487507, 1, 1, 1, 1, 1,
+-0.3140198, -0.4183801, -0.5612438, 1, 1, 1, 1, 1,
+-0.3125471, -1.146524, -1.690282, 1, 1, 1, 1, 1,
+-0.3103348, 0.9118437, 0.5983369, 1, 1, 1, 1, 1,
+-0.3096953, -1.12065, -2.474907, 1, 1, 1, 1, 1,
+-0.3064021, 1.106826, -1.771923, 1, 1, 1, 1, 1,
+-0.3018319, -1.725287, -4.065645, 1, 1, 1, 1, 1,
+-0.3008981, -1.018902, -1.530238, 0, 0, 1, 1, 1,
+-0.2953448, 0.0692784, -1.54223, 1, 0, 0, 1, 1,
+-0.2834462, -1.069939, -2.014391, 1, 0, 0, 1, 1,
+-0.2812435, 0.5028669, -0.911956, 1, 0, 0, 1, 1,
+-0.2777606, 0.9847451, 0.6270736, 1, 0, 0, 1, 1,
+-0.276645, -0.7411058, -2.484395, 1, 0, 0, 1, 1,
+-0.2729477, 0.5395075, -0.3812189, 0, 0, 0, 1, 1,
+-0.2707562, -0.1909818, -2.77076, 0, 0, 0, 1, 1,
+-0.2706046, 2.008497, -0.2199877, 0, 0, 0, 1, 1,
+-0.2668991, 1.555409, -0.5309691, 0, 0, 0, 1, 1,
+-0.2635837, 1.869802, 0.4375871, 0, 0, 0, 1, 1,
+-0.2608724, 1.073295, 1.077667, 0, 0, 0, 1, 1,
+-0.2553701, -1.543572, -1.501425, 0, 0, 0, 1, 1,
+-0.2551379, -1.037742, -3.344187, 1, 1, 1, 1, 1,
+-0.2549243, 1.22037, -0.09717609, 1, 1, 1, 1, 1,
+-0.2405309, -0.02512512, -0.7426745, 1, 1, 1, 1, 1,
+-0.2348608, 0.02963396, -1.13066, 1, 1, 1, 1, 1,
+-0.2344561, 0.3241443, -0.3979072, 1, 1, 1, 1, 1,
+-0.2338607, -0.9099124, -4.317923, 1, 1, 1, 1, 1,
+-0.2327504, 1.109742, -1.03364, 1, 1, 1, 1, 1,
+-0.2322842, 0.5949766, 0.4121328, 1, 1, 1, 1, 1,
+-0.2316262, -0.4321828, -2.493663, 1, 1, 1, 1, 1,
+-0.2295976, 0.7740377, -0.525791, 1, 1, 1, 1, 1,
+-0.2286332, 1.007008, -0.3756871, 1, 1, 1, 1, 1,
+-0.2208777, 0.2708125, 0.3039126, 1, 1, 1, 1, 1,
+-0.2208214, 0.3353994, 0.3493486, 1, 1, 1, 1, 1,
+-0.2169343, 0.7954498, 0.2921778, 1, 1, 1, 1, 1,
+-0.2143471, 0.9664589, 0.4900334, 1, 1, 1, 1, 1,
+-0.2121782, -0.289106, -3.79179, 0, 0, 1, 1, 1,
+-0.2062737, 0.8782341, -0.1203633, 1, 0, 0, 1, 1,
+-0.2040342, -1.87075, -3.975902, 1, 0, 0, 1, 1,
+-0.2017553, 0.9545895, 0.2140256, 1, 0, 0, 1, 1,
+-0.2007213, -1.632173, -2.554263, 1, 0, 0, 1, 1,
+-0.1956987, 0.8972016, -0.4716526, 1, 0, 0, 1, 1,
+-0.1946465, 0.333678, 0.6278254, 0, 0, 0, 1, 1,
+-0.1925511, -0.4284836, -2.340662, 0, 0, 0, 1, 1,
+-0.1900242, -0.5246553, -2.855304, 0, 0, 0, 1, 1,
+-0.1895389, 0.7442254, 0.1873879, 0, 0, 0, 1, 1,
+-0.178502, 0.1327123, -0.5214408, 0, 0, 0, 1, 1,
+-0.1754498, -0.4217266, -3.02317, 0, 0, 0, 1, 1,
+-0.1707614, 1.820937, -0.5546581, 0, 0, 0, 1, 1,
+-0.1688849, -0.5680739, -1.080893, 1, 1, 1, 1, 1,
+-0.1672617, -0.06635329, -0.1360639, 1, 1, 1, 1, 1,
+-0.1672584, -1.263216, -0.2388677, 1, 1, 1, 1, 1,
+-0.1598026, -1.184018, -2.363312, 1, 1, 1, 1, 1,
+-0.1553703, -0.3584872, -1.209805, 1, 1, 1, 1, 1,
+-0.1486663, -0.02308004, -0.8329748, 1, 1, 1, 1, 1,
+-0.1465918, 2.993296, 0.04008754, 1, 1, 1, 1, 1,
+-0.1436828, 0.6499426, -0.6454975, 1, 1, 1, 1, 1,
+-0.141706, -0.6337607, -3.391494, 1, 1, 1, 1, 1,
+-0.1334443, -0.02036998, -2.100601, 1, 1, 1, 1, 1,
+-0.1320878, -0.7600127, -3.137725, 1, 1, 1, 1, 1,
+-0.1289842, 0.7395583, -0.8731962, 1, 1, 1, 1, 1,
+-0.1279794, 0.2618789, 0.3497437, 1, 1, 1, 1, 1,
+-0.1274952, -0.1985283, -2.641138, 1, 1, 1, 1, 1,
+-0.1259861, 0.7075501, -0.6494689, 1, 1, 1, 1, 1,
+-0.123431, -1.01489, -3.202074, 0, 0, 1, 1, 1,
+-0.1226953, -0.7190685, -3.846166, 1, 0, 0, 1, 1,
+-0.1183816, 2.375399, -0.5018969, 1, 0, 0, 1, 1,
+-0.1167925, 0.1198708, -0.5136822, 1, 0, 0, 1, 1,
+-0.1164505, -1.466237, -1.888486, 1, 0, 0, 1, 1,
+-0.115353, -0.6020294, -3.783207, 1, 0, 0, 1, 1,
+-0.1141634, -0.1026317, -0.302275, 0, 0, 0, 1, 1,
+-0.1126538, 1.170703, -0.1524534, 0, 0, 0, 1, 1,
+-0.1076292, 0.9899675, 0.8296273, 0, 0, 0, 1, 1,
+-0.1058673, -0.04199854, -1.142503, 0, 0, 0, 1, 1,
+-0.09909101, -0.0254731, -2.912959, 0, 0, 0, 1, 1,
+-0.09868406, 0.4352729, -1.106437, 0, 0, 0, 1, 1,
+-0.09721029, 0.4679208, 0.618817, 0, 0, 0, 1, 1,
+-0.09363826, 0.001970751, -0.3082277, 1, 1, 1, 1, 1,
+-0.09360033, -0.2619582, -3.300868, 1, 1, 1, 1, 1,
+-0.09311104, 1.233575, 0.1377382, 1, 1, 1, 1, 1,
+-0.09106771, 1.357122, 0.4250841, 1, 1, 1, 1, 1,
+-0.08843593, -0.1812245, -3.244195, 1, 1, 1, 1, 1,
+-0.07448085, 1.274019, 1.025917, 1, 1, 1, 1, 1,
+-0.07436243, -0.4604087, -4.893365, 1, 1, 1, 1, 1,
+-0.07127129, -1.942644, -4.780304, 1, 1, 1, 1, 1,
+-0.06821281, -0.5592513, -2.822361, 1, 1, 1, 1, 1,
+-0.05880691, 2.743882, -2.355211, 1, 1, 1, 1, 1,
+-0.05854587, -0.9254938, -0.21584, 1, 1, 1, 1, 1,
+-0.05109943, -0.2295859, -3.262896, 1, 1, 1, 1, 1,
+-0.05027924, 1.956354, 0.2320697, 1, 1, 1, 1, 1,
+-0.03882242, -0.612313, -3.664462, 1, 1, 1, 1, 1,
+-0.03697074, 1.545196, 1.948227, 1, 1, 1, 1, 1,
+-0.03529362, 0.2179345, 1.163054, 0, 0, 1, 1, 1,
+-0.02975799, -0.414975, -2.76714, 1, 0, 0, 1, 1,
+-0.02811155, -2.166124, -4.193621, 1, 0, 0, 1, 1,
+-0.02773741, -0.4263, -2.216737, 1, 0, 0, 1, 1,
+-0.02684644, -0.2253841, -2.442236, 1, 0, 0, 1, 1,
+-0.02411173, 0.05823536, -0.716899, 1, 0, 0, 1, 1,
+-0.02216677, -0.4229299, -2.412912, 0, 0, 0, 1, 1,
+-0.02197628, 1.136457, 0.2854584, 0, 0, 0, 1, 1,
+-0.02091657, 0.8013204, -0.6143156, 0, 0, 0, 1, 1,
+-0.02018354, 2.585172, 0.1506266, 0, 0, 0, 1, 1,
+-0.01962147, 0.3584057, 0.7669162, 0, 0, 0, 1, 1,
+-0.006824147, -1.174672, -2.842775, 0, 0, 0, 1, 1,
+-0.004987551, 0.2468122, -0.09480123, 0, 0, 0, 1, 1,
+-0.00343011, -0.03216419, -3.449774, 1, 1, 1, 1, 1,
+-0.0003412823, -0.1398278, -3.017683, 1, 1, 1, 1, 1,
+0.0006207393, -0.43619, 3.925814, 1, 1, 1, 1, 1,
+0.00135176, -0.08749032, 4.147543, 1, 1, 1, 1, 1,
+0.005543953, 1.19883, -1.132908, 1, 1, 1, 1, 1,
+0.006536122, -0.02473068, 2.58707, 1, 1, 1, 1, 1,
+0.00743085, -1.884899, 3.092045, 1, 1, 1, 1, 1,
+0.01217248, -1.845597, 4.446331, 1, 1, 1, 1, 1,
+0.01590411, 1.165516, -0.392936, 1, 1, 1, 1, 1,
+0.02006224, -1.749715, 2.759947, 1, 1, 1, 1, 1,
+0.02012856, 0.6282185, 0.3698058, 1, 1, 1, 1, 1,
+0.02172676, -0.8593051, 3.673391, 1, 1, 1, 1, 1,
+0.02278763, 0.02877582, 2.339171, 1, 1, 1, 1, 1,
+0.02844916, -1.034444, 4.345309, 1, 1, 1, 1, 1,
+0.03352369, -1.085871, 3.891872, 1, 1, 1, 1, 1,
+0.0365752, 0.1269847, -0.2802753, 0, 0, 1, 1, 1,
+0.03681494, 1.092513, -0.8972873, 1, 0, 0, 1, 1,
+0.03843195, -0.9608557, 4.723615, 1, 0, 0, 1, 1,
+0.03867993, 0.3621672, 0.3017065, 1, 0, 0, 1, 1,
+0.03912472, 1.542897, -0.2601768, 1, 0, 0, 1, 1,
+0.04263288, 0.4032194, -0.1265498, 1, 0, 0, 1, 1,
+0.04585887, 0.2819988, -1.425544, 0, 0, 0, 1, 1,
+0.05027897, -1.959737, 3.393883, 0, 0, 0, 1, 1,
+0.05285493, -0.7156215, 2.827155, 0, 0, 0, 1, 1,
+0.05294556, 0.4032927, -2.155373, 0, 0, 0, 1, 1,
+0.05328787, -0.2846604, 3.693662, 0, 0, 0, 1, 1,
+0.05415025, 1.644235, -0.5138867, 0, 0, 0, 1, 1,
+0.05902994, 0.01604522, -0.6443436, 0, 0, 0, 1, 1,
+0.06113202, -0.6257257, 2.847924, 1, 1, 1, 1, 1,
+0.06262346, -2.020254, 3.022066, 1, 1, 1, 1, 1,
+0.0626822, 0.6475107, 0.7722318, 1, 1, 1, 1, 1,
+0.06472508, 0.09056561, 0.5306013, 1, 1, 1, 1, 1,
+0.06825523, -0.1433541, 2.702333, 1, 1, 1, 1, 1,
+0.06954784, -0.8432319, 3.327655, 1, 1, 1, 1, 1,
+0.07227711, 0.6076681, -0.8824051, 1, 1, 1, 1, 1,
+0.07817115, 0.4007322, 1.068855, 1, 1, 1, 1, 1,
+0.08100246, 0.3427624, -0.2060186, 1, 1, 1, 1, 1,
+0.08512194, 0.7377635, 0.0549401, 1, 1, 1, 1, 1,
+0.08542388, 2.004298, 2.225683, 1, 1, 1, 1, 1,
+0.08834989, -1.013393, 1.699803, 1, 1, 1, 1, 1,
+0.09273826, 0.3820072, 0.9448608, 1, 1, 1, 1, 1,
+0.09278597, -1.241289, 3.091275, 1, 1, 1, 1, 1,
+0.09311286, 0.1914966, 0.5302347, 1, 1, 1, 1, 1,
+0.09674209, 0.4026027, 0.2803247, 0, 0, 1, 1, 1,
+0.09763041, 0.07725176, 0.5809716, 1, 0, 0, 1, 1,
+0.09823392, 1.602095, 0.9513277, 1, 0, 0, 1, 1,
+0.09841878, 1.065416, -1.974282, 1, 0, 0, 1, 1,
+0.1010384, -0.8886952, 2.292809, 1, 0, 0, 1, 1,
+0.1025877, 2.018474, -0.4252979, 1, 0, 0, 1, 1,
+0.1058661, 0.1599758, 0.2992809, 0, 0, 0, 1, 1,
+0.1062575, -0.8742605, 3.384562, 0, 0, 0, 1, 1,
+0.1084769, -0.8885537, 2.295506, 0, 0, 0, 1, 1,
+0.1085042, 1.711417, 1.624763, 0, 0, 0, 1, 1,
+0.1098455, 0.5723201, -0.6761071, 0, 0, 0, 1, 1,
+0.1109931, -0.3620373, 1.723506, 0, 0, 0, 1, 1,
+0.1177038, -0.01181157, 2.01371, 0, 0, 0, 1, 1,
+0.1225146, 0.1451206, 0.2361452, 1, 1, 1, 1, 1,
+0.122784, 0.6122522, -0.7694517, 1, 1, 1, 1, 1,
+0.1237, -0.08717196, 1.30901, 1, 1, 1, 1, 1,
+0.1243272, 0.6961969, -1.188106, 1, 1, 1, 1, 1,
+0.1246284, -0.6430672, 1.647293, 1, 1, 1, 1, 1,
+0.1281298, 2.684799, 1.509341, 1, 1, 1, 1, 1,
+0.1387944, 2.199272, 1.311291, 1, 1, 1, 1, 1,
+0.1395379, -0.3483466, 2.462364, 1, 1, 1, 1, 1,
+0.1399906, 1.073161, 1.57269, 1, 1, 1, 1, 1,
+0.1402946, 0.1994914, 0.5496123, 1, 1, 1, 1, 1,
+0.1416043, -1.247895, 2.334624, 1, 1, 1, 1, 1,
+0.1460961, 0.4694194, -1.320534, 1, 1, 1, 1, 1,
+0.1487464, -0.08547064, 1.841593, 1, 1, 1, 1, 1,
+0.1520481, -0.5882434, 2.68342, 1, 1, 1, 1, 1,
+0.1530734, 0.4941917, 0.8726482, 1, 1, 1, 1, 1,
+0.1540384, -0.07725088, 0.5387735, 0, 0, 1, 1, 1,
+0.1561636, -0.09619731, 2.790347, 1, 0, 0, 1, 1,
+0.1571731, -0.9525775, 1.695984, 1, 0, 0, 1, 1,
+0.1641277, 0.9729016, 0.9566523, 1, 0, 0, 1, 1,
+0.1655588, 0.6398503, -1.12824, 1, 0, 0, 1, 1,
+0.172362, -1.107228, 4.300053, 1, 0, 0, 1, 1,
+0.1746223, 0.9066353, -0.8873492, 0, 0, 0, 1, 1,
+0.1754652, 1.840704, -0.1140156, 0, 0, 0, 1, 1,
+0.1769358, 1.116189, 2.287907, 0, 0, 0, 1, 1,
+0.1857287, 1.312294, -1.765826, 0, 0, 0, 1, 1,
+0.1866664, 1.598148, 0.04908356, 0, 0, 0, 1, 1,
+0.1898731, 0.05083089, 0.628961, 0, 0, 0, 1, 1,
+0.1996586, 0.9614409, -1.064416, 0, 0, 0, 1, 1,
+0.2086479, -0.8669024, 3.355017, 1, 1, 1, 1, 1,
+0.2089342, -0.7263874, 3.562561, 1, 1, 1, 1, 1,
+0.2152575, 1.556736, -1.057069, 1, 1, 1, 1, 1,
+0.2192319, -1.732838, 4.416431, 1, 1, 1, 1, 1,
+0.2211665, -1.322363, 3.038331, 1, 1, 1, 1, 1,
+0.2215689, 1.397869, 1.404594, 1, 1, 1, 1, 1,
+0.2324179, -0.9803804, 3.226683, 1, 1, 1, 1, 1,
+0.2422122, -0.583786, 1.381432, 1, 1, 1, 1, 1,
+0.2431715, 0.7385389, 0.3697667, 1, 1, 1, 1, 1,
+0.2444202, -0.2666318, 1.898042, 1, 1, 1, 1, 1,
+0.2481758, 1.387742, 1.100138, 1, 1, 1, 1, 1,
+0.2511989, 0.03795156, 1.570814, 1, 1, 1, 1, 1,
+0.2524268, 1.135868, -0.6213508, 1, 1, 1, 1, 1,
+0.2560983, 0.8169318, 1.41868, 1, 1, 1, 1, 1,
+0.2568049, -0.6373886, 3.919619, 1, 1, 1, 1, 1,
+0.2575814, -0.2278252, 0.5876369, 0, 0, 1, 1, 1,
+0.2602342, -0.1753342, 2.386116, 1, 0, 0, 1, 1,
+0.2604169, 0.2955289, 1.00195, 1, 0, 0, 1, 1,
+0.2611773, 0.2014933, 0.06224429, 1, 0, 0, 1, 1,
+0.2691631, -0.05305275, 1.705269, 1, 0, 0, 1, 1,
+0.2709062, -1.392794, 1.99981, 1, 0, 0, 1, 1,
+0.2758526, -0.5804021, 3.382759, 0, 0, 0, 1, 1,
+0.2784586, -1.109845, 4.005054, 0, 0, 0, 1, 1,
+0.2787534, 0.3033723, 1.068228, 0, 0, 0, 1, 1,
+0.2813129, -0.2956674, 0.3061998, 0, 0, 0, 1, 1,
+0.2830991, -1.772537, 3.96702, 0, 0, 0, 1, 1,
+0.2886357, 1.397869, -1.871687, 0, 0, 0, 1, 1,
+0.2899459, -1.576417, 2.667969, 0, 0, 0, 1, 1,
+0.2935866, -0.7838927, 3.621391, 1, 1, 1, 1, 1,
+0.2982586, -0.201783, 2.166257, 1, 1, 1, 1, 1,
+0.3000029, -0.9543421, 3.279037, 1, 1, 1, 1, 1,
+0.3119915, -0.1305447, 1.529471, 1, 1, 1, 1, 1,
+0.314474, -0.2129416, 0.4504945, 1, 1, 1, 1, 1,
+0.3202772, 0.2195977, -1.743439, 1, 1, 1, 1, 1,
+0.3266265, -2.099818, 1.542712, 1, 1, 1, 1, 1,
+0.3290544, 0.8263168, 0.08618366, 1, 1, 1, 1, 1,
+0.3297562, 0.1255352, 1.911561, 1, 1, 1, 1, 1,
+0.3306684, 1.09287, -0.9837303, 1, 1, 1, 1, 1,
+0.331269, -0.4860125, 1.579558, 1, 1, 1, 1, 1,
+0.342105, 0.1383949, 1.321547, 1, 1, 1, 1, 1,
+0.3458498, 1.202737, -0.5829827, 1, 1, 1, 1, 1,
+0.3541035, 2.051259, 0.9802344, 1, 1, 1, 1, 1,
+0.3573715, -1.506189, 3.611081, 1, 1, 1, 1, 1,
+0.3591403, -0.2918157, 4.04578, 0, 0, 1, 1, 1,
+0.3622751, -0.5854736, 2.581668, 1, 0, 0, 1, 1,
+0.3628025, 0.5550342, -0.2776135, 1, 0, 0, 1, 1,
+0.3644987, -0.3785137, 3.287621, 1, 0, 0, 1, 1,
+0.3696395, 1.238911, 0.2798755, 1, 0, 0, 1, 1,
+0.3740133, 1.063756, 0.9300184, 1, 0, 0, 1, 1,
+0.3770592, -0.09105024, 1.730457, 0, 0, 0, 1, 1,
+0.3777139, 1.184362, 0.3643656, 0, 0, 0, 1, 1,
+0.3783728, -1.806997, 3.292834, 0, 0, 0, 1, 1,
+0.381687, 1.034557, -0.315819, 0, 0, 0, 1, 1,
+0.3859003, 0.1508359, 0.5402565, 0, 0, 0, 1, 1,
+0.3868003, 0.4231591, 0.005082986, 0, 0, 0, 1, 1,
+0.3886012, -0.5843029, 2.505261, 0, 0, 0, 1, 1,
+0.3926367, -0.2047985, 1.8535, 1, 1, 1, 1, 1,
+0.3953358, 1.305102, 1.749894, 1, 1, 1, 1, 1,
+0.4017637, 0.6206861, 1.307701, 1, 1, 1, 1, 1,
+0.4033196, 1.448508, 0.7383416, 1, 1, 1, 1, 1,
+0.4126032, -1.456189, 4.478543, 1, 1, 1, 1, 1,
+0.4146728, 0.2194346, 1.058935, 1, 1, 1, 1, 1,
+0.4154159, 0.5325471, -0.1919495, 1, 1, 1, 1, 1,
+0.4162335, 0.4070857, 1.308091, 1, 1, 1, 1, 1,
+0.4210449, -0.1541605, 1.427737, 1, 1, 1, 1, 1,
+0.4242902, -0.4852754, 2.462205, 1, 1, 1, 1, 1,
+0.428626, 0.1207294, 0.6436202, 1, 1, 1, 1, 1,
+0.4297164, -0.7806185, 1.029048, 1, 1, 1, 1, 1,
+0.4335844, 0.3580511, 0.4024133, 1, 1, 1, 1, 1,
+0.4368501, 1.269614, -0.1489023, 1, 1, 1, 1, 1,
+0.4390782, 1.161848, 1.357555, 1, 1, 1, 1, 1,
+0.4437371, 1.139798, -0.7174537, 0, 0, 1, 1, 1,
+0.4532598, -0.9136606, 3.301962, 1, 0, 0, 1, 1,
+0.4605124, 1.293189, -2.0787, 1, 0, 0, 1, 1,
+0.4612269, -0.9740127, 5.268515, 1, 0, 0, 1, 1,
+0.4649922, -1.112396, 2.463728, 1, 0, 0, 1, 1,
+0.4729955, -2.018962, 1.041705, 1, 0, 0, 1, 1,
+0.4737954, -1.211163, 3.703732, 0, 0, 0, 1, 1,
+0.4774175, 1.030443, 0.7487682, 0, 0, 0, 1, 1,
+0.4777568, -0.5629169, 1.129634, 0, 0, 0, 1, 1,
+0.482014, 0.1463818, 3.440225, 0, 0, 0, 1, 1,
+0.4849593, 1.51643, 0.5961067, 0, 0, 0, 1, 1,
+0.4914779, 0.6013641, -1.931004, 0, 0, 0, 1, 1,
+0.491762, 0.6405616, 0.05498945, 0, 0, 0, 1, 1,
+0.4931424, -0.8737251, 1.603478, 1, 1, 1, 1, 1,
+0.4971713, 0.4307016, 1.822476, 1, 1, 1, 1, 1,
+0.4994614, 0.1019385, 1.253349, 1, 1, 1, 1, 1,
+0.5026028, 0.8921911, -0.7217615, 1, 1, 1, 1, 1,
+0.5051642, 1.721354, 1.364191, 1, 1, 1, 1, 1,
+0.5054426, -0.2194322, 1.776364, 1, 1, 1, 1, 1,
+0.5083115, 0.3123443, -0.4014136, 1, 1, 1, 1, 1,
+0.5118458, 0.5166873, 0.5505184, 1, 1, 1, 1, 1,
+0.5145351, -0.08349928, 2.354747, 1, 1, 1, 1, 1,
+0.5147453, 1.419689, -0.59075, 1, 1, 1, 1, 1,
+0.5193185, 1.229154, -0.4812794, 1, 1, 1, 1, 1,
+0.5294584, 0.05538565, 2.396348, 1, 1, 1, 1, 1,
+0.5299461, 1.399161, -1.653186, 1, 1, 1, 1, 1,
+0.5337262, -1.929126, 0.6503393, 1, 1, 1, 1, 1,
+0.5338228, 0.3120677, 1.631538, 1, 1, 1, 1, 1,
+0.5416458, 1.131975, 1.694506, 0, 0, 1, 1, 1,
+0.5438712, -1.038093, 1.496942, 1, 0, 0, 1, 1,
+0.5465362, 0.3504128, 3.629117, 1, 0, 0, 1, 1,
+0.5490209, 0.689009, 1.762527, 1, 0, 0, 1, 1,
+0.5559584, 1.478121, 0.5987066, 1, 0, 0, 1, 1,
+0.5580932, 0.56757, 0.8496174, 1, 0, 0, 1, 1,
+0.5584376, 0.9068205, -0.1578025, 0, 0, 0, 1, 1,
+0.5605083, 0.01410135, 0.4866473, 0, 0, 0, 1, 1,
+0.5663113, 2.666705, -0.09350479, 0, 0, 0, 1, 1,
+0.56749, 0.7067617, 0.4957935, 0, 0, 0, 1, 1,
+0.5684369, -0.3722655, 2.537678, 0, 0, 0, 1, 1,
+0.5744309, 0.5781468, 0.6199449, 0, 0, 0, 1, 1,
+0.5779315, -0.9398933, 3.885402, 0, 0, 0, 1, 1,
+0.579994, 0.3472843, -0.7672271, 1, 1, 1, 1, 1,
+0.5821425, -1.923738, 3.054087, 1, 1, 1, 1, 1,
+0.5847496, 0.1686633, 1.627249, 1, 1, 1, 1, 1,
+0.5922362, -0.08666674, 3.844544, 1, 1, 1, 1, 1,
+0.5934855, -0.9686069, 1.636858, 1, 1, 1, 1, 1,
+0.5975151, -0.6140119, 2.486046, 1, 1, 1, 1, 1,
+0.6101838, 0.7687248, -0.4559001, 1, 1, 1, 1, 1,
+0.6144217, 0.02608865, 1.301114, 1, 1, 1, 1, 1,
+0.6160244, 0.617542, 0.4200687, 1, 1, 1, 1, 1,
+0.6246931, 0.6639326, 0.4636517, 1, 1, 1, 1, 1,
+0.6273862, -0.1703314, 1.7193, 1, 1, 1, 1, 1,
+0.6279435, -0.08686455, 2.469219, 1, 1, 1, 1, 1,
+0.6288851, -0.678436, 2.924794, 1, 1, 1, 1, 1,
+0.6302139, -0.3261399, 1.463644, 1, 1, 1, 1, 1,
+0.6352938, 0.6629019, -1.531196, 1, 1, 1, 1, 1,
+0.6382805, -1.051383, 3.445112, 0, 0, 1, 1, 1,
+0.6428497, 1.287239, 0.654746, 1, 0, 0, 1, 1,
+0.6436588, -0.6567255, 3.178475, 1, 0, 0, 1, 1,
+0.6473444, 0.732589, 1.15772, 1, 0, 0, 1, 1,
+0.6486084, 1.416047, 1.936148, 1, 0, 0, 1, 1,
+0.6530874, -1.042356, 2.70154, 1, 0, 0, 1, 1,
+0.6564177, -0.2120194, 2.336918, 0, 0, 0, 1, 1,
+0.6627076, -0.4165418, 2.618491, 0, 0, 0, 1, 1,
+0.6627887, -0.4882289, 2.03229, 0, 0, 0, 1, 1,
+0.6631428, -0.3506146, 2.926687, 0, 0, 0, 1, 1,
+0.6639985, 1.353357, -0.3162336, 0, 0, 0, 1, 1,
+0.6682911, -1.015734, 4.40272, 0, 0, 0, 1, 1,
+0.6751292, -0.8952175, 0.9515496, 0, 0, 0, 1, 1,
+0.6773317, -1.939243, 4.024179, 1, 1, 1, 1, 1,
+0.6804417, 1.014727, 1.82987, 1, 1, 1, 1, 1,
+0.683916, -1.162801, 2.348233, 1, 1, 1, 1, 1,
+0.684795, -1.08523, 2.579347, 1, 1, 1, 1, 1,
+0.6852371, 0.04674594, 2.061469, 1, 1, 1, 1, 1,
+0.6854503, -0.1293198, 2.902535, 1, 1, 1, 1, 1,
+0.686066, -0.1626843, 0.5111471, 1, 1, 1, 1, 1,
+0.6924806, -0.274747, 3.702046, 1, 1, 1, 1, 1,
+0.6991057, -2.837345, 2.096397, 1, 1, 1, 1, 1,
+0.7051652, 0.7078821, -0.6716317, 1, 1, 1, 1, 1,
+0.7066263, -0.9039779, 3.502346, 1, 1, 1, 1, 1,
+0.7122744, 1.186932, 2.162882, 1, 1, 1, 1, 1,
+0.7143437, 0.605729, 1.272627, 1, 1, 1, 1, 1,
+0.7149718, -1.56046, 3.938849, 1, 1, 1, 1, 1,
+0.7213514, -0.3863663, 2.817851, 1, 1, 1, 1, 1,
+0.7225603, 1.343242, -1.250589, 0, 0, 1, 1, 1,
+0.7262082, 1.664762, -0.3188844, 1, 0, 0, 1, 1,
+0.7293929, -0.01915065, 0.8329981, 1, 0, 0, 1, 1,
+0.7354862, -0.5348933, 0.3167202, 1, 0, 0, 1, 1,
+0.7498204, 0.1095435, 2.783878, 1, 0, 0, 1, 1,
+0.750672, -0.5784604, 2.846255, 1, 0, 0, 1, 1,
+0.7510622, -1.811955, 2.753088, 0, 0, 0, 1, 1,
+0.7534541, 0.5245515, 2.306025, 0, 0, 0, 1, 1,
+0.7549202, 0.1475944, 1.694165, 0, 0, 0, 1, 1,
+0.7570561, -0.01775191, 0.8996407, 0, 0, 0, 1, 1,
+0.76108, 0.1636997, 0.7779728, 0, 0, 0, 1, 1,
+0.7768086, 0.3162258, 0.1822505, 0, 0, 0, 1, 1,
+0.7772601, 0.9319162, -0.3464765, 0, 0, 0, 1, 1,
+0.7817656, -1.364316, 1.444819, 1, 1, 1, 1, 1,
+0.7827188, -1.635583, 1.116595, 1, 1, 1, 1, 1,
+0.7864965, 1.233452, 1.602118, 1, 1, 1, 1, 1,
+0.7879067, -0.9577863, 0.332715, 1, 1, 1, 1, 1,
+0.7888184, 1.499714, 1.763512, 1, 1, 1, 1, 1,
+0.7892706, 0.4390758, -1.56696, 1, 1, 1, 1, 1,
+0.7896933, 1.133513, 2.41878, 1, 1, 1, 1, 1,
+0.7959693, 1.285154, 1.223117, 1, 1, 1, 1, 1,
+0.7964947, -0.9366075, 2.148342, 1, 1, 1, 1, 1,
+0.8009657, 0.6779868, -0.9265239, 1, 1, 1, 1, 1,
+0.8013281, -1.506353, 2.09161, 1, 1, 1, 1, 1,
+0.8031253, -0.2249656, 3.411161, 1, 1, 1, 1, 1,
+0.8068841, 2.234837, 0.6424026, 1, 1, 1, 1, 1,
+0.8082033, 0.9920011, 0.3731437, 1, 1, 1, 1, 1,
+0.8127695, 1.222048, 1.088502, 1, 1, 1, 1, 1,
+0.8178245, 0.1210092, 2.039214, 0, 0, 1, 1, 1,
+0.8179345, -0.01717551, 1.867058, 1, 0, 0, 1, 1,
+0.8195559, -1.021945, 0.399983, 1, 0, 0, 1, 1,
+0.822817, 0.8503043, 1.617189, 1, 0, 0, 1, 1,
+0.8228983, -1.893675, 3.378557, 1, 0, 0, 1, 1,
+0.824761, -0.1239231, 2.041934, 1, 0, 0, 1, 1,
+0.8257387, 0.7231541, 2.634323, 0, 0, 0, 1, 1,
+0.831995, -0.6476741, 1.277861, 0, 0, 0, 1, 1,
+0.8334714, -0.5784371, 2.432808, 0, 0, 0, 1, 1,
+0.8365319, 0.9306729, 0.05627484, 0, 0, 0, 1, 1,
+0.8420376, -1.787056, 1.67079, 0, 0, 0, 1, 1,
+0.8428352, -0.07803554, 1.308104, 0, 0, 0, 1, 1,
+0.847546, -1.315124, 2.76566, 0, 0, 0, 1, 1,
+0.8476058, 0.6715782, 2.2817, 1, 1, 1, 1, 1,
+0.8588649, -0.4556497, 2.559472, 1, 1, 1, 1, 1,
+0.8673307, -0.7162933, 1.162224, 1, 1, 1, 1, 1,
+0.8702028, 0.7757159, 1.330754, 1, 1, 1, 1, 1,
+0.8713529, -1.659516, 1.825657, 1, 1, 1, 1, 1,
+0.8757746, -0.03108365, 0.3522399, 1, 1, 1, 1, 1,
+0.8809273, 2.146287, 1.580979, 1, 1, 1, 1, 1,
+0.8825365, 0.074059, 2.347462, 1, 1, 1, 1, 1,
+0.8831107, -0.585299, 2.327754, 1, 1, 1, 1, 1,
+0.8836063, 0.7152789, -0.008253961, 1, 1, 1, 1, 1,
+0.8851535, 0.8071239, 0.09743137, 1, 1, 1, 1, 1,
+0.8912719, 0.5741827, 1.318584, 1, 1, 1, 1, 1,
+0.8925797, 0.2236051, 1.916156, 1, 1, 1, 1, 1,
+0.8939109, 0.4979364, 0.4602959, 1, 1, 1, 1, 1,
+0.8962529, -2.424573, 2.018845, 1, 1, 1, 1, 1,
+0.901697, 1.018138, 0.9563593, 0, 0, 1, 1, 1,
+0.9050538, -1.091509, 1.320239, 1, 0, 0, 1, 1,
+0.9069787, 0.1074715, 1.867641, 1, 0, 0, 1, 1,
+0.9124328, 1.279647, -0.2773656, 1, 0, 0, 1, 1,
+0.9153049, 0.3001309, 0.8915308, 1, 0, 0, 1, 1,
+0.9172933, 0.4937645, 2.871092, 1, 0, 0, 1, 1,
+0.9251419, -1.690041, 2.12482, 0, 0, 0, 1, 1,
+0.9264064, -0.5116064, 0.9662517, 0, 0, 0, 1, 1,
+0.9283691, -0.9027563, 3.690855, 0, 0, 0, 1, 1,
+0.936767, 0.2072537, -0.6006698, 0, 0, 0, 1, 1,
+0.9402055, 0.4758724, -0.3915568, 0, 0, 0, 1, 1,
+0.9414713, -0.3220392, -0.4259216, 0, 0, 0, 1, 1,
+0.9428404, -0.3808351, 3.471728, 0, 0, 0, 1, 1,
+0.9449281, 0.1300734, 0.6489713, 1, 1, 1, 1, 1,
+0.9482418, -0.002114479, 2.044082, 1, 1, 1, 1, 1,
+0.9486173, -0.5116388, 3.82419, 1, 1, 1, 1, 1,
+0.9499218, 0.6044852, 2.417537, 1, 1, 1, 1, 1,
+0.9527759, -0.6075712, 0.004269286, 1, 1, 1, 1, 1,
+0.9551695, -0.02018723, 1.714164, 1, 1, 1, 1, 1,
+0.9614922, -0.6939423, 3.473938, 1, 1, 1, 1, 1,
+0.9637978, -0.5297318, 2.385213, 1, 1, 1, 1, 1,
+0.9660126, -0.0445616, 0.9264667, 1, 1, 1, 1, 1,
+0.9672965, -0.1886664, 2.917382, 1, 1, 1, 1, 1,
+0.9738401, -0.4760267, 1.470502, 1, 1, 1, 1, 1,
+0.9860486, -1.943658, 2.566136, 1, 1, 1, 1, 1,
+0.9860784, -0.6005254, 1.801204, 1, 1, 1, 1, 1,
+0.9952515, -0.06990607, 2.170028, 1, 1, 1, 1, 1,
+1.001279, -0.2353731, 4.157594, 1, 1, 1, 1, 1,
+1.002435, 1.658225, -0.5242676, 0, 0, 1, 1, 1,
+1.005546, -0.4384885, 2.265358, 1, 0, 0, 1, 1,
+1.008152, -0.6660484, 2.137501, 1, 0, 0, 1, 1,
+1.016454, 0.9382151, -0.05453119, 1, 0, 0, 1, 1,
+1.019474, 0.2612547, 2.061648, 1, 0, 0, 1, 1,
+1.020403, -0.02331351, 2.071887, 1, 0, 0, 1, 1,
+1.024394, 1.471826, 0.7741789, 0, 0, 0, 1, 1,
+1.026938, 0.2084448, 0.5490823, 0, 0, 0, 1, 1,
+1.029999, -1.885632, 0.9350529, 0, 0, 0, 1, 1,
+1.030314, -1.341149, 0.5106708, 0, 0, 0, 1, 1,
+1.033162, 1.576864, 0.2019175, 0, 0, 0, 1, 1,
+1.033193, -2.588409, 3.984794, 0, 0, 0, 1, 1,
+1.038211, 1.00063, 0.5956043, 0, 0, 0, 1, 1,
+1.040759, -1.184721, 2.234148, 1, 1, 1, 1, 1,
+1.046665, -0.6161815, 0.5311304, 1, 1, 1, 1, 1,
+1.047369, -0.0260704, 3.352598, 1, 1, 1, 1, 1,
+1.057789, -1.750531, 2.053585, 1, 1, 1, 1, 1,
+1.06451, -0.2034013, 0.1194829, 1, 1, 1, 1, 1,
+1.06507, 0.390635, 1.943075, 1, 1, 1, 1, 1,
+1.073615, -0.3065897, 2.923817, 1, 1, 1, 1, 1,
+1.076745, -0.4494228, 3.276314, 1, 1, 1, 1, 1,
+1.083952, -0.393107, 1.874631, 1, 1, 1, 1, 1,
+1.094267, 0.6029789, 0.239529, 1, 1, 1, 1, 1,
+1.103337, -0.4353897, 2.048531, 1, 1, 1, 1, 1,
+1.110283, -0.01759703, 1.658688, 1, 1, 1, 1, 1,
+1.113823, 1.861281, 1.21008, 1, 1, 1, 1, 1,
+1.121805, -0.622498, -1.550414, 1, 1, 1, 1, 1,
+1.130051, 0.5834075, 1.233106, 1, 1, 1, 1, 1,
+1.132364, 0.3254849, 1.53022, 0, 0, 1, 1, 1,
+1.141561, 0.4961021, 1.173086, 1, 0, 0, 1, 1,
+1.149077, 0.002323631, 0.895216, 1, 0, 0, 1, 1,
+1.149339, -0.5295771, 0.2472905, 1, 0, 0, 1, 1,
+1.153564, -1.931806, 2.772306, 1, 0, 0, 1, 1,
+1.199222, -0.8958079, 1.79609, 1, 0, 0, 1, 1,
+1.207476, -1.825272, 4.750073, 0, 0, 0, 1, 1,
+1.207689, 1.043927, 0.4451971, 0, 0, 0, 1, 1,
+1.209812, -0.3620599, 2.204261, 0, 0, 0, 1, 1,
+1.215713, -0.7770007, 1.643797, 0, 0, 0, 1, 1,
+1.218114, 1.638538, 0.636067, 0, 0, 0, 1, 1,
+1.218385, 0.6332459, -0.2166358, 0, 0, 0, 1, 1,
+1.227273, -1.21253, 2.79844, 0, 0, 0, 1, 1,
+1.230101, 0.2385843, 1.719796, 1, 1, 1, 1, 1,
+1.230249, -0.1311417, 2.96446, 1, 1, 1, 1, 1,
+1.231573, -1.36155, 3.095042, 1, 1, 1, 1, 1,
+1.235984, -0.9178967, 2.006304, 1, 1, 1, 1, 1,
+1.23637, 0.7614137, 0.390277, 1, 1, 1, 1, 1,
+1.237764, -2.347202, 2.99456, 1, 1, 1, 1, 1,
+1.239244, -0.7566797, 4.63973, 1, 1, 1, 1, 1,
+1.24719, 0.8965911, 3.407641, 1, 1, 1, 1, 1,
+1.25044, -0.1790354, 2.057479, 1, 1, 1, 1, 1,
+1.251483, -0.6064454, 1.63921, 1, 1, 1, 1, 1,
+1.253228, -1.434255, 3.426141, 1, 1, 1, 1, 1,
+1.256699, 1.312653, 0.2191239, 1, 1, 1, 1, 1,
+1.259405, 1.205853, 0.3341278, 1, 1, 1, 1, 1,
+1.263429, 0.8017308, 2.274416, 1, 1, 1, 1, 1,
+1.266437, 0.04576818, 1.73055, 1, 1, 1, 1, 1,
+1.271764, -0.766554, 1.610733, 0, 0, 1, 1, 1,
+1.274444, -1.539531, 2.533748, 1, 0, 0, 1, 1,
+1.278242, 0.4708737, -1.423439, 1, 0, 0, 1, 1,
+1.280345, -0.02216477, 2.507813, 1, 0, 0, 1, 1,
+1.284221, -2.52907, 2.157628, 1, 0, 0, 1, 1,
+1.284693, 0.4796267, 0.1069701, 1, 0, 0, 1, 1,
+1.292124, -0.5089839, 1.9305, 0, 0, 0, 1, 1,
+1.292637, -0.4742192, 1.455195, 0, 0, 0, 1, 1,
+1.297504, -1.124785, 2.590002, 0, 0, 0, 1, 1,
+1.297512, -0.819067, -0.04213427, 0, 0, 0, 1, 1,
+1.300797, 1.128378, 0.8305326, 0, 0, 0, 1, 1,
+1.300952, 0.5739835, 0.2053247, 0, 0, 0, 1, 1,
+1.301061, -0.01194276, 2.188858, 0, 0, 0, 1, 1,
+1.302223, 1.086103, 0.4495279, 1, 1, 1, 1, 1,
+1.302571, 0.1697704, 0.4956947, 1, 1, 1, 1, 1,
+1.302723, -0.5529204, 1.916335, 1, 1, 1, 1, 1,
+1.310968, -0.2855113, 1.702713, 1, 1, 1, 1, 1,
+1.318042, -1.433681, 4.523377, 1, 1, 1, 1, 1,
+1.320235, 0.8272156, 0.6447884, 1, 1, 1, 1, 1,
+1.332591, -0.9562465, 2.230109, 1, 1, 1, 1, 1,
+1.336498, -0.8208554, 3.437868, 1, 1, 1, 1, 1,
+1.3419, -0.08680867, 0.624756, 1, 1, 1, 1, 1,
+1.35353, 0.1390004, 1.783883, 1, 1, 1, 1, 1,
+1.357401, -2.254805, 2.294593, 1, 1, 1, 1, 1,
+1.360738, 0.3643571, -0.4628469, 1, 1, 1, 1, 1,
+1.363533, 0.07850771, 3.381729, 1, 1, 1, 1, 1,
+1.372169, 0.1383966, 0.562586, 1, 1, 1, 1, 1,
+1.373215, 0.9276496, 0.1916055, 1, 1, 1, 1, 1,
+1.399923, 1.49925, 0.5717021, 0, 0, 1, 1, 1,
+1.412072, -1.827819, 1.895877, 1, 0, 0, 1, 1,
+1.41573, 0.9069214, -0.5420719, 1, 0, 0, 1, 1,
+1.427816, -0.4904636, 0.0117992, 1, 0, 0, 1, 1,
+1.43823, -1.008657, 3.394723, 1, 0, 0, 1, 1,
+1.447504, 1.398138, 0.438958, 1, 0, 0, 1, 1,
+1.448952, 0.7533083, 1.392189, 0, 0, 0, 1, 1,
+1.455399, -0.442336, 2.799558, 0, 0, 0, 1, 1,
+1.459016, 0.3941901, 3.801568, 0, 0, 0, 1, 1,
+1.459433, -2.383797, 1.608318, 0, 0, 0, 1, 1,
+1.460984, 1.38962, 2.031239, 0, 0, 0, 1, 1,
+1.480968, 1.75233, 0.6924549, 0, 0, 0, 1, 1,
+1.494439, -0.1015777, 0.769097, 0, 0, 0, 1, 1,
+1.511118, -0.1271121, 2.592771, 1, 1, 1, 1, 1,
+1.523503, 0.4831061, 0.4999641, 1, 1, 1, 1, 1,
+1.538921, 0.2755301, 1.522864, 1, 1, 1, 1, 1,
+1.568848, 0.5196471, 1.266571, 1, 1, 1, 1, 1,
+1.576445, 0.3462079, 1.498652, 1, 1, 1, 1, 1,
+1.577252, 0.2973777, 1.96522, 1, 1, 1, 1, 1,
+1.582933, -1.206569, 2.474112, 1, 1, 1, 1, 1,
+1.593382, 0.6412935, 0.2931349, 1, 1, 1, 1, 1,
+1.596895, -2.02411, 3.293672, 1, 1, 1, 1, 1,
+1.602327, 0.1105903, -0.6532499, 1, 1, 1, 1, 1,
+1.602877, 1.233315, 1.358737, 1, 1, 1, 1, 1,
+1.621702, -0.1516308, 2.646561, 1, 1, 1, 1, 1,
+1.622986, 1.142865, -0.413317, 1, 1, 1, 1, 1,
+1.644607, 0.4523915, 1.281337, 1, 1, 1, 1, 1,
+1.678721, -0.6989533, 2.262928, 1, 1, 1, 1, 1,
+1.685816, 0.6086399, -0.2550578, 0, 0, 1, 1, 1,
+1.708909, -0.05735371, 0.8501841, 1, 0, 0, 1, 1,
+1.715826, -0.1407645, 2.574245, 1, 0, 0, 1, 1,
+1.716156, 0.8430454, 0.6645296, 1, 0, 0, 1, 1,
+1.750412, 1.082965, 0.5734426, 1, 0, 0, 1, 1,
+1.755374, 1.143624, 1.697522, 1, 0, 0, 1, 1,
+1.760362, -0.4808373, 1.827089, 0, 0, 0, 1, 1,
+1.765744, 2.688943, 1.267078, 0, 0, 0, 1, 1,
+1.779089, 1.617548, 1.840158, 0, 0, 0, 1, 1,
+1.798833, -0.7594545, 1.402139, 0, 0, 0, 1, 1,
+1.79891, -1.293537, 2.644422, 0, 0, 0, 1, 1,
+1.800798, -1.37913, 1.766492, 0, 0, 0, 1, 1,
+1.804497, 0.298936, 1.868664, 0, 0, 0, 1, 1,
+1.804744, -1.445739, 1.506163, 1, 1, 1, 1, 1,
+1.812489, 0.5728844, 1.00025, 1, 1, 1, 1, 1,
+1.838558, 0.7054676, 0.1482729, 1, 1, 1, 1, 1,
+1.852118, -0.800083, 0.5143604, 1, 1, 1, 1, 1,
+1.85353, 0.6342831, 0.80065, 1, 1, 1, 1, 1,
+1.85821, 1.484834, -0.2062548, 1, 1, 1, 1, 1,
+1.859123, -0.6798905, 1.67633, 1, 1, 1, 1, 1,
+1.934481, -0.06650335, 0.7570726, 1, 1, 1, 1, 1,
+1.944796, 1.272522, -0.2637079, 1, 1, 1, 1, 1,
+1.94635, 1.024189, 1.244642, 1, 1, 1, 1, 1,
+1.948908, -0.2234838, -0.04199657, 1, 1, 1, 1, 1,
+1.977801, -0.8242324, 1.292437, 1, 1, 1, 1, 1,
+1.986424, 0.09613238, -0.6668947, 1, 1, 1, 1, 1,
+1.993417, -1.313157, 0.7719069, 1, 1, 1, 1, 1,
+2.0412, 0.6656815, 0.6748676, 1, 1, 1, 1, 1,
+2.065847, 1.282922, 2.19839, 0, 0, 1, 1, 1,
+2.100843, 0.02147019, 3.18003, 1, 0, 0, 1, 1,
+2.123167, 0.2245996, 1.616709, 1, 0, 0, 1, 1,
+2.136652, -0.1901971, 1.090304, 1, 0, 0, 1, 1,
+2.150966, 0.07383522, 1.434391, 1, 0, 0, 1, 1,
+2.171744, -0.7301382, 0.7938353, 1, 0, 0, 1, 1,
+2.219647, -0.4761966, 2.961684, 0, 0, 0, 1, 1,
+2.22754, 2.140235, 0.2659988, 0, 0, 0, 1, 1,
+2.29131, 0.6273408, 2.035053, 0, 0, 0, 1, 1,
+2.300637, -1.19604, 0.9162179, 0, 0, 0, 1, 1,
+2.323667, -1.153107, 1.966355, 0, 0, 0, 1, 1,
+2.382721, 1.106057, 0.03890352, 0, 0, 0, 1, 1,
+2.398438, -2.898803, 2.520865, 0, 0, 0, 1, 1,
+2.462046, 0.7521241, 2.002677, 1, 1, 1, 1, 1,
+2.478015, 0.392219, 0.657138, 1, 1, 1, 1, 1,
+2.481511, -0.927736, 2.426019, 1, 1, 1, 1, 1,
+2.505948, -0.4756807, 1.694887, 1, 1, 1, 1, 1,
+2.814084, 0.1158087, 1.079018, 1, 1, 1, 1, 1,
+2.871908, 0.8090715, 0.2583163, 1, 1, 1, 1, 1,
+3.222342, 0.168986, 2.683367, 1, 1, 1, 1, 1
+]);
+var values25 = v;
+var normLoc25 = gl.getAttribLocation(prog25, "aNorm");
+var mvMatLoc25 = gl.getUniformLocation(prog25,"mvMatrix");
+var prMatLoc25 = gl.getUniformLocation(prog25,"prMatrix");
+var normMatLoc25 = gl.getUniformLocation(prog25,"normMatrix");
+gl.enable(gl.DEPTH_TEST);
+gl.depthFunc(gl.LEQUAL);
+gl.clearDepth(1.0);
+gl.clearColor(1,1,1,1);
+var xOffs = yOffs = 0,  drag  = 0;
+function multMV(M, v) {
+return [M.m11*v[0] + M.m12*v[1] + M.m13*v[2] + M.m14*v[3],
+M.m21*v[0] + M.m22*v[1] + M.m23*v[2] + M.m24*v[3],
+M.m31*v[0] + M.m32*v[1] + M.m33*v[2] + M.m34*v[3],
+M.m41*v[0] + M.m42*v[1] + M.m43*v[2] + M.m44*v[3]];
+}
+drawScene();
+function drawScene(){
+gl.depthMask(true);
+gl.disable(gl.BLEND);
+gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
+// ***** subscene 19 ****
+gl.viewport(0, 0, 504, 504);
+gl.scissor(0, 0, 504, 504);
+gl.clearColor(1, 1, 1, 1);
+gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
+var radius = 9.438396;
+var distance = 33.15196;
+var t = tan(fov[19]*PI/360);
+var near = distance - radius;
+var far = distance + radius;
+var hlen = t*near;
+var aspect = 1;
+prMatrix.makeIdentity();
+if (aspect > 1)
+prMatrix.frustum(-hlen*aspect*zoom[19], hlen*aspect*zoom[19], 
+-hlen*zoom[19], hlen*zoom[19], near, far);
+else  
+prMatrix.frustum(-hlen*zoom[19], hlen*zoom[19], 
+-hlen*zoom[19]/aspect, hlen*zoom[19]/aspect, 
+near, far);
+mvMatrix.makeIdentity();
+mvMatrix.translate( -0.1139956, -0.04724669, 0.1480858 );
+mvMatrix.scale( 1, 1, 1 );   
+mvMatrix.multRight( userMatrix[19] );
+mvMatrix.translate(-0, -0, -33.15196);
+normMatrix.makeIdentity();
+normMatrix.scale( 1, 1, 1 );   
+normMatrix.multRight( userMatrix[19] );
+// ****** spheres object 25 *******
+gl.useProgram(prog25);
+gl.bindBuffer(gl.ARRAY_BUFFER, sphereBuf);
+gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, sphereIbuf);
+gl.uniformMatrix4fv( prMatLoc25, false, new Float32Array(prMatrix.getAsArray()) );
+gl.uniformMatrix4fv( mvMatLoc25, false, new Float32Array(mvMatrix.getAsArray()) );
+gl.uniformMatrix4fv( normMatLoc25, false, new Float32Array(normMatrix.getAsArray()) );
+gl.enableVertexAttribArray( posLoc );
+gl.vertexAttribPointer(posLoc,  3, gl.FLOAT, false, 12,  0);
+gl.enableVertexAttribArray(normLoc25 );
+gl.vertexAttribPointer(normLoc25,  3, gl.FLOAT, false, 12,  0);
+gl.disableVertexAttribArray( colLoc );
+var sphereNorm = new CanvasMatrix4();
+sphereNorm.scale(1, 1, 1);
+sphereNorm.multRight(normMatrix);
+gl.uniformMatrix4fv( normMatLoc25, false, new Float32Array(sphereNorm.getAsArray()) );
+for (var i = 0; i < 1000; i++) {
+var sphereMV = new CanvasMatrix4();
+var baseofs = i*8
+var ofs = baseofs + 7;	       
+var scale = values25[ofs];
+sphereMV.scale(1*scale, 1*scale, 1*scale);
+sphereMV.translate(values25[baseofs], 
+values25[baseofs+1], 
+values25[baseofs+2]);
+sphereMV.multRight(mvMatrix);
+gl.uniformMatrix4fv( mvMatLoc25, false, new Float32Array(sphereMV.getAsArray()) );
+ofs = baseofs + 3;       
+gl.vertexAttrib4f( colLoc, values25[ofs], 
+values25[ofs+1], 
+values25[ofs+2],
+values25[ofs+3] );
+gl.drawElements(gl.TRIANGLES, 384, gl.UNSIGNED_SHORT, 0);
+}
+gl.flush ();
+}
+var vpx0 = {
+19: 0
+};
+var vpy0 = {
+19: 0
+};
+var vpWidths = {
+19: 504
+};
+var vpHeights = {
+19: 504
+};
+var activeModel = {
+19: 19
+};
+var activeProjection = {
+19: 19
+};
+var whichSubscene = function(coords){
+if (0 <= coords.x && coords.x <= 504 && 0 <= coords.y && coords.y <= 504) return(19);
+return(19);
+}
+var translateCoords = function(subsceneid, coords){
+return {x:coords.x - vpx0[subsceneid], y:coords.y - vpy0[subsceneid]};
+}
+var vlen = function(v) {
+return sqrt(v[0]*v[0] + v[1]*v[1] + v[2]*v[2])
+}
+var xprod = function(a, b) {
+return [a[1]*b[2] - a[2]*b[1],
+a[2]*b[0] - a[0]*b[2],
+a[0]*b[1] - a[1]*b[0]];
+}
+var screenToVector = function(x, y) {
+var width = vpWidths[activeSubscene];
+var height = vpHeights[activeSubscene];
+var radius = max(width, height)/2.0;
+var cx = width/2.0;
+var cy = height/2.0;
+var px = (x-cx)/radius;
+var py = (y-cy)/radius;
+var plen = sqrt(px*px+py*py);
+if (plen > 1.e-6) { 
+px = px/plen;
+py = py/plen;
+}
+var angle = (SQRT2 - plen)/SQRT2*PI/2;
+var z = sin(angle);
+var zlen = sqrt(1.0 - z*z);
+px = px * zlen;
+py = py * zlen;
+return [px, py, z];
+}
+var rotBase;
+var trackballdown = function(x,y) {
+rotBase = screenToVector(x, y);
+saveMat.load(userMatrix[activeModel[activeSubscene]]);
+}
+var trackballmove = function(x,y) {
+var rotCurrent = screenToVector(x,y);
+var dot = rotBase[0]*rotCurrent[0] + 
+rotBase[1]*rotCurrent[1] + 
+rotBase[2]*rotCurrent[2];
+var angle = acos( dot/vlen(rotBase)/vlen(rotCurrent) )*180./PI;
+var axis = xprod(rotBase, rotCurrent);
+userMatrix[activeModel[activeSubscene]].load(saveMat);
+userMatrix[activeModel[activeSubscene]].rotate(angle, axis[0], axis[1], axis[2]);
+drawScene();
+}
+var y0zoom = 0;
+var zoom0 = 1;
+var zoomdown = function(x, y) {
+y0zoom = y;
+zoom0 = log(zoom[activeProjection[activeSubscene]]);
+}
+var zoommove = function(x, y) {
+zoom[activeProjection[activeSubscene]] = exp(zoom0 + (y-y0zoom)/height);
+drawScene();
+}
+var y0fov = 0;
+var fov0 = 1;
+var fovdown = function(x, y) {
+y0fov = y;
+fov0 = fov[activeProjection[activeSubscene]];
+}
+var fovmove = function(x, y) {
+fov[activeProjection[activeSubscene]] = max(1, min(179, fov0 + 180*(y-y0fov)/height));
+drawScene();
+}
+var mousedown = [trackballdown, zoomdown, fovdown];
+var mousemove = [trackballmove, zoommove, fovmove];
+function relMouseCoords(event){
+var totalOffsetX = 0;
+var totalOffsetY = 0;
+var currentElement = canvas;
+do{
+totalOffsetX += currentElement.offsetLeft;
+totalOffsetY += currentElement.offsetTop;
+}
+while(currentElement = currentElement.offsetParent)
+var canvasX = event.pageX - totalOffsetX;
+var canvasY = event.pageY - totalOffsetY;
+return {x:canvasX, y:canvasY}
+}
+canvas.onmousedown = function ( ev ){
+if (!ev.which) // Use w3c defns in preference to MS
+switch (ev.button) {
+case 0: ev.which = 1; break;
+case 1: 
+case 4: ev.which = 2; break;
+case 2: ev.which = 3;
+}
+drag = ev.which;
+var f = mousedown[drag-1];
+if (f) {
+var coords = relMouseCoords(ev);
+coords.y = height-coords.y;
+activeSubscene = whichSubscene(coords);
+coords = translateCoords(activeSubscene, coords);
+f(coords.x, coords.y); 
+ev.preventDefault();
+}
+}    
+canvas.onmouseup = function ( ev ){	
+drag = 0;
+}
+canvas.onmouseout = canvas.onmouseup;
+canvas.onmousemove = function ( ev ){
+if ( drag == 0 ) return;
+var f = mousemove[drag-1];
+if (f) {
+var coords = relMouseCoords(ev);
+coords.y = height - coords.y;
+coords = translateCoords(activeSubscene, coords);
+f(coords.x, coords.y);
+}
+}
+var wheelHandler = function(ev) {
+var del = 1.1;
+if (ev.shiftKey) del = 1.01;
+var ds = ((ev.detail || ev.wheelDelta) > 0) ? del : (1 / del);
+zoom[activeProjection[activeSubscene]] *= ds;
+drawScene();
+ev.preventDefault();
+};
+canvas.addEventListener("DOMMouseScroll", wheelHandler, false);
+canvas.addEventListener("mousewheel", wheelHandler, false);
+}
+</script>
+<canvas id="testgl2canvas" width="1" height="1"></canvas> 
+<p id="testgl2debug">
+You must enable Javascript to view this page properly.</p>
+<script>testgl2webGLStart();</script>

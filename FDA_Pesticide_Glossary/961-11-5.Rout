@@ -17,8 +17,10 @@ Type 'demo()' for some demos, 'help()' for on-line help, or
 'help.start()' for an HTML browser interface to help.
 Type 'q()' to quit R.
 
+[Previously saved workspace restored]
+
 > library("knitr")
-> 
+> library("rgl")
 > #knit("961-11-5.Rmd")
 > #markdownToHTML('961-11-5.md', '961-11-5.html', options=c("use_xhml"))
 > #system("pandoc -s 961-11-5.html -o 961-11-5.pdf")
@@ -28,8 +30,29 @@ Type 'q()' to quit R.
 
 
 processing file: 961-11-5.Rmd
-  |                                                                         |                                                                 |   0%  |                                                                         |.................................................................| 100%
+  |                                                                         |                                                                 |   0%  |                                                                         |...........                                                      |  17%
   ordinary text without R code
+
+  |                                                                         |......................                                           |  33%
+label: setup (with options) 
+List of 1
+ $ results: chr "asis"
+
+  |                                                                         |................................                                 |  50%
+  ordinary text without R code
+
+  |                                                                         |...........................................                      |  67%
+label: testgl (with options) 
+List of 1
+ $ webgl: logi TRUE
+
+  |                                                                         |......................................................           |  83%
+  ordinary text without R code
+
+  |                                                                         |.................................................................| 100%
+label: testgl2 (with options) 
+List of 1
+ $ webgl: logi TRUE
 
 
 output file: 961-11-5.md
@@ -37,4 +60,4 @@ output file: 961-11-5.md
 > 
 > proc.time()
    user  system elapsed 
-  0.304   0.008   0.306 
+  1.428   0.204   1.745 

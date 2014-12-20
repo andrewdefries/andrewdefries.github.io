@@ -1,5 +1,5 @@
 library("knitr")
-
+library("rgl")
 #knit("hydramethylnon.Rmd")
 #markdownToHTML('hydramethylnon.md', 'hydramethylnon.html', options=c("use_xhml"))
 #system("pandoc -s hydramethylnon.html -o hydramethylnon.pdf")

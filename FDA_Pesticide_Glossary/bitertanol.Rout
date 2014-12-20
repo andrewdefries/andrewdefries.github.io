@@ -17,8 +17,10 @@ Type 'demo()' for some demos, 'help()' for on-line help, or
 'help.start()' for an HTML browser interface to help.
 Type 'q()' to quit R.
 
+[Previously saved workspace restored]
+
 > library("knitr")
-> 
+> library("rgl")
 > #knit("bitertanol.Rmd")
 > #markdownToHTML('bitertanol.md', 'bitertanol.html', options=c("use_xhml"))
 > #system("pandoc -s bitertanol.html -o bitertanol.pdf")
@@ -28,8 +30,29 @@ Type 'q()' to quit R.
 
 
 processing file: bitertanol.Rmd
-  |                                                                         |                                                                 |   0%  |                                                                         |.................................................................| 100%
+  |                                                                         |                                                                 |   0%  |                                                                         |...........                                                      |  17%
   ordinary text without R code
+
+  |                                                                         |......................                                           |  33%
+label: setup (with options) 
+List of 1
+ $ results: chr "asis"
+
+  |                                                                         |................................                                 |  50%
+  ordinary text without R code
+
+  |                                                                         |...........................................                      |  67%
+label: testgl (with options) 
+List of 1
+ $ webgl: logi TRUE
+
+  |                                                                         |......................................................           |  83%
+  ordinary text without R code
+
+  |                                                                         |.................................................................| 100%
+label: testgl2 (with options) 
+List of 1
+ $ webgl: logi TRUE
 
 
 output file: bitertanol.md
@@ -37,4 +60,4 @@ output file: bitertanol.md
 > 
 > proc.time()
    user  system elapsed 
-  0.296   0.016   0.303 
+  1.528   0.180   1.832 

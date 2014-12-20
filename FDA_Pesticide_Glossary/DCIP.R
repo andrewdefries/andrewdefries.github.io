@@ -1,5 +1,5 @@
 library("knitr")
-
+library("rgl")
 #knit("DCIP.Rmd")
 #markdownToHTML('DCIP.md', 'DCIP.html', options=c("use_xhml"))
 #system("pandoc -s DCIP.html -o DCIP.pdf")

@@ -20,7 +20,7 @@ Type 'q()' to quit R.
 [Previously saved workspace restored]
 
 > library("knitr")
-> 
+> library("rgl")
 > #knit("2-nitro-benzamide.Rmd")
 > #markdownToHTML('2-nitro-benzamide.md', '2-nitro-benzamide.html', options=c("use_xhml"))
 > #system("pandoc -s 2-nitro-benzamide.html -o 2-nitro-benzamide.pdf")
@@ -60,4 +60,4 @@ output file: 2-nitro-benzamide.md
 > 
 > proc.time()
    user  system elapsed 
-  0.468   0.040   0.505 
+  1.464   0.208   1.785 

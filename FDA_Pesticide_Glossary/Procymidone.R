@@ -1,5 +1,5 @@
 library("knitr")
-
+library("rgl")
 #knit("Procymidone.Rmd")
 #markdownToHTML('Procymidone.md', 'Procymidone.html', options=c("use_xhml"))
 #system("pandoc -s Procymidone.html -o Procymidone.pdf")

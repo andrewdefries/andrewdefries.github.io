@@ -20,7 +20,7 @@ Type 'q()' to quit R.
 [Previously saved workspace restored]
 
 > library("knitr")
-> 
+> library("rgl")
 > #knit("3-methoxy-2-methylbe.Rmd")
 > #markdownToHTML('3-methoxy-2-methylbe.md', '3-methoxy-2-methylbe.html', options=c("use_xhml"))
 > #system("pandoc -s 3-methoxy-2-methylbe.html -o 3-methoxy-2-methylbe.pdf")
@@ -60,4 +60,4 @@ output file: 3-methoxy-2-methylbe.md
 > 
 > proc.time()
    user  system elapsed 
-  0.484   0.028   0.508 
+  1.452   0.196   1.770 

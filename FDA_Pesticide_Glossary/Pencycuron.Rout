@@ -17,8 +17,10 @@ Type 'demo()' for some demos, 'help()' for on-line help, or
 'help.start()' for an HTML browser interface to help.
 Type 'q()' to quit R.
 
+[Previously saved workspace restored]
+
 > library("knitr")
-> 
+> library("rgl")
 > #knit("Pencycuron.Rmd")
 > #markdownToHTML('Pencycuron.md', 'Pencycuron.html', options=c("use_xhml"))
 > #system("pandoc -s Pencycuron.html -o Pencycuron.pdf")
@@ -28,8 +30,29 @@ Type 'q()' to quit R.
 
 
 processing file: Pencycuron.Rmd
-  |                                                                         |                                                                 |   0%  |                                                                         |.................................................................| 100%
+  |                                                                         |                                                                 |   0%  |                                                                         |...........                                                      |  17%
   ordinary text without R code
+
+  |                                                                         |......................                                           |  33%
+label: setup (with options) 
+List of 1
+ $ results: chr "asis"
+
+  |                                                                         |................................                                 |  50%
+  ordinary text without R code
+
+  |                                                                         |...........................................                      |  67%
+label: testgl (with options) 
+List of 1
+ $ webgl: logi TRUE
+
+  |                                                                         |......................................................           |  83%
+  ordinary text without R code
+
+  |                                                                         |.................................................................| 100%
+label: testgl2 (with options) 
+List of 1
+ $ webgl: logi TRUE
 
 
 output file: Pencycuron.md
@@ -37,4 +60,4 @@ output file: Pencycuron.md
 > 
 > proc.time()
    user  system elapsed 
-  0.288   0.020   0.302 
+  1.080   0.252   1.524 

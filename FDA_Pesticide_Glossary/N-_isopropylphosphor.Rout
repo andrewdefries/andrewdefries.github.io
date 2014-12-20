@@ -17,8 +17,10 @@ Type 'demo()' for some demos, 'help()' for on-line help, or
 'help.start()' for an HTML browser interface to help.
 Type 'q()' to quit R.
 
+[Previously saved workspace restored]
+
 > library("knitr")
-> 
+> library("rgl")
 > #knit("N-_isopropylphosphor.Rmd")
 > #markdownToHTML('N-_isopropylphosphor.md', 'N-_isopropylphosphor.html', options=c("use_xhml"))
 > #system("pandoc -s N-_isopropylphosphor.html -o N-_isopropylphosphor.pdf")
@@ -28,13 +30,35 @@ Type 'q()' to quit R.
 
 
 processing file: N-_isopropylphosphor.Rmd
-  |                                                                         |                                                                 |   0%  |                                                                         |.................................................................| 100%
+  |                                                                         |                                                                 |   0%  |                                                                         |...........                                                      |  17%
   ordinary text without R code
 
+  |                                                                         |......................                                           |  33%
+label: setup (with options) 
+List of 1
+ $ results: chr "asis"
 
-output file: N-_isopropylphosphor.md
+  |                                                                         |................................                                 |  50%
+  ordinary text without R code
 
-> 
-> proc.time()
-   user  system elapsed 
-  0.284   0.028   0.304 
+  |                                                                         |...........................................                      |  67%
+label: testgl (with options) 
+List of 1
+ $ webgl: logi TRUE
+
+  |                                                                         |......................................................           |  83%
+  ordinary text without R code
+
+  |                                                                         |.................................................................| 100%
+label: testgl2 (with options) 
+List of 1
+ $ webgl: logi TRUE
+
+Quitting from lines 24-32 (N-_isopropylphosphor.Rmd) 
+Error in parse(text = x, srcfile = src) : <text>:2:3: unexpected input
+1: open3d()
+2: N-_
+     ^
+Calls: knit2html ... evaluate -> parse_all -> parse_all.character -> parse
+
+Execution halted

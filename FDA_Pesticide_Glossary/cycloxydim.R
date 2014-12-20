@@ -1,5 +1,5 @@
 library("knitr")
-
+library("rgl")
 #knit("cycloxydim.Rmd")
 #markdownToHTML('cycloxydim.md', 'cycloxydim.html', options=c("use_xhml"))
 #system("pandoc -s cycloxydim.html -o cycloxydim.pdf")

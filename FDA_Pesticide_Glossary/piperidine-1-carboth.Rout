@@ -17,15 +17,47 @@ Type 'demo()' for some demos, 'help()' for on-line help, or
 'help.start()' for an HTML browser interface to help.
 Type 'q()' to quit R.
 
+[Previously saved workspace restored]
+
 > library("knitr")
-> 
+> library("rgl")
 > #knit("piperidine-1-carboth.Rmd")
 > #markdownToHTML('piperidine-1-carboth.md', 'piperidine-1-carboth.html', options=c("use_xhml"))
 > #system("pandoc -s piperidine-1-carboth.html -o piperidine-1-carboth.pdf")
 > 
 > 
 > knit2html('piperidine-1-carboth.Rmd')
-Error in renderMarkdown(file = NULL, output = NULL, text, renderer = "HTML",  : 
-  CHAR() can only be applied to a 'CHARSXP', not a 'NULL'
-Calls: knit2html -> <Anonymous> -> renderMarkdown -> .Call
-Execution halted
+
+
+processing file: piperidine-1-carboth.Rmd
+  |                                                                         |                                                                 |   0%  |                                                                         |...........                                                      |  17%
+  ordinary text without R code
+
+  |                                                                         |......................                                           |  33%
+label: setup (with options) 
+List of 1
+ $ results: chr "asis"
+
+  |                                                                         |................................                                 |  50%
+  ordinary text without R code
+
+  |                                                                         |...........................................                      |  67%
+label: testgl (with options) 
+List of 1
+ $ webgl: logi TRUE
+
+  |                                                                         |......................................................           |  83%
+  ordinary text without R code
+
+  |                                                                         |.................................................................| 100%
+label: testgl2 (with options) 
+List of 1
+ $ webgl: logi TRUE
+
+
+output file: piperidine-1-carboth.md
+
+> 
+> proc.time()
+   user  system elapsed 
+  1.076   0.192   1.478 

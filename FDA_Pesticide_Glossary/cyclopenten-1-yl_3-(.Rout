@@ -17,8 +17,10 @@ Type 'demo()' for some demos, 'help()' for on-line help, or
 'help.start()' for an HTML browser interface to help.
 Type 'q()' to quit R.
 
+[Previously saved workspace restored]
+
 > library("knitr")
-> 
+> library("rgl")
 > #knit("cyclopenten-1-yl_3-(.Rmd")
 > #markdownToHTML('cyclopenten-1-yl_3-(.md', 'cyclopenten-1-yl_3-(.html', options=c("use_xhml"))
 > #system("pandoc -s cyclopenten-1-yl_3-(.html -o cyclopenten-1-yl_3-(.pdf")
@@ -28,13 +30,36 @@ Type 'q()' to quit R.
 
 
 processing file: cyclopenten-1-yl_3-(.Rmd
-  |                                                                         |                                                                 |   0%  |                                                                         |.................................................................| 100%
+  |                                                                         |                                                                 |   0%  |                                                                         |...........                                                      |  17%
   ordinary text without R code
 
+  |                                                                         |......................                                           |  33%
+label: setup (with options) 
+List of 1
+ $ results: chr "asis"
 
-output file: cyclopenten-1-yl_3-(.md
+  |                                                                         |................................                                 |  50%
+  ordinary text without R code
 
-> 
-> proc.time()
-   user  system elapsed 
-  0.288   0.024   0.304 
+  |                                                                         |...........................................                      |  67%
+label: testgl (with options) 
+List of 1
+ $ webgl: logi TRUE
+
+  |                                                                         |......................................................           |  83%
+  ordinary text without R code
+
+  |                                                                         |.................................................................| 100%
+label: testgl2 (with options) 
+List of 1
+ $ webgl: logi TRUE
+
+Quitting from lines 24-32 (cyclopenten-1-yl_3-(.Rmd) 
+Error in parse(text = x, srcfile = src) : 
+  <text>:2:21: unexpected assignment
+1: open3d()
+2: cyclopenten-1-yl_3-(<-
+                       ^
+Calls: knit2html ... evaluate -> parse_all -> parse_all.character -> parse
+
+Execution halted

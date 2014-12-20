@@ -17,8 +17,10 @@ Type 'demo()' for some demos, 'help()' for on-line help, or
 'help.start()' for an HTML browser interface to help.
 Type 'q()' to quit R.
 
+[Previously saved workspace restored]
+
 > library("knitr")
-> 
+> library("rgl")
 > #knit("polyoxin_D.Rmd")
 > #markdownToHTML('polyoxin_D.md', 'polyoxin_D.html', options=c("use_xhml"))
 > #system("pandoc -s polyoxin_D.html -o polyoxin_D.pdf")
@@ -28,8 +30,29 @@ Type 'q()' to quit R.
 
 
 processing file: polyoxin_D.Rmd
-  |                                                                         |                                                                 |   0%  |                                                                         |.................................................................| 100%
+  |                                                                         |                                                                 |   0%  |                                                                         |...........                                                      |  17%
   ordinary text without R code
+
+  |                                                                         |......................                                           |  33%
+label: setup (with options) 
+List of 1
+ $ results: chr "asis"
+
+  |                                                                         |................................                                 |  50%
+  ordinary text without R code
+
+  |                                                                         |...........................................                      |  67%
+label: testgl (with options) 
+List of 1
+ $ webgl: logi TRUE
+
+  |                                                                         |......................................................           |  83%
+  ordinary text without R code
+
+  |                                                                         |.................................................................| 100%
+label: testgl2 (with options) 
+List of 1
+ $ webgl: logi TRUE
 
 
 output file: polyoxin_D.md
@@ -37,4 +60,4 @@ output file: polyoxin_D.md
 > 
 > proc.time()
    user  system elapsed 
-  0.288   0.020   0.301 
+  1.036   0.260   1.498 

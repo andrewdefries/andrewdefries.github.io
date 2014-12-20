@@ -1,5 +1,5 @@
 library("knitr")
-
+library("rgl")
 #knit("bialaphos.Rmd")
 #markdownToHTML('bialaphos.md', 'bialaphos.html', options=c("use_xhml"))
 #system("pandoc -s bialaphos.html -o bialaphos.pdf")

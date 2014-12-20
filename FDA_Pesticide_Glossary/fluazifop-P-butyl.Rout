@@ -17,8 +17,10 @@ Type 'demo()' for some demos, 'help()' for on-line help, or
 'help.start()' for an HTML browser interface to help.
 Type 'q()' to quit R.
 
+[Previously saved workspace restored]
+
 > library("knitr")
-> 
+> library("rgl")
 > #knit("fluazifop-P-butyl.Rmd")
 > #markdownToHTML('fluazifop-P-butyl.md', 'fluazifop-P-butyl.html', options=c("use_xhml"))
 > #system("pandoc -s fluazifop-P-butyl.html -o fluazifop-P-butyl.pdf")
@@ -28,8 +30,29 @@ Type 'q()' to quit R.
 
 
 processing file: fluazifop-P-butyl.Rmd
-  |                                                                         |                                                                 |   0%  |                                                                         |.................................................................| 100%
+  |                                                                         |                                                                 |   0%  |                                                                         |...........                                                      |  17%
   ordinary text without R code
+
+  |                                                                         |......................                                           |  33%
+label: setup (with options) 
+List of 1
+ $ results: chr "asis"
+
+  |                                                                         |................................                                 |  50%
+  ordinary text without R code
+
+  |                                                                         |...........................................                      |  67%
+label: testgl (with options) 
+List of 1
+ $ webgl: logi TRUE
+
+  |                                                                         |......................................................           |  83%
+  ordinary text without R code
+
+  |                                                                         |.................................................................| 100%
+label: testgl2 (with options) 
+List of 1
+ $ webgl: logi TRUE
 
 
 output file: fluazifop-P-butyl.md
@@ -37,4 +60,4 @@ output file: fluazifop-P-butyl.md
 > 
 > proc.time()
    user  system elapsed 
-  0.272   0.032   0.298 
+  1.496   0.176   1.789 

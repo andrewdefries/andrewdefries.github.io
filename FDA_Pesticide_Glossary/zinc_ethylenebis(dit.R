@@ -1,5 +1,5 @@
 library("knitr")
-
+library("rgl")
 #knit("zinc_ethylenebis(dit.Rmd")
 #markdownToHTML('zinc_ethylenebis(dit.md', 'zinc_ethylenebis(dit.html', options=c("use_xhml"))
 #system("pandoc -s zinc_ethylenebis(dit.html -o zinc_ethylenebis(dit.pdf")

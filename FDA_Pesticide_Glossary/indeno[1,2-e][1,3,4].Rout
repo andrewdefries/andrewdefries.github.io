@@ -17,15 +17,47 @@ Type 'demo()' for some demos, 'help()' for on-line help, or
 'help.start()' for an HTML browser interface to help.
 Type 'q()' to quit R.
 
+[Previously saved workspace restored]
+
 > library("knitr")
-> 
+> library("rgl")
 > #knit("indeno[1,2-e][1,3,4].Rmd")
 > #markdownToHTML('indeno[1,2-e][1,3,4].md', 'indeno[1,2-e][1,3,4].html', options=c("use_xhml"))
 > #system("pandoc -s indeno[1,2-e][1,3,4].html -o indeno[1,2-e][1,3,4].pdf")
 > 
 > 
 > knit2html('indeno[1,2-e][1,3,4].Rmd')
-Error in renderMarkdown(file = NULL, output = NULL, text, renderer = "HTML",  : 
-  CHAR() can only be applied to a 'CHARSXP', not a 'NULL'
-Calls: knit2html -> <Anonymous> -> renderMarkdown -> .Call
-Execution halted
+
+
+processing file: indeno[1,2-e][1,3,4].Rmd
+  |                                                                         |                                                                 |   0%  |                                                                         |...........                                                      |  17%
+  ordinary text without R code
+
+  |                                                                         |......................                                           |  33%
+label: setup (with options) 
+List of 1
+ $ results: chr "asis"
+
+  |                                                                         |................................                                 |  50%
+  ordinary text without R code
+
+  |                                                                         |...........................................                      |  67%
+label: testgl (with options) 
+List of 1
+ $ webgl: logi TRUE
+
+  |                                                                         |......................................................           |  83%
+  ordinary text without R code
+
+  |                                                                         |.................................................................| 100%
+label: testgl2 (with options) 
+List of 1
+ $ webgl: logi TRUE
+
+
+output file: indeno[1,2-e][1,3,4].md
+
+> 
+> proc.time()
+   user  system elapsed 
+  1.464   0.220   1.833 

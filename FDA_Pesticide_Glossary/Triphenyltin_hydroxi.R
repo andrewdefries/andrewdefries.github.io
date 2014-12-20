@@ -1,5 +1,5 @@
 library("knitr")
-
+library("rgl")
 #knit("Triphenyltin_hydroxi.Rmd")
 #markdownToHTML('Triphenyltin_hydroxi.md', 'Triphenyltin_hydroxi.html', options=c("use_xhml"))
 #system("pandoc -s Triphenyltin_hydroxi.html -o Triphenyltin_hydroxi.pdf")

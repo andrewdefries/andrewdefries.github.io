@@ -1,5 +1,5 @@
 library("knitr")
-
+library("rgl")
 #knit("monosodium_methylars.Rmd")
 #markdownToHTML('monosodium_methylars.md', 'monosodium_methylars.html', options=c("use_xhml"))
 #system("pandoc -s monosodium_methylars.html -o monosodium_methylars.pdf")

@@ -1,5 +1,5 @@
 library("knitr")
-
+library("rgl")
 #knit("Thiofanox.Rmd")
 #markdownToHTML('Thiofanox.md', 'Thiofanox.html', options=c("use_xhml"))
 #system("pandoc -s Thiofanox.html -o Thiofanox.pdf")

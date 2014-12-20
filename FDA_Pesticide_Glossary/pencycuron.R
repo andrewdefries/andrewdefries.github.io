@@ -1,5 +1,5 @@
 library("knitr")
-
+library("rgl")
 #knit("pencycuron.Rmd")
 #markdownToHTML('pencycuron.md', 'pencycuron.html', options=c("use_xhml"))
 #system("pandoc -s pencycuron.html -o pencycuron.pdf")

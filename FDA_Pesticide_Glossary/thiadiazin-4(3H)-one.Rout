@@ -17,8 +17,10 @@ Type 'demo()' for some demos, 'help()' for on-line help, or
 'help.start()' for an HTML browser interface to help.
 Type 'q()' to quit R.
 
+[Previously saved workspace restored]
+
 > library("knitr")
-> 
+> library("rgl")
 > #knit("thiadiazin-4(3H)-one.Rmd")
 > #markdownToHTML('thiadiazin-4(3H)-one.md', 'thiadiazin-4(3H)-one.html', options=c("use_xhml"))
 > #system("pandoc -s thiadiazin-4(3H)-one.html -o thiadiazin-4(3H)-one.pdf")
@@ -28,13 +30,35 @@ Type 'q()' to quit R.
 
 
 processing file: thiadiazin-4(3H)-one.Rmd
-  |                                                                         |                                                                 |   0%  |                                                                         |.................................................................| 100%
+  |                                                                         |                                                                 |   0%  |                                                                         |...........                                                      |  17%
   ordinary text without R code
 
+  |                                                                         |......................                                           |  33%
+label: setup (with options) 
+List of 1
+ $ results: chr "asis"
 
-output file: thiadiazin-4(3H)-one.md
+  |                                                                         |................................                                 |  50%
+  ordinary text without R code
 
-> 
-> proc.time()
-   user  system elapsed 
-  0.292   0.012   0.298 
+  |                                                                         |...........................................                      |  67%
+label: testgl (with options) 
+List of 1
+ $ webgl: logi TRUE
+
+  |                                                                         |......................................................           |  83%
+  ordinary text without R code
+
+  |                                                                         |.................................................................| 100%
+label: testgl2 (with options) 
+List of 1
+ $ webgl: logi TRUE
+
+Quitting from lines 24-32 (thiadiazin-4(3H)-one.Rmd) 
+Error in parse(text = x, srcfile = src) : <text>:2:15: unexpected symbol
+1: open3d()
+2: thiadiazin-4(3H
+                 ^
+Calls: knit2html ... evaluate -> parse_all -> parse_all.character -> parse
+
+Execution halted

@@ -20,7 +20,7 @@ Type 'q()' to quit R.
 [Previously saved workspace restored]
 
 > library("knitr")
-> 
+> library("rgl")
 > #knit("1-Naphthaleneacetami.Rmd")
 > #markdownToHTML('1-Naphthaleneacetami.md', '1-Naphthaleneacetami.html', options=c("use_xhml"))
 > #system("pandoc -s 1-Naphthaleneacetami.html -o 1-Naphthaleneacetami.pdf")
@@ -60,4 +60,4 @@ output file: 1-Naphthaleneacetami.md
 > 
 > proc.time()
    user  system elapsed 
-  0.468   0.040   0.503 
+  1.320   0.208   1.674 

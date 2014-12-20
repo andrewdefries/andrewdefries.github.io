@@ -1,5 +1,5 @@
 library("knitr")
-
+library("rgl")
 #knit("difenoxuron.Rmd")
 #markdownToHTML('difenoxuron.md', 'difenoxuron.html', options=c("use_xhml"))
 #system("pandoc -s difenoxuron.html -o difenoxuron.pdf")

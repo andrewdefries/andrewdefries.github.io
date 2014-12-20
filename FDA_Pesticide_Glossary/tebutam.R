@@ -1,5 +1,5 @@
 library("knitr")
-
+library("rgl")
 #knit("tebutam.Rmd")
 #markdownToHTML('tebutam.md', 'tebutam.html', options=c("use_xhml"))
 #system("pandoc -s tebutam.html -o tebutam.pdf")

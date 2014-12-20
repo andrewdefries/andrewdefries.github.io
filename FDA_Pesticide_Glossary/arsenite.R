@@ -1,5 +1,5 @@
 library("knitr")
-
+library("rgl")
 #knit("arsenite.Rmd")
 #markdownToHTML('arsenite.md', 'arsenite.html', options=c("use_xhml"))
 #system("pandoc -s arsenite.html -o arsenite.pdf")

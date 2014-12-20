@@ -1,5 +1,5 @@
 library("knitr")
-
+library("rgl")
 #knit("triazole.Rmd")
 #markdownToHTML('triazole.md', 'triazole.html', options=c("use_xhml"))
 #system("pandoc -s triazole.html -o triazole.pdf")

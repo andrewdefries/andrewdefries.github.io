@@ -1,5 +1,5 @@
 library("knitr")
-
+library("rgl")
 #knit("norflurazon.Rmd")
 #markdownToHTML('norflurazon.md', 'norflurazon.html', options=c("use_xhml"))
 #system("pandoc -s norflurazon.html -o norflurazon.pdf")

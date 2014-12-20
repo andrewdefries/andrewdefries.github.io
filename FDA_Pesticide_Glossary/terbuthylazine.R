@@ -1,5 +1,5 @@
 library("knitr")
-
+library("rgl")
 #knit("terbuthylazine.Rmd")
 #markdownToHTML('terbuthylazine.md', 'terbuthylazine.html', options=c("use_xhml"))
 #system("pandoc -s terbuthylazine.html -o terbuthylazine.pdf")

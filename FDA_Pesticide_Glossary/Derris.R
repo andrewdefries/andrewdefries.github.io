@@ -1,5 +1,5 @@
 library("knitr")
-
+library("rgl")
 #knit("Derris.Rmd")
 #markdownToHTML('Derris.md', 'Derris.html', options=c("use_xhml"))
 #system("pandoc -s Derris.html -o Derris.pdf")

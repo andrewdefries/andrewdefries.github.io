@@ -17,8 +17,10 @@ Type 'demo()' for some demos, 'help()' for on-line help, or
 'help.start()' for an HTML browser interface to help.
 Type 'q()' to quit R.
 
+[Previously saved workspace restored]
+
 > library("knitr")
-> 
+> library("rgl")
 > #knit("InChI_1S_C13H9Cl2F3N.Rmd")
 > #markdownToHTML('InChI_1S_C13H9Cl2F3N.md', 'InChI_1S_C13H9Cl2F3N.html', options=c("use_xhml"))
 > #system("pandoc -s InChI_1S_C13H9Cl2F3N.html -o InChI_1S_C13H9Cl2F3N.pdf")
@@ -28,8 +30,29 @@ Type 'q()' to quit R.
 
 
 processing file: InChI_1S_C13H9Cl2F3N.Rmd
-  |                                                                         |                                                                 |   0%  |                                                                         |.................................................................| 100%
+  |                                                                         |                                                                 |   0%  |                                                                         |...........                                                      |  17%
   ordinary text without R code
+
+  |                                                                         |......................                                           |  33%
+label: setup (with options) 
+List of 1
+ $ results: chr "asis"
+
+  |                                                                         |................................                                 |  50%
+  ordinary text without R code
+
+  |                                                                         |...........................................                      |  67%
+label: testgl (with options) 
+List of 1
+ $ webgl: logi TRUE
+
+  |                                                                         |......................................................           |  83%
+  ordinary text without R code
+
+  |                                                                         |.................................................................| 100%
+label: testgl2 (with options) 
+List of 1
+ $ webgl: logi TRUE
 
 
 output file: InChI_1S_C13H9Cl2F3N.md
@@ -37,4 +60,4 @@ output file: InChI_1S_C13H9Cl2F3N.md
 > 
 > proc.time()
    user  system elapsed 
-  0.292   0.016   0.299 
+  1.500   0.224   1.855 

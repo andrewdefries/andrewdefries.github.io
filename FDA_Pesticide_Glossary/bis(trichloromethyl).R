@@ -1,5 +1,5 @@
 library("knitr")
-
+library("rgl")
 #knit("bis(trichloromethyl).Rmd")
 #markdownToHTML('bis(trichloromethyl).md', 'bis(trichloromethyl).html', options=c("use_xhml"))
 #system("pandoc -s bis(trichloromethyl).html -o bis(trichloromethyl).pdf")

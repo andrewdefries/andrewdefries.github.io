@@ -1,5 +1,5 @@
 library("knitr")
-
+library("rgl")
 #knit("oxychlordane.Rmd")
 #markdownToHTML('oxychlordane.md', 'oxychlordane.html', options=c("use_xhml"))
 #system("pandoc -s oxychlordane.html -o oxychlordane.pdf")

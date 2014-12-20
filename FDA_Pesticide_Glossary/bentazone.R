@@ -1,5 +1,5 @@
 library("knitr")
-
+library("rgl")
 #knit("bentazone.Rmd")
 #markdownToHTML('bentazone.md', 'bentazone.html', options=c("use_xhml"))
 #system("pandoc -s bentazone.html -o bentazone.pdf")

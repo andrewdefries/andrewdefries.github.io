@@ -1,5 +1,5 @@
 library("knitr")
-
+library("rgl")
 #knit("Acephat.Rmd")
 #markdownToHTML('Acephat.md', 'Acephat.html', options=c("use_xhml"))
 #system("pandoc -s Acephat.html -o Acephat.pdf")

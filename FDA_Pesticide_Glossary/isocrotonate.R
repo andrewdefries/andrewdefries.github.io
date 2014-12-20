@@ -1,5 +1,5 @@
 library("knitr")
-
+library("rgl")
 #knit("isocrotonate.Rmd")
 #markdownToHTML('isocrotonate.md', 'isocrotonate.html', options=c("use_xhml"))
 #system("pandoc -s isocrotonate.html -o isocrotonate.pdf")

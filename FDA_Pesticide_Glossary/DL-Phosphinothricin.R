@@ -1,5 +1,5 @@
 library("knitr")
-
+library("rgl")
 #knit("DL-Phosphinothricin.Rmd")
 #markdownToHTML('DL-Phosphinothricin.md', 'DL-Phosphinothricin.html', options=c("use_xhml"))
 #system("pandoc -s DL-Phosphinothricin.html -o DL-Phosphinothricin.pdf")

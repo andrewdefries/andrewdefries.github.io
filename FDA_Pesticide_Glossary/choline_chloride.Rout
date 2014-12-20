@@ -17,8 +17,10 @@ Type 'demo()' for some demos, 'help()' for on-line help, or
 'help.start()' for an HTML browser interface to help.
 Type 'q()' to quit R.
 
+[Previously saved workspace restored]
+
 > library("knitr")
-> 
+> library("rgl")
 > #knit("choline_chloride.Rmd")
 > #markdownToHTML('choline_chloride.md', 'choline_chloride.html', options=c("use_xhml"))
 > #system("pandoc -s choline_chloride.html -o choline_chloride.pdf")
@@ -28,8 +30,29 @@ Type 'q()' to quit R.
 
 
 processing file: choline_chloride.Rmd
-  |                                                                         |                                                                 |   0%  |                                                                         |.................................................................| 100%
+  |                                                                         |                                                                 |   0%  |                                                                         |...........                                                      |  17%
   ordinary text without R code
+
+  |                                                                         |......................                                           |  33%
+label: setup (with options) 
+List of 1
+ $ results: chr "asis"
+
+  |                                                                         |................................                                 |  50%
+  ordinary text without R code
+
+  |                                                                         |...........................................                      |  67%
+label: testgl (with options) 
+List of 1
+ $ webgl: logi TRUE
+
+  |                                                                         |......................................................           |  83%
+  ordinary text without R code
+
+  |                                                                         |.................................................................| 100%
+label: testgl2 (with options) 
+List of 1
+ $ webgl: logi TRUE
 
 
 output file: choline_chloride.md
@@ -37,4 +60,4 @@ output file: choline_chloride.md
 > 
 > proc.time()
    user  system elapsed 
-  0.272   0.036   0.299 
+  1.552   0.172   1.838 

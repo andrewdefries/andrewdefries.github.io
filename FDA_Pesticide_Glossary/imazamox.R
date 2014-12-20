@@ -1,5 +1,5 @@
 library("knitr")
-
+library("rgl")
 #knit("imazamox.Rmd")
 #markdownToHTML('imazamox.md', 'imazamox.html', options=c("use_xhml"))
 #system("pandoc -s imazamox.html -o imazamox.pdf")

@@ -1,5 +1,5 @@
 library("knitr")
-
+library("rgl")
 #knit("retard.Rmd")
 #markdownToHTML('retard.md', 'retard.html', options=c("use_xhml"))
 #system("pandoc -s retard.html -o retard.pdf")

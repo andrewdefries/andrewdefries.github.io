@@ -17,8 +17,10 @@ Type 'demo()' for some demos, 'help()' for on-line help, or
 'help.start()' for an HTML browser interface to help.
 Type 'q()' to quit R.
 
+[Previously saved workspace restored]
+
 > library("knitr")
-> 
+> library("rgl")
 > #knit("m-phenoxybenzyl_alco.Rmd")
 > #markdownToHTML('m-phenoxybenzyl_alco.md', 'm-phenoxybenzyl_alco.html', options=c("use_xhml"))
 > #system("pandoc -s m-phenoxybenzyl_alco.html -o m-phenoxybenzyl_alco.pdf")
@@ -28,8 +30,29 @@ Type 'q()' to quit R.
 
 
 processing file: m-phenoxybenzyl_alco.Rmd
-  |                                                                         |                                                                 |   0%  |                                                                         |.................................................................| 100%
+  |                                                                         |                                                                 |   0%  |                                                                         |...........                                                      |  17%
   ordinary text without R code
+
+  |                                                                         |......................                                           |  33%
+label: setup (with options) 
+List of 1
+ $ results: chr "asis"
+
+  |                                                                         |................................                                 |  50%
+  ordinary text without R code
+
+  |                                                                         |...........................................                      |  67%
+label: testgl (with options) 
+List of 1
+ $ webgl: logi TRUE
+
+  |                                                                         |......................................................           |  83%
+  ordinary text without R code
+
+  |                                                                         |.................................................................| 100%
+label: testgl2 (with options) 
+List of 1
+ $ webgl: logi TRUE
 
 
 output file: m-phenoxybenzyl_alco.md
@@ -37,4 +60,4 @@ output file: m-phenoxybenzyl_alco.md
 > 
 > proc.time()
    user  system elapsed 
-  0.276   0.032   0.300 
+  1.536   0.264   1.989 

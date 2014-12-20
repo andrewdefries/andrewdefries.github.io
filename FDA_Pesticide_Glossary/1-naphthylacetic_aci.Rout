@@ -20,7 +20,7 @@ Type 'q()' to quit R.
 [Previously saved workspace restored]
 
 > library("knitr")
-> 
+> library("rgl")
 > #knit("1-naphthylacetic_aci.Rmd")
 > #markdownToHTML('1-naphthylacetic_aci.md', '1-naphthylacetic_aci.html', options=c("use_xhml"))
 > #system("pandoc -s 1-naphthylacetic_aci.html -o 1-naphthylacetic_aci.pdf")
@@ -60,4 +60,4 @@ output file: 1-naphthylacetic_aci.md
 > 
 > proc.time()
    user  system elapsed 
-  0.480   0.024   0.500 
+  1.420   0.248   1.807 

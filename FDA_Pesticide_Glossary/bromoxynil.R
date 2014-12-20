@@ -1,5 +1,5 @@
 library("knitr")
-
+library("rgl")
 #knit("bromoxynil.Rmd")
 #markdownToHTML('bromoxynil.md', 'bromoxynil.html', options=c("use_xhml"))
 #system("pandoc -s bromoxynil.html -o bromoxynil.pdf")

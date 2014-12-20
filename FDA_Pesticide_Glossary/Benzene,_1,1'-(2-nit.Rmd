@@ -1,0 +1,32 @@
+---
+output:
+  html_document:
+    self_contained: no
+---
+```{r setup, results='asis'}
+library(knitr)
+knit_hooks$set(webgl = hook_webgl)
+cat('<script type="text/javascript">', readLines(system.file('WebGL', 'CanvasMatrix.js', package = 'rgl')), '</script>', sep = '\n')
+```
+
+This works fine.
+
+```{r testgl, webgl=TRUE}
+x <- sort(rnorm(1000))
+y <- rnorm(1000)
+z <- rnorm(1000) + atan2(x,y)
+plot3d(x, y, z, col=rainbow(1000))
+```
+
+The following a 3D image is of Atrazine rendered from the 3D conformer file derived from here (http://pubchem.ncbi.nlm.nih.gov/compound/2256). The atoms are represented as spheres Nitrogen as blue, carbon as black, hydrogen as white, and chlorine as blue.
+
+```{r testgl2, webgl=TRUE}
+open3d()
+Benzene,_1,1'-(2-nit<-read.table("Benzene,_1,1'-(2-nit.xyz")
+x<-Benzene,_1,1'-(2-nit$V2
+y<-Benzene,_1,1'-(2-nit$V3
+z<-Benzene,_1,1'-(2-nit$V4
+atomcolor=c(rep("blue", 1), rep("red", 5), rep("black", 7), rep("white", 15))
+#spheres3d(x, y, z, col=rainbow(1000))
+spheres3d(x, y, z, col=atomcolor)
+```

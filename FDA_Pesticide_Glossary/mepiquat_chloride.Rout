@@ -17,8 +17,10 @@ Type 'demo()' for some demos, 'help()' for on-line help, or
 'help.start()' for an HTML browser interface to help.
 Type 'q()' to quit R.
 
+[Previously saved workspace restored]
+
 > library("knitr")
-> 
+> library("rgl")
 > #knit("mepiquat_chloride.Rmd")
 > #markdownToHTML('mepiquat_chloride.md', 'mepiquat_chloride.html', options=c("use_xhml"))
 > #system("pandoc -s mepiquat_chloride.html -o mepiquat_chloride.pdf")
@@ -28,8 +30,29 @@ Type 'q()' to quit R.
 
 
 processing file: mepiquat_chloride.Rmd
-  |                                                                         |                                                                 |   0%  |                                                                         |.................................................................| 100%
+  |                                                                         |                                                                 |   0%  |                                                                         |...........                                                      |  17%
   ordinary text without R code
+
+  |                                                                         |......................                                           |  33%
+label: setup (with options) 
+List of 1
+ $ results: chr "asis"
+
+  |                                                                         |................................                                 |  50%
+  ordinary text without R code
+
+  |                                                                         |...........................................                      |  67%
+label: testgl (with options) 
+List of 1
+ $ webgl: logi TRUE
+
+  |                                                                         |......................................................           |  83%
+  ordinary text without R code
+
+  |                                                                         |.................................................................| 100%
+label: testgl2 (with options) 
+List of 1
+ $ webgl: logi TRUE
 
 
 output file: mepiquat_chloride.md
@@ -37,4 +60,4 @@ output file: mepiquat_chloride.md
 > 
 > proc.time()
    user  system elapsed 
-  0.296   0.028   0.317 
+  1.544   0.244   1.905 

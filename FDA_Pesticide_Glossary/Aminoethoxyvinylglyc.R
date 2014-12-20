@@ -1,5 +1,5 @@
 library("knitr")
-
+library("rgl")
 #knit("Aminoethoxyvinylglyc.Rmd")
 #markdownToHTML('Aminoethoxyvinylglyc.md', 'Aminoethoxyvinylglyc.html', options=c("use_xhml"))
 #system("pandoc -s Aminoethoxyvinylglyc.html -o Aminoethoxyvinylglyc.pdf")

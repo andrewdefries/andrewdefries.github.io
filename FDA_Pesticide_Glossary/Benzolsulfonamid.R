@@ -1,5 +1,5 @@
 library("knitr")
-
+library("rgl")
 #knit("Benzolsulfonamid.Rmd")
 #markdownToHTML('Benzolsulfonamid.md', 'Benzolsulfonamid.html', options=c("use_xhml"))
 #system("pandoc -s Benzolsulfonamid.html -o Benzolsulfonamid.pdf")

@@ -1,5 +1,5 @@
 library("knitr")
-
+library("rgl")
 #knit("ethoxyquin.Rmd")
 #markdownToHTML('ethoxyquin.md', 'ethoxyquin.html', options=c("use_xhml"))
 #system("pandoc -s ethoxyquin.html -o ethoxyquin.pdf")

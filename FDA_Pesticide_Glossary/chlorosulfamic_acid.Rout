@@ -17,8 +17,10 @@ Type 'demo()' for some demos, 'help()' for on-line help, or
 'help.start()' for an HTML browser interface to help.
 Type 'q()' to quit R.
 
+[Previously saved workspace restored]
+
 > library("knitr")
-> 
+> library("rgl")
 > #knit("chlorosulfamic_acid.Rmd")
 > #markdownToHTML('chlorosulfamic_acid.md', 'chlorosulfamic_acid.html', options=c("use_xhml"))
 > #system("pandoc -s chlorosulfamic_acid.html -o chlorosulfamic_acid.pdf")
@@ -28,8 +30,29 @@ Type 'q()' to quit R.
 
 
 processing file: chlorosulfamic_acid.Rmd
-  |                                                                         |                                                                 |   0%  |                                                                         |.................................................................| 100%
+  |                                                                         |                                                                 |   0%  |                                                                         |...........                                                      |  17%
   ordinary text without R code
+
+  |                                                                         |......................                                           |  33%
+label: setup (with options) 
+List of 1
+ $ results: chr "asis"
+
+  |                                                                         |................................                                 |  50%
+  ordinary text without R code
+
+  |                                                                         |...........................................                      |  67%
+label: testgl (with options) 
+List of 1
+ $ webgl: logi TRUE
+
+  |                                                                         |......................................................           |  83%
+  ordinary text without R code
+
+  |                                                                         |.................................................................| 100%
+label: testgl2 (with options) 
+List of 1
+ $ webgl: logi TRUE
 
 
 output file: chlorosulfamic_acid.md
@@ -37,4 +60,4 @@ output file: chlorosulfamic_acid.md
 > 
 > proc.time()
    user  system elapsed 
-  0.276   0.036   0.303 
+  1.488   0.184   1.809 

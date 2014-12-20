@@ -1,5 +1,5 @@
 library("knitr")
-
+library("rgl")
 #knit("InChI_1S_C48H72O14.C.Rmd")
 #markdownToHTML('InChI_1S_C48H72O14.C.md', 'InChI_1S_C48H72O14.C.html', options=c("use_xhml"))
 #system("pandoc -s InChI_1S_C48H72O14.C.html -o InChI_1S_C48H72O14.C.pdf")

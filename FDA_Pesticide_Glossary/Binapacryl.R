@@ -1,5 +1,5 @@
 library("knitr")
-
+library("rgl")
 #knit("Binapacryl.Rmd")
 #markdownToHTML('Binapacryl.md', 'Binapacryl.html', options=c("use_xhml"))
 #system("pandoc -s Binapacryl.html -o Binapacryl.pdf")

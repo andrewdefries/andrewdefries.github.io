@@ -1,5 +1,5 @@
 library("knitr")
-
+library("rgl")
 #knit("DCBN.Rmd")
 #markdownToHTML('DCBN.md', 'DCBN.html', options=c("use_xhml"))
 #system("pandoc -s DCBN.html -o DCBN.pdf")

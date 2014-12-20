@@ -17,8 +17,10 @@ Type 'demo()' for some demos, 'help()' for on-line help, or
 'help.start()' for an HTML browser interface to help.
 Type 'q()' to quit R.
 
+[Previously saved workspace restored]
+
 > library("knitr")
-> 
+> library("rgl")
 > #knit("copper_copper_monoet.Rmd")
 > #markdownToHTML('copper_copper_monoet.md', 'copper_copper_monoet.html', options=c("use_xhml"))
 > #system("pandoc -s copper_copper_monoet.html -o copper_copper_monoet.pdf")
@@ -28,8 +30,29 @@ Type 'q()' to quit R.
 
 
 processing file: copper_copper_monoet.Rmd
-  |                                                                         |                                                                 |   0%  |                                                                         |.................................................................| 100%
+  |                                                                         |                                                                 |   0%  |                                                                         |...........                                                      |  17%
   ordinary text without R code
+
+  |                                                                         |......................                                           |  33%
+label: setup (with options) 
+List of 1
+ $ results: chr "asis"
+
+  |                                                                         |................................                                 |  50%
+  ordinary text without R code
+
+  |                                                                         |...........................................                      |  67%
+label: testgl (with options) 
+List of 1
+ $ webgl: logi TRUE
+
+  |                                                                         |......................................................           |  83%
+  ordinary text without R code
+
+  |                                                                         |.................................................................| 100%
+label: testgl2 (with options) 
+List of 1
+ $ webgl: logi TRUE
 
 
 output file: copper_copper_monoet.md
@@ -37,4 +60,4 @@ output file: copper_copper_monoet.md
 > 
 > proc.time()
    user  system elapsed 
-  0.284   0.028   0.301 
+  1.512   0.184   1.815 

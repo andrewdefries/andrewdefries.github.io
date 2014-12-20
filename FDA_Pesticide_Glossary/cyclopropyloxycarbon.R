@@ -1,5 +1,5 @@
 library("knitr")
-
+library("rgl")
 #knit("cyclopropyloxycarbon.Rmd")
 #markdownToHTML('cyclopropyloxycarbon.md', 'cyclopropyloxycarbon.html', options=c("use_xhml"))
 #system("pandoc -s cyclopropyloxycarbon.html -o cyclopropyloxycarbon.pdf")

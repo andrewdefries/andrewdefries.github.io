@@ -1,5 +1,5 @@
 library("knitr")
-
+library("rgl")
 #knit("diamide.Rmd")
 #markdownToHTML('diamide.md', 'diamide.html', options=c("use_xhml"))
 #system("pandoc -s diamide.html -o diamide.pdf")

@@ -1,5 +1,5 @@
 library("knitr")
-
+library("rgl")
 #knit("acetonitrile.Rmd")
 #markdownToHTML('acetonitrile.md', 'acetonitrile.html', options=c("use_xhml"))
 #system("pandoc -s acetonitrile.html -o acetonitrile.pdf")

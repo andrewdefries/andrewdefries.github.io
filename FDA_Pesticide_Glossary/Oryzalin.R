@@ -1,5 +1,5 @@
 library("knitr")
-
+library("rgl")
 #knit("Oryzalin.Rmd")
 #markdownToHTML('Oryzalin.md', 'Oryzalin.html', options=c("use_xhml"))
 #system("pandoc -s Oryzalin.html -o Oryzalin.pdf")

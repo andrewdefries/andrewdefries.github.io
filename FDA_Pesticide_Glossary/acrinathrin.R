@@ -1,5 +1,5 @@
 library("knitr")
-
+library("rgl")
 #knit("acrinathrin.Rmd")
 #markdownToHTML('acrinathrin.md', 'acrinathrin.html', options=c("use_xhml"))
 #system("pandoc -s acrinathrin.html -o acrinathrin.pdf")

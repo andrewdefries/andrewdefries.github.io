@@ -1,5 +1,5 @@
 library("knitr")
-
+library("rgl")
 #knit("Jasmolin_II.Rmd")
 #markdownToHTML('Jasmolin_II.md', 'Jasmolin_II.html', options=c("use_xhml"))
 #system("pandoc -s Jasmolin_II.html -o Jasmolin_II.pdf")

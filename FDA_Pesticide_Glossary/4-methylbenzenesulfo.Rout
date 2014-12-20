@@ -20,7 +20,7 @@ Type 'q()' to quit R.
 [Previously saved workspace restored]
 
 > library("knitr")
-> 
+> library("rgl")
 > #knit("4-methylbenzenesulfo.Rmd")
 > #markdownToHTML('4-methylbenzenesulfo.md', '4-methylbenzenesulfo.html', options=c("use_xhml"))
 > #system("pandoc -s 4-methylbenzenesulfo.html -o 4-methylbenzenesulfo.pdf")
@@ -60,4 +60,4 @@ output file: 4-methylbenzenesulfo.md
 > 
 > proc.time()
    user  system elapsed 
-  0.484   0.028   0.506 
+  1.544   0.216   1.876 

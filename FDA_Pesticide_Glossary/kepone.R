@@ -1,5 +1,5 @@
 library("knitr")
-
+library("rgl")
 #knit("kepone.Rmd")
 #markdownToHTML('kepone.md', 'kepone.html', options=c("use_xhml"))
 #system("pandoc -s kepone.html -o kepone.pdf")
