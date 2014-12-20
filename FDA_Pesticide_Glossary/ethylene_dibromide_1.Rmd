@@ -22,7 +22,7 @@ The following a 3D image is of Atrazine rendered from the 3D conformer file deri
 
 ```{r testgl2, webgl=TRUE}
 open3d()
-ethylene_dibromide_1<-read.table("ethylene_dibromide_1.xyz")
+ethylene_dibromide_1<-read.table("ethylene_dibromide_1.xyz", skip=1)
 x<-ethylene_dibromide_1$V2
 y<-ethylene_dibromide_1$V3
 z<-ethylene_dibromide_1$V4

@@ -60,4 +60,4 @@ output file: O-ethyl_phosphorodit.md
 > 
 > proc.time()
    user  system elapsed 
-  1.092   0.200   1.498 
+  1.084   0.204   1.453 

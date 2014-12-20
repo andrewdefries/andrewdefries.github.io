@@ -60,4 +60,4 @@ output file: Disulfoton.md
 > 
 > proc.time()
    user  system elapsed 
-  1.080   0.220   1.492 
+  1.060   0.204   1.477 

@@ -60,4 +60,4 @@ output file: benalaxyl.md
 > 
 > proc.time()
    user  system elapsed 
-  1.060   0.240   1.438 
+  1.016   0.272   1.434 

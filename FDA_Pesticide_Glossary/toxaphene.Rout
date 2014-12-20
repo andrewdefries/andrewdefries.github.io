@@ -60,4 +60,4 @@ output file: toxaphene.md
 > 
 > proc.time()
    user  system elapsed 
-  1.052   0.228   1.489 
+  1.040   0.228   1.470 

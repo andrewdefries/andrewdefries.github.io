@@ -60,4 +60,4 @@ output file: oxyfluorfen.md
 > 
 > proc.time()
    user  system elapsed 
-  1.052   0.236   1.493 
+  0.984   0.260   1.448 

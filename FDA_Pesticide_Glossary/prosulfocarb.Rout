@@ -60,4 +60,4 @@ output file: prosulfocarb.md
 > 
 > proc.time()
    user  system elapsed 
-  1.028   0.260   1.504 
+  1.076   0.212   1.487 

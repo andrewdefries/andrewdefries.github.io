@@ -60,4 +60,4 @@ output file: prolan.md
 > 
 > proc.time()
    user  system elapsed 
-  1.052   0.220   1.507 
+  1.008   0.244   1.463 

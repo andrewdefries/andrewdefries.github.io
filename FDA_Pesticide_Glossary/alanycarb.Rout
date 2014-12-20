@@ -60,4 +60,4 @@ output file: alanycarb.md
 > 
 > proc.time()
    user  system elapsed 
-  1.068   0.240   1.429 
+  1.064   0.196   1.405 

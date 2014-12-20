@@ -60,4 +60,4 @@ output file: benoxacor.md
 > 
 > proc.time()
    user  system elapsed 
-  1.080   0.184   1.433 
+  1.068   0.240   1.447 

@@ -60,4 +60,4 @@ output file: Ethiofencarb.md
 > 
 > proc.time()
    user  system elapsed 
-  1.056   0.232   1.488 
+  1.060   0.196   1.471 

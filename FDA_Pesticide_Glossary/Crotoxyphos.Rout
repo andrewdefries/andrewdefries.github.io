@@ -60,4 +60,4 @@ output file: Crotoxyphos.md
 > 
 > proc.time()
    user  system elapsed 
-  1.048   0.224   1.477 
+  1.024   0.228   1.456 

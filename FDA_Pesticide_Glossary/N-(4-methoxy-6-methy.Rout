@@ -56,7 +56,7 @@ List of 1
 
 Quitting from lines 24-32 (N-(4-methoxy-6-methy.Rmd) 
 Error in parse(text = x, srcfile = src) : <text>:3:1: unexpected symbol
-2: N-(4-methoxy-6-methy<-read.table("N-(4-methoxy-6-methy.xyz")
+2: N-(4-methoxy-6-methy<-read.table("N-(4-methoxy-6-methy.xyz", skip=1)
 3: x
    ^
 Calls: knit2html ... evaluate -> parse_all -> parse_all.character -> parse

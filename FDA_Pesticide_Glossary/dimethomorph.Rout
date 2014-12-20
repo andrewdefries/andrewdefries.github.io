@@ -60,4 +60,4 @@ output file: dimethomorph.md
 > 
 > proc.time()
    user  system elapsed 
-  1.056   0.196   1.446 
+  1.040   0.220   1.461 

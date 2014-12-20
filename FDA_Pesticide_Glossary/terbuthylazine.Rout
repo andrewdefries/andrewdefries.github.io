@@ -60,4 +60,4 @@ output file: terbuthylazine.md
 > 
 > proc.time()
    user  system elapsed 
-  1.048   0.236   1.507 
+  1.028   0.248   1.484 

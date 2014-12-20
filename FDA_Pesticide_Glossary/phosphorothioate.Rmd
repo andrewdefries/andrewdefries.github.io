@@ -22,7 +22,7 @@ The following a 3D image is of Atrazine rendered from the 3D conformer file deri
 
 ```{r testgl2, webgl=TRUE}
 open3d()
-phosphorothioate<-read.table("phosphorothioate.xyz")
+phosphorothioate<-read.table("phosphorothioate.xyz", skip=1)
 x<-phosphorothioate$V2
 y<-phosphorothioate$V3
 z<-phosphorothioate$V4

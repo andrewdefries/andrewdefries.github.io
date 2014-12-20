@@ -60,4 +60,4 @@ output file: oxadiazon.md
 > 
 > proc.time()
    user  system elapsed 
-  1.028   0.252   1.492 
+  1.048   0.228   1.487 

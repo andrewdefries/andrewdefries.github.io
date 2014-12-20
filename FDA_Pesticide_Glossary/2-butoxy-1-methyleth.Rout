@@ -60,4 +60,4 @@ output file: 2-butoxy-1-methyleth.md
 > 
 > proc.time()
    user  system elapsed 
-  1.028   0.244   1.411 
+  1.048   0.224   1.416 

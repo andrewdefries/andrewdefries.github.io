@@ -60,4 +60,4 @@ output file: copper_arsenate_arse.md
 > 
 > proc.time()
    user  system elapsed 
-  1.052   0.240   1.490 
+  0.896   0.140   1.253 

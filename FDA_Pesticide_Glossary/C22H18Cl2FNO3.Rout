@@ -60,4 +60,4 @@ output file: C22H18Cl2FNO3.md
 > 
 > proc.time()
    user  system elapsed 
-  1.088   0.208   1.494 
+  1.044   0.236   1.396 

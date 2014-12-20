@@ -60,4 +60,4 @@ output file: prothiofos.md
 > 
 > proc.time()
    user  system elapsed 
-  1.040   0.232   1.487 
+  1.072   0.204   1.476 

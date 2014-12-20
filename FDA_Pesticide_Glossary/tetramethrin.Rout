@@ -60,4 +60,4 @@ output file: tetramethrin.md
 > 
 > proc.time()
    user  system elapsed 
-  1.052   0.212   1.498 
+  1.028   0.248   1.465 

@@ -22,7 +22,7 @@ The following a 3D image is of Atrazine rendered from the 3D conformer file deri
 
 ```{r testgl2, webgl=TRUE}
 open3d()
-isoxazole_5-cyclopro<-read.table("isoxazole_5-cyclopro.xyz")
+isoxazole_5-cyclopro<-read.table("isoxazole_5-cyclopro.xyz", skip=1)
 x<-isoxazole_5-cyclopro$V2
 y<-isoxazole_5-cyclopro$V3
 z<-isoxazole_5-cyclopro$V4

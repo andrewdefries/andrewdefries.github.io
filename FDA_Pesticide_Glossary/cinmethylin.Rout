@@ -60,4 +60,4 @@ output file: cinmethylin.md
 > 
 > proc.time()
    user  system elapsed 
-  1.060   0.216   1.478 
+  1.028   0.212   1.456 

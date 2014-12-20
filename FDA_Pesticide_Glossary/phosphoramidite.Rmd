@@ -22,7 +22,7 @@ The following a 3D image is of Atrazine rendered from the 3D conformer file deri
 
 ```{r testgl2, webgl=TRUE}
 open3d()
-phosphoramidite<-read.table("phosphoramidite.xyz")
+phosphoramidite<-read.table("phosphoramidite.xyz", skip=1)
 x<-phosphoramidite$V2
 y<-phosphoramidite$V3
 z<-phosphoramidite$V4

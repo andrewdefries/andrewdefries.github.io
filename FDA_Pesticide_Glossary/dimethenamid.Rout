@@ -60,4 +60,4 @@ output file: dimethenamid.md
 > 
 > proc.time()
    user  system elapsed 
-  1.076   0.212   1.519 
+  1.044   0.236   1.488 

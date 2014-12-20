@@ -60,4 +60,4 @@ output file: tetrasul.md
 > 
 > proc.time()
    user  system elapsed 
-  1.052   0.248   1.533 
+  1.032   0.244   1.468 

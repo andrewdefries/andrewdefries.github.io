@@ -60,4 +60,4 @@ output file: uniconazole.md
 > 
 > proc.time()
    user  system elapsed 
-   1.06    0.22    1.48 
+  1.032   0.248   1.506 

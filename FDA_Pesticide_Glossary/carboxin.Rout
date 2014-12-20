@@ -60,4 +60,4 @@ output file: carboxin.md
 > 
 > proc.time()
    user  system elapsed 
-  1.104   0.184   1.510 
+  1.060   0.228   1.411 

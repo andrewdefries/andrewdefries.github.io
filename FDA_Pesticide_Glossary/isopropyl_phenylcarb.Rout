@@ -60,4 +60,4 @@ output file: isopropyl_phenylcarb.md
 > 
 > proc.time()
    user  system elapsed 
-  1.060   0.216   1.472 
+  1.048   0.240   1.426 

@@ -56,7 +56,7 @@ List of 1
 
 Quitting from lines 24-32 (O-ethyl_O-(2-(((meth.Rmd) 
 Error in parse(text = x, srcfile = src) : <text>:3:1: unexpected symbol
-2: O-ethyl_O-(2-(((meth<-read.table("O-ethyl_O-(2-(((meth.xyz")
+2: O-ethyl_O-(2-(((meth<-read.table("O-ethyl_O-(2-(((meth.xyz", skip=1)
 3: x
    ^
 Calls: knit2html ... evaluate -> parse_all -> parse_all.character -> parse

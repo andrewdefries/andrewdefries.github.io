@@ -60,4 +60,4 @@ output file: norea.md
 > 
 > proc.time()
    user  system elapsed 
-  1.052   0.248   1.502 
+  1.048   0.228   1.414 

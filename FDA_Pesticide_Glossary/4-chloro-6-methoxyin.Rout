@@ -60,4 +60,4 @@ output file: 4-chloro-6-methoxyin.md
 > 
 > proc.time()
    user  system elapsed 
-  1.056   0.220   1.425 
+  1.044   0.208   1.397 

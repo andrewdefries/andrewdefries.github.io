@@ -60,4 +60,4 @@ output file: Hexaconazole.md
 > 
 > proc.time()
    user  system elapsed 
-  1.064   0.228   1.493 
+  1.072   0.236   1.437 

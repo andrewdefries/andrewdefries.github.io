@@ -60,4 +60,4 @@ output file: methotrexate.md
 > 
 > proc.time()
    user  system elapsed 
-  1.068   0.220   1.497 
+  1.052   0.244   1.440 

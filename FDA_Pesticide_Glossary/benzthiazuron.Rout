@@ -60,4 +60,4 @@ output file: benzthiazuron.md
 > 
 > proc.time()
    user  system elapsed 
-  1.028   0.264   1.424 
+  1.080   0.216   1.431 

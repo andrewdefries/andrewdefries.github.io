@@ -60,4 +60,4 @@ output file: depen.md
 > 
 > proc.time()
    user  system elapsed 
-  1.068   0.232   1.499 
+  1.044   0.196   1.466 

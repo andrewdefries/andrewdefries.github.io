@@ -60,4 +60,4 @@ output file: atrazine.md
 > 
 > proc.time()
    user  system elapsed 
-  1.040   0.240   1.422 
+  1.048   0.240   1.432 

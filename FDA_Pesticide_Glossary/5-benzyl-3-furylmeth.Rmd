@@ -22,7 +22,7 @@ The following a 3D image is of Atrazine rendered from the 3D conformer file deri
 
 ```{r testgl2, webgl=TRUE}
 open3d()
-5-benzyl-3-furylmeth<-read.table("5-benzyl-3-furylmeth.xyz")
+5-benzyl-3-furylmeth<-read.table("5-benzyl-3-furylmeth.xyz", skip=1)
 x<-5-benzyl-3-furylmeth$V2
 y<-5-benzyl-3-furylmeth$V3
 z<-5-benzyl-3-furylmeth$V4

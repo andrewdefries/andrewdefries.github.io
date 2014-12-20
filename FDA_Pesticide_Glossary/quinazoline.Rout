@@ -60,4 +60,4 @@ output file: quinazoline.md
 > 
 > proc.time()
    user  system elapsed 
-  1.068   0.236   1.501 
+  1.020   0.256   1.475 

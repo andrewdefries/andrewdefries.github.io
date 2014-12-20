@@ -60,4 +60,4 @@ output file: streptomycin.md
 > 
 > proc.time()
    user  system elapsed 
-  1.048   0.240   1.488 
+  1.032   0.228   1.487 

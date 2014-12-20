@@ -60,4 +60,4 @@ output file: Endosulfan.md
 > 
 > proc.time()
    user  system elapsed 
-  1.032   0.244   1.499 
+  1.012   0.232   1.460 

@@ -60,4 +60,4 @@ output file: clothianidin.md
 > 
 > proc.time()
    user  system elapsed 
-  1.064   0.216   1.490 
+  0.984   0.252   1.443 

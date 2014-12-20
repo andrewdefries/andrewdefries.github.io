@@ -60,4 +60,4 @@ output file: Oxydemeton-Methyl.md
 > 
 > proc.time()
    user  system elapsed 
-  1.084   0.216   1.519 
+  1.016   0.256   1.467 

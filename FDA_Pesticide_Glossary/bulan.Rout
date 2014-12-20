@@ -60,4 +60,4 @@ output file: bulan.md
 > 
 > proc.time()
    user  system elapsed 
-  1.040   0.216   1.464 
+  1.068   0.220   1.425 

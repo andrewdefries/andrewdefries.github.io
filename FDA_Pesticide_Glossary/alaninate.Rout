@@ -60,4 +60,4 @@ output file: alaninate.md
 > 
 > proc.time()
    user  system elapsed 
-  1.040   0.232   1.407 
+  1.016   0.288   1.434 

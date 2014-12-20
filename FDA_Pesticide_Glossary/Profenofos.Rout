@@ -60,4 +60,4 @@ output file: Profenofos.md
 > 
 > proc.time()
    user  system elapsed 
-  1.060   0.228   1.535 
+  1.064   0.224   1.489 

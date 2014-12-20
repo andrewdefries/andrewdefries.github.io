@@ -60,4 +60,4 @@ output file: carbamate_5-methyl-m.md
 > 
 > proc.time()
    user  system elapsed 
-  1.048   0.236   1.481 
+  1.040   0.244   1.397 

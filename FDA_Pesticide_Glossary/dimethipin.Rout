@@ -60,4 +60,4 @@ output file: dimethipin.md
 > 
 > proc.time()
    user  system elapsed 
-  1.076   0.184   1.482 
+  1.056   0.192   1.455 

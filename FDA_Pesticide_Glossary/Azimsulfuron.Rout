@@ -60,4 +60,4 @@ output file: Azimsulfuron.md
 > 
 > proc.time()
    user  system elapsed 
-  0.988   0.260   1.389 
+  1.052   0.240   1.422 

@@ -60,4 +60,4 @@ output file: copper_carbonate_cop.md
 > 
 > proc.time()
    user  system elapsed 
-  1.052   0.220   1.480 
+  0.868   0.208   1.310 

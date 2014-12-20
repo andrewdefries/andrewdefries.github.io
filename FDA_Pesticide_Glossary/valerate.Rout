@@ -60,4 +60,4 @@ output file: valerate.md
 > 
 > proc.time()
    user  system elapsed 
-  1.072   0.204   1.486 
+  1.056   0.308   1.602 

@@ -22,7 +22,7 @@ The following a 3D image is of Atrazine rendered from the 3D conformer file deri
 
 ```{r testgl2, webgl=TRUE}
 open3d()
-Gibberellic_acid<-read.table("Gibberellic_acid.xyz")
+Gibberellic_acid<-read.table("Gibberellic_acid.xyz", skip=1)
 x<-Gibberellic_acid$V2
 y<-Gibberellic_acid$V3
 z<-Gibberellic_acid$V4

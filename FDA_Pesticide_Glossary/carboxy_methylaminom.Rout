@@ -60,4 +60,4 @@ output file: carboxy_methylaminom.md
 > 
 > proc.time()
    user  system elapsed 
-  1.056   0.232   1.485 
+  0.896   0.156   1.208 

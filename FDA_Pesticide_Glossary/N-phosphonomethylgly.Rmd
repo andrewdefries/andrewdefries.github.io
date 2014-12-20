@@ -22,7 +22,7 @@ The following a 3D image is of Atrazine rendered from the 3D conformer file deri
 
 ```{r testgl2, webgl=TRUE}
 open3d()
-N-phosphonomethylgly<-read.table("N-phosphonomethylgly.xyz")
+N-phosphonomethylgly<-read.table("N-phosphonomethylgly.xyz", skip=1)
 x<-N-phosphonomethylgly$V2
 y<-N-phosphonomethylgly$V3
 z<-N-phosphonomethylgly$V4

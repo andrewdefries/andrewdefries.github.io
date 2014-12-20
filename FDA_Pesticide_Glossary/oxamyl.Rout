@@ -60,4 +60,4 @@ output file: oxamyl.md
 > 
 > proc.time()
    user  system elapsed 
-  1.008   0.256   1.504 
+  1.044   0.220   1.492 

@@ -60,4 +60,4 @@ output file: 1-Chlorbutan.md
 > 
 > proc.time()
    user  system elapsed 
-  1.064   0.220   1.413 
+  1.020   0.256   1.431 

@@ -60,4 +60,4 @@ output file: chlornitrofen.md
 > 
 > proc.time()
    user  system elapsed 
-  1.004   0.284   1.524 
+  1.044   0.248   1.486 

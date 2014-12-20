@@ -60,4 +60,4 @@ output file: Cymoxanil.md
 > 
 > proc.time()
    user  system elapsed 
-  1.036   0.224   1.470 
+  1.000   0.248   1.464 

@@ -60,4 +60,4 @@ output file: propargyl_bromide_pr.md
 > 
 > proc.time()
    user  system elapsed 
-  1.064   0.240   1.502 
+  0.868   0.164   1.251 

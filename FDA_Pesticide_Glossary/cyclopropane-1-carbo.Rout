@@ -60,4 +60,4 @@ output file: cyclopropane-1-carbo.md
 > 
 > proc.time()
    user  system elapsed 
-  1.084   0.208   1.494 
+  1.040   0.208   1.481 

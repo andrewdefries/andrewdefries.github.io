@@ -60,4 +60,4 @@ output file: lufenuron.md
 > 
 > proc.time()
    user  system elapsed 
-  1.056   0.216   1.495 
+  1.048   0.240   1.434 

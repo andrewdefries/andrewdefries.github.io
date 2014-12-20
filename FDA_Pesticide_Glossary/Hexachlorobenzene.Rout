@@ -60,4 +60,4 @@ output file: Hexachlorobenzene.md
 > 
 > proc.time()
    user  system elapsed 
-  1.012   0.264   1.485 
+  1.064   0.240   1.424 

@@ -22,7 +22,7 @@ The following a 3D image is of Atrazine rendered from the 3D conformer file deri
 
 ```{r testgl2, webgl=TRUE}
 open3d()
-hexanecarboxylate_io<-read.table("hexanecarboxylate_io.xyz")
+hexanecarboxylate_io<-read.table("hexanecarboxylate_io.xyz", skip=1)
 x<-hexanecarboxylate_io$V2
 y<-hexanecarboxylate_io$V3
 z<-hexanecarboxylate_io$V4

@@ -60,4 +60,4 @@ output file: Hox.md
 > 
 > proc.time()
    user  system elapsed 
-  1.036   0.252   1.491 
+  1.032   0.268   1.455 

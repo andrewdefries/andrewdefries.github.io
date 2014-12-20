@@ -60,4 +60,4 @@ output file: daimuron.md
 > 
 > proc.time()
    user  system elapsed 
-  1.048   0.236   1.488 
+  1.008   0.220   1.465 

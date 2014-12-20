@@ -60,4 +60,4 @@ output file: cafenstrole.md
 > 
 > proc.time()
    user  system elapsed 
-  1.024   0.272   1.481 
+  1.080   0.216   1.422 

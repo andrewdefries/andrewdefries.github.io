@@ -60,4 +60,4 @@ output file: ethyl-3-methylcyclop.md
 > 
 > proc.time()
    user  system elapsed 
-  1.076   0.184   1.474 
+  1.004   0.332   1.574 

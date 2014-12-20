@@ -60,4 +60,4 @@ output file: oxaziclomefone.md
 > 
 > proc.time()
    user  system elapsed 
-  1.100   0.224   1.535 
+  1.032   0.216   1.473 

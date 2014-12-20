@@ -22,7 +22,7 @@ The following a 3D image is of Atrazine rendered from the 3D conformer file deri
 
 ```{r testgl2, webgl=TRUE}
 open3d()
-Mesomile<-read.table("Mesomile.xyz")
+Mesomile<-read.table("Mesomile.xyz", skip=1)
 x<-Mesomile$V2
 y<-Mesomile$V3
 z<-Mesomile$V4

@@ -60,4 +60,4 @@ output file: diafenthiuron.md
 > 
 > proc.time()
    user  system elapsed 
-  1.060   0.236   1.510 
+  1.016   0.228   1.452 

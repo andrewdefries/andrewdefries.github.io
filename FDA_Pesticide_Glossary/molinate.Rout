@@ -60,4 +60,4 @@ output file: molinate.md
 > 
 > proc.time()
    user  system elapsed 
-  1.096   0.188   1.483 
+  1.040   0.256   1.430 

@@ -60,4 +60,4 @@ output file: methoproptryne.md
 > 
 > proc.time()
    user  system elapsed 
-  1.088   0.204   1.500 
+  1.044   0.324   1.525 

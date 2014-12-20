@@ -60,4 +60,4 @@ output file: fenpropathrin.md
 > 
 > proc.time()
    user  system elapsed 
-  1.056   0.248   1.542 
+  1.032   0.276   1.419 

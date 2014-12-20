@@ -60,4 +60,4 @@ output file: trifloxystrobin.md
 > 
 > proc.time()
    user  system elapsed 
-  1.132   0.188   1.526 
+  1.020   0.256   1.473 

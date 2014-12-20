@@ -60,4 +60,4 @@ output file: fenpyroximate.md
 > 
 > proc.time()
    user  system elapsed 
-  1.040   0.224   1.473 
+  1.072   0.232   1.491 

@@ -60,4 +60,4 @@ output file: terbutryn.md
 > 
 > proc.time()
    user  system elapsed 
-  1.020   0.256   1.478 
+  1.036   0.228   1.469 

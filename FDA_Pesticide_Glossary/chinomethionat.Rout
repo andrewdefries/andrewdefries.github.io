@@ -60,4 +60,4 @@ output file: chinomethionat.md
 > 
 > proc.time()
    user  system elapsed 
-  1.072   0.200   1.484 
+  1.120   0.216   1.541 

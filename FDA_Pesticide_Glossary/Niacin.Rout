@@ -60,4 +60,4 @@ output file: Niacin.md
 > 
 > proc.time()
    user  system elapsed 
-  1.004   0.248   1.470 
+  1.072   0.252   1.453 

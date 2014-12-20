@@ -22,7 +22,7 @@ The following a 3D image is of Atrazine rendered from the 3D conformer file deri
 
 ```{r testgl2, webgl=TRUE}
 open3d()
-Fonofos<-read.table("Fonofos.xyz")
+Fonofos<-read.table("Fonofos.xyz", skip=1)
 x<-Fonofos$V2
 y<-Fonofos$V3
 z<-Fonofos$V4

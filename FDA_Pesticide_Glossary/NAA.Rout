@@ -60,4 +60,4 @@ output file: NAA.md
 > 
 > proc.time()
    user  system elapsed 
-  1.060   0.220   1.479 
+  1.008   0.276   1.474 

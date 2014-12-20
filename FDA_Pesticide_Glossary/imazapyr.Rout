@@ -60,4 +60,4 @@ output file: imazapyr.md
 > 
 > proc.time()
    user  system elapsed 
-  1.052   0.228   1.491 
+  1.008   0.272   1.428 

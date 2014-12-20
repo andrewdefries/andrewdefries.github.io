@@ -60,4 +60,4 @@ output file: diethylthiocarbamate.md
 > 
 > proc.time()
    user  system elapsed 
-  1.092   0.204   1.496 
+  1.036   0.208   1.447 

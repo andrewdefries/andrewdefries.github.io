@@ -60,4 +60,4 @@ output file: Formothion.md
 > 
 > proc.time()
    user  system elapsed 
-  1.068   0.236   1.501 
+  1.044   0.256   1.443 

@@ -60,4 +60,4 @@ output file: clodinafop-propargyl.md
 > 
 > proc.time()
    user  system elapsed 
-  1.048   0.212   1.465 
+  1.068   0.184   1.467 

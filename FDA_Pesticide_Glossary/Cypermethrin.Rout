@@ -60,4 +60,4 @@ output file: Cypermethrin.md
 > 
 > proc.time()
    user  system elapsed 
-  1.060   0.260   1.512 
+  1.012   0.220   1.450 

@@ -60,4 +60,4 @@ output file: methyl_hydrogen_sulf.md
 > 
 > proc.time()
    user  system elapsed 
-  1.064   0.228   1.496 
+  1.068   0.228   1.424 

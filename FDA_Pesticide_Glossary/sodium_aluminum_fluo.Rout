@@ -60,4 +60,4 @@ output file: sodium_aluminum_fluo.md
 > 
 > proc.time()
    user  system elapsed 
-  1.100   0.196   1.485 
+  1.044   0.232   1.483 

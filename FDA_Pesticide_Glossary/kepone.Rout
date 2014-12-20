@@ -60,4 +60,4 @@ output file: kepone.md
 > 
 > proc.time()
    user  system elapsed 
-  1.044   0.236   1.547 
+  0.984   0.304   1.414 

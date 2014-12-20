@@ -60,4 +60,4 @@ output file: N-phosphonomethylgly.md
 > 
 > proc.time()
    user  system elapsed 
-  1.028   0.224   1.458 
+  1.012   0.284   1.424 

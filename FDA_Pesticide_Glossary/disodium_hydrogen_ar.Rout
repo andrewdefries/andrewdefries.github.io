@@ -60,4 +60,4 @@ output file: disodium_hydrogen_ar.md
 > 
 > proc.time()
    user  system elapsed 
-  1.040   0.220   1.494 
+  1.032   0.224   1.461 

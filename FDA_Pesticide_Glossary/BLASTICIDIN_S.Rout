@@ -60,4 +60,4 @@ output file: BLASTICIDIN_S.md
 > 
 > proc.time()
    user  system elapsed 
-  1.068   0.232   1.427 
+  1.012   0.268   1.413 

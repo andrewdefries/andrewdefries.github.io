@@ -60,4 +60,4 @@ output file: ronnel.md
 > 
 > proc.time()
    user  system elapsed 
-  1.052   0.228   1.495 
+  1.028   0.268   1.484 

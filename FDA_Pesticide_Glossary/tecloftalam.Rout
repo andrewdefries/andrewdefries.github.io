@@ -60,4 +60,4 @@ output file: tecloftalam.md
 > 
 > proc.time()
    user  system elapsed 
-  1.044   0.220   1.477 
+  1.072   0.216   1.478 

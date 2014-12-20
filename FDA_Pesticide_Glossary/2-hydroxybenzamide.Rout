@@ -60,4 +60,4 @@ output file: 2-hydroxybenzamide.md
 > 
 > proc.time()
    user  system elapsed 
-  1.080   0.196   1.431 
+  1.060   0.232   1.411 

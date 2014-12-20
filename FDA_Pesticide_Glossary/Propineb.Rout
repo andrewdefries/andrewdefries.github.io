@@ -60,4 +60,4 @@ output file: Propineb.md
 > 
 > proc.time()
    user  system elapsed 
-  1.064   0.220   1.477 
+  1.040   0.220   1.465 

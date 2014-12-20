@@ -60,4 +60,4 @@ output file: Diquat_dibromide.md
 > 
 > proc.time()
    user  system elapsed 
-  1.112   0.180   1.515 
+  1.064   0.216   1.478 

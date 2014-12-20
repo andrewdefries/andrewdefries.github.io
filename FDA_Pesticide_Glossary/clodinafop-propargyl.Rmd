@@ -22,7 +22,7 @@ The following a 3D image is of Atrazine rendered from the 3D conformer file deri
 
 ```{r testgl2, webgl=TRUE}
 open3d()
-clodinafop-propargyl<-read.table("clodinafop-propargyl.xyz")
+clodinafop-propargyl<-read.table("clodinafop-propargyl.xyz", skip=1)
 x<-clodinafop-propargyl$V2
 y<-clodinafop-propargyl$V3
 z<-clodinafop-propargyl$V4

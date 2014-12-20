@@ -60,4 +60,4 @@ output file: Talstar.md
 > 
 > proc.time()
    user  system elapsed 
-  1.016   0.260   1.493 
+  1.044   0.212   1.468 

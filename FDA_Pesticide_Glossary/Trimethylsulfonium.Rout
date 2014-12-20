@@ -60,4 +60,4 @@ output file: Trimethylsulfonium.md
 > 
 > proc.time()
    user  system elapsed 
-  1.044   0.220   1.470 
+  1.036   0.256   1.493 

@@ -60,4 +60,4 @@ output file: BHC.md
 > 
 > proc.time()
    user  system elapsed 
-  1.048   0.220   1.402 
+  1.012   0.256   1.412 

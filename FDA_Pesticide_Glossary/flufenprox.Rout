@@ -60,4 +60,4 @@ output file: flufenprox.md
 > 
 > proc.time()
    user  system elapsed 
-  1.120   0.188   1.513 
+  1.036   0.260   1.432 

@@ -60,4 +60,4 @@ output file: oxo-1-propenyl_phosp.md
 > 
 > proc.time()
    user  system elapsed 
-   1.06    0.24    1.50 
+  1.028   0.232   1.473 

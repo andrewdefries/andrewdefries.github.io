@@ -60,4 +60,4 @@ output file: pentachlorobenzene.md
 > 
 > proc.time()
    user  system elapsed 
-  1.060   0.204   1.474 
+  1.000   0.264   1.458 

@@ -22,7 +22,7 @@ The following a 3D image is of Atrazine rendered from the 3D conformer file deri
 
 ```{r testgl2, webgl=TRUE}
 open3d()
-magnesium_arsenate_m<-read.table("magnesium_arsenate_m.xyz")
+magnesium_arsenate_m<-read.table("magnesium_arsenate_m.xyz", skip=1)
 x<-magnesium_arsenate_m$V2
 y<-magnesium_arsenate_m$V3
 z<-magnesium_arsenate_m$V4

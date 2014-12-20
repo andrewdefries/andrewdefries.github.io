@@ -60,4 +60,4 @@ output file: cloprop.md
 > 
 > proc.time()
    user  system elapsed 
-  1.036   0.244   1.511 
+  1.032   0.220   1.455 

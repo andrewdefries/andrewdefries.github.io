@@ -60,4 +60,4 @@ output file: Pyrazophos.md
 > 
 > proc.time()
    user  system elapsed 
-  1.064   0.240   1.497 
+  1.044   0.224   1.469 

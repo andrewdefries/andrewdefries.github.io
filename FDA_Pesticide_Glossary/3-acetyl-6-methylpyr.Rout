@@ -60,4 +60,4 @@ output file: 3-acetyl-6-methylpyr.md
 > 
 > proc.time()
    user  system elapsed 
-  1.052   0.232   1.417 
+  1.028   0.260   1.408 

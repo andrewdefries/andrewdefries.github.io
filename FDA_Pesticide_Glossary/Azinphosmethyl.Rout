@@ -60,4 +60,4 @@ output file: Azinphosmethyl.md
 > 
 > proc.time()
    user  system elapsed 
-  1.040   0.244   1.461 
+  1.024   0.256   1.414 

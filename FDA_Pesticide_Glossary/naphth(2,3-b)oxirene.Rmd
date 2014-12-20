@@ -22,7 +22,7 @@ The following a 3D image is of Atrazine rendered from the 3D conformer file deri
 
 ```{r testgl2, webgl=TRUE}
 open3d()
-naphth(2,3-b)oxirene<-read.table("naphth(2,3-b)oxirene.xyz")
+naphth(2,3-b)oxirene<-read.table("naphth(2,3-b)oxirene.xyz", skip=1)
 x<-naphth(2,3-b)oxirene$V2
 y<-naphth(2,3-b)oxirene$V3
 z<-naphth(2,3-b)oxirene$V4

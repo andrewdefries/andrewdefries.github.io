@@ -60,4 +60,4 @@ output file: Dimethylhydrazin.md
 > 
 > proc.time()
    user  system elapsed 
-  1.056   0.220   1.512 
+  1.032   0.232   1.478 

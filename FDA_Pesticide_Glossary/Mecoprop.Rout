@@ -60,4 +60,4 @@ output file: Mecoprop.md
 > 
 > proc.time()
    user  system elapsed 
-  1.056   0.220   1.520 
+  1.040   0.216   1.398 

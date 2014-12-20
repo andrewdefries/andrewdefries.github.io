@@ -60,4 +60,4 @@ output file: chlorfenson.md
 > 
 > proc.time()
    user  system elapsed 
-  1.084   0.224   1.529 
+  1.016   0.248   1.471 

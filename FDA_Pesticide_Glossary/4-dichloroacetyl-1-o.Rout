@@ -60,4 +60,4 @@ output file: 4-dichloroacetyl-1-o.md
 > 
 > proc.time()
    user  system elapsed 
-  1.072   0.216   1.437 
+  1.064   0.232   1.428 

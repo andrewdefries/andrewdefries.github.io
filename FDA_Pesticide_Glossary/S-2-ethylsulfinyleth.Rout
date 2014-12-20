@@ -60,4 +60,4 @@ output file: S-2-ethylsulfinyleth.md
 > 
 > proc.time()
    user  system elapsed 
-  1.048   0.236   1.507 
+  1.040   0.236   1.482 

@@ -60,4 +60,4 @@ output file: primisulfuron-methyl.md
 > 
 > proc.time()
    user  system elapsed 
-  1.024   0.236   1.475 
+  0.992   0.268   1.451 

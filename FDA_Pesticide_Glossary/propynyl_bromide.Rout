@@ -60,4 +60,4 @@ output file: propynyl_bromide.md
 > 
 > proc.time()
    user  system elapsed 
-  1.072   0.212   1.493 
+  1.012   0.252   1.455 

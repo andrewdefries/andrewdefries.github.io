@@ -60,4 +60,4 @@ output file: dinitramine.md
 > 
 > proc.time()
    user  system elapsed 
-  1.028   0.272   1.521 
+  1.028   0.228   1.465 

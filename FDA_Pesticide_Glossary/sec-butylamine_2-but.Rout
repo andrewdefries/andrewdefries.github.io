@@ -60,4 +60,4 @@ output file: sec-butylamine_2-but.md
 > 
 > proc.time()
    user  system elapsed 
-  1.048   0.216   1.474 
+  1.020   0.260   1.481 

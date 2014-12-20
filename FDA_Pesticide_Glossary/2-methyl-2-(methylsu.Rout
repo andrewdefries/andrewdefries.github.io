@@ -56,7 +56,7 @@ List of 1
 
 Quitting from lines 24-32 (2-methyl-2-(methylsu.Rmd) 
 Error in parse(text = x, srcfile = src) : <text>:3:1: unexpected symbol
-2: 2-methyl-2-(methylsu<-read.table("2-methyl-2-(methylsu.xyz")
+2: 2-methyl-2-(methylsu<-read.table("2-methyl-2-(methylsu.xyz", skip=1)
 3: x
    ^
 Calls: knit2html ... evaluate -> parse_all -> parse_all.character -> parse

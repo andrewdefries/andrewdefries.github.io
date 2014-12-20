@@ -60,4 +60,4 @@ output file: Phorate.md
 > 
 > proc.time()
    user  system elapsed 
-  1.060   0.248   1.490 
+  1.056   0.232   1.482 

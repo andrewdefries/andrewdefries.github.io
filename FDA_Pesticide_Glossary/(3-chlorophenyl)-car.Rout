@@ -60,4 +60,4 @@ output file: (3-chlorophenyl)-car.md
 > 
 > proc.time()
    user  system elapsed 
-  1.044   0.244   1.402 
+  1.060   0.240   1.429 

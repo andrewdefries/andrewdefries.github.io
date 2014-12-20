@@ -60,4 +60,4 @@ output file: mefenpyr-diethyl.md
 > 
 > proc.time()
    user  system elapsed 
-  1.080   0.184   1.492 
+  1.052   0.244   1.429 

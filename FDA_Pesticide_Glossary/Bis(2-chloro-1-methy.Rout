@@ -56,7 +56,7 @@ List of 1
 
 Quitting from lines 24-32 (Bis(2-chloro-1-methy.Rmd) 
 Error in parse(text = x, srcfile = src) : <text>:3:1: unexpected symbol
-2: Bis(2-chloro-1-methy<-read.table("Bis(2-chloro-1-methy.xyz")
+2: Bis(2-chloro-1-methy<-read.table("Bis(2-chloro-1-methy.xyz", skip=1)
 3: x
    ^
 Calls: knit2html ... evaluate -> parse_all -> parse_all.character -> parse

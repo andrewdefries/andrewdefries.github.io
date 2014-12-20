@@ -60,4 +60,4 @@ output file: tribenuron-methyl.md
 > 
 > proc.time()
    user  system elapsed 
-  1.036   0.236   1.469 
+  1.028   0.248   1.467 

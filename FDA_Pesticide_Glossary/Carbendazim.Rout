@@ -60,4 +60,4 @@ output file: Carbendazim.md
 > 
 > proc.time()
    user  system elapsed 
-  1.064   0.200   1.482 
+  1.008   0.244   1.395 

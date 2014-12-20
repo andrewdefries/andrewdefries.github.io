@@ -60,4 +60,4 @@ output file: nitralin.md
 > 
 > proc.time()
    user  system elapsed 
-  1.048   0.256   1.507 
+  1.068   0.220   1.417 

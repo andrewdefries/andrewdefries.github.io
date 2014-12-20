@@ -56,7 +56,7 @@ List of 1
 
 Quitting from lines 24-32 (propyl_3-(dimethylam.Rmd) 
 Error in parse(text = x, srcfile = src) : <text>:3:1: unexpected symbol
-2: propyl_3-(dimethylam<-read.table("propyl_3-(dimethylam.xyz")
+2: propyl_3-(dimethylam<-read.table("propyl_3-(dimethylam.xyz", skip=1)
 3: x
    ^
 Calls: knit2html ... evaluate -> parse_all -> parse_all.character -> parse

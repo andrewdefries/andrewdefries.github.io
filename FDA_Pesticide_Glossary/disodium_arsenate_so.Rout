@@ -60,4 +60,4 @@ output file: disodium_arsenate_so.md
 > 
 > proc.time()
    user  system elapsed 
-  1.060   0.228   1.520 
+  1.028   0.232   1.482 

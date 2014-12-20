@@ -60,4 +60,4 @@ output file: triforine.md
 > 
 > proc.time()
    user  system elapsed 
-   1.06    0.22    1.48 
+  1.036   0.244   1.485 

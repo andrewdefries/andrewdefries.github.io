@@ -60,4 +60,4 @@ output file: buminafos.md
 > 
 > proc.time()
    user  system elapsed 
-  1.104   0.188   1.488 
+  1.052   0.240   1.418 

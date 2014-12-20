@@ -60,4 +60,4 @@ output file: aramite.md
 > 
 > proc.time()
    user  system elapsed 
-  1.060   0.228   1.433 
+  1.024   0.256   1.423 

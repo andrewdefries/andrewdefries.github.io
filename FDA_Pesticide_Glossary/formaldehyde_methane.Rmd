@@ -22,7 +22,7 @@ The following a 3D image is of Atrazine rendered from the 3D conformer file deri
 
 ```{r testgl2, webgl=TRUE}
 open3d()
-formaldehyde_methane<-read.table("formaldehyde_methane.xyz")
+formaldehyde_methane<-read.table("formaldehyde_methane.xyz", skip=1)
 x<-formaldehyde_methane$V2
 y<-formaldehyde_methane$V3
 z<-formaldehyde_methane$V4

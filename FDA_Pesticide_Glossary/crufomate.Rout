@@ -60,4 +60,4 @@ output file: crufomate.md
 > 
 > proc.time()
    user  system elapsed 
-  1.040   0.224   1.487 
+  1.036   0.232   1.468 

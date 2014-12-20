@@ -22,7 +22,7 @@ The following a 3D image is of Atrazine rendered from the 3D conformer file deri
 
 ```{r testgl2, webgl=TRUE}
 open3d()
-thiadiazinane-2-thio<-read.table("thiadiazinane-2-thio.xyz")
+thiadiazinane-2-thio<-read.table("thiadiazinane-2-thio.xyz", skip=1)
 x<-thiadiazinane-2-thio$V2
 y<-thiadiazinane-2-thio$V3
 z<-thiadiazinane-2-thio$V4

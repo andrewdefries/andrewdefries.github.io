@@ -60,4 +60,4 @@ output file: Naled.md
 > 
 > proc.time()
    user  system elapsed 
-  1.080   0.212   1.503 
+  1.016   0.296   1.457 

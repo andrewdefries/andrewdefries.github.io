@@ -22,7 +22,7 @@ The following a 3D image is of Atrazine rendered from the 3D conformer file deri
 
 ```{r testgl2, webgl=TRUE}
 open3d()
-ammonium_sulfamic_ac<-read.table("ammonium_sulfamic_ac.xyz")
+ammonium_sulfamic_ac<-read.table("ammonium_sulfamic_ac.xyz", skip=1)
 x<-ammonium_sulfamic_ac$V2
 y<-ammonium_sulfamic_ac$V3
 z<-ammonium_sulfamic_ac$V4

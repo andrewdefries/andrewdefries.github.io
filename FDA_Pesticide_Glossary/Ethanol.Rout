@@ -60,4 +60,4 @@ output file: Ethanol.md
 > 
 > proc.time()
    user  system elapsed 
-  1.068   0.224   1.487 
+  1.012   0.244   1.458 

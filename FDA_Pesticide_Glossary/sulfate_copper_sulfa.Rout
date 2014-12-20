@@ -60,4 +60,4 @@ output file: sulfate_copper_sulfa.md
 > 
 > proc.time()
    user  system elapsed 
-  1.072   0.216   1.482 
+  0.876   0.152   1.253 

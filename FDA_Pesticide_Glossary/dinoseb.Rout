@@ -60,4 +60,4 @@ output file: dinoseb.md
 > 
 > proc.time()
    user  system elapsed 
-  1.068   0.220   1.475 
+  1.024   0.236   1.452 

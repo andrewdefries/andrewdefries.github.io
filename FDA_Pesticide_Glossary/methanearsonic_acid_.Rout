@@ -60,4 +60,4 @@ output file: methanearsonic_acid_.md
 > 
 > proc.time()
    user  system elapsed 
-  1.016   0.240   1.476 
+  1.036   0.252   1.416 

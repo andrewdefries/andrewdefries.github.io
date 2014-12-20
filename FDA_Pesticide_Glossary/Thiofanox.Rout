@@ -60,4 +60,4 @@ output file: Thiofanox.md
 > 
 > proc.time()
    user  system elapsed 
-  1.036   0.256   1.490 
+  1.036   0.236   1.480 

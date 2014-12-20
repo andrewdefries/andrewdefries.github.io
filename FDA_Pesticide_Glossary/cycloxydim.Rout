@@ -60,4 +60,4 @@ output file: cycloxydim.md
 > 
 > proc.time()
    user  system elapsed 
-  1.084   0.300   1.613 
+  1.020   0.224   1.446 

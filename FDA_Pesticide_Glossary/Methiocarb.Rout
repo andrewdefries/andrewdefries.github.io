@@ -60,4 +60,4 @@ output file: Methiocarb.md
 > 
 > proc.time()
    user  system elapsed 
-  1.104   0.220   1.527 
+  1.028   0.276   1.422 

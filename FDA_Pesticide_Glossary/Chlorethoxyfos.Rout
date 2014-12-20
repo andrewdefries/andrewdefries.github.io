@@ -60,4 +60,4 @@ output file: Chlorethoxyfos.md
 > 
 > proc.time()
    user  system elapsed 
-  1.016   0.232   1.497 
+  1.040   0.232   1.483 

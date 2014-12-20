@@ -40,43 +40,10 @@ open3d()
 ```
 
 ```r
-data<-read.table("data.xyz")
-```
-
-```
-## Warning in file(file, "rt"): cannot open file 'data.xyz': No such file or
-## directory
-```
-
-```
-## Error in file(file, "rt"): cannot open the connection
-```
-
-```r
+data<-read.table("data.xyz", skip=1)
 x<-data$V2
-```
-
-```
-## Error in data$V2: object of type 'closure' is not subsettable
-```
-
-```r
 y<-data$V3
-```
-
-```
-## Error in data$V3: object of type 'closure' is not subsettable
-```
-
-```r
 z<-data$V4
-```
-
-```
-## Error in data$V4: object of type 'closure' is not subsettable
-```
-
-```r
 atomcolor=c(rep("blue", 1), rep("red", 5), rep("black", 7), rep("white", 15))
 #spheres3d(x, y, z, col=rainbow(1000))
 spheres3d(x, y, z, col=atomcolor)

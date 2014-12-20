@@ -60,4 +60,4 @@ output file: tolfenpyrad.md
 > 
 > proc.time()
    user  system elapsed 
-  1.108   0.184   1.499 
+  1.024   0.260   1.477 

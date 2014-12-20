@@ -60,4 +60,4 @@ output file: Phenylcarbamate.md
 > 
 > proc.time()
    user  system elapsed 
-  1.004   0.260   1.492 
+  1.020   0.256   1.492 

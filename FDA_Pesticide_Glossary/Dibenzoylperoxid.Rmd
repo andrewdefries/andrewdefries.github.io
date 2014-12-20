@@ -22,7 +22,7 @@ The following a 3D image is of Atrazine rendered from the 3D conformer file deri
 
 ```{r testgl2, webgl=TRUE}
 open3d()
-Dibenzoylperoxid<-read.table("Dibenzoylperoxid.xyz")
+Dibenzoylperoxid<-read.table("Dibenzoylperoxid.xyz", skip=1)
 x<-Dibenzoylperoxid$V2
 y<-Dibenzoylperoxid$V3
 z<-Dibenzoylperoxid$V4

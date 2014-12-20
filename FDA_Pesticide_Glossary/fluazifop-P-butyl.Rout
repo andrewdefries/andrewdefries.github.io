@@ -60,4 +60,4 @@ output file: fluazifop-P-butyl.md
 > 
 > proc.time()
    user  system elapsed 
-  1.100   0.200   1.515 
+  1.000   0.296   1.427 

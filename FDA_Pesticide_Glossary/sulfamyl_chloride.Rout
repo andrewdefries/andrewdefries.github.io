@@ -60,4 +60,4 @@ output file: sulfamyl_chloride.md
 > 
 > proc.time()
    user  system elapsed 
-  1.052   0.228   1.486 
+  1.044   0.236   1.470 

@@ -22,7 +22,7 @@ The following a 3D image is of Atrazine rendered from the 3D conformer file deri
 
 ```{r testgl2, webgl=TRUE}
 open3d()
-sulfonyl-1-methyl-1H<-read.table("sulfonyl-1-methyl-1H.xyz")
+sulfonyl-1-methyl-1H<-read.table("sulfonyl-1-methyl-1H.xyz", skip=1)
 x<-sulfonyl-1-methyl-1H$V2
 y<-sulfonyl-1-methyl-1H$V3
 z<-sulfonyl-1-methyl-1H$V4

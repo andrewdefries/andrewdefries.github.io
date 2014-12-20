@@ -60,4 +60,4 @@ output file: phenthoate.md
 > 
 > proc.time()
    user  system elapsed 
-  1.068   0.236   1.518 
+  1.056   0.240   1.481 

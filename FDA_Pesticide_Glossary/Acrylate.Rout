@@ -60,4 +60,4 @@ output file: Acrylate.md
 > 
 > proc.time()
    user  system elapsed 
-  1.048   0.220   1.409 
+  1.084   0.196   1.413 

@@ -60,4 +60,4 @@ output file: fenothiocarb.md
 > 
 > proc.time()
    user  system elapsed 
-  1.024   0.228   1.457 
+  1.040   0.252   1.438 

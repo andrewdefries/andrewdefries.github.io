@@ -60,4 +60,4 @@ output file: Aldrin.md
 > 
 > proc.time()
    user  system elapsed 
-  1.092   0.220   1.437 
+  1.024   0.256   1.490 

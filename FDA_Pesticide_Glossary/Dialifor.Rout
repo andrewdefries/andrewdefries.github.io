@@ -60,4 +60,4 @@ output file: Dialifor.md
 > 
 > proc.time()
    user  system elapsed 
-  1.048   0.204   1.468 
+  1.036   0.252   1.475 

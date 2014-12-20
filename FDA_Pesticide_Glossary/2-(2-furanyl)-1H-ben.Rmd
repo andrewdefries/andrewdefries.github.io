@@ -22,7 +22,7 @@ The following a 3D image is of Atrazine rendered from the 3D conformer file deri
 
 ```{r testgl2, webgl=TRUE}
 open3d()
-2-(2-furanyl)-1H-ben<-read.table("2-(2-furanyl)-1H-ben.xyz")
+2-(2-furanyl)-1H-ben<-read.table("2-(2-furanyl)-1H-ben.xyz", skip=1)
 x<-2-(2-furanyl)-1H-ben$V2
 y<-2-(2-furanyl)-1H-ben$V3
 z<-2-(2-furanyl)-1H-ben$V4

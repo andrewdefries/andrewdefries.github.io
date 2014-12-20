@@ -60,4 +60,4 @@ output file: Isopropamide.md
 > 
 > proc.time()
    user  system elapsed 
-  1.036   0.240   1.492 
+  1.060   0.252   1.440 

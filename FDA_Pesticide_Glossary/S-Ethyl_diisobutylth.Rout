@@ -60,4 +60,4 @@ output file: S-Ethyl_diisobutylth.md
 > 
 > proc.time()
    user  system elapsed 
-  1.060   0.232   1.494 
+  1.016   0.240   1.469 

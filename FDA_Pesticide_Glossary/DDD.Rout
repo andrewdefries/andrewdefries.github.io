@@ -60,4 +60,4 @@ output file: DDD.md
 > 
 > proc.time()
    user  system elapsed 
-  1.068   0.228   1.502 
+  1.072   0.216   1.478 

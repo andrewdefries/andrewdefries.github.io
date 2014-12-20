@@ -60,4 +60,4 @@ output file: Pyraclostrobin.md
 > 
 > proc.time()
    user  system elapsed 
-  1.016   0.216   1.477 
+  1.032   0.220   1.463 

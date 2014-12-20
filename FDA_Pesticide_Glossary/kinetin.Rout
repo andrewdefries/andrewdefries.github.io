@@ -60,4 +60,4 @@ output file: kinetin.md
 > 
 > proc.time()
    user  system elapsed 
-  1.072   0.224   1.505 
+  1.048   0.244   1.422 

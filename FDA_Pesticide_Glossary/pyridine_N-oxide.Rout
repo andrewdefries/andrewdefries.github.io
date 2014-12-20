@@ -60,4 +60,4 @@ output file: pyridine_N-oxide.md
 > 
 > proc.time()
    user  system elapsed 
-  1.080   0.236   1.510 
+  1.036   0.244   1.475 

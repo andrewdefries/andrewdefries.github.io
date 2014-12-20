@@ -60,4 +60,4 @@ output file: acifluorfen.md
 > 
 > proc.time()
    user  system elapsed 
-  1.060   0.224   1.421 
+  1.032   0.248   1.407 

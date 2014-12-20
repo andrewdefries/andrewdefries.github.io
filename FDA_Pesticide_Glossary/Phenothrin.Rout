@@ -60,4 +60,4 @@ output file: Phenothrin.md
 > 
 > proc.time()
    user  system elapsed 
-  1.052   0.212   1.486 
+  1.020   0.240   1.447 

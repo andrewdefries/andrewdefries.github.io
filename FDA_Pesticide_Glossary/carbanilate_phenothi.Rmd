@@ -22,7 +22,7 @@ The following a 3D image is of Atrazine rendered from the 3D conformer file deri
 
 ```{r testgl2, webgl=TRUE}
 open3d()
-carbanilate_phenothi<-read.table("carbanilate_phenothi.xyz")
+carbanilate_phenothi<-read.table("carbanilate_phenothi.xyz", skip=1)
 x<-carbanilate_phenothi$V2
 y<-carbanilate_phenothi$V3
 z<-carbanilate_phenothi$V4

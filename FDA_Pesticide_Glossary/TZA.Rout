@@ -60,4 +60,4 @@ output file: TZA.md
 > 
 > proc.time()
    user  system elapsed 
-  1.032   0.244   1.493 
+  1.040   0.240   1.472 

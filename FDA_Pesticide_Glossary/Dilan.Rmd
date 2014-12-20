@@ -22,7 +22,7 @@ The following a 3D image is of Atrazine rendered from the 3D conformer file deri
 
 ```{r testgl2, webgl=TRUE}
 open3d()
-Dilan<-read.table("Dilan.xyz")
+Dilan<-read.table("Dilan.xyz", skip=1)
 x<-Dilan$V2
 y<-Dilan$V3
 z<-Dilan$V4

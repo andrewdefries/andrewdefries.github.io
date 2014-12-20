@@ -60,4 +60,4 @@ output file: Cephalon.md
 > 
 > proc.time()
    user  system elapsed 
-  1.044   0.220   1.475 
+  1.008   0.264   1.380 

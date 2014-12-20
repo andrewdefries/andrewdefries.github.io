@@ -60,4 +60,4 @@ output file: thiodicarbamate.md
 > 
 > proc.time()
    user  system elapsed 
-  1.060   0.232   1.524 
+  1.008   0.236   1.444 

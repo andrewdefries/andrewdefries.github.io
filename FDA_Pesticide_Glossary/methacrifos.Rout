@@ -60,4 +60,4 @@ output file: methacrifos.md
 > 
 > proc.time()
    user  system elapsed 
-  1.072   0.216   1.480 
+  1.036   0.260   1.427 

@@ -60,4 +60,4 @@ output file: H2N.md
 > 
 > proc.time()
    user  system elapsed 
-  1.064   0.208   1.487 
+  1.060   0.216   1.410 

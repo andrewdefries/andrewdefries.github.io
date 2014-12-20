@@ -60,4 +60,4 @@ output file: diethyl_thiophosphat.md
 > 
 > proc.time()
    user  system elapsed 
-  1.092   0.244   1.523 
+  0.988   0.248   1.433 

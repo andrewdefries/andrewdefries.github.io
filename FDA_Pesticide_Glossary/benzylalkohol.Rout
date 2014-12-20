@@ -60,4 +60,4 @@ output file: benzylalkohol.md
 > 
 > proc.time()
    user  system elapsed 
-  1.100   0.208   1.443 
+  1.036   0.228   1.398 

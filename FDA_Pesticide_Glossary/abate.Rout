@@ -60,4 +60,4 @@ output file: abate.md
 > 
 > proc.time()
    user  system elapsed 
-  1.036   0.248   1.420 
+  1.068   0.216   1.432 

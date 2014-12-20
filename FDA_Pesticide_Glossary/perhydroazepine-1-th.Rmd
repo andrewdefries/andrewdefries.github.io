@@ -22,7 +22,7 @@ The following a 3D image is of Atrazine rendered from the 3D conformer file deri
 
 ```{r testgl2, webgl=TRUE}
 open3d()
-perhydroazepine-1-th<-read.table("perhydroazepine-1-th.xyz")
+perhydroazepine-1-th<-read.table("perhydroazepine-1-th.xyz", skip=1)
 x<-perhydroazepine-1-th$V2
 y<-perhydroazepine-1-th$V3
 z<-perhydroazepine-1-th$V4

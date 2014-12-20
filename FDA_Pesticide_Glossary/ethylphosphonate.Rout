@@ -60,4 +60,4 @@ output file: ethylphosphonate.md
 > 
 > proc.time()
    user  system elapsed 
-  1.056   0.240   1.505 
+  0.996   0.268   1.477 

@@ -60,4 +60,4 @@ output file: ammonium_sulphamate_.md
 > 
 > proc.time()
    user  system elapsed 
-  1.056   0.236   1.426 
+  1.060   0.228   1.427 

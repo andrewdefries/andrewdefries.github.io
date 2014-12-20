@@ -60,4 +60,4 @@ output file: Butyric_Acid.md
 > 
 > proc.time()
    user  system elapsed 
-  1.076   0.216   1.507 
+  1.024   0.268   1.431 

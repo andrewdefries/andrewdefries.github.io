@@ -60,4 +60,4 @@ output file: Mesotrione.md
 > 
 > proc.time()
    user  system elapsed 
-  1.032   0.240   1.481 
+  1.016   0.288   1.433 

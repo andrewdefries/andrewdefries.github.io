@@ -60,4 +60,4 @@ output file: triclosan.md
 > 
 > proc.time()
    user  system elapsed 
-  1.084   0.204   1.499 
+  1.036   0.240   1.477 

@@ -56,7 +56,7 @@ List of 1
 
 Quitting from lines 24-32 ((S)-3-(1-Methylpyrro.Rmd) 
 Error in parse(text = x, srcfile = src) : <text>:3:1: unexpected symbol
-2: (S)-3-(1-Methylpyrro<-read.table("(S)-3-(1-Methylpyrro.xyz")
+2: (S)-3-(1-Methylpyrro<-read.table("(S)-3-(1-Methylpyrro.xyz", skip=1)
 3: x
    ^
 Calls: knit2html ... evaluate -> parse_all -> parse_all.character -> parse

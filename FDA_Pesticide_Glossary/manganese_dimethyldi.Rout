@@ -60,4 +60,4 @@ output file: manganese_dimethyldi.md
 > 
 > proc.time()
    user  system elapsed 
-  1.048   0.264   1.521 
+  1.056   0.232   1.404 

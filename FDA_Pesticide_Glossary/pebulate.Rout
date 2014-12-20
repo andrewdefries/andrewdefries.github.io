@@ -60,4 +60,4 @@ output file: pebulate.md
 > 
 > proc.time()
    user  system elapsed 
-  1.068   0.216   1.489 
+  1.004   0.284   1.507 

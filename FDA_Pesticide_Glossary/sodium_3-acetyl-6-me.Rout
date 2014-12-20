@@ -60,4 +60,4 @@ output file: sodium_3-acetyl-6-me.md
 > 
 > proc.time()
    user  system elapsed 
-  1.092   0.184   1.515 
+  1.040   0.240   1.472 

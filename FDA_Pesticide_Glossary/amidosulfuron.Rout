@@ -60,4 +60,4 @@ output file: amidosulfuron.md
 > 
 > proc.time()
    user  system elapsed 
-  1.060   0.212   1.424 
+  1.028   0.252   1.416 

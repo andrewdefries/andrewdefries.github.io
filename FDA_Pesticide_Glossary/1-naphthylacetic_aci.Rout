@@ -60,4 +60,4 @@ output file: 1-naphthylacetic_aci.md
 > 
 > proc.time()
    user  system elapsed 
-  1.032   0.252   1.425 
+  1.048   0.236   1.391 

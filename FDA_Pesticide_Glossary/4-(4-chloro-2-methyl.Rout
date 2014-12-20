@@ -56,7 +56,7 @@ List of 1
 
 Quitting from lines 24-32 (4-(4-chloro-2-methyl.Rmd) 
 Error in parse(text = x, srcfile = src) : <text>:3:1: unexpected symbol
-2: 4-(4-chloro-2-methyl<-read.table("4-(4-chloro-2-methyl.xyz")
+2: 4-(4-chloro-2-methyl<-read.table("4-(4-chloro-2-methyl.xyz", skip=1)
 3: x
    ^
 Calls: knit2html ... evaluate -> parse_all -> parse_all.character -> parse

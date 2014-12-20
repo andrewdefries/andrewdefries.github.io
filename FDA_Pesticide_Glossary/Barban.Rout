@@ -60,4 +60,4 @@ output file: Barban.md
 > 
 > proc.time()
    user  system elapsed 
-  1.060   0.240   1.446 
+  1.072   0.212   1.398 

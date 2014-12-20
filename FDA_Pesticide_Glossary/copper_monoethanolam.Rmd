@@ -22,7 +22,7 @@ The following a 3D image is of Atrazine rendered from the 3D conformer file deri
 
 ```{r testgl2, webgl=TRUE}
 open3d()
-copper_monoethanolam<-read.table("copper_monoethanolam.xyz")
+copper_monoethanolam<-read.table("copper_monoethanolam.xyz", skip=1)
 x<-copper_monoethanolam$V2
 y<-copper_monoethanolam$V3
 z<-copper_monoethanolam$V4

@@ -60,4 +60,4 @@ output file: pyrimidin-4-yl_phosp.md
 > 
 > proc.time()
    user  system elapsed 
-  1.068   0.232   1.523 
+  1.032   0.232   1.480 

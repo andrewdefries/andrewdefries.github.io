@@ -22,7 +22,7 @@ The following a 3D image is of Atrazine rendered from the 3D conformer file deri
 
 ```{r testgl2, webgl=TRUE}
 open3d()
-isothiocyanato-<-read.table("isothiocyanato-.xyz")
+isothiocyanato-<-read.table("isothiocyanato-.xyz", skip=1)
 x<-isothiocyanato-$V2
 y<-isothiocyanato-$V3
 z<-isothiocyanato-$V4

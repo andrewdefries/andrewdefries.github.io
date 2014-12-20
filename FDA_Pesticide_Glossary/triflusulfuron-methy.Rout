@@ -60,4 +60,4 @@ output file: triflusulfuron-methy.md
 > 
 > proc.time()
    user  system elapsed 
-  1.052   0.236   1.486 
+  1.072   0.240   1.488 

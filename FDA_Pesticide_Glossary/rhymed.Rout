@@ -60,4 +60,4 @@ output file: rhymed.md
 > 
 > proc.time()
    user  system elapsed 
-  1.064   0.224   1.506 
+  1.056   0.248   1.492 

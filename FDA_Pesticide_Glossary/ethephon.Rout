@@ -60,4 +60,4 @@ output file: ethephon.md
 > 
 > proc.time()
    user  system elapsed 
-  1.036   0.224   1.462 
+  0.992   0.248   1.494 

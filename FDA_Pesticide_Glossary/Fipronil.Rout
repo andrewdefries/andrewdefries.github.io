@@ -60,4 +60,4 @@ output file: Fipronil.md
 > 
 > proc.time()
    user  system elapsed 
-  1.064   0.228   1.480 
+  1.048   0.232   1.433 

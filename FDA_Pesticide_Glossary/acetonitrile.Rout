@@ -60,4 +60,4 @@ output file: acetonitrile.md
 > 
 > proc.time()
    user  system elapsed 
-  1.084   0.260   1.470 
+  1.032   0.248   1.399 

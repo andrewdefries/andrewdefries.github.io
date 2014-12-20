@@ -22,7 +22,7 @@ The following a 3D image is of Atrazine rendered from the 3D conformer file deri
 
 ```{r testgl2, webgl=TRUE}
 open3d()
-copper_sulfate_penta<-read.table("copper_sulfate_penta.xyz")
+copper_sulfate_penta<-read.table("copper_sulfate_penta.xyz", skip=1)
 x<-copper_sulfate_penta$V2
 y<-copper_sulfate_penta$V3
 z<-copper_sulfate_penta$V4

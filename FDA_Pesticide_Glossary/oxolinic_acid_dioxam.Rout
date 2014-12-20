@@ -60,4 +60,4 @@ output file: oxolinic_acid_dioxam.md
 > 
 > proc.time()
    user  system elapsed 
-  1.068   0.228   1.499 
+  1.076   0.200   1.490 

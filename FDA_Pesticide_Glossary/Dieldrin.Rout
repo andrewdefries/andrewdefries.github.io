@@ -60,4 +60,4 @@ output file: Dieldrin.md
 > 
 > proc.time()
    user  system elapsed 
-  1.056   0.184   1.472 
+  1.044   0.224   1.438 

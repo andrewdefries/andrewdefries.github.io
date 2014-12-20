@@ -60,4 +60,4 @@ output file: nicotine_nicotine_su.md
 > 
 > proc.time()
    user  system elapsed 
-  1.060   0.240   1.505 
+  1.048   0.256   1.447 

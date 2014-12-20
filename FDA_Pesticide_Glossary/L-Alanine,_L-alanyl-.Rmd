@@ -22,7 +22,7 @@ The following a 3D image is of Atrazine rendered from the 3D conformer file deri
 
 ```{r testgl2, webgl=TRUE}
 open3d()
-L-Alanine,_L-alanyl-<-read.table("L-Alanine,_L-alanyl-.xyz")
+L-Alanine,_L-alanyl-<-read.table("L-Alanine,_L-alanyl-.xyz", skip=1)
 x<-L-Alanine,_L-alanyl-$V2
 y<-L-Alanine,_L-alanyl-$V3
 z<-L-Alanine,_L-alanyl-$V4

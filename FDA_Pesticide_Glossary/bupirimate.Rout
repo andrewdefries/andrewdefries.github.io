@@ -60,4 +60,4 @@ output file: bupirimate.md
 > 
 > proc.time()
    user  system elapsed 
-  1.032   0.232   1.468 
+  1.008   0.244   1.419 

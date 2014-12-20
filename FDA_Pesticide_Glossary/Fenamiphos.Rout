@@ -60,4 +60,4 @@ output file: Fenamiphos.md
 > 
 > proc.time()
    user  system elapsed 
-  1.032   0.256   1.487 
+  1.024   0.248   1.412 

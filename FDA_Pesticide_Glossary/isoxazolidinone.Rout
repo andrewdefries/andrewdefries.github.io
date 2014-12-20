@@ -60,4 +60,4 @@ output file: isoxazolidinone.md
 > 
 > proc.time()
    user  system elapsed 
-  1.052   0.204   1.466 
+  1.040   0.252   1.416 

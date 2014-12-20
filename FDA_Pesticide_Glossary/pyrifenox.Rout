@@ -60,4 +60,4 @@ output file: pyrifenox.md
 > 
 > proc.time()
    user  system elapsed 
-  1.036   0.264   1.491 
+  1.044   0.224   1.472 

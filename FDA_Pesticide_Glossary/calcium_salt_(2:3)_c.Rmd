@@ -22,7 +22,7 @@ The following a 3D image is of Atrazine rendered from the 3D conformer file deri
 
 ```{r testgl2, webgl=TRUE}
 open3d()
-calcium_salt_(2:3)_c<-read.table("calcium_salt_(2:3)_c.xyz")
+calcium_salt_(2:3)_c<-read.table("calcium_salt_(2:3)_c.xyz", skip=1)
 x<-calcium_salt_(2:3)_c$V2
 y<-calcium_salt_(2:3)_c$V3
 z<-calcium_salt_(2:3)_c$V4

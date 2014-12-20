@@ -60,4 +60,4 @@ output file: Triprim.md
 > 
 > proc.time()
    user  system elapsed 
-  0.992   0.336   1.563 
+  1.032   0.228   1.456 

@@ -60,4 +60,4 @@ output file: Chlormephos.md
 > 
 > proc.time()
    user  system elapsed 
-  1.100   0.208   1.513 
+  1.004   0.256   1.461 

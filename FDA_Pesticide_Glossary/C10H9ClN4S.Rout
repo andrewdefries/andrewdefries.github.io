@@ -60,4 +60,4 @@ output file: C10H9ClN4S.md
 > 
 > proc.time()
    user  system elapsed 
-  1.048   0.264   1.496 
+  1.064   0.228   1.430 

@@ -60,4 +60,4 @@ output file: cyproconazole.md
 > 
 > proc.time()
    user  system elapsed 
-  1.056   0.256   1.496 
+  1.040   0.208   1.456 

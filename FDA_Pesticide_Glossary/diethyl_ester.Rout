@@ -60,4 +60,4 @@ output file: diethyl_ester.md
 > 
 > proc.time()
    user  system elapsed 
-  1.060   0.252   1.488 
+  1.040   0.204   1.457 

@@ -60,4 +60,4 @@ output file: prodiamine.md
 > 
 > proc.time()
    user  system elapsed 
-  1.016   0.248   1.486 
+  1.048   0.232   1.488 

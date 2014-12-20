@@ -22,7 +22,7 @@ The following a 3D image is of Atrazine rendered from the 3D conformer file deri
 
 ```{r testgl2, webgl=TRUE}
 open3d()
-phosphonic_acid_diet<-read.table("phosphonic_acid_diet.xyz")
+phosphonic_acid_diet<-read.table("phosphonic_acid_diet.xyz", skip=1)
 x<-phosphonic_acid_diet$V2
 y<-phosphonic_acid_diet$V3
 z<-phosphonic_acid_diet$V4

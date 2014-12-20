@@ -60,4 +60,4 @@ output file: diepoxybutane.md
 > 
 > proc.time()
    user  system elapsed 
-  1.060   0.228   1.492 
+  1.032   0.236   1.518 

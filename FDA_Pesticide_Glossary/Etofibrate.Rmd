@@ -22,7 +22,7 @@ The following a 3D image is of Atrazine rendered from the 3D conformer file deri
 
 ```{r testgl2, webgl=TRUE}
 open3d()
-Etofibrate<-read.table("Etofibrate.xyz")
+Etofibrate<-read.table("Etofibrate.xyz", skip=1)
 x<-Etofibrate$V2
 y<-Etofibrate$V3
 z<-Etofibrate$V4

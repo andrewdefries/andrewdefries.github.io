@@ -60,4 +60,4 @@ output file: thionazin.md
 > 
 > proc.time()
    user  system elapsed 
-  1.028   0.260   1.475 
+  1.024   0.252   1.485 

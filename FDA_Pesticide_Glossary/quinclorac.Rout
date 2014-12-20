@@ -60,4 +60,4 @@ output file: quinclorac.md
 > 
 > proc.time()
    user  system elapsed 
-  1.052   0.324   1.605 
+  1.064   0.220   1.512 

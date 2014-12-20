@@ -60,4 +60,4 @@ output file: gamma-Nonalactone.md
 > 
 > proc.time()
    user  system elapsed 
-  1.040   0.256   1.505 
+  1.020   0.308   1.497 

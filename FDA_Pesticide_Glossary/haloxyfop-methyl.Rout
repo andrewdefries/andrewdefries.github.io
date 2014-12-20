@@ -60,4 +60,4 @@ output file: haloxyfop-methyl.md
 > 
 > proc.time()
    user  system elapsed 
-  1.068   0.224   1.505 
+  1.032   0.252   1.424 

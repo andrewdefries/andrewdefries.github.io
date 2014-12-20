@@ -60,4 +60,4 @@ output file: hexythiazox.md
 > 
 > proc.time()
    user  system elapsed 
-  1.068   0.208   1.494 
+  1.076   0.220   1.435 

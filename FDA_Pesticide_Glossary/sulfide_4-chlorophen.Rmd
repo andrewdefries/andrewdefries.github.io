@@ -22,7 +22,7 @@ The following a 3D image is of Atrazine rendered from the 3D conformer file deri
 
 ```{r testgl2, webgl=TRUE}
 open3d()
-sulfide_4-chlorophen<-read.table("sulfide_4-chlorophen.xyz")
+sulfide_4-chlorophen<-read.table("sulfide_4-chlorophen.xyz", skip=1)
 x<-sulfide_4-chlorophen$V2
 y<-sulfide_4-chlorophen$V3
 z<-sulfide_4-chlorophen$V4

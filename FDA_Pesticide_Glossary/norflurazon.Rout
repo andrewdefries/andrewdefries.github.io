@@ -60,4 +60,4 @@ output file: norflurazon.md
 > 
 > proc.time()
    user  system elapsed 
-  1.060   0.244   1.503 
+  1.052   0.208   1.455 

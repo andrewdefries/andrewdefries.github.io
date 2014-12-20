@@ -60,4 +60,4 @@ output file: pirimiphos_ethyl.md
 > 
 > proc.time()
    user  system elapsed 
-  1.060   0.232   1.501 
+  1.076   0.204   1.491 

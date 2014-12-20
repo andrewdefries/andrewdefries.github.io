@@ -22,7 +22,7 @@ The following a 3D image is of Atrazine rendered from the 3D conformer file deri
 
 ```{r testgl2, webgl=TRUE}
 open3d()
-pyridaben<-read.table("pyridaben.xyz")
+pyridaben<-read.table("pyridaben.xyz", skip=1)
 x<-pyridaben$V2
 y<-pyridaben$V3
 z<-pyridaben$V4

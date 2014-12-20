@@ -60,4 +60,4 @@ output file: propiconazole.md
 > 
 > proc.time()
    user  system elapsed 
-  1.064   0.228   1.498 
+  1.020   0.240   1.449 

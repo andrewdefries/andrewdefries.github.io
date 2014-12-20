@@ -60,4 +60,4 @@ output file: Jasmolin_I.md
 > 
 > proc.time()
    user  system elapsed 
-  1.060   0.236   1.489 
+  1.020   0.292   1.431 

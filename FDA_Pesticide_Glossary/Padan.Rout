@@ -60,4 +60,4 @@ output file: Padan.md
 > 
 > proc.time()
    user  system elapsed 
-  1.064   0.236   1.516 
+  1.016   0.216   1.454 

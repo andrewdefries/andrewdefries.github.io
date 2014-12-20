@@ -60,4 +60,4 @@ output file: imazamox.md
 > 
 > proc.time()
    user  system elapsed 
-  1.068   0.232   1.501 
+  1.036   0.272   1.433 

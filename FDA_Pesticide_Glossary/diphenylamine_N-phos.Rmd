@@ -22,7 +22,7 @@ The following a 3D image is of Atrazine rendered from the 3D conformer file deri
 
 ```{r testgl2, webgl=TRUE}
 open3d()
-diphenylamine_N-phos<-read.table("diphenylamine_N-phos.xyz")
+diphenylamine_N-phos<-read.table("diphenylamine_N-phos.xyz", skip=1)
 x<-diphenylamine_N-phos$V2
 y<-diphenylamine_N-phos$V3
 z<-diphenylamine_N-phos$V4

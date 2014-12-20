@@ -60,4 +60,4 @@ output file: oxo-pyrrolidino.md
 > 
 > proc.time()
    user  system elapsed 
-  1.012   0.272   1.489 
+  1.052   0.232   1.476 

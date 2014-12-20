@@ -60,4 +60,4 @@ output file: Salithion.md
 > 
 > proc.time()
    user  system elapsed 
-  1.036   0.232   1.479 
+  1.044   0.240   1.512 

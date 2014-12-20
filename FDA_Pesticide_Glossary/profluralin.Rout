@@ -60,4 +60,4 @@ output file: profluralin.md
 > 
 > proc.time()
    user  system elapsed 
-  1.064   0.212   1.489 
+  1.008   0.260   1.470 

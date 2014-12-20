@@ -60,4 +60,4 @@ output file: SO2NH2Cl.md
 > 
 > proc.time()
    user  system elapsed 
-  1.048   0.280   1.541 
+  1.040   0.232   1.491 

@@ -60,4 +60,4 @@ output file: potassium_azide.md
 > 
 > proc.time()
    user  system elapsed 
-  1.052   0.216   1.489 
+  1.060   0.240   1.489 

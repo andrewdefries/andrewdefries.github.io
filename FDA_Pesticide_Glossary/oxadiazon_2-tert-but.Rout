@@ -60,4 +60,4 @@ output file: oxadiazon_2-tert-but.md
 > 
 > proc.time()
    user  system elapsed 
-  1.052   0.252   1.499 
+  1.044   0.224   1.468 

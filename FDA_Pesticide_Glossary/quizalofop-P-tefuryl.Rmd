@@ -22,7 +22,7 @@ The following a 3D image is of Atrazine rendered from the 3D conformer file deri
 
 ```{r testgl2, webgl=TRUE}
 open3d()
-quizalofop-P-tefuryl<-read.table("quizalofop-P-tefuryl.xyz")
+quizalofop-P-tefuryl<-read.table("quizalofop-P-tefuryl.xyz", skip=1)
 x<-quizalofop-P-tefuryl$V2
 y<-quizalofop-P-tefuryl$V3
 z<-quizalofop-P-tefuryl$V4

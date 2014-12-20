@@ -22,7 +22,7 @@ The following a 3D image is of Atrazine rendered from the 3D conformer file deri
 
 ```{r testgl2, webgl=TRUE}
 open3d()
-ammonium_iron_methyl<-read.table("ammonium_iron_methyl.xyz")
+ammonium_iron_methyl<-read.table("ammonium_iron_methyl.xyz", skip=1)
 x<-ammonium_iron_methyl$V2
 y<-ammonium_iron_methyl$V3
 z<-ammonium_iron_methyl$V4

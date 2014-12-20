@@ -60,4 +60,4 @@ output file: dithiopyrophosphate.md
 > 
 > proc.time()
    user  system elapsed 
-  1.068   0.200   1.476 
+  1.072   0.240   1.479 

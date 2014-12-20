@@ -60,4 +60,4 @@ output file: clomazone.md
 > 
 > proc.time()
    user  system elapsed 
-  1.064   0.296   1.577 
+  1.032   0.252   1.475 

@@ -60,4 +60,4 @@ output file: trimorfamid.md
 > 
 > proc.time()
    user  system elapsed 
-  1.060   0.248   1.490 
+  0.992   0.236   1.438 

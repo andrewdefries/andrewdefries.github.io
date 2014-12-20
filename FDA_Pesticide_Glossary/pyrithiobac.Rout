@@ -60,4 +60,4 @@ output file: pyrithiobac.md
 > 
 > proc.time()
    user  system elapsed 
-  1.076   0.220   1.497 
+  1.064   0.232   1.501 

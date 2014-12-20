@@ -60,4 +60,4 @@ output file: InChI_1S_C12H11Cl2NO.md
 > 
 > proc.time()
    user  system elapsed 
-  1.020   0.300   1.541 
+  1.064   0.232   1.419 

@@ -60,4 +60,4 @@ output file: Ziram.md
 > 
 > proc.time()
    user  system elapsed 
-  1.064   0.212   1.477 
+  1.004   0.248   1.473 

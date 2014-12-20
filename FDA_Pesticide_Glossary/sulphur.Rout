@@ -60,4 +60,4 @@ output file: sulphur.md
 > 
 > proc.time()
    user  system elapsed 
-  1.056   0.232   1.496 
+  1.104   0.248   1.579 

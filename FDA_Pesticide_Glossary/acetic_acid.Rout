@@ -60,4 +60,4 @@ output file: acetic_acid.md
 > 
 > proc.time()
    user  system elapsed 
-  1.108   0.196   1.429 
+  1.008   0.256   1.382 

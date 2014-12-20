@@ -60,4 +60,4 @@ output file: Fosthietan.md
 > 
 > proc.time()
    user  system elapsed 
-  1.044   0.276   1.523 
+  1.048   0.228   1.422 

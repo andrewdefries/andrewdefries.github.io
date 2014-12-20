@@ -60,4 +60,4 @@ output file: oxalate.md
 > 
 > proc.time()
    user  system elapsed 
-  1.052   0.224   1.475 
+  1.028   0.240   1.468 

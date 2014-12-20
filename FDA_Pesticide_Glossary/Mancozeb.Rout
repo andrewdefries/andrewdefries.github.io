@@ -60,4 +60,4 @@ output file: Mancozeb.md
 > 
 > proc.time()
    user  system elapsed 
-  1.064   0.248   1.533 
+  1.028   0.256   1.420 

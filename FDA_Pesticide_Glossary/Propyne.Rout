@@ -60,4 +60,4 @@ output file: Propyne.md
 > 
 > proc.time()
    user  system elapsed 
-  1.048   0.248   1.499 
+  1.008   0.240   1.438 

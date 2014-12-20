@@ -60,4 +60,4 @@ output file: 3-phenoxybenzoic_aci.md
 > 
 > proc.time()
    user  system elapsed 
-  1.104   0.192   1.453 
+  1.060   0.240   1.438 

@@ -60,4 +60,4 @@ output file: Ossian.md
 > 
 > proc.time()
    user  system elapsed 
-  1.028   0.280   1.488 
+  1.028   0.248   1.415 

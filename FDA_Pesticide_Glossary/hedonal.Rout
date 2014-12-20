@@ -60,4 +60,4 @@ output file: hedonal.md
 > 
 > proc.time()
    user  system elapsed 
-  1.048   0.220   1.486 
+  1.056   0.220   1.412 

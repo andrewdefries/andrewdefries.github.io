@@ -60,4 +60,4 @@ output file: myclobutanil.md
 > 
 > proc.time()
    user  system elapsed 
-  1.076   0.204   1.482 
+  1.060   0.244   1.422 

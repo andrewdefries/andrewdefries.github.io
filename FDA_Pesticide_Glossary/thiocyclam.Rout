@@ -60,4 +60,4 @@ output file: thiocyclam.md
 > 
 > proc.time()
    user  system elapsed 
-  1.016   0.240   1.464 
+  1.072   0.228   1.497 

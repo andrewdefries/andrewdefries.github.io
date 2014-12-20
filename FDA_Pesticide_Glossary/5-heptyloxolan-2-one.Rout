@@ -60,4 +60,4 @@ output file: 5-heptyloxolan-2-one.md
 > 
 > proc.time()
    user  system elapsed 
-  1.072   0.244   1.461 
+  1.036   0.260   1.422 

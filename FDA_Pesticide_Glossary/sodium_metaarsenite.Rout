@@ -60,4 +60,4 @@ output file: sodium_metaarsenite.md
 > 
 > proc.time()
    user  system elapsed 
-  1.080   0.188   1.481 
+  1.012   0.260   1.482 

@@ -60,4 +60,4 @@ output file: bromopropylate_1-met.md
 > 
 > proc.time()
    user  system elapsed 
-  1.040   0.228   1.498 
+  1.040   0.252   1.425 

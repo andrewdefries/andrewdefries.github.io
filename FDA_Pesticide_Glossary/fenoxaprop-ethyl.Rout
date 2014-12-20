@@ -60,4 +60,4 @@ output file: fenoxaprop-ethyl.md
 > 
 > proc.time()
    user  system elapsed 
-  1.068   0.236   1.511 
+  1.040   0.244   1.426 

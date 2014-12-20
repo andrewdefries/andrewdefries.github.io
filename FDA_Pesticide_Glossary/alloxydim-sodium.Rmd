@@ -22,7 +22,7 @@ The following a 3D image is of Atrazine rendered from the 3D conformer file deri
 
 ```{r testgl2, webgl=TRUE}
 open3d()
-alloxydim-sodium<-read.table("alloxydim-sodium.xyz")
+alloxydim-sodium<-read.table("alloxydim-sodium.xyz", skip=1)
 x<-alloxydim-sodium$V2
 y<-alloxydim-sodium$V3
 z<-alloxydim-sodium$V4

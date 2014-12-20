@@ -60,4 +60,4 @@ output file: daminozide.md
 > 
 > proc.time()
    user  system elapsed 
-  0.988   0.280   1.488 
+  1.028   0.248   1.460 

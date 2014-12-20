@@ -60,4 +60,4 @@ output file: clofencet.md
 > 
 > proc.time()
    user  system elapsed 
-  1.052   0.260   1.525 
+  1.036   0.208   1.465 

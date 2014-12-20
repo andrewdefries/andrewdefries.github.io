@@ -60,4 +60,4 @@ output file: C5HCl5O.md
 > 
 > proc.time()
    user  system elapsed 
-  1.044   0.244   1.481 
+  1.056   0.208   1.400 

@@ -60,4 +60,4 @@ output file: desmetryne.md
 > 
 > proc.time()
    user  system elapsed 
-  1.084   0.240   1.517 
+  0.996   0.260   1.463 

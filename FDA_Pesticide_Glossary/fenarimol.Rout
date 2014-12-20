@@ -60,4 +60,4 @@ output file: fenarimol.md
 > 
 > proc.time()
    user  system elapsed 
-  1.056   0.256   1.544 
+  1.036   0.264   1.431 

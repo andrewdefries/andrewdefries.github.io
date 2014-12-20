@@ -60,4 +60,4 @@ output file: nitrofluorfen.md
 > 
 > proc.time()
    user  system elapsed 
-  1.032   0.252   1.471 
+  1.056   0.240   1.440 

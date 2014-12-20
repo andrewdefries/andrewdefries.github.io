@@ -60,4 +60,4 @@ output file: hexanecarboxylate_io.md
 > 
 > proc.time()
    user  system elapsed 
-  1.060   0.212   1.502 
+  1.044   0.244   1.423 

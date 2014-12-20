@@ -60,4 +60,4 @@ output file: difenzoquat.md
 > 
 > proc.time()
    user  system elapsed 
-  1.024   0.248   1.492 
+  1.020   0.228   1.448 

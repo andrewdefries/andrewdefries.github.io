@@ -60,4 +60,4 @@ output file: bispyribac-sodium.md
 > 
 > proc.time()
    user  system elapsed 
-  1.040   0.256   1.424 
+  1.056   0.216   1.429 

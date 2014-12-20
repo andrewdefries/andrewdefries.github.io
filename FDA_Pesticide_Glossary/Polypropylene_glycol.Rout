@@ -60,4 +60,4 @@ output file: Polypropylene_glycol.md
 > 
 > proc.time()
    user  system elapsed 
-  1.064   0.184   1.474 
+  1.040   0.228   1.493 

@@ -22,7 +22,7 @@ The following a 3D image is of Atrazine rendered from the 3D conformer file deri
 
 ```{r testgl2, webgl=TRUE}
 open3d()
-benzodioxathiepin_3,<-read.table("benzodioxathiepin_3,.xyz")
+benzodioxathiepin_3,<-read.table("benzodioxathiepin_3,.xyz", skip=1)
 x<-benzodioxathiepin_3,$V2
 y<-benzodioxathiepin_3,$V3
 z<-benzodioxathiepin_3,$V4

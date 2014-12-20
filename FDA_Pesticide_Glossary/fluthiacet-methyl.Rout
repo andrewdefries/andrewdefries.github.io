@@ -60,4 +60,4 @@ output file: fluthiacet-methyl.md
 > 
 > proc.time()
    user  system elapsed 
-  1.064   0.240   1.506 
+  1.076   0.220   1.434 

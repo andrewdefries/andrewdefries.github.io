@@ -60,4 +60,4 @@ output file: diethyl_amine.md
 > 
 > proc.time()
    user  system elapsed 
-  1.032   0.264   1.489 
+  1.060   0.220   1.465 

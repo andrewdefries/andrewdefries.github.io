@@ -56,7 +56,7 @@ List of 1
 
 Quitting from lines 24-32 (1-(2-diethoxyphospho.Rmd) 
 Error in parse(text = x, srcfile = src) : <text>:3:1: unexpected symbol
-2: 1-(2-diethoxyphospho<-read.table("1-(2-diethoxyphospho.xyz")
+2: 1-(2-diethoxyphospho<-read.table("1-(2-diethoxyphospho.xyz", skip=1)
 3: x
    ^
 Calls: knit2html ... evaluate -> parse_all -> parse_all.character -> parse

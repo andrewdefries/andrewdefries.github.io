@@ -60,4 +60,4 @@ output file: tebutam.md
 > 
 > proc.time()
    user  system elapsed 
-  1.056   0.212   1.477 
+  1.064   0.240   1.500 

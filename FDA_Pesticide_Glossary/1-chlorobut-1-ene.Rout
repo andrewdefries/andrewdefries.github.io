@@ -60,4 +60,4 @@ output file: 1-chlorobut-1-ene.md
 > 
 > proc.time()
    user  system elapsed 
-  1.080   0.200   1.409 
+  1.012   0.260   1.455 

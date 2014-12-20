@@ -60,4 +60,4 @@ output file: chlorphoxim.md
 > 
 > proc.time()
    user  system elapsed 
-  1.064   0.216   1.492 
+  1.040   0.212   1.448 

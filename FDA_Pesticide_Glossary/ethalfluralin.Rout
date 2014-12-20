@@ -60,4 +60,4 @@ output file: ethalfluralin.md
 > 
 > proc.time()
    user  system elapsed 
-  1.080   0.252   1.553 
+  1.004   0.272   1.468 

@@ -60,4 +60,4 @@ output file: Disodium_methyl-diox.md
 > 
 > proc.time()
    user  system elapsed 
-  1.040   0.220   1.453 
+  1.048   0.236   1.481 

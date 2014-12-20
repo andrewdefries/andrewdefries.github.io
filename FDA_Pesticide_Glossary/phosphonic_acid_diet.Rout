@@ -60,4 +60,4 @@ output file: phosphonic_acid_diet.md
 > 
 > proc.time()
    user  system elapsed 
-  1.056   0.224   1.498 
+  0.864   0.168   1.242 

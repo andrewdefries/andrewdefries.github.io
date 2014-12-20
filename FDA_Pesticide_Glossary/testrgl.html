@@ -229,7 +229,7 @@ plot3d(x, y, z, col=rainbow(1000))
 <pre><code>## Error in eval(expr, envir, enclos): could not find function &quot;open3d&quot;
 </code></pre>
 
-<pre><code class="r">data&lt;-read.table(&quot;data.xyz&quot;)
+<pre><code class="r">data&lt;-read.table(&quot;data.xyz&quot;, skip=1)
 x&lt;-data$V2
 y&lt;-data$V3
 z&lt;-data$V4

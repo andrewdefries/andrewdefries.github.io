@@ -60,4 +60,4 @@ output file: pyridazine_N-oxide.md
 > 
 > proc.time()
    user  system elapsed 
-  1.056   0.228   1.500 
+  1.056   0.212   1.464 

@@ -60,4 +60,4 @@ output file: Isobutane.md
 > 
 > proc.time()
    user  system elapsed 
-  1.060   0.248   1.508 
+  1.036   0.260   1.443 

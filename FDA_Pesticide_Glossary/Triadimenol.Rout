@@ -60,4 +60,4 @@ output file: Triadimenol.md
 > 
 > proc.time()
    user  system elapsed 
-  1.076   0.196   1.463 
+  1.028   0.228   1.458 

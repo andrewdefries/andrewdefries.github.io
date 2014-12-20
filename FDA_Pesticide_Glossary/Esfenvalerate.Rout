@@ -60,4 +60,4 @@ output file: Esfenvalerate.md
 > 
 > proc.time()
    user  system elapsed 
-  1.096   0.204   1.499 
+  1.048   0.220   1.456 

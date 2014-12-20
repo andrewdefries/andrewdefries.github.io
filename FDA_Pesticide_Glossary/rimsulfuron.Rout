@@ -60,4 +60,4 @@ output file: rimsulfuron.md
 > 
 > proc.time()
    user  system elapsed 
-  1.028   0.220   1.494 
+  1.060   0.184   1.451 

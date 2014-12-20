@@ -60,4 +60,4 @@ output file: triazine-2-amine.md
 > 
 > proc.time()
    user  system elapsed 
-  1.028   0.260   1.473 
+  1.044   0.228   1.480 

@@ -60,4 +60,4 @@ output file: Tebufenpyrad.md
 > 
 > proc.time()
    user  system elapsed 
-  1.068   0.232   1.514 
+  1.036   0.228   1.459 

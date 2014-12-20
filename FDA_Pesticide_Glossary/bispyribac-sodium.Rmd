@@ -22,7 +22,7 @@ The following a 3D image is of Atrazine rendered from the 3D conformer file deri
 
 ```{r testgl2, webgl=TRUE}
 open3d()
-bispyribac-sodium<-read.table("bispyribac-sodium.xyz")
+bispyribac-sodium<-read.table("bispyribac-sodium.xyz", skip=1)
 x<-bispyribac-sodium$V2
 y<-bispyribac-sodium$V3
 z<-bispyribac-sodium$V4

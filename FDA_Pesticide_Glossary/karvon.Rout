@@ -60,4 +60,4 @@ output file: karvon.md
 > 
 > proc.time()
    user  system elapsed 
-  1.052   0.244   1.494 
+  1.000   0.244   1.420 

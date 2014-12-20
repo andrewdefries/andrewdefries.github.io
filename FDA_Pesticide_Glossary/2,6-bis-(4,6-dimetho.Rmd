@@ -22,7 +22,7 @@ The following a 3D image is of Atrazine rendered from the 3D conformer file deri
 
 ```{r testgl2, webgl=TRUE}
 open3d()
-2,6-bis-(4,6-dimetho<-read.table("2,6-bis-(4,6-dimetho.xyz")
+2,6-bis-(4,6-dimetho<-read.table("2,6-bis-(4,6-dimetho.xyz", skip=1)
 x<-2,6-bis-(4,6-dimetho$V2
 y<-2,6-bis-(4,6-dimetho$V3
 z<-2,6-bis-(4,6-dimetho$V4

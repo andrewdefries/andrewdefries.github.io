@@ -60,4 +60,4 @@ output file: 4-n-amyl-4-hydroxybu.md
 > 
 > proc.time()
    user  system elapsed 
-  1.040   0.232   1.407 
+  1.044   0.240   1.429 

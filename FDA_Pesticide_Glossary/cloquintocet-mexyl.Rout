@@ -60,4 +60,4 @@ output file: cloquintocet-mexyl.md
 > 
 > proc.time()
    user  system elapsed 
-  1.044   0.248   1.499 
+  1.032   0.216   1.469 

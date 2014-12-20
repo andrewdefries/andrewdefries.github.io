@@ -60,4 +60,4 @@ output file: 3-ethoxycarbonylamin.md
 > 
 > proc.time()
    user  system elapsed 
-  1.024   0.260   1.463 
+  1.044   0.256   1.425 

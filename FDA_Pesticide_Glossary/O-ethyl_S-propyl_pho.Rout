@@ -60,4 +60,4 @@ output file: O-ethyl_S-propyl_pho.md
 > 
 > proc.time()
    user  system elapsed 
-  1.048   0.208   1.475 
+  1.032   0.248   1.427 

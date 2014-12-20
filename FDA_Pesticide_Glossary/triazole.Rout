@@ -60,4 +60,4 @@ output file: triazole.md
 > 
 > proc.time()
    user  system elapsed 
-  1.080   0.224   1.503 
+  1.020   0.236   1.473 

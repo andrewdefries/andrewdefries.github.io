@@ -60,4 +60,4 @@ output file: Symclosene.md
 > 
 > proc.time()
    user  system elapsed 
-  1.076   0.216   1.497 
+  1.036   0.212   1.457 

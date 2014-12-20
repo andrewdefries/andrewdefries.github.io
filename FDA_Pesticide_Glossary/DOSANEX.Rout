@@ -60,4 +60,4 @@ output file: DOSANEX.md
 > 
 > proc.time()
    user  system elapsed 
-  1.036   0.248   1.479 
+  1.048   0.204   1.459 

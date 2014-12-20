@@ -22,7 +22,7 @@ The following a 3D image is of Atrazine rendered from the 3D conformer file deri
 
 ```{r testgl2, webgl=TRUE}
 open3d()
-hydroxyhippuric_acid<-read.table("hydroxyhippuric_acid.xyz")
+hydroxyhippuric_acid<-read.table("hydroxyhippuric_acid.xyz", skip=1)
 x<-hydroxyhippuric_acid$V2
 y<-hydroxyhippuric_acid$V3
 z<-hydroxyhippuric_acid$V4

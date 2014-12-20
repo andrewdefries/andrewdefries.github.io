@@ -60,4 +60,4 @@ output file: Naphthacenecarboxami.md
 > 
 > proc.time()
    user  system elapsed 
-  1.040   0.236   1.490 
+  1.056   0.240   1.423 

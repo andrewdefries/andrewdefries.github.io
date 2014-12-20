@@ -60,4 +60,4 @@ output file: sodium_arsenic_oxide.md
 > 
 > proc.time()
    user  system elapsed 
-  1.052   0.236   1.510 
+  1.020   0.236   1.460 

@@ -60,4 +60,4 @@ output file: CG-1283.md
 > 
 > proc.time()
    user  system elapsed 
-  1.012   0.268   1.483 
+  1.032   0.252   1.416 

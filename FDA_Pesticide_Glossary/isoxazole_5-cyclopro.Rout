@@ -60,4 +60,4 @@ output file: isoxazole_5-cyclopro.md
 > 
 > proc.time()
    user  system elapsed 
-  1.036   0.228   1.482 
+  1.000   0.276   1.422 

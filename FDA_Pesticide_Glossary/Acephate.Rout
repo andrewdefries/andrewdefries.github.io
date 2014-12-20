@@ -60,4 +60,4 @@ output file: Acephate.md
 > 
 > proc.time()
    user  system elapsed 
-  1.044   0.252   1.429 
+  1.060   0.236   1.417 

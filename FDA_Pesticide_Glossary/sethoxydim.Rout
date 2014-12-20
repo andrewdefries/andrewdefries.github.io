@@ -60,4 +60,4 @@ output file: sethoxydim.md
 > 
 > proc.time()
    user  system elapsed 
-  1.060   0.216   1.487 
+  1.020   0.224   1.457 

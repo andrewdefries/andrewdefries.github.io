@@ -60,4 +60,4 @@ output file: Chloropropham.md
 > 
 > proc.time()
    user  system elapsed 
-  1.048   0.228   1.489 
+  1.024   0.216   1.433 

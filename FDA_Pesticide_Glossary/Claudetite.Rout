@@ -60,4 +60,4 @@ output file: Claudetite.md
 > 
 > proc.time()
    user  system elapsed 
-  1.048   0.212   1.462 
+  0.996   0.232   1.456 

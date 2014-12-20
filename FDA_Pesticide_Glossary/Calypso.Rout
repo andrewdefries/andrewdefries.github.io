@@ -60,4 +60,4 @@ output file: Calypso.md
 > 
 > proc.time()
    user  system elapsed 
-  1.092   0.228   1.513 
+  1.080   0.216   1.443 

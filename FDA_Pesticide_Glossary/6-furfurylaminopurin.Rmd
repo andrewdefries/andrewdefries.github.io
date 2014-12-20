@@ -22,7 +22,7 @@ The following a 3D image is of Atrazine rendered from the 3D conformer file deri
 
 ```{r testgl2, webgl=TRUE}
 open3d()
-6-furfurylaminopurin<-read.table("6-furfurylaminopurin.xyz")
+6-furfurylaminopurin<-read.table("6-furfurylaminopurin.xyz", skip=1)
 x<-6-furfurylaminopurin$V2
 y<-6-furfurylaminopurin$V3
 z<-6-furfurylaminopurin$V4

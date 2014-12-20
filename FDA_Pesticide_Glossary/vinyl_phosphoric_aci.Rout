@@ -60,4 +60,4 @@ output file: vinyl_phosphoric_aci.md
 > 
 > proc.time()
    user  system elapsed 
-  1.072   0.224   1.487 
+  1.064   0.208   1.471 

@@ -60,4 +60,4 @@ output file: N-(p-tolyl)-Sulfamid.md
 > 
 > proc.time()
    user  system elapsed 
-  1.076   0.216   1.494 
+  1.040   0.248   1.405 

@@ -60,4 +60,4 @@ output file: Paclobutrazol.md
 > 
 > proc.time()
    user  system elapsed 
-  1.052   0.248   1.516 
+  0.988   0.264   1.466 

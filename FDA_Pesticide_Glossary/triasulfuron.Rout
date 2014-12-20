@@ -60,4 +60,4 @@ output file: triasulfuron.md
 > 
 > proc.time()
    user  system elapsed 
-  1.064   0.196   1.465 
+  1.060   0.240   1.529 

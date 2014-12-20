@@ -60,4 +60,4 @@ output file: mefenacet.md
 > 
 > proc.time()
    user  system elapsed 
-  1.084   0.216   1.499 
+  1.056   0.232   1.411 

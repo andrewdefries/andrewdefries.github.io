@@ -60,4 +60,4 @@ output file: isoprothiolane.md
 > 
 > proc.time()
    user  system elapsed 
-  1.060   0.244   1.492 
+  1.052   0.256   1.439 

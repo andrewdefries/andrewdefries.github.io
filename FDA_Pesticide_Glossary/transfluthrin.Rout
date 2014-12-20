@@ -60,4 +60,4 @@ output file: transfluthrin.md
 > 
 > proc.time()
    user  system elapsed 
-  1.060   0.224   1.481 
+  1.024   0.220   1.467 

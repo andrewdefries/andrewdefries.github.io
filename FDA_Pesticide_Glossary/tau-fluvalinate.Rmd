@@ -22,7 +22,7 @@ The following a 3D image is of Atrazine rendered from the 3D conformer file deri
 
 ```{r testgl2, webgl=TRUE}
 open3d()
-tau-fluvalinate<-read.table("tau-fluvalinate.xyz")
+tau-fluvalinate<-read.table("tau-fluvalinate.xyz", skip=1)
 x<-tau-fluvalinate$V2
 y<-tau-fluvalinate$V3
 z<-tau-fluvalinate$V4

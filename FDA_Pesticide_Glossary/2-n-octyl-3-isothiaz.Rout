@@ -60,4 +60,4 @@ output file: 2-n-octyl-3-isothiaz.md
 > 
 > proc.time()
    user  system elapsed 
-  1.048   0.244   1.422 
+  1.040   0.256   1.412 

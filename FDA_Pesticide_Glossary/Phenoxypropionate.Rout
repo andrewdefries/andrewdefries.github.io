@@ -60,4 +60,4 @@ output file: Phenoxypropionate.md
 > 
 > proc.time()
    user  system elapsed 
-  1.008   0.264   1.529 
+  1.032   0.252   1.491 

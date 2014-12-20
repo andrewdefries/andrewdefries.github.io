@@ -60,4 +60,4 @@ output file: cacodylate_ion.md
 > 
 > proc.time()
    user  system elapsed 
-  1.056   0.224   1.485 
+  1.028   0.248   1.446 

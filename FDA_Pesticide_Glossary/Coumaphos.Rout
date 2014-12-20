@@ -60,4 +60,4 @@ output file: Coumaphos.md
 > 
 > proc.time()
    user  system elapsed 
-  1.060   0.224   1.496 
+  1.028   0.232   1.457 

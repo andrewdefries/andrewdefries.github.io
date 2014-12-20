@@ -60,4 +60,4 @@ output file: 5-pentyloxolan-2-one.md
 > 
 > proc.time()
    user  system elapsed 
-  1.064   0.232   1.426 
+  1.008   0.260   1.415 

@@ -22,7 +22,7 @@ The following a 3D image is of Atrazine rendered from the 3D conformer file deri
 
 ```{r testgl2, webgl=TRUE}
 open3d()
-merphos<-read.table("merphos.xyz")
+merphos<-read.table("merphos.xyz", skip=1)
 x<-merphos$V2
 y<-merphos$V3
 z<-merphos$V4

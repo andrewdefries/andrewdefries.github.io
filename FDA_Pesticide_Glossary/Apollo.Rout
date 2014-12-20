@@ -60,4 +60,4 @@ output file: Apollo.md
 > 
 > proc.time()
    user  system elapsed 
-  1.076   0.200   1.413 
+  1.032   0.232   1.409 

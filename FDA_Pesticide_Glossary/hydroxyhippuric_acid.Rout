@@ -60,4 +60,4 @@ output file: hydroxyhippuric_acid.md
 > 
 > proc.time()
    user  system elapsed 
-  1.036   0.232   1.479 
+  0.992   0.276   1.404 

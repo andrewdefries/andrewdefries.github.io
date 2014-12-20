@@ -56,7 +56,7 @@ List of 1
 
 Quitting from lines 24-32 (methyl_6-(4-isopropy.Rmd) 
 Error in parse(text = x, srcfile = src) : <text>:3:1: unexpected symbol
-2: methyl_6-(4-isopropy<-read.table("methyl_6-(4-isopropy.xyz")
+2: methyl_6-(4-isopropy<-read.table("methyl_6-(4-isopropy.xyz", skip=1)
 3: x
    ^
 Calls: knit2html ... evaluate -> parse_all -> parse_all.character -> parse

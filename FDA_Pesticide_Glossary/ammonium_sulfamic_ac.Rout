@@ -60,4 +60,4 @@ output file: ammonium_sulfamic_ac.md
 > 
 > proc.time()
    user  system elapsed 
-  1.092   0.200   1.444 
+  1.024   0.276   1.437 

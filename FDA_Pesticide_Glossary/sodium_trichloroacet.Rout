@@ -60,4 +60,4 @@ output file: sodium_trichloroacet.md
 > 
 > proc.time()
    user  system elapsed 
-  1.064   0.196   1.470 
+  1.016   0.248   1.459 

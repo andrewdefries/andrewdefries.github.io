@@ -60,4 +60,4 @@ output file: Amitraz.md
 > 
 > proc.time()
    user  system elapsed 
-  1.032   0.240   1.407 
+  1.040   0.244   1.431 

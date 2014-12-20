@@ -60,4 +60,4 @@ output file: harmony.md
 > 
 > proc.time()
    user  system elapsed 
-  1.044   0.240   1.493 
+  1.020   0.252   1.431 

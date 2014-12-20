@@ -60,4 +60,4 @@ output file: fluoridamid.md
 > 
 > proc.time()
    user  system elapsed 
-  1.052   0.244   1.500 
+  1.040   0.280   1.477 

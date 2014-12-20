@@ -60,4 +60,4 @@ output file: 1-Triazolylethylethe.md
 > 
 > proc.time()
    user  system elapsed 
-  1.076   0.216   1.407 
+  1.044   0.248   1.427 

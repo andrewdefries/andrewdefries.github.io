@@ -22,7 +22,7 @@ The following a 3D image is of Atrazine rendered from the 3D conformer file deri
 
 ```{r testgl2, webgl=TRUE}
 open3d()
-_-D-glucose<-read.table("_-D-glucose.xyz")
+_-D-glucose<-read.table("_-D-glucose.xyz", skip=1)
 x<-_-D-glucose$V2
 y<-_-D-glucose$V3
 z<-_-D-glucose$V4

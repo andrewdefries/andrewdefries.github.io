@@ -60,4 +60,4 @@ output file: tetroxocane.md
 > 
 > proc.time()
    user  system elapsed 
-  1.080   0.192   1.445 
+  1.024   0.232   1.484 

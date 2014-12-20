@@ -60,4 +60,4 @@ output file: Fluvalinate.md
 > 
 > proc.time()
    user  system elapsed 
-  1.052   0.184   1.464 
+  1.044   0.208   1.435 

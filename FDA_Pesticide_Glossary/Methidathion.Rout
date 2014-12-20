@@ -60,4 +60,4 @@ output file: Methidathion.md
 > 
 > proc.time()
    user  system elapsed 
-  1.080   0.212   1.481 
+  1.064   0.232   1.427 

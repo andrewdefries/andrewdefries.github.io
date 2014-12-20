@@ -60,4 +60,4 @@ output file: methyl_sulfide_methy.md
 > 
 > proc.time()
    user  system elapsed 
-  1.032   0.256   1.489 
+  0.916   0.108   1.219 

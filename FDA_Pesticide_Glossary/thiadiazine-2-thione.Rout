@@ -60,4 +60,4 @@ output file: thiadiazine-2-thione.md
 > 
 > proc.time()
    user  system elapsed 
-  1.136   0.188   1.522 
+  1.020   0.276   1.501 

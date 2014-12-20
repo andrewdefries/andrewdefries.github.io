@@ -60,4 +60,4 @@ output file: Captafol.md
 > 
 > proc.time()
    user  system elapsed 
-  1.060   0.212   1.472 
+  1.036   0.256   1.436 

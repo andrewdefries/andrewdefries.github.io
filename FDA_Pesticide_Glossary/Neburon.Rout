@@ -60,4 +60,4 @@ output file: Neburon.md
 > 
 > proc.time()
    user  system elapsed 
-  1.052   0.224   1.483 
+  1.052   0.240   1.429 

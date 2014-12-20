@@ -60,4 +60,4 @@ output file: flonicamid.md
 > 
 > proc.time()
    user  system elapsed 
-  1.056   0.224   1.483 
+  1.032   0.244   1.417 

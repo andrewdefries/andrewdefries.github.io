@@ -22,7 +22,7 @@ The following a 3D image is of Atrazine rendered from the 3D conformer file deri
 
 ```{r testgl2, webgl=TRUE}
 open3d()
-calcium_arsenate_ars<-read.table("calcium_arsenate_ars.xyz")
+calcium_arsenate_ars<-read.table("calcium_arsenate_ars.xyz", skip=1)
 x<-calcium_arsenate_ars$V2
 y<-calcium_arsenate_ars$V3
 z<-calcium_arsenate_ars$V4

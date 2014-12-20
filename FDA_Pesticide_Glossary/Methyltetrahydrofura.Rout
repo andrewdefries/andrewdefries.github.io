@@ -60,4 +60,4 @@ output file: Methyltetrahydrofura.md
 > 
 > proc.time()
    user  system elapsed 
-  1.056   0.212   1.459 
+  1.044   0.228   1.420 

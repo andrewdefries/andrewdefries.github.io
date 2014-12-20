@@ -60,4 +60,4 @@ output file: pendimethalin.md
 > 
 > proc.time()
    user  system elapsed 
-  1.052   0.240   1.510 
+  0.980   0.256   1.442 

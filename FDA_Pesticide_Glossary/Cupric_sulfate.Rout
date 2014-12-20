@@ -60,4 +60,4 @@ output file: Cupric_sulfate.md
 > 
 > proc.time()
    user  system elapsed 
-  1.068   0.228   1.476 
+  1.004   0.232   1.453 

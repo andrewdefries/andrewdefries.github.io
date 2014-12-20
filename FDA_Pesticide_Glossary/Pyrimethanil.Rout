@@ -60,4 +60,4 @@ output file: Pyrimethanil.md
 > 
 > proc.time()
    user  system elapsed 
-  1.068   0.212   1.473 
+  1.044   0.228   1.464 

@@ -60,4 +60,4 @@ output file: benzadox.md
 > 
 > proc.time()
    user  system elapsed 
-  1.056   0.240   1.434 
+  1.044   0.224   1.403 

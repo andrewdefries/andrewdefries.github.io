@@ -22,7 +22,7 @@ The following a 3D image is of Atrazine rendered from the 3D conformer file deri
 
 ```{r testgl2, webgl=TRUE}
 open3d()
-endosulfan_sulfate<-read.table("endosulfan_sulfate.xyz")
+endosulfan_sulfate<-read.table("endosulfan_sulfate.xyz", skip=1)
 x<-endosulfan_sulfate$V2
 y<-endosulfan_sulfate$V3
 z<-endosulfan_sulfate$V4

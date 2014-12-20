@@ -60,4 +60,4 @@ output file: sodium_azide.md
 > 
 > proc.time()
    user  system elapsed 
-  1.024   0.252   1.489 
+  1.044   0.216   1.458 

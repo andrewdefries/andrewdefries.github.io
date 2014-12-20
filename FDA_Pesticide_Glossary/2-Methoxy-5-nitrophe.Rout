@@ -60,4 +60,4 @@ output file: 2-Methoxy-5-nitrophe.md
 > 
 > proc.time()
    user  system elapsed 
-  1.060   0.224   1.426 
+  1.092   0.204   1.418 

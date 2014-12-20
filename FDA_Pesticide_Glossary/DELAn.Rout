@@ -60,4 +60,4 @@ output file: DELAn.md
 > 
 > proc.time()
    user  system elapsed 
-  1.076   0.228   1.501 
+  1.020   0.252   1.476 

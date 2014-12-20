@@ -60,4 +60,4 @@ output file: phthalamic_acid.md
 > 
 > proc.time()
    user  system elapsed 
-  1.080   0.212   1.495 
+  1.040   0.248   1.474 

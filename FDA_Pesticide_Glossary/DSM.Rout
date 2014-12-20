@@ -60,4 +60,4 @@ output file: DSM.md
 > 
 > proc.time()
    user  system elapsed 
-  1.044   0.284   1.566 
+  1.020   0.240   1.478 

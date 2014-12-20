@@ -60,4 +60,4 @@ output file: C10H21NOS.md
 > 
 > proc.time()
    user  system elapsed 
-  1.052   0.244   1.503 
+  1.060   0.252   1.444 

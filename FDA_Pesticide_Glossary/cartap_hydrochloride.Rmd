@@ -22,7 +22,7 @@ The following a 3D image is of Atrazine rendered from the 3D conformer file deri
 
 ```{r testgl2, webgl=TRUE}
 open3d()
-cartap_hydrochloride<-read.table("cartap_hydrochloride.xyz")
+cartap_hydrochloride<-read.table("cartap_hydrochloride.xyz", skip=1)
 x<-cartap_hydrochloride$V2
 y<-cartap_hydrochloride$V3
 z<-cartap_hydrochloride$V4

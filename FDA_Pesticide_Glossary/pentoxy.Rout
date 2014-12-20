@@ -60,4 +60,4 @@ output file: pentoxy.md
 > 
 > proc.time()
    user  system elapsed 
-  1.024   0.272   1.500 
+  1.080   0.196   1.471 

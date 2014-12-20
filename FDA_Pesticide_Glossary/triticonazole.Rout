@@ -60,4 +60,4 @@ output file: triticonazole.md
 > 
 > proc.time()
    user  system elapsed 
-  1.052   0.240   1.485 
+  1.032   0.228   1.469 

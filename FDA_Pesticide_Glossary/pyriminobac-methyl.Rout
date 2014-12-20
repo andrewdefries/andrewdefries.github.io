@@ -60,4 +60,4 @@ output file: pyriminobac-methyl.md
 > 
 > proc.time()
    user  system elapsed 
-  1.060   0.256   1.492 
+  1.004   0.244   1.459 

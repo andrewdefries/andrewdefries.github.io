@@ -60,4 +60,4 @@ output file: 3-AT.md
 > 
 > proc.time()
    user  system elapsed 
-  1.044   0.236   1.428 
+  1.044   0.268   1.455 

@@ -60,4 +60,4 @@ output file: benfuracarb.md
 > 
 > proc.time()
    user  system elapsed 
-  1.044   0.236   1.413 
+  1.032   0.248   1.426 

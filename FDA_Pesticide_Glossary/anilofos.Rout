@@ -60,4 +60,4 @@ output file: anilofos.md
 > 
 > proc.time()
    user  system elapsed 
-  1.048   0.248   1.429 
+  1.072   0.232   1.422 

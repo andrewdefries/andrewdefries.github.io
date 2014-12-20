@@ -22,7 +22,7 @@ The following a 3D image is of Atrazine rendered from the 3D conformer file deri
 
 ```{r testgl2, webgl=TRUE}
 open3d()
-picolinate_potassium<-read.table("picolinate_potassium.xyz")
+picolinate_potassium<-read.table("picolinate_potassium.xyz", skip=1)
 x<-picolinate_potassium$V2
 y<-picolinate_potassium$V3
 z<-picolinate_potassium$V4

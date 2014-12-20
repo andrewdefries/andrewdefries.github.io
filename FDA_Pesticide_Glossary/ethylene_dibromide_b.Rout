@@ -60,4 +60,4 @@ output file: ethylene_dibromide_b.md
 > 
 > proc.time()
    user  system elapsed 
-  1.064   0.212   1.499 
+  0.996   0.248   1.453 

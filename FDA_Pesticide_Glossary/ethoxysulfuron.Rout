@@ -60,4 +60,4 @@ output file: ethoxysulfuron.md
 > 
 > proc.time()
    user  system elapsed 
-  1.076   0.172   1.467 
+  1.048   0.192   1.447 

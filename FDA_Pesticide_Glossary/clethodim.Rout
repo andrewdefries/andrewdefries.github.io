@@ -60,4 +60,4 @@ output file: clethodim.md
 > 
 > proc.time()
    user  system elapsed 
-  1.060   0.208   1.476 
+  1.028   0.256   1.508 

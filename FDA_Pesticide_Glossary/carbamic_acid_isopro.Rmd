@@ -22,7 +22,7 @@ The following a 3D image is of Atrazine rendered from the 3D conformer file deri
 
 ```{r testgl2, webgl=TRUE}
 open3d()
-carbamic_acid_isopro<-read.table("carbamic_acid_isopro.xyz")
+carbamic_acid_isopro<-read.table("carbamic_acid_isopro.xyz", skip=1)
 x<-carbamic_acid_isopro$V2
 y<-carbamic_acid_isopro$V3
 z<-carbamic_acid_isopro$V4

@@ -60,4 +60,4 @@ output file: monosodium_arsenate_.md
 > 
 > proc.time()
    user  system elapsed 
-  1.052   0.232   1.481 
+  0.908   0.136   1.228 

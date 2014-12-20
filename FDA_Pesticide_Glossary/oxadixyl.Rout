@@ -60,4 +60,4 @@ output file: oxadixyl.md
 > 
 > proc.time()
    user  system elapsed 
-  1.064   0.208   1.478 
+  1.048   0.220   1.471 

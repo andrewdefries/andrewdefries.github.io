@@ -60,4 +60,4 @@ output file: Sodium_Isopropyl.md
 > 
 > proc.time()
    user  system elapsed 
-  1.076   0.208   1.516 
+  1.048   0.228   1.465 

@@ -22,7 +22,7 @@ The following a 3D image is of Atrazine rendered from the 3D conformer file deri
 
 ```{r testgl2, webgl=TRUE}
 open3d()
-diazosulfonate<-read.table("diazosulfonate.xyz")
+diazosulfonate<-read.table("diazosulfonate.xyz", skip=1)
 x<-diazosulfonate$V2
 y<-diazosulfonate$V3
 z<-diazosulfonate$V4

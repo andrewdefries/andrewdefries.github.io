@@ -60,4 +60,4 @@ output file: bensultap.md
 > 
 > proc.time()
    user  system elapsed 
-  1.080   0.200   1.413 
+  1.044   0.232   1.407 

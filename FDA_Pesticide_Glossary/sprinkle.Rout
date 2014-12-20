@@ -60,4 +60,4 @@ output file: sprinkle.md
 > 
 > proc.time()
    user  system elapsed 
-  1.044   0.232   1.503 
+  1.032   0.244   1.476 

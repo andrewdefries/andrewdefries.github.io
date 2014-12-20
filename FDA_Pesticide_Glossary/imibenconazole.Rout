@@ -60,4 +60,4 @@ output file: imibenconazole.md
 > 
 > proc.time()
    user  system elapsed 
-  1.004   0.248   1.460 
+  1.040   0.236   1.430 

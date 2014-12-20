@@ -60,4 +60,4 @@ output file: phosdiphen.md
 > 
 > proc.time()
    user  system elapsed 
-  1.064   0.216   1.489 
+  1.072   0.228   1.512 

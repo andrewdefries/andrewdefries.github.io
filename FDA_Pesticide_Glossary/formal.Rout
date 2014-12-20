@@ -60,4 +60,4 @@ output file: formal.md
 > 
 > proc.time()
    user  system elapsed 
-  1.008   0.284   1.504 
+  1.040   0.236   1.413 

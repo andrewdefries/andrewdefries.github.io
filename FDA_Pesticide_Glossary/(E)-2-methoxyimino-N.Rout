@@ -60,4 +60,4 @@ output file: (E)-2-methoxyimino-N.md
 > 
 > proc.time()
    user  system elapsed 
-  1.032   0.244   1.480 
+  1.032   0.232   1.482 

@@ -60,4 +60,4 @@ output file: mitoxantrone.md
 > 
 > proc.time()
    user  system elapsed 
-  1.036   0.212   1.462 
+  1.052   0.260   1.460 

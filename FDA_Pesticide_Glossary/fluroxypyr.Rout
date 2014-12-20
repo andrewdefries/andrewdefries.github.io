@@ -60,4 +60,4 @@ output file: fluroxypyr.md
 > 
 > proc.time()
    user  system elapsed 
-  1.048   0.240   1.519 
+  1.020   0.256   1.402 

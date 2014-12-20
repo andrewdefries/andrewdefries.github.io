@@ -22,7 +22,7 @@ The following a 3D image is of Atrazine rendered from the 3D conformer file deri
 
 ```{r testgl2, webgl=TRUE}
 open3d()
-amino_sulfonic_acid<-read.table("amino_sulfonic_acid.xyz")
+amino_sulfonic_acid<-read.table("amino_sulfonic_acid.xyz", skip=1)
 x<-amino_sulfonic_acid$V2
 y<-amino_sulfonic_acid$V3
 z<-amino_sulfonic_acid$V4

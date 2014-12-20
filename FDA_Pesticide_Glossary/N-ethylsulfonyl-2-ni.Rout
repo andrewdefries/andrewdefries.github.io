@@ -60,4 +60,4 @@ output file: N-ethylsulfonyl-2-ni.md
 > 
 > proc.time()
    user  system elapsed 
-  1.032   0.216   1.482 
+  1.060   0.220   1.418 

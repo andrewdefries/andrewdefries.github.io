@@ -60,4 +60,4 @@ output file: flurtamone.md
 > 
 > proc.time()
    user  system elapsed 
-  1.032   0.208   1.464 
+  1.004   0.280   1.412 

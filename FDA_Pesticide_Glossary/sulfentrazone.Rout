@@ -60,4 +60,4 @@ output file: sulfentrazone.md
 > 
 > proc.time()
    user  system elapsed 
-  1.052   0.220   1.472 
+  1.060   0.212   1.469 

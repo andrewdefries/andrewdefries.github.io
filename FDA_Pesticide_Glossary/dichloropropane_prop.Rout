@@ -60,4 +60,4 @@ output file: dichloropropane_prop.md
 > 
 > proc.time()
    user  system elapsed 
-  1.020   0.232   1.474 
+  1.032   0.212   1.456 

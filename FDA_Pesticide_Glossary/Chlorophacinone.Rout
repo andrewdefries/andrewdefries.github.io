@@ -60,4 +60,4 @@ output file: Chlorophacinone.md
 > 
 > proc.time()
    user  system elapsed 
-  1.036   0.216   1.456 
+  1.008   0.284   1.481 

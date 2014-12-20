@@ -60,4 +60,4 @@ output file: Pyrethrin.md
 > 
 > proc.time()
    user  system elapsed 
-  1.072   0.212   1.490 
+  1.004   0.268   1.456 

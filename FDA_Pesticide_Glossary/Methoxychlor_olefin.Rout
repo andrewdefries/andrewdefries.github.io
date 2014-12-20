@@ -60,4 +60,4 @@ output file: Methoxychlor_olefin.md
 > 
 > proc.time()
    user  system elapsed 
-  1.072   0.248   1.513 
+  1.024   0.284   1.436 

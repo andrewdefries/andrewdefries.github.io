@@ -60,4 +60,4 @@ output file: Phenylacetonitril.md
 > 
 > proc.time()
    user  system elapsed 
-  1.104   0.188   1.509 
+  1.032   0.244   1.484 

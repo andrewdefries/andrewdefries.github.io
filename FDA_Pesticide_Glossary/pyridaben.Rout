@@ -60,4 +60,4 @@ output file: pyridaben.md
 > 
 > proc.time()
    user  system elapsed 
-  1.056   0.228   1.491 
+  1.008   0.252   1.454 

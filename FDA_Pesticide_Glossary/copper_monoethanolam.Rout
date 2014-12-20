@@ -60,4 +60,4 @@ output file: copper_monoethanolam.md
 > 
 > proc.time()
    user  system elapsed 
-  1.024   0.268   1.497 
+  0.996   0.240   1.453 

@@ -60,4 +60,4 @@ output file: Propionitril.md
 > 
 > proc.time()
    user  system elapsed 
-  1.068   0.228   1.488 
+  1.028   0.240   1.484 

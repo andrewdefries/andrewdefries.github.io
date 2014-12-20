@@ -60,4 +60,4 @@ output file: Allophanate.md
 > 
 > proc.time()
    user  system elapsed 
-  1.076   0.220   1.422 
+  1.040   0.228   1.401 

@@ -60,4 +60,4 @@ output file: butyranilide.md
 > 
 > proc.time()
    user  system elapsed 
-  1.116   0.160   1.481 
+  1.016   0.256   1.398 

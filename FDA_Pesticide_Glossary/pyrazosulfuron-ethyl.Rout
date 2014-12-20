@@ -60,4 +60,4 @@ output file: pyrazosulfuron-ethyl.md
 > 
 > proc.time()
    user  system elapsed 
-  1.064   0.216   1.496 
+  1.032   0.240   1.483 

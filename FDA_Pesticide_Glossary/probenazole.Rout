@@ -60,4 +60,4 @@ output file: probenazole.md
 > 
 > proc.time()
    user  system elapsed 
-  1.060   0.216   1.492 
+  1.036   0.236   1.456 

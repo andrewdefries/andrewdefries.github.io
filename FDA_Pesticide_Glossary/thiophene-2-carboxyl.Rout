@@ -60,4 +60,4 @@ output file: thiophene-2-carboxyl.md
 > 
 > proc.time()
    user  system elapsed 
-  1.072   0.212   1.509 
+  1.000   0.264   1.472 

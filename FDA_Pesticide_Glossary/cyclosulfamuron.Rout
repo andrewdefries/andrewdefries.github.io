@@ -60,4 +60,4 @@ output file: cyclosulfamuron.md
 > 
 > proc.time()
    user  system elapsed 
-  1.044   0.228   1.487 
+  1.040   0.208   1.449 

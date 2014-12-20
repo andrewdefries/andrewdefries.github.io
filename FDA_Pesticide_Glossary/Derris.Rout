@@ -60,4 +60,4 @@ output file: Derris.md
 > 
 > proc.time()
    user  system elapsed 
-  1.052   0.220   1.486 
+  1.028   0.232   1.463 

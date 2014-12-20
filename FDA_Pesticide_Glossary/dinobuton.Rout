@@ -60,4 +60,4 @@ output file: dinobuton.md
 > 
 > proc.time()
    user  system elapsed 
-  1.084   0.220   1.537 
+  1.052   0.184   1.434 

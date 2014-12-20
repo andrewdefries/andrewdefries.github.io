@@ -60,4 +60,4 @@ output file: diclomezine.md
 > 
 > proc.time()
    user  system elapsed 
-  1.044   0.220   1.488 
+  1.000   0.256   1.470 

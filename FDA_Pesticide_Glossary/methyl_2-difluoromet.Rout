@@ -60,4 +60,4 @@ output file: methyl_2-difluoromet.md
 > 
 > proc.time()
    user  system elapsed 
-  1.068   0.252   1.519 
+  1.048   0.260   1.453 

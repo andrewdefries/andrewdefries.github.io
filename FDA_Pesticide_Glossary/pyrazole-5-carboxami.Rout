@@ -60,4 +60,4 @@ output file: pyrazole-5-carboxami.md
 > 
 > proc.time()
    user  system elapsed 
-  1.048   0.204   1.465 
+  1.012   0.228   1.453 

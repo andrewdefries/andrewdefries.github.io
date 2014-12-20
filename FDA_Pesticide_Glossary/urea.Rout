@@ -60,4 +60,4 @@ output file: urea.md
 > 
 > proc.time()
    user  system elapsed 
-  1.044   0.240   1.500 
+  0.976   0.272   1.453 
