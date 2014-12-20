@@ -60,4 +60,4 @@ output file: Briton.md
 > 
 > proc.time()
    user  system elapsed 
-  1.496   0.232   1.833 
+  1.028   0.244   1.475 

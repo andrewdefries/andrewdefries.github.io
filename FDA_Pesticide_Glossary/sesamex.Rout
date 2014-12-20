@@ -60,4 +60,4 @@ output file: sesamex.md
 > 
 > proc.time()
    user  system elapsed 
-  1.072   0.216   1.493 
+  1.104   0.212   1.517 

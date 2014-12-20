@@ -60,4 +60,4 @@ output file: triflumizole.md
 > 
 > proc.time()
    user  system elapsed 
-  1.004   0.276   1.537 
+  1.048   0.232   1.492 

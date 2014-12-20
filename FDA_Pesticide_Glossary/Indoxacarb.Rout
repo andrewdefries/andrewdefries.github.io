@@ -60,4 +60,4 @@ output file: Indoxacarb.md
 > 
 > proc.time()
    user  system elapsed 
-  1.544   0.220   1.884 
+  1.048   0.212   1.474 

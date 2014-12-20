@@ -60,4 +60,4 @@ output file: ioxynil.md
 > 
 > proc.time()
    user  system elapsed 
-  1.556   0.200   1.875 
+  1.036   0.248   1.487 

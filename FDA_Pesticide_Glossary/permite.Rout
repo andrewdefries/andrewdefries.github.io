@@ -60,4 +60,4 @@ output file: permite.md
 > 
 > proc.time()
    user  system elapsed 
-  1.052   0.248   1.499 
+  0.996   0.300   1.485 

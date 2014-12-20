@@ -60,4 +60,4 @@ output file: Dinotefuran.md
 > 
 > proc.time()
    user  system elapsed 
-  1.484   0.192   1.789 
+  1.024   0.256   1.488 

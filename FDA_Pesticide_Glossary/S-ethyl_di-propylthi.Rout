@@ -60,4 +60,4 @@ output file: S-ethyl_di-propylthi.md
 > 
 > proc.time()
    user  system elapsed 
-  1.068   0.220   1.508 
+  1.060   0.220   1.491 

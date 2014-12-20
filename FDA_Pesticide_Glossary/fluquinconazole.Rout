@@ -60,4 +60,4 @@ output file: fluquinconazole.md
 > 
 > proc.time()
    user  system elapsed 
-  1.416   0.136   1.711 
+  1.052   0.220   1.487 

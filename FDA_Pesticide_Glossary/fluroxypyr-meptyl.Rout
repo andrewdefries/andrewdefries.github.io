@@ -60,4 +60,4 @@ output file: fluroxypyr-meptyl.md
 > 
 > proc.time()
    user  system elapsed 
-  1.484   0.184   1.794 
+  1.044   0.232   1.472 

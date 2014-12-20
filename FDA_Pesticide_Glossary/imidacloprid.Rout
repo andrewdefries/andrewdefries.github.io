@@ -60,4 +60,4 @@ output file: imidacloprid.md
 > 
 > proc.time()
    user  system elapsed 
-  1.476   0.216   1.832 
+  1.040   0.224   1.475 

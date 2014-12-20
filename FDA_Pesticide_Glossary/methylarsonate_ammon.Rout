@@ -60,4 +60,4 @@ output file: methylarsonate_ammon.md
 > 
 > proc.time()
    user  system elapsed 
-  1.596   0.196   2.066 
+  1.052   0.240   1.484 

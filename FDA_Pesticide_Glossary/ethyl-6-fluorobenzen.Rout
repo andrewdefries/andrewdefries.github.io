@@ -60,4 +60,4 @@ output file: ethyl-6-fluorobenzen.md
 > 
 > proc.time()
    user  system elapsed 
-  1.460   0.192   1.823 
+  1.068   0.208   1.484 

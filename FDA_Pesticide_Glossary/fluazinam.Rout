@@ -60,4 +60,4 @@ output file: fluazinam.md
 > 
 > proc.time()
    user  system elapsed 
-  1.440   0.200   1.749 
+  1.048   0.244   1.493 

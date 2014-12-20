@@ -60,4 +60,4 @@ output file: etoxazole.md
 > 
 > proc.time()
    user  system elapsed 
-  1.416   0.192   1.734 
+  1.044   0.228   1.478 

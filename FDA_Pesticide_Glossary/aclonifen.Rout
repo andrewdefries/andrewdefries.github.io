@@ -60,4 +60,4 @@ output file: aclonifen.md
 > 
 > proc.time()
    user  system elapsed 
-  1.496   0.204   1.809 
+  1.060   0.224   1.419 

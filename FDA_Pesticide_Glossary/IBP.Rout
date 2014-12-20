@@ -60,4 +60,4 @@ output file: IBP.md
 > 
 > proc.time()
    user  system elapsed 
-  1.624   0.168   1.912 
+  1.028   0.248   1.482 

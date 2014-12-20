@@ -60,4 +60,4 @@ output file: alpha-methylbenzyl_3.md
 > 
 > proc.time()
    user  system elapsed 
-  1.448   0.200   1.769 
+  1.036   0.264   1.460 

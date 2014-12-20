@@ -60,4 +60,4 @@ output file: Clean.chemicalize_PESTGLOS_pdf.md
 > 
 > proc.time()
    user  system elapsed 
-  1.532   0.216   1.864 
+  1.020   0.260   1.493 

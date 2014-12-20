@@ -60,4 +60,4 @@ output file: validamycin_A.md
 > 
 > proc.time()
    user  system elapsed 
-  1.056   0.236   1.489 
+  1.048   0.208   1.461 

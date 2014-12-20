@@ -60,4 +60,4 @@ output file: dimethylcyclopropane.md
 > 
 > proc.time()
    user  system elapsed 
-  1.472   0.220   1.811 
+  1.048   0.236   1.503 

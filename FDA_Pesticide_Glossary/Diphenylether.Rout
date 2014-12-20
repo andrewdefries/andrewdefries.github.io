@@ -60,4 +60,4 @@ output file: Diphenylether.md
 > 
 > proc.time()
    user  system elapsed 
-  1.428   0.232   1.777 
+  1.040   0.240   1.485 

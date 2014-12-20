@@ -60,4 +60,4 @@ output file: dichloromethane.md
 > 
 > proc.time()
    user  system elapsed 
-  1.532   0.192   1.833 
+  1.040   0.248   1.493 

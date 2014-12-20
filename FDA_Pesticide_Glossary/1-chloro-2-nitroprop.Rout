@@ -60,4 +60,4 @@ output file: 1-chloro-2-nitroprop.md
 > 
 > proc.time()
    user  system elapsed 
-  1.180   0.240   1.595 
+  1.020   0.268   1.433 

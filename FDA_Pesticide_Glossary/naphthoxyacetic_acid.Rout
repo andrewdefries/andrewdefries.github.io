@@ -60,4 +60,4 @@ output file: naphthoxyacetic_acid.md
 > 
 > proc.time()
    user  system elapsed 
-  1.468   0.208   1.880 
+  1.104   0.260   1.572 

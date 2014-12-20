@@ -60,4 +60,4 @@ output file: dodecylguanidine_mon.md
 > 
 > proc.time()
    user  system elapsed 
-  1.456   0.212   1.775 
+  1.076   0.228   1.501 

@@ -60,4 +60,4 @@ output file: 2-dimethoxyphosphino.md
 > 
 > proc.time()
    user  system elapsed 
-  1.404   0.232   1.743 
+  1.080   0.216   1.427 

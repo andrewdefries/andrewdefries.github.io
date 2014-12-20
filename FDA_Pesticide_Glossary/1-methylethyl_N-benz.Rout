@@ -60,4 +60,4 @@ output file: 1-methylethyl_N-benz.md
 > 
 > proc.time()
    user  system elapsed 
-  1.340   0.252   1.723 
+  1.064   0.212   1.440 

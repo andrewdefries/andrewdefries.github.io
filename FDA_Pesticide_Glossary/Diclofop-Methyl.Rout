@@ -60,4 +60,4 @@ output file: Diclofop-Methyl.md
 > 
 > proc.time()
    user  system elapsed 
-  1.592   0.184   1.888 
+  1.052   0.244   1.488 

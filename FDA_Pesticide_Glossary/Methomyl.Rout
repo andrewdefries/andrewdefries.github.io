@@ -60,4 +60,4 @@ output file: Methomyl.md
 > 
 > proc.time()
    user  system elapsed 
-  1.576   0.220   1.920 
+  1.076   0.208   1.499 

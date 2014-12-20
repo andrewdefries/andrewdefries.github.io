@@ -60,4 +60,4 @@ output file: propaphos.md
 > 
 > proc.time()
    user  system elapsed 
-  1.024   0.280   1.557 
+  1.040   0.244   1.494 

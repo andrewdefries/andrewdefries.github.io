@@ -60,4 +60,4 @@ output file: diofenolan.md
 > 
 > proc.time()
    user  system elapsed 
-  1.428   0.176   1.754 
+  1.040   0.208   1.461 

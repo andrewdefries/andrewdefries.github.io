@@ -60,4 +60,4 @@ output file: Dibutylphthalat.md
 > 
 > proc.time()
    user  system elapsed 
-  1.496   0.196   1.805 
+  1.044   0.232   1.496 

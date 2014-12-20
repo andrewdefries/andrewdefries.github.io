@@ -60,4 +60,4 @@ output file: cyfluthrin.md
 > 
 > proc.time()
    user  system elapsed 
-  1.452   0.224   1.814 
+  1.036   0.236   1.470 

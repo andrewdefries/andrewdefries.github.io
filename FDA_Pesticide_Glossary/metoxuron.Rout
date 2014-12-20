@@ -60,4 +60,4 @@ output file: metoxuron.md
 > 
 > proc.time()
    user  system elapsed 
-  1.528   0.248   1.972 
+  1.024   0.272   1.499 

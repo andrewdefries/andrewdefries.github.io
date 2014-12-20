@@ -60,4 +60,4 @@ output file: Cyhexatin.md
 > 
 > proc.time()
    user  system elapsed 
-  1.392   0.204   1.753 
+  1.012   0.256   1.469 

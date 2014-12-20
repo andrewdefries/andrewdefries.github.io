@@ -60,4 +60,4 @@ output file: Chlorpyrifos-Methyl.md
 > 
 > proc.time()
    user  system elapsed 
-  1.504   0.192   1.817 
+  1.072   0.220   1.495 

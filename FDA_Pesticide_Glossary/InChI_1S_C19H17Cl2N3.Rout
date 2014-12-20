@@ -60,4 +60,4 @@ output file: InChI_1S_C19H17Cl2N3.md
 > 
 > proc.time()
    user  system elapsed 
-  1.516   0.208   1.861 
+  1.064   0.228   1.481 

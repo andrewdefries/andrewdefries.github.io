@@ -60,4 +60,4 @@ output file: Amide.md
 > 
 > proc.time()
    user  system elapsed 
-  1.428   0.204   1.745 
+  1.052   0.244   1.427 

@@ -60,4 +60,4 @@ output file: sodium_o-phenylphena.md
 > 
 > proc.time()
    user  system elapsed 
-  1.064   0.212   1.490 
+  1.028   0.260   1.489 

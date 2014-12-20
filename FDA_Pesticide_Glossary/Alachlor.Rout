@@ -60,4 +60,4 @@ output file: Alachlor.md
 > 
 > proc.time()
    user  system elapsed 
-  1.404   0.236   1.776 
+  1.048   0.240   1.452 

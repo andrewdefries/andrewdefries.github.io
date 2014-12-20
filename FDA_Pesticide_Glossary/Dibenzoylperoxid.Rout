@@ -60,4 +60,4 @@ output file: Dibenzoylperoxid.md
 > 
 > proc.time()
    user  system elapsed 
-  1.608   0.196   1.921 
+  1.048   0.220   1.496 

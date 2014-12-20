@@ -60,4 +60,4 @@ output file: Bufencarb.md
 > 
 > proc.time()
    user  system elapsed 
-  1.552   0.224   1.893 
+  1.052   0.204   1.495 

@@ -60,4 +60,4 @@ output file: Tridemorph.md
 > 
 > proc.time()
    user  system elapsed 
-  1.020   0.264   1.520 
+  1.048   0.272   1.523 

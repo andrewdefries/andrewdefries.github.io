@@ -60,4 +60,4 @@ output file: butamifos.md
 > 
 > proc.time()
    user  system elapsed 
-  1.652   0.224   2.040 
+  1.020   0.256   1.501 

@@ -60,4 +60,4 @@ output file: diazenesulfonate.md
 > 
 > proc.time()
    user  system elapsed 
-  1.472   0.212   1.797 
+  1.040   0.244   1.479 

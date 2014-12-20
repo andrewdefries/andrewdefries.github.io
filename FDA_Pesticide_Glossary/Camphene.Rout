@@ -60,4 +60,4 @@ output file: Camphene.md
 > 
 > proc.time()
    user  system elapsed 
-  1.516   0.192   1.833 
+  1.036   0.280   1.520 

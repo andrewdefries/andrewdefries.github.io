@@ -60,4 +60,4 @@ output file: Glutarimide.md
 > 
 > proc.time()
    user  system elapsed 
-  1.584   0.236   1.934 
+  1.060   0.224   1.493 

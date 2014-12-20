@@ -60,4 +60,4 @@ output file: ethametsulfuron-meth.md
 > 
 > proc.time()
    user  system elapsed 
-  1.484   0.248   1.948 
+  1.052   0.224   1.491 

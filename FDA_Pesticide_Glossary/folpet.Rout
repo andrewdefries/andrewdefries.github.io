@@ -60,4 +60,4 @@ output file: folpet.md
 > 
 > proc.time()
    user  system elapsed 
-  1.588   0.200   1.919 
+  1.068   0.208   1.478 

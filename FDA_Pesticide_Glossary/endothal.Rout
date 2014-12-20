@@ -60,4 +60,4 @@ output file: endothal.md
 > 
 > proc.time()
    user  system elapsed 
-  1.492   0.196   1.918 
+  1.036   0.240   1.469 

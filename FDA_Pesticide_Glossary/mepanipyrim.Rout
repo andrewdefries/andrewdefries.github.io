@@ -60,4 +60,4 @@ output file: mepanipyrim.md
 > 
 > proc.time()
    user  system elapsed 
-  1.608   0.212   1.936 
+  1.084   0.228   1.511 

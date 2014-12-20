@@ -60,4 +60,4 @@ output file: combat.md
 > 
 > proc.time()
    user  system elapsed 
-  1.508   0.208   1.836 
+  1.052   0.236   1.498 

@@ -60,4 +60,4 @@ output file: Gibberellic_acid.md
 > 
 > proc.time()
    user  system elapsed 
-  1.628   0.188   1.932 
+  1.048   0.196   1.448 

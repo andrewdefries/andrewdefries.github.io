@@ -60,4 +60,4 @@ output file: dodine.md
 > 
 > proc.time()
    user  system elapsed 
-  1.508   0.148   1.784 
+  1.044   0.264   1.494 

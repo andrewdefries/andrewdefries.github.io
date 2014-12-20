@@ -60,4 +60,4 @@ output file: DCIP.md
 > 
 > proc.time()
    user  system elapsed 
-  1.552   0.200   1.890 
+  1.044   0.252   1.497 

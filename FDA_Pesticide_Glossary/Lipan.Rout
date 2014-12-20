@@ -60,4 +60,4 @@ output file: Lipan.md
 > 
 > proc.time()
    user  system elapsed 
-  1.600   0.172   1.893 
+  1.044   0.228   1.457 

@@ -60,4 +60,4 @@ output file: 1-Chlorpropan.md
 > 
 > proc.time()
    user  system elapsed 
-  1.200   0.272   1.612 
+  1.072   0.244   1.478 

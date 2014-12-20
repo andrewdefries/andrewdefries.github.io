@@ -60,4 +60,4 @@ output file: fenvalerate.md
 > 
 > proc.time()
    user  system elapsed 
-  1.468   0.140   1.729 
+  1.048   0.224   1.519 

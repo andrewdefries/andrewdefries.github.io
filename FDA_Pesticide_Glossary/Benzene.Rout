@@ -60,4 +60,4 @@ output file: Benzene.md
 > 
 > proc.time()
    user  system elapsed 
-  1.488   0.232   1.930 
+  1.040   0.252   1.412 

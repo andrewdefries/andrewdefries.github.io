@@ -60,4 +60,4 @@ output file: bentazone.md
 > 
 > proc.time()
    user  system elapsed 
-  1.528   0.244   1.888 
+  1.076   0.220   1.432 

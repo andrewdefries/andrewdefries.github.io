@@ -60,4 +60,4 @@ output file: Velsicol_1068.md
 > 
 > proc.time()
    user  system elapsed 
-  1.080   0.200   1.492 
+  1.072   0.208   1.494 

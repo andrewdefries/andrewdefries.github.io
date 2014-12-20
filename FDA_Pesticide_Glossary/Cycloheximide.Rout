@@ -60,4 +60,4 @@ output file: Cycloheximide.md
 > 
 > proc.time()
    user  system elapsed 
-  1.560   0.168   1.841 
+  1.068   0.232   1.493 

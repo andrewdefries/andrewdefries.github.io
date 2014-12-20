@@ -60,4 +60,4 @@ output file: 3-phenoxybenzenemeth.md
 > 
 > proc.time()
    user  system elapsed 
-  1.356   0.252   1.729 
+  1.072   0.216   1.404 

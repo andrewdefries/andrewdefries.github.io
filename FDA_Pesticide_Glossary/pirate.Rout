@@ -60,4 +60,4 @@ output file: pirate.md
 > 
 > proc.time()
    user  system elapsed 
-  1.048   0.240   1.512 
+  1.040   0.248   1.486 

@@ -60,4 +60,4 @@ output file: Koban.md
 > 
 > proc.time()
    user  system elapsed 
-  1.536   0.196   1.859 
+  1.088   0.220   1.505 

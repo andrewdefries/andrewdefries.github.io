@@ -60,4 +60,4 @@ output file: methansulfonamid.md
 > 
 > proc.time()
    user  system elapsed 
-  1.528   0.216   1.880 
+  1.084   0.256   1.518 

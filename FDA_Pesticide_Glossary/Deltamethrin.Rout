@@ -60,4 +60,4 @@ output file: Deltamethrin.md
 > 
 > proc.time()
    user  system elapsed 
-  1.456   0.228   1.810 
+  1.068   0.228   1.501 

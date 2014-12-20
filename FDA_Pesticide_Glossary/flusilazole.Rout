@@ -60,4 +60,4 @@ output file: flusilazole.md
 > 
 > proc.time()
    user  system elapsed 
-  1.444   0.176   1.749 
+  1.044   0.224   1.468 

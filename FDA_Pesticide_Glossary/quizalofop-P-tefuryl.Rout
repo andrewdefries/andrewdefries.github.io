@@ -60,4 +60,4 @@ output file: quizalofop-P-tefuryl.md
 > 
 > proc.time()
    user  system elapsed 
-  1.060   0.240   1.499 
+  1.052   0.272   1.525 

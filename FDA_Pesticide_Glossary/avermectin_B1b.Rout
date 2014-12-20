@@ -60,4 +60,4 @@ output file: avermectin_B1b.md
 > 
 > proc.time()
    user  system elapsed 
-  1.396   0.212   1.782 
+  1.052   0.256   1.426 

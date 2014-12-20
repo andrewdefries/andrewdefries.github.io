@@ -60,4 +60,4 @@ output file: phosphoramidothioate.md
 > 
 > proc.time()
    user  system elapsed 
-  1.036   0.236   1.488 
+  1.100   0.188   1.478 

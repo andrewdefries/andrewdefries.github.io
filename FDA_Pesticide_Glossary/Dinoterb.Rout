@@ -60,4 +60,4 @@ output file: Dinoterb.md
 > 
 > proc.time()
    user  system elapsed 
-  1.528   0.232   1.885 
+  1.028   0.260   1.482 

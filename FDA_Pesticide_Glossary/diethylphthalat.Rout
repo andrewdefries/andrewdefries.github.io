@@ -60,4 +60,4 @@ output file: diethylphthalat.md
 > 
 > proc.time()
    user  system elapsed 
-  1.516   0.208   1.846 
+  1.052   0.200   1.468 

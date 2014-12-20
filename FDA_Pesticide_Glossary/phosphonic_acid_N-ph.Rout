@@ -60,4 +60,4 @@ output file: phosphonic_acid_N-ph.md
 > 
 > proc.time()
    user  system elapsed 
-  1.032   0.240   1.476 
+  1.052   0.220   1.487 

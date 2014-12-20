@@ -60,4 +60,4 @@ output file: pentachlorophenate.md
 > 
 > proc.time()
    user  system elapsed 
-  1.016   0.280   1.498 
+  1.020   0.220   1.456 

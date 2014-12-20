@@ -60,4 +60,4 @@ output file: Dicamba.md
 > 
 > proc.time()
    user  system elapsed 
-  1.476   0.188   1.796 
+  1.092   0.220   1.513 

@@ -60,4 +60,4 @@ output file: choline_chloride.md
 > 
 > proc.time()
    user  system elapsed 
-  1.552   0.172   1.838 
+  1.052   0.228   1.513 

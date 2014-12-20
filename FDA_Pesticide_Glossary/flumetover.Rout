@@ -60,4 +60,4 @@ output file: flumetover.md
 > 
 > proc.time()
    user  system elapsed 
-  1.440   0.236   1.791 
+  1.004   0.256   1.485 

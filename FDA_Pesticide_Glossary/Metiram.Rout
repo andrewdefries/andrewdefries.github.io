@@ -60,4 +60,4 @@ output file: Metiram.md
 > 
 > proc.time()
    user  system elapsed 
-  1.536   0.240   1.993 
+  1.064   0.212   1.483 

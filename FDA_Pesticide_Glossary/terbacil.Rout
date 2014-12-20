@@ -60,4 +60,4 @@ output file: terbacil.md
 > 
 > proc.time()
    user  system elapsed 
-  1.036   0.264   1.492 
+  1.056   0.224   1.487 

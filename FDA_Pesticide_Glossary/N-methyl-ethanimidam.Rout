@@ -60,4 +60,4 @@ output file: N-methyl-ethanimidam.md
 > 
 > proc.time()
    user  system elapsed 
-  1.468   0.204   1.875 
+  1.064   0.228   1.492 

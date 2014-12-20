@@ -60,4 +60,4 @@ output file: acrylate_piperonyl_b.md
 > 
 > proc.time()
    user  system elapsed 
-  1.508   0.160   1.785 
+  1.012   0.268   1.424 

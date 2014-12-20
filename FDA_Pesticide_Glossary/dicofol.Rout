@@ -60,4 +60,4 @@ output file: dicofol.md
 > 
 > proc.time()
    user  system elapsed 
-  1.424   0.260   1.782 
+  1.036   0.240   1.481 

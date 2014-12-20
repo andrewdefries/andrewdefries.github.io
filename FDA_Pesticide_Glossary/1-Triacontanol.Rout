@@ -60,4 +60,4 @@ output file: 1-Triacontanol.md
 > 
 > proc.time()
    user  system elapsed 
-  1.348   0.272   1.781 
+  1.068   0.200   1.396 

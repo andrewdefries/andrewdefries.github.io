@@ -60,4 +60,4 @@ output file: carbamate_1-methylet.md
 > 
 > proc.time()
    user  system elapsed 
-  1.472   0.212   1.806 
+  1.076   0.184   1.462 

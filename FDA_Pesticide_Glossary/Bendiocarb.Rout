@@ -60,4 +60,4 @@ output file: Bendiocarb.md
 > 
 > proc.time()
    user  system elapsed 
-  1.456   0.212   1.807 
+  1.056   0.244   1.432 

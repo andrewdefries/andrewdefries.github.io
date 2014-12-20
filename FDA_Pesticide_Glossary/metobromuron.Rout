@@ -60,4 +60,4 @@ output file: metobromuron.md
 > 
 > proc.time()
    user  system elapsed 
-  1.560   0.208   1.976 
+  1.052   0.232   1.487 

@@ -60,4 +60,4 @@ output file: unden.md
 > 
 > proc.time()
    user  system elapsed 
-  1.068   0.228   1.515 
+  1.040   0.180   1.424 

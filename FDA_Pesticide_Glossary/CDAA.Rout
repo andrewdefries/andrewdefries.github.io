@@ -60,4 +60,4 @@ output file: CDAA.md
 > 
 > proc.time()
    user  system elapsed 
-  1.476   0.204   1.796 
+  1.104   0.200   1.493 

@@ -60,4 +60,4 @@ output file: chromafenozide.md
 > 
 > proc.time()
    user  system elapsed 
-  1.516   0.184   1.831 
+  1.024   0.260   1.492 

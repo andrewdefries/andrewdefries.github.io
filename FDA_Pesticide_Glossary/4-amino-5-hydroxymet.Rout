@@ -60,4 +60,4 @@ output file: 4-amino-5-hydroxymet.md
 > 
 > proc.time()
    user  system elapsed 
-  1.480   0.212   1.840 
+  1.036   0.248   1.425 

@@ -60,4 +60,4 @@ output file: Carbophenthion.md
 > 
 > proc.time()
    user  system elapsed 
-  1.524   0.184   1.832 
+  1.100   0.188   1.518 

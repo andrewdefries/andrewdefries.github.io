@@ -60,4 +60,4 @@ output file: thalidomide.md
 > 
 > proc.time()
    user  system elapsed 
-  1.036   0.236   1.478 
+  1.068   0.224   1.508 

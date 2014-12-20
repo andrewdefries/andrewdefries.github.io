@@ -60,4 +60,4 @@ output file: Antor.md
 > 
 > proc.time()
    user  system elapsed 
-  1.504   0.200   1.822 
+  1.044   0.252   1.419 

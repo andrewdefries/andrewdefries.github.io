@@ -60,4 +60,4 @@ output file: isouron.md
 > 
 > proc.time()
    user  system elapsed 
-  1.500   0.204   1.810 
+  1.072   0.328   1.613 

@@ -60,4 +60,4 @@ output file: cloransulam.md
 > 
 > proc.time()
    user  system elapsed 
-  1.512   0.244   1.872 
+  1.032   0.244   1.475 

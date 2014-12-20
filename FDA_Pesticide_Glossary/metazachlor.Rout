@@ -60,4 +60,4 @@ output file: metazachlor.md
 > 
 > proc.time()
    user  system elapsed 
-  1.488   0.232   1.829 
+  1.060   0.196   1.470 

@@ -60,4 +60,4 @@ output file: benzofenap.md
 > 
 > proc.time()
    user  system elapsed 
-  1.480   0.236   1.914 
+  1.080   0.204   1.418 

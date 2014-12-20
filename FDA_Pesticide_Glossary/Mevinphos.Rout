@@ -60,4 +60,4 @@ output file: Mevinphos.md
 > 
 > proc.time()
    user  system elapsed 
-  1.520   0.204   1.932 
+  1.044   0.248   1.495 

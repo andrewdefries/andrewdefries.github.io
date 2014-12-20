@@ -60,4 +60,4 @@ output file: nonachlor.md
 > 
 > proc.time()
    user  system elapsed 
-  1.316   0.240   1.750 
+  1.084   0.224   1.520 

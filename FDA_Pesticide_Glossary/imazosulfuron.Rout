@@ -60,4 +60,4 @@ output file: imazosulfuron.md
 > 
 > proc.time()
    user  system elapsed 
-  1.556   0.188   1.862 
+  1.012   0.264   1.522 

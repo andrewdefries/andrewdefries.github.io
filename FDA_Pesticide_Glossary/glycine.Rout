@@ -60,4 +60,4 @@ output file: glycine.md
 > 
 > proc.time()
    user  system elapsed 
-  1.580   0.200   1.947 
+  1.064   0.228   1.481 

@@ -60,4 +60,4 @@ output file: triadimefon.md
 > 
 > proc.time()
    user  system elapsed 
-  1.036   0.236   1.493 
+  1.056   0.304   1.596 

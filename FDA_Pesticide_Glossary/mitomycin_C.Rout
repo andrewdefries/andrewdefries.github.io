@@ -60,4 +60,4 @@ output file: mitomycin_C.md
 > 
 > proc.time()
    user  system elapsed 
-  1.420   0.276   1.896 
+  1.040   0.248   1.513 

@@ -60,4 +60,4 @@ output file: Alaproclate_hydrochl.md
 > 
 > proc.time()
    user  system elapsed 
-  1.448   0.216   1.780 
+  1.060   0.228   1.432 

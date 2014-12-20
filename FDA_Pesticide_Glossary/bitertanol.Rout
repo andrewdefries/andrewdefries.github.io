@@ -60,4 +60,4 @@ output file: bitertanol.md
 > 
 > proc.time()
    user  system elapsed 
-  1.528   0.180   1.832 
+  1.096   0.224   1.434 

@@ -60,4 +60,4 @@ output file: mefluidide.md
 > 
 > proc.time()
    user  system elapsed 
-  1.408   0.228   1.752 
+  1.024   0.252   1.474 

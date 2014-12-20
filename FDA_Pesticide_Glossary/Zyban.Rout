@@ -60,4 +60,4 @@ output file: Zyban.md
 > 
 > proc.time()
    user  system elapsed 
-  1.072   0.232   1.510 
+  1.036   0.232   1.476 

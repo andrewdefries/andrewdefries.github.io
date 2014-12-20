@@ -60,4 +60,4 @@ output file: selfotel.md
 > 
 > proc.time()
    user  system elapsed 
-  1.060   0.216   1.476 
+  1.044   0.236   1.465 

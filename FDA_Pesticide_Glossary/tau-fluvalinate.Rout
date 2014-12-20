@@ -60,4 +60,4 @@ output file: tau-fluvalinate.md
 > 
 > proc.time()
    user  system elapsed 
-  1.068   0.248   1.541 
+  1.060   0.240   1.547 

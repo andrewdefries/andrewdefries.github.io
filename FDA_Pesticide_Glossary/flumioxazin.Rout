@@ -60,4 +60,4 @@ output file: flumioxazin.md
 > 
 > proc.time()
    user  system elapsed 
-  1.468   0.184   1.762 
+  1.088   0.196   1.491 

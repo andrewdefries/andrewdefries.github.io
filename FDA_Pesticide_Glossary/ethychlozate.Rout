@@ -60,4 +60,4 @@ output file: ethychlozate.md
 > 
 > proc.time()
    user  system elapsed 
-  1.508   0.196   1.834 
+  1.024   0.208   1.465 

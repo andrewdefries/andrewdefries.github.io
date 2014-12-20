@@ -60,4 +60,4 @@ output file: 2-nitro-benzamide.md
 > 
 > proc.time()
    user  system elapsed 
-  1.464   0.208   1.785 
+  1.012   0.268   1.418 

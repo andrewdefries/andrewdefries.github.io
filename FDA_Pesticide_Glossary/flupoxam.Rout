@@ -60,4 +60,4 @@ output file: flupoxam.md
 > 
 > proc.time()
    user  system elapsed 
-  1.468   0.200   1.801 
+  1.020   0.236   1.457 

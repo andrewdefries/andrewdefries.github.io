@@ -60,4 +60,4 @@ output file: 3-Bromopropionate.md
 > 
 > proc.time()
    user  system elapsed 
-  1.464   0.228   1.800 
+  1.064   0.248   1.441 

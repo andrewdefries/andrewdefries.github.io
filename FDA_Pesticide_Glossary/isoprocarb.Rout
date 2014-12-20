@@ -60,4 +60,4 @@ output file: isoprocarb.md
 > 
 > proc.time()
    user  system elapsed 
-  1.556   0.216   1.883 
+  1.084   0.216   1.494 

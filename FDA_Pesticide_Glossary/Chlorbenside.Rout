@@ -60,4 +60,4 @@ output file: Chlorbenside.md
 > 
 > proc.time()
    user  system elapsed 
-  1.508   0.160   1.790 
+  1.076   0.224   1.498 

@@ -60,4 +60,4 @@ output file: S-bioallethrin.md
 > 
 > proc.time()
    user  system elapsed 
-  1.060   0.220   1.484 
+  1.064   0.228   1.494 

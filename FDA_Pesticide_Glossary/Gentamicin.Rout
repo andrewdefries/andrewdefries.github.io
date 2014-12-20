@@ -60,4 +60,4 @@ output file: Gentamicin.md
 > 
 > proc.time()
    user  system elapsed 
-  1.616   0.256   1.980 
+  1.084   0.220   1.532 

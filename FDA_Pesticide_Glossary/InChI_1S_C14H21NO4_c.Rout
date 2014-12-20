@@ -60,4 +60,4 @@ output file: InChI_1S_C14H21NO4_c.md
 > 
 > proc.time()
    user  system elapsed 
-  1.560   0.236   1.911 
+  1.052   0.216   1.483 

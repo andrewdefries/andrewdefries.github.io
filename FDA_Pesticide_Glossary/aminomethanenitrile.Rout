@@ -60,4 +60,4 @@ output file: aminomethanenitrile.md
 > 
 > proc.time()
    user  system elapsed 
-  1.512   0.200   1.829 
+  1.076   0.236   1.443 

@@ -60,4 +60,4 @@ output file: propanamine.md
 > 
 > proc.time()
    user  system elapsed 
-  1.060   0.196   1.461 
+  1.044   0.240   1.489 

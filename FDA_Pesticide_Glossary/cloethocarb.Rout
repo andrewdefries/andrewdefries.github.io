@@ -60,4 +60,4 @@ output file: cloethocarb.md
 > 
 > proc.time()
    user  system elapsed 
-  1.448   0.212   1.821 
+  1.032   0.244   1.477 

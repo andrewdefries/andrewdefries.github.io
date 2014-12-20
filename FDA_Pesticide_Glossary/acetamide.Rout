@@ -60,4 +60,4 @@ output file: acetamide.md
 > 
 > proc.time()
    user  system elapsed 
-  1.504   0.192   1.812 
+  1.100   0.208   1.443 

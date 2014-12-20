@@ -60,4 +60,4 @@ output file: Dithane.md
 > 
 > proc.time()
    user  system elapsed 
-  1.576   0.156   1.850 
+  1.032   0.244   1.480 

@@ -60,4 +60,4 @@ output file: machete.md
 > 
 > proc.time()
    user  system elapsed 
-  1.540   0.208   1.865 
+  1.052   0.244   1.490 

@@ -60,4 +60,4 @@ output file: dimethyl_phosphorodi.md
 > 
 > proc.time()
    user  system elapsed 
-  1.380   0.232   1.775 
+  1.048   0.268   1.514 

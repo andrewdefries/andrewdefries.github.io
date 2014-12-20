@@ -60,4 +60,4 @@ output file: Dicrotophos.md
 > 
 > proc.time()
    user  system elapsed 
-  1.480   0.228   1.819 
+  1.040   0.248   1.484 

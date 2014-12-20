@@ -60,4 +60,4 @@ output file: benodanil.md
 > 
 > proc.time()
    user  system elapsed 
-  1.476   0.224   1.814 
+  1.052   0.236   1.407 

@@ -60,4 +60,4 @@ output file: Methamidophos.md
 > 
 > proc.time()
    user  system elapsed 
-  1.564   0.192   1.881 
+  1.056   0.236   1.511 

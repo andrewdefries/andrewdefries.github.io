@@ -60,4 +60,4 @@ output file: etiolate.md
 > 
 > proc.time()
    user  system elapsed 
-  1.520   0.176   1.830 
+  1.068   0.252   1.545 

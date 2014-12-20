@@ -60,4 +60,4 @@ output file: cyclohex-3-enecarbox.md
 > 
 > proc.time()
    user  system elapsed 
-  1.568   0.200   1.876 
+  1.040   0.240   1.482 

@@ -60,4 +60,4 @@ output file: metron.md
 > 
 > proc.time()
    user  system elapsed 
-  1.476   0.320   2.027 
+  1.032   0.276   1.561 

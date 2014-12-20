@@ -60,4 +60,4 @@ output file: bialaphos.md
 > 
 > proc.time()
    user  system elapsed 
-  1.372   0.240   1.727 
+  1.012   0.260   1.397 

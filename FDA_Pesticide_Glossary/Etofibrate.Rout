@@ -60,4 +60,4 @@ output file: Etofibrate.md
 > 
 > proc.time()
    user  system elapsed 
-  1.504   0.168   1.795 
+  1.064   0.208   1.492 

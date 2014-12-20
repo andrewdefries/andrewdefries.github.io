@@ -60,4 +60,4 @@ output file: Karathane.md
 > 
 > proc.time()
    user  system elapsed 
-  1.508   0.224   1.850 
+  1.052   0.208   1.476 

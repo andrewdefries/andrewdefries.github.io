@@ -60,4 +60,4 @@ output file: chlorfluazuron.md
 > 
 > proc.time()
    user  system elapsed 
-  1.500   0.176   1.849 
+  1.064   0.228   1.492 

@@ -60,4 +60,4 @@ output file: chlorbromuron.md
 > 
 > proc.time()
    user  system elapsed 
-  1.412   0.224   1.752 
+  1.036   0.244   1.467 

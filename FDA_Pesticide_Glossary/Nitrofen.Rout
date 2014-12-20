@@ -60,4 +60,4 @@ output file: Nitrofen.md
 > 
 > proc.time()
    user  system elapsed 
-  1.508   0.228   1.946 
+  1.068   0.240   1.494 

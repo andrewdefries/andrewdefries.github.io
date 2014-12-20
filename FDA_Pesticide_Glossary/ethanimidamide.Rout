@@ -60,4 +60,4 @@ output file: ethanimidamide.md
 > 
 > proc.time()
    user  system elapsed 
-  1.572   0.168   1.860 
+  1.048   0.204   1.465 

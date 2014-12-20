@@ -60,4 +60,4 @@ output file: Methyl_Parathion.md
 > 
 > proc.time()
    user  system elapsed 
-  1.496   0.276   1.964 
+  1.052   0.228   1.498 

@@ -60,4 +60,4 @@ output file: ethylbenzene.md
 > 
 > proc.time()
    user  system elapsed 
-  1.528   0.192   1.835 
+  1.048   0.240   1.487 

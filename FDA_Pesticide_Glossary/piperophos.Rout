@@ -60,4 +60,4 @@ output file: piperophos.md
 > 
 > proc.time()
    user  system elapsed 
-  1.032   0.252   1.489 
+  1.064   0.232   1.526 

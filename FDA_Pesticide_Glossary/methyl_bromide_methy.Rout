@@ -60,4 +60,4 @@ output file: methyl_bromide_methy.md
 > 
 > proc.time()
    user  system elapsed 
-  1.584   0.188   1.903 
+  1.040   0.256   1.504 

@@ -60,4 +60,4 @@ output file: carfentrazone-ethyl.md
 > 
 > proc.time()
    user  system elapsed 
-  1.472   0.196   1.779 
+  1.028   0.280   1.489 

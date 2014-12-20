@@ -60,4 +60,4 @@ output file: Magnesium_arsenate.md
 > 
 > proc.time()
    user  system elapsed 
-  1.548   0.196   1.875 
+  1.056   0.236   1.488 

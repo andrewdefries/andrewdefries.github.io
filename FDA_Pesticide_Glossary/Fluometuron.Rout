@@ -60,4 +60,4 @@ output file: Fluometuron.md
 > 
 > proc.time()
    user  system elapsed 
-  1.384   0.288   1.777 
+  1.036   0.232   1.477 

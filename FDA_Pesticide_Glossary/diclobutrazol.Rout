@@ -60,4 +60,4 @@ output file: diclobutrazol.md
 > 
 > proc.time()
    user  system elapsed 
-  1.468   0.220   1.814 
+  1.028   0.260   1.488 

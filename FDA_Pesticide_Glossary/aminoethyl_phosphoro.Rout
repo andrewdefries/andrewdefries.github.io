@@ -60,4 +60,4 @@ output file: aminoethyl_phosphoro.md
 > 
 > proc.time()
    user  system elapsed 
-  1.456   0.208   1.789 
+  1.060   0.228   1.407 

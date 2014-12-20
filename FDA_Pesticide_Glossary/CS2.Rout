@@ -60,4 +60,4 @@ output file: CS2.md
 > 
 > proc.time()
    user  system elapsed 
-  1.528   0.188   1.828 
+  1.044   0.232   1.474 

@@ -60,4 +60,4 @@ output file: metconazole.md
 > 
 > proc.time()
    user  system elapsed 
-  1.484   0.232   1.863 
+  1.036   0.256   1.496 

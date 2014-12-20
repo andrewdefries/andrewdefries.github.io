@@ -60,4 +60,4 @@ output file: propaquizafop.md
 > 
 > proc.time()
    user  system elapsed 
-   1.04    0.24    1.52 
+  1.084   0.184   1.461 

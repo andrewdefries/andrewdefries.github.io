@@ -60,4 +60,4 @@ output file: Chloroxuron.md
 > 
 > proc.time()
    user  system elapsed 
-  1.484   0.180   1.794 
+  1.044   0.228   1.488 

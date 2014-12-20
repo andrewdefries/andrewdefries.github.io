@@ -60,4 +60,4 @@ output file: DDE.md
 > 
 > proc.time()
    user  system elapsed 
-  1.448   0.260   1.829 
+  1.064   0.224   1.470 

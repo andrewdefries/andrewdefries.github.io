@@ -60,4 +60,4 @@ output file: nuarimol.md
 > 
 > proc.time()
    user  system elapsed 
-  1.084   0.220   1.497 
+  1.024   0.260   1.486 

@@ -60,4 +60,4 @@ output file: diniconazole.md
 > 
 > proc.time()
    user  system elapsed 
-  1.528   0.196   1.831 
+  1.060   0.228   1.485 

@@ -60,4 +60,4 @@ output file: quinalphos.md
 > 
 > proc.time()
    user  system elapsed 
-  1.052   0.236   1.488 
+  1.052   0.220   1.480 

@@ -60,4 +60,4 @@ output file: Diphenylmethanol.md
 > 
 > proc.time()
    user  system elapsed 
-  1.472   0.244   1.832 
+  1.056   0.232   1.493 

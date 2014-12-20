@@ -60,4 +60,4 @@ output file: TFC.md
 > 
 > proc.time()
    user  system elapsed 
-  1.048   0.236   1.476 
+  1.016   0.224   1.484 

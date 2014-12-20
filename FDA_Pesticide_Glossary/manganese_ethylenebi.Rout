@@ -60,4 +60,4 @@ output file: manganese_ethylenebi.md
 > 
 > proc.time()
    user  system elapsed 
-  1.508   0.232   1.873 
+  1.060   0.220   1.466 

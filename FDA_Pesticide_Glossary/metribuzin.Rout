@@ -60,4 +60,4 @@ output file: metribuzin.md
 > 
 > proc.time()
    user  system elapsed 
-  1.512   0.232   1.957 
+  1.028   0.268   1.513 

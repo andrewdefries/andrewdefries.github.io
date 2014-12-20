@@ -60,4 +60,4 @@ output file: furathiocarb.md
 > 
 > proc.time()
    user  system elapsed 
-  1.524   0.196   1.846 
+  1.048   0.228   1.486 

@@ -60,4 +60,4 @@ output file: ethyrimol.md
 > 
 > proc.time()
    user  system elapsed 
-  1.440   0.160   1.711 
+  1.076   0.216   1.498 

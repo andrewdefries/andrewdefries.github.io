@@ -60,4 +60,4 @@ output file: Chlordimeform.md
 > 
 > proc.time()
    user  system elapsed 
-  1.532   0.176   1.828 
+  1.084   0.164   1.492 

@@ -60,4 +60,4 @@ output file: Carbophos.md
 > 
 > proc.time()
    user  system elapsed 
-  1.468   0.236   1.825 
+  1.072   0.220   1.503 

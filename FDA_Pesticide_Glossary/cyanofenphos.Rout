@@ -60,4 +60,4 @@ output file: cyanofenphos.md
 > 
 > proc.time()
    user  system elapsed 
-  1.496   0.216   1.839 
+  1.068   0.220   1.474 

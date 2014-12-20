@@ -60,4 +60,4 @@ output file: 3-(methylthio)-2-but.md
 > 
 > proc.time()
    user  system elapsed 
-  1.472   0.172   1.783 
+  1.060   0.232   1.413 

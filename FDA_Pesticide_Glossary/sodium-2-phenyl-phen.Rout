@@ -60,4 +60,4 @@ output file: sodium-2-phenyl-phen.md
 > 
 > proc.time()
    user  system elapsed 
-  1.092   0.188   1.492 
+  1.056   0.236   1.491 

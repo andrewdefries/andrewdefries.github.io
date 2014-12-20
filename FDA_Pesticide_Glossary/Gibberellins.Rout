@@ -60,4 +60,4 @@ output file: Gibberellins.md
 > 
 > proc.time()
    user  system elapsed 
-  1.536   0.224   1.880 
+  1.056   0.240   1.494 

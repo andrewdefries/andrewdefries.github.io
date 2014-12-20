@@ -60,4 +60,4 @@ output file: Benomyl.md
 > 
 > proc.time()
    user  system elapsed 
-  1.524   0.216   1.901 
+  1.028   0.252   1.429 

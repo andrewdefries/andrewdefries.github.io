@@ -60,4 +60,4 @@ output file: carbonate.md
 > 
 > proc.time()
    user  system elapsed 
-  1.496   0.220   1.841 
+  1.044   0.256   1.501 

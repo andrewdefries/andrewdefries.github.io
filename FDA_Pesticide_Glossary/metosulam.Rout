@@ -60,4 +60,4 @@ output file: metosulam.md
 > 
 > proc.time()
    user  system elapsed 
-  1.532   0.252   1.979 
+  1.012   0.276   1.508 

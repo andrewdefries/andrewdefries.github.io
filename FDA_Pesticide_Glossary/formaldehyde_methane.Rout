@@ -60,4 +60,4 @@ output file: formaldehyde_methane.md
 > 
 > proc.time()
    user  system elapsed 
-  1.800   0.208   2.151 
+  1.048   0.248   1.506 

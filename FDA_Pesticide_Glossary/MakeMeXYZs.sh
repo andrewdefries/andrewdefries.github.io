@@ -8,7 +8,7 @@ echo "doing $i"
 
 name=(`echo $i | sed 's/.sdf//g'`)
 
-babel $name -O $name.xyz 
+babel $name.sdf -O $name.xyz 
 
 echo "did $i"
 

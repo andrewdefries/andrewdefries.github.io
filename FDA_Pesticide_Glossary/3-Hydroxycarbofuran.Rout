@@ -60,4 +60,4 @@ output file: 3-Hydroxycarbofuran.md
 > 
 > proc.time()
    user  system elapsed 
-  1.468   0.184   1.767 
+  1.040   0.236   1.409 

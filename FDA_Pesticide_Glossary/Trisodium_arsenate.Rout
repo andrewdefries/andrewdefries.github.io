@@ -60,4 +60,4 @@ output file: Trisodium_arsenate.md
 > 
 > proc.time()
    user  system elapsed 
-  1.064   0.248   1.515 
+  1.076   0.224   1.516 

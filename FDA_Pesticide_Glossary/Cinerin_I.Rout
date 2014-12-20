@@ -60,4 +60,4 @@ output file: Cinerin_I.md
 > 
 > proc.time()
    user  system elapsed 
-  1.500   0.192   1.840 
+  1.044   0.228   1.481 

@@ -60,4 +60,4 @@ output file: iodofenphos.md
 > 
 > proc.time()
    user  system elapsed 
-  1.508   0.204   1.827 
+  1.052   0.252   1.518 

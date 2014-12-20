@@ -60,4 +60,4 @@ output file: 2-Methyl-4-chlorophe.md
 > 
 > proc.time()
    user  system elapsed 
-  1.452   0.192   1.767 
+  1.048   0.256   1.436 

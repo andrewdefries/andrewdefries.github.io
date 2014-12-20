@@ -60,4 +60,4 @@ output file: Hepta.md
 > 
 > proc.time()
    user  system elapsed 
-  1.544   0.192   1.858 
+  1.064   0.208   1.478 

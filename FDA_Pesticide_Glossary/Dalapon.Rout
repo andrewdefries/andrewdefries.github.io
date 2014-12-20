@@ -60,4 +60,4 @@ output file: Dalapon.md
 > 
 > proc.time()
    user  system elapsed 
-  1.556   0.176   1.853 
+  1.048   0.244   1.496 

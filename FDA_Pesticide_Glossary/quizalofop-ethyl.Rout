@@ -60,4 +60,4 @@ output file: quizalofop-ethyl.md
 > 
 > proc.time()
    user  system elapsed 
-  1.048   0.228   1.509 
+  1.060   0.216   1.491 

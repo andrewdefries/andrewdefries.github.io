@@ -60,4 +60,4 @@ output file: BAP.md
 > 
 > proc.time()
    user  system elapsed 
-  1.440   0.192   1.773 
+  1.056   0.244   1.430 

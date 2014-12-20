@@ -60,4 +60,4 @@ output file: bromacil.md
 > 
 > proc.time()
    user  system elapsed 
-  1.448   0.184   1.745 
+  1.052   0.256   1.502 

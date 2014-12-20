@@ -60,4 +60,4 @@ output file: princep.md
 > 
 > proc.time()
    user  system elapsed 
-  1.020   0.248   1.479 
+  1.044   0.224   1.470 

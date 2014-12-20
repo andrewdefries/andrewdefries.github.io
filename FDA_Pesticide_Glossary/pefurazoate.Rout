@@ -60,4 +60,4 @@ output file: pefurazoate.md
 > 
 > proc.time()
    user  system elapsed 
-  1.032   0.260   1.496 
+  1.052   0.224   1.471 

@@ -60,4 +60,4 @@ output file: fluazuron.md
 > 
 > proc.time()
    user  system elapsed 
-  1.488   0.196   1.799 
+  1.068   0.212   1.478 

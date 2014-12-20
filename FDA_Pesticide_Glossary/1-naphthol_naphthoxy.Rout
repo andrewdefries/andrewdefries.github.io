@@ -60,4 +60,4 @@ output file: 1-naphthol_naphthoxy.md
 > 
 > proc.time()
    user  system elapsed 
-  1.416   0.248   1.805 
+  1.060   0.228   1.422 

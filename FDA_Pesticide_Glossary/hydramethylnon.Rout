@@ -60,4 +60,4 @@ output file: hydramethylnon.md
 > 
 > proc.time()
    user  system elapsed 
-  1.512   0.212   1.901 
+  1.052   0.248   1.489 

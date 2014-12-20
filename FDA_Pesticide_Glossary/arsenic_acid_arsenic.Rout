@@ -60,4 +60,4 @@ output file: arsenic_acid_arsenic.md
 > 
 > proc.time()
    user  system elapsed 
-  1.496   0.200   1.809 
+  1.080   0.220   1.427 

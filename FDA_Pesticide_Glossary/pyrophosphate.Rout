@@ -60,4 +60,4 @@ output file: pyrophosphate.md
 > 
 > proc.time()
    user  system elapsed 
-  1.036   0.252   1.483 
+  1.044   0.236   1.470 

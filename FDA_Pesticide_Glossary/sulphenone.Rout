@@ -60,4 +60,4 @@ output file: sulphenone.md
 > 
 > proc.time()
    user  system elapsed 
-  1.040   0.228   1.484 
+  1.072   0.188   1.489 

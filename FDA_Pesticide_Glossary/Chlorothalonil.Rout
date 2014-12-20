@@ -60,4 +60,4 @@ output file: Chlorothalonil.md
 > 
 > proc.time()
    user  system elapsed 
-  1.512   0.236   1.863 
+  1.024   0.240   1.462 

@@ -60,4 +60,4 @@ output file: bensulfuron-methyl.md
 > 
 > proc.time()
    user  system elapsed 
-  1.516   0.216   1.850 
+  1.048   0.216   1.398 

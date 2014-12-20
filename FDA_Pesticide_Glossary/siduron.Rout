@@ -60,4 +60,4 @@ output file: siduron.md
 > 
 > proc.time()
    user  system elapsed 
-  1.048   0.216   1.477 
+  1.048   0.248   1.500 

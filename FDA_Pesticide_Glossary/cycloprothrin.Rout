@@ -60,4 +60,4 @@ output file: cycloprothrin.md
 > 
 > proc.time()
    user  system elapsed 
-  1.480   0.232   1.837 
+  1.084   0.224   1.511 

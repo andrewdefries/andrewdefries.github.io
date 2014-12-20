@@ -60,4 +60,4 @@ output file: oxalate_dimethylarsi.md
 > 
 > proc.time()
    user  system elapsed 
-  1.016   0.244   1.475 
+  1.040   0.244   1.487 

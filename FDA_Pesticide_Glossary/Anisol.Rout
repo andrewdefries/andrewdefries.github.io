@@ -60,4 +60,4 @@ output file: Anisol.md
 > 
 > proc.time()
    user  system elapsed 
-  1.452   0.196   1.758 
+  1.052   0.216   1.396 

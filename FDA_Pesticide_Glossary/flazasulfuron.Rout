@@ -60,4 +60,4 @@ output file: flazasulfuron.md
 > 
 > proc.time()
    user  system elapsed 
-  1.436   0.196   1.751 
+  1.048   0.232   1.477 

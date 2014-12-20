@@ -60,4 +60,4 @@ output file: 1-(allyloxycarbonyl).md
 > 
 > proc.time()
    user  system elapsed 
-  1.184   0.260   1.570 
+  1.068   0.224   1.424 

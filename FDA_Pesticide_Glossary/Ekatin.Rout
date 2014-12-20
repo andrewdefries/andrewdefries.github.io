@@ -60,4 +60,4 @@ output file: Ekatin.md
 > 
 > proc.time()
    user  system elapsed 
-  1.464   0.248   1.925 
+  1.072   0.212   1.491 

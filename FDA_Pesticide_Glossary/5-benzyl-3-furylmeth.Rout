@@ -60,4 +60,4 @@ output file: 5-benzyl-3-furylmeth.md
 > 
 > proc.time()
    user  system elapsed 
-  1.428   0.240   1.801 
+  1.044   0.248   1.423 

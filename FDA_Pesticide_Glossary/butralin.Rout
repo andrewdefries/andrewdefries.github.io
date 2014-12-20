@@ -60,4 +60,4 @@ output file: butralin.md
 > 
 > proc.time()
    user  system elapsed 
-  1.532   0.224   1.885 
+  1.056   0.228   1.494 

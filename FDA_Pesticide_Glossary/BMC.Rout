@@ -60,4 +60,4 @@ output file: BMC.md
 > 
 > proc.time()
    user  system elapsed 
-  1.380   0.208   1.720 
+  1.032   0.256   1.489 

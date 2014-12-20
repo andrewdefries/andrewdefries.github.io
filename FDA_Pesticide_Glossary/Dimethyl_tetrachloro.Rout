@@ -60,4 +60,4 @@ output file: Dimethyl_tetrachloro.md
 > 
 > proc.time()
    user  system elapsed 
-  1.556   0.188   1.855 
+  1.036   0.244   1.493 

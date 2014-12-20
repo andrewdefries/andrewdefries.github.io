@@ -60,4 +60,4 @@ output file: 4-methylbenzoate.md
 > 
 > proc.time()
    user  system elapsed 
-  1.564   0.208   1.893 
+  1.036   0.256   1.412 

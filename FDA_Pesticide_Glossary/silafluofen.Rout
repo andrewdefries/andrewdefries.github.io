@@ -60,4 +60,4 @@ output file: silafluofen.md
 > 
 > proc.time()
    user  system elapsed 
-  1.064   0.208   1.474 
+  1.040   0.252   1.491 

@@ -60,4 +60,4 @@ output file: hydroxyimidazole.md
 > 
 > proc.time()
    user  system elapsed 
-  1.504   0.220   1.835 
+  1.020   0.240   1.471 

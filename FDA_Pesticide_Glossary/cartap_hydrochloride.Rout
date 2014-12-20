@@ -60,4 +60,4 @@ output file: cartap_hydrochloride.md
 > 
 > proc.time()
    user  system elapsed 
-  1.580   0.216   1.913 
+  1.016   0.276   1.486 

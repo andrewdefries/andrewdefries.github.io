@@ -60,4 +60,4 @@ output file: Sulfone.md
 > 
 > proc.time()
    user  system elapsed 
-  1.072   0.220   1.518 
+  1.068   0.200   1.494 

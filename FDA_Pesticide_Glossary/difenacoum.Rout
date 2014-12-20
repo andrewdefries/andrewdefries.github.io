@@ -60,4 +60,4 @@ output file: difenacoum.md
 > 
 > proc.time()
    user  system elapsed 
-  1.508   0.212   1.844 
+  1.068   0.204   1.477 

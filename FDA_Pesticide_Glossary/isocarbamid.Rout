@@ -60,4 +60,4 @@ output file: isocarbamid.md
 > 
 > proc.time()
    user  system elapsed 
-  1.512   0.208   1.841 
+  1.028   0.224   1.468 

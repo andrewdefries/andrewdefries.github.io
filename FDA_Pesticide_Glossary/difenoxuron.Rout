@@ -60,4 +60,4 @@ output file: difenoxuron.md
 > 
 > proc.time()
    user  system elapsed 
-  1.500   0.184   1.819 
+  1.056   0.240   1.505 

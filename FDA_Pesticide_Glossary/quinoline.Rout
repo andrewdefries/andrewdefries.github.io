@@ -60,4 +60,4 @@ output file: quinoline.md
 > 
 > proc.time()
    user  system elapsed 
-  1.064   0.184   1.468 
+  1.048   0.244   1.486 

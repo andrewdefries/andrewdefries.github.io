@@ -60,4 +60,4 @@ output file: calcium_arsenate_cal.md
 > 
 > proc.time()
    user  system elapsed 
-  1.496   0.184   1.802 
+  1.052   0.212   1.469 

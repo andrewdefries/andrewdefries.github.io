@@ -60,4 +60,4 @@ output file: Dichlorvos.md
 > 
 > proc.time()
    user  system elapsed 
-  1.508   0.204   1.828 
+  1.080   0.228   1.517 

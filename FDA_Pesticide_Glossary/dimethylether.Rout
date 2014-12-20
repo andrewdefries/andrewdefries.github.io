@@ -60,4 +60,4 @@ output file: dimethylether.md
 > 
 > proc.time()
    user  system elapsed 
-  1.448   0.192   1.767 
+  1.052   0.280   1.519 

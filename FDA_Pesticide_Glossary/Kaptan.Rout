@@ -60,4 +60,4 @@ output file: Kaptan.md
 > 
 > proc.time()
    user  system elapsed 
-  1.492   0.212   1.823 
+  1.036   0.252   1.487 

@@ -60,4 +60,4 @@ output file: Metalaxyl.md
 > 
 > proc.time()
    user  system elapsed 
-  1.612   0.180   1.963 
+  1.072   0.224   1.506 

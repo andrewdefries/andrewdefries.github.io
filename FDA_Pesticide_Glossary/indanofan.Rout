@@ -60,4 +60,4 @@ output file: indanofan.md
 > 
 > proc.time()
    user  system elapsed 
-  1.548   0.240   1.905 
+  1.032   0.228   1.475 

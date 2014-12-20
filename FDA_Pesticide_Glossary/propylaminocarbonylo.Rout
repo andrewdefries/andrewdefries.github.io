@@ -60,4 +60,4 @@ output file: propylaminocarbonylo.md
 > 
 > proc.time()
    user  system elapsed 
-  1.036   0.212   1.467 
+  1.048   0.228   1.489 

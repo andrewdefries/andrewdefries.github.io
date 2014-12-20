@@ -60,4 +60,4 @@ output file: chlorocholine_chlori.md
 > 
 > proc.time()
    user  system elapsed 
-  1.472   0.192   1.787 
+  1.076   0.236   1.497 

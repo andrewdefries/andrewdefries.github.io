@@ -60,4 +60,4 @@ output file: fluxofenim.md
 > 
 > proc.time()
    user  system elapsed 
-  1.304   0.248   1.658 
+  1.032   0.236   1.465 

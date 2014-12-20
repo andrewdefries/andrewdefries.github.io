@@ -60,4 +60,4 @@ output file: prosulfuron.md
 > 
 > proc.time()
    user  system elapsed 
-  1.060   0.224   1.499 
+  1.020   0.256   1.478 

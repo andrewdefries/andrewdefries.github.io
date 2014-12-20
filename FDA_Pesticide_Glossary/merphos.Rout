@@ -60,4 +60,4 @@ output file: merphos.md
 > 
 > proc.time()
    user  system elapsed 
-  1.524   0.252   1.898 
+  1.104   0.212   1.538 

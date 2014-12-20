@@ -60,4 +60,4 @@ output file: Chlortoluron.md
 > 
 > proc.time()
    user  system elapsed 
-  1.452   0.276   1.859 
+  1.064   0.188   1.466 

@@ -60,4 +60,4 @@ output file: carbamic_acid_isopro.md
 > 
 > proc.time()
    user  system elapsed 
-  1.484   0.184   1.778 
+  1.064   0.280   1.551 

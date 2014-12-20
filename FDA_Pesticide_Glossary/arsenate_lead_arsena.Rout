@@ -60,4 +60,4 @@ output file: arsenate_lead_arsena.md
 > 
 > proc.time()
    user  system elapsed 
-  1.516   0.192   1.828 
+  1.068   0.244   1.428 

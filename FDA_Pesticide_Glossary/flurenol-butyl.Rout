@@ -60,4 +60,4 @@ output file: flurenol-butyl.md
 > 
 > proc.time()
    user  system elapsed 
-  1.456   0.172   1.743 
+  1.004   0.248   1.470 

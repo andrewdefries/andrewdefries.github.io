@@ -60,4 +60,4 @@ output file: EPN.md
 > 
 > proc.time()
    user  system elapsed 
-  1.472   0.220   1.895 
+  1.088   0.156   1.464 

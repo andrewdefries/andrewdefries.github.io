@@ -60,4 +60,4 @@ output file: pyrazoxyfen.md
 > 
 > proc.time()
    user  system elapsed 
-  1.040   0.240   1.511 
+  1.104   0.196   1.501 

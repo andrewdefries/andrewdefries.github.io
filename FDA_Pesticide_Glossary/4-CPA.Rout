@@ -60,4 +60,4 @@ output file: 4-CPA.md
 > 
 > proc.time()
    user  system elapsed 
-  1.508   0.220   1.846 
+  1.052   0.260   1.438 

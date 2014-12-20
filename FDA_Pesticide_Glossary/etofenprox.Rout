@@ -60,4 +60,4 @@ output file: etofenprox.md
 > 
 > proc.time()
    user  system elapsed 
-  1.452   0.208   1.787 
+  1.084   0.232   1.503 

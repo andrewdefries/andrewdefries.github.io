@@ -60,4 +60,4 @@ output file: fenpropimorph.md
 > 
 > proc.time()
    user  system elapsed 
-  1.504   0.200   1.809 
+  1.100   0.180   1.489 

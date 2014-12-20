@@ -60,4 +60,4 @@ output file: cycloate.md
 > 
 > proc.time()
    user  system elapsed 
-  1.516   0.164   1.814 
+  1.032   0.248   1.485 

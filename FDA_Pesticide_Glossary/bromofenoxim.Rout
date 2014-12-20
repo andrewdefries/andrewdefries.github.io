@@ -60,4 +60,4 @@ output file: bromofenoxim.md
 > 
 > proc.time()
    user  system elapsed 
-  1.476   0.192   1.792 
+  1.060   0.248   1.496 

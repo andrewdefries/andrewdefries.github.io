@@ -60,4 +60,4 @@ output file: glyphosine.md
 > 
 > proc.time()
    user  system elapsed 
-  1.556   0.228   1.904 
+  1.060   0.212   1.476 

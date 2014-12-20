@@ -60,4 +60,4 @@ output file: aminoethoxyvinylglyc.md
 > 
 > proc.time()
    user  system elapsed 
-  1.420   0.224   1.785 
+  1.028   0.256   1.415 

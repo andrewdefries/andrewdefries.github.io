@@ -60,4 +60,4 @@ output file: methabenzthiazuron.md
 > 
 > proc.time()
    user  system elapsed 
-  1.436   0.280   1.839 
+  1.032   0.244   1.487 

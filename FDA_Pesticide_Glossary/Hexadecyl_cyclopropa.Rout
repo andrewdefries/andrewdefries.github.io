@@ -60,4 +60,4 @@ output file: Hexadecyl_cyclopropa.md
 > 
 > proc.time()
    user  system elapsed 
-  1.532   0.212   1.877 
+  1.032   0.252   1.493 

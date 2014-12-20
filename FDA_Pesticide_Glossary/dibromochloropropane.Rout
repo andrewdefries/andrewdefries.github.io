@@ -60,4 +60,4 @@ output file: dibromochloropropane.md
 > 
 > proc.time()
    user  system elapsed 
-  1.488   0.244   1.853 
+  1.068   0.248   1.508 

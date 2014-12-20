@@ -60,4 +60,4 @@ output file: Gusathion.md
 > 
 > proc.time()
    user  system elapsed 
-  1.600   0.220   1.935 
+  1.016   0.292   1.511 

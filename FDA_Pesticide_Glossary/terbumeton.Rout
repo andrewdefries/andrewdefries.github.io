@@ -60,4 +60,4 @@ output file: terbumeton.md
 > 
 > proc.time()
    user  system elapsed 
-  1.028   0.304   1.549 
+  1.052   0.244   1.505 

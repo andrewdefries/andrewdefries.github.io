@@ -60,4 +60,4 @@ output file: propanil.md
 > 
 > proc.time()
    user  system elapsed 
-  1.040   0.236   1.495 
+  1.000   0.272   1.468 

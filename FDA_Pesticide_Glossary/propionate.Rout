@@ -60,4 +60,4 @@ output file: propionate.md
 > 
 > proc.time()
    user  system elapsed 
-  1.060   0.216   1.493 
+  1.024   0.260   1.485 

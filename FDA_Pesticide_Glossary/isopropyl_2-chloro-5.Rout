@@ -60,4 +60,4 @@ output file: isopropyl_2-chloro-5.md
 > 
 > proc.time()
    user  system elapsed 
-  1.512   0.232   1.863 
+  1.056   0.264   1.511 

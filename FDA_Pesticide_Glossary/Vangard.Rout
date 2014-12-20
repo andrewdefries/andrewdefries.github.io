@@ -60,4 +60,4 @@ output file: Vangard.md
 > 
 > proc.time()
    user  system elapsed 
-  1.060   0.224   1.487 
+  1.044   0.224   1.500 

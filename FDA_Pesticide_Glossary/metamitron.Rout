@@ -60,4 +60,4 @@ output file: metamitron.md
 > 
 > proc.time()
    user  system elapsed 
-  1.516   0.220   1.855 
+  1.044   0.244   1.484 

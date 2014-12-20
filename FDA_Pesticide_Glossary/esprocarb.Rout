@@ -60,4 +60,4 @@ output file: esprocarb.md
 > 
 > proc.time()
    user  system elapsed 
-  1.480   0.240   1.926 
+  1.048   0.228   1.487 

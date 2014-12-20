@@ -60,4 +60,4 @@ output file: Chlorpyrifos.md
 > 
 > proc.time()
    user  system elapsed 
-  1.472   0.208   1.786 
+  1.072   0.228   1.502 

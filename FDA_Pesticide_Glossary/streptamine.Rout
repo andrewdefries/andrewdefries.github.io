@@ -60,4 +60,4 @@ output file: streptamine.md
 > 
 > proc.time()
    user  system elapsed 
-  1.044   0.236   1.477 
+  1.092   0.200   1.495 

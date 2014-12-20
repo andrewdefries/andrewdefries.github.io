@@ -60,4 +60,4 @@ output file: arsenite.md
 > 
 > proc.time()
    user  system elapsed 
-  1.476   0.224   1.821 
+  1.044   0.216   1.398 

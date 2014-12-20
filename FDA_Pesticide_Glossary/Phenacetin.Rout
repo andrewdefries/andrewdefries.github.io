@@ -60,4 +60,4 @@ output file: Phenacetin.md
 > 
 > proc.time()
    user  system elapsed 
-  1.056   0.224   1.485 
+  1.036   0.216   1.468 

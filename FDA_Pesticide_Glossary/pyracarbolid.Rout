@@ -60,4 +60,4 @@ output file: pyracarbolid.md
 > 
 > proc.time()
    user  system elapsed 
-  1.052   0.232   1.485 
+  1.028   0.212   1.466 

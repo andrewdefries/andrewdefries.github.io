@@ -60,4 +60,4 @@ output file: Thiram.md
 > 
 > proc.time()
    user  system elapsed 
-  1.068   0.204   1.485 
+  1.036   0.256   1.492 

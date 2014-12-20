@@ -60,4 +60,4 @@ output file: Nix.md
 > 
 > proc.time()
    user  system elapsed 
-  1.476   0.252   1.919 
+  1.032   0.232   1.482 

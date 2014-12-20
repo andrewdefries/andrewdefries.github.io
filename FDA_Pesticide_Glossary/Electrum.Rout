@@ -60,4 +60,4 @@ output file: Electrum.md
 > 
 > proc.time()
    user  system elapsed 
-  1.500   0.228   1.944 
+  1.036   0.220   1.488 

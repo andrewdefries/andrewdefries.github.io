@@ -60,4 +60,4 @@ output file: thiadiazol-3-ylmethy.md
 > 
 > proc.time()
    user  system elapsed 
-  1.080   0.224   1.503 
+  1.060   0.220   1.511 

@@ -60,4 +60,4 @@ output file: acetyl-N-methylcarba.md
 > 
 > proc.time()
    user  system elapsed 
-  1.492   0.192   1.805 
+  1.084   0.180   1.441 

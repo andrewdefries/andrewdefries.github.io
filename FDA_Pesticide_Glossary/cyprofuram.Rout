@@ -60,4 +60,4 @@ output file: cyprofuram.md
 > 
 > proc.time()
    user  system elapsed 
-  1.436   0.192   1.768 
+  1.060   0.220   1.496 

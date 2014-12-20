@@ -60,4 +60,4 @@ output file: Morpholine.md
 > 
 > proc.time()
    user  system elapsed 
-  1.424   0.292   1.969 
+  1.040   0.208   1.463 

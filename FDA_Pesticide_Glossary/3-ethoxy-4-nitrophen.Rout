@@ -60,4 +60,4 @@ output file: 3-ethoxy-4-nitrophen.md
 > 
 > proc.time()
    user  system elapsed 
-  1.440   0.176   1.725 
+  1.028   0.268   1.427 

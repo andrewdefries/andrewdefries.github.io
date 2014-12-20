@@ -60,4 +60,4 @@ output file: hexaflumuron.md
 > 
 > proc.time()
    user  system elapsed 
-  1.560   0.220   1.901 
+  1.052   0.228   1.486 

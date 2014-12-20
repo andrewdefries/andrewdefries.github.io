@@ -60,4 +60,4 @@ output file: Pencycuron.md
 > 
 > proc.time()
    user  system elapsed 
-  1.080   0.252   1.524 
+  1.068   0.212   1.482 

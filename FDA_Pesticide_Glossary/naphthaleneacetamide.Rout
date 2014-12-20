@@ -60,4 +60,4 @@ output file: naphthaleneacetamide.md
 > 
 > proc.time()
    user  system elapsed 
-  1.544   0.256   2.047 
+  1.056   0.244   1.498 

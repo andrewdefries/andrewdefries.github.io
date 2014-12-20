@@ -60,4 +60,4 @@ output file: flucycloxuron.md
 > 
 > proc.time()
    user  system elapsed 
-  1.400   0.268   1.775 
+  1.096   0.216   1.532 

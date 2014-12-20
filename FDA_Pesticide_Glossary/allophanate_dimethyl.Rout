@@ -60,4 +60,4 @@ output file: allophanate_dimethyl.md
 > 
 > proc.time()
    user  system elapsed 
-  1.396   0.228   1.769 
+  1.060   0.236   1.422 

@@ -60,4 +60,4 @@ output file: Formetanate_hydrochl.md
 > 
 > proc.time()
    user  system elapsed 
-  1.340   0.204   1.675 
+  1.096   0.192   1.497 

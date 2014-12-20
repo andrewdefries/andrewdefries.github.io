@@ -60,4 +60,4 @@ output file: emamectin.md
 > 
 > proc.time()
    user  system elapsed 
-  1.400   0.268   1.903 
+  1.060   0.244   1.504 

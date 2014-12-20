@@ -60,4 +60,4 @@ output file: cyclopentyloxy.md
 > 
 > proc.time()
    user  system elapsed 
-  1.528   0.204   1.899 
+  1.012   0.240   1.463 

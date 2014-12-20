@@ -60,4 +60,4 @@ output file: C23H19ClF3NO3.md
 > 
 > proc.time()
    user  system elapsed 
-  1.436   0.232   1.790 
+  1.032   0.268   1.509 

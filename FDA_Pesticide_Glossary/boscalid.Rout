@@ -60,4 +60,4 @@ output file: boscalid.md
 > 
 > proc.time()
    user  system elapsed 
-  1.472   0.204   1.822 
+  1.024   0.232   1.473 

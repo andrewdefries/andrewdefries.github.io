@@ -60,4 +60,4 @@ output file: tetra.md
 > 
 > proc.time()
    user  system elapsed 
-  1.036   0.232   1.474 
+  1.036   0.260   1.502 

@@ -60,4 +60,4 @@ output file: Di-n-propylether.md
 > 
 > proc.time()
    user  system elapsed 
-  1.540   0.196   1.848 
+  1.056   0.236   1.483 

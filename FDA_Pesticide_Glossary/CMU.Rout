@@ -60,4 +60,4 @@ output file: CMU.md
 > 
 > proc.time()
    user  system elapsed 
-  1.512   0.192   1.823 
+  1.000   0.308   1.515 

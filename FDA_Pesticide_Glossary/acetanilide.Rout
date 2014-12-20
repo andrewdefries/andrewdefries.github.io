@@ -60,4 +60,4 @@ output file: acetanilide.md
 > 
 > proc.time()
    user  system elapsed 
-  1.476   0.208   1.826 
+  1.052   0.212   1.402 

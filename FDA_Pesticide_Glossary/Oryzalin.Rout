@@ -60,4 +60,4 @@ output file: Oryzalin.md
 > 
 > proc.time()
    user  system elapsed 
-  1.048   0.248   1.503 
+  1.064   0.188   1.455 

@@ -60,4 +60,4 @@ output file: benzoate.md
 > 
 > proc.time()
    user  system elapsed 
-  1.480   0.232   1.914 
+  1.076   0.228   1.443 

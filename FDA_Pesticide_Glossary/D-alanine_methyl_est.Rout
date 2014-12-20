@@ -60,4 +60,4 @@ output file: D-alanine_methyl_est.md
 > 
 > proc.time()
    user  system elapsed 
-  1.492   0.184   1.827 
+  1.064   0.236   1.512 

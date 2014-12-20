@@ -60,4 +60,4 @@ output file: chlorsulfuron.md
 > 
 > proc.time()
    user  system elapsed 
-  1.496   0.204   1.822 
+  1.076   0.188   1.490 

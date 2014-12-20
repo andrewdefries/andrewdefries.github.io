@@ -60,4 +60,4 @@ output file: Fensulfothion.md
 > 
 > proc.time()
    user  system elapsed 
-  1.464   0.208   1.798 
+  1.068   0.192   1.461 

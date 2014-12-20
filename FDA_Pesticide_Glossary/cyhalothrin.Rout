@@ -60,4 +60,4 @@ output file: cyhalothrin.md
 > 
 > proc.time()
    user  system elapsed 
-  1.524   0.188   1.829 
+  1.088   0.216   1.558 

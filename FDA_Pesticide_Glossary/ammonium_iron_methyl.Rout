@@ -60,4 +60,4 @@ output file: ammonium_iron_methyl.md
 > 
 > proc.time()
    user  system elapsed 
-  1.476   0.188   1.791 
+  1.048   0.256   1.437 

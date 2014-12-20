@@ -60,4 +60,4 @@ output file: methyldymron.md
 > 
 > proc.time()
    user  system elapsed 
-  1.472   0.260   1.975 
+  1.080   0.232   1.501 

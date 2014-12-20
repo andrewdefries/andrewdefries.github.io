@@ -60,4 +60,4 @@ output file: Demeton.md
 > 
 > proc.time()
    user  system elapsed 
-  1.552   0.236   1.915 
+  1.052   0.224   1.502 

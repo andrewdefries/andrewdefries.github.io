@@ -60,4 +60,4 @@ output file: Vitamin_B12.md
 > 
 > proc.time()
    user  system elapsed 
-  1.052   0.260   1.498 
+  1.020   0.248   1.481 

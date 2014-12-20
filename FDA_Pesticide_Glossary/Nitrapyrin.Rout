@@ -60,4 +60,4 @@ output file: Nitrapyrin.md
 > 
 > proc.time()
    user  system elapsed 
-  1.476   0.244   1.951 
+  1.000   0.264   1.488 

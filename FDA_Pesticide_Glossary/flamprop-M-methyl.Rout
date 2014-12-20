@@ -60,4 +60,4 @@ output file: flamprop-M-methyl.md
 > 
 > proc.time()
    user  system elapsed 
-  1.448   0.184   1.755 
+  1.056   0.232   1.505 

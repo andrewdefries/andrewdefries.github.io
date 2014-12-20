@@ -60,4 +60,4 @@ output file: Tartar_emetic.md
 > 
 > proc.time()
    user  system elapsed 
-  1.004   0.256   1.474 
+  1.068   0.228   1.510 

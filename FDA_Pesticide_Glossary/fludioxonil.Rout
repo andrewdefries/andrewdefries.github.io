@@ -60,4 +60,4 @@ output file: fludioxonil.md
 > 
 > proc.time()
    user  system elapsed 
-  1.400   0.224   1.768 
+  1.048   0.208   1.489 

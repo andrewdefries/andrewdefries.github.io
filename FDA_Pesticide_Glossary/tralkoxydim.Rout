@@ -60,4 +60,4 @@ output file: tralkoxydim.md
 > 
 > proc.time()
    user  system elapsed 
-  1.072   0.208   1.479 
+  1.060   0.220   1.498 

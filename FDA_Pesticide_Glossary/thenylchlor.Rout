@@ -60,4 +60,4 @@ output file: thenylchlor.md
 > 
 > proc.time()
    user  system elapsed 
-  1.056   0.232   1.490 
+  1.024   0.252   1.490 

@@ -60,4 +60,4 @@ output file: acrolein.md
 > 
 > proc.time()
    user  system elapsed 
-  1.448   0.232   1.798 
+  1.072   0.236   1.450 

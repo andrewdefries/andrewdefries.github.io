@@ -60,4 +60,4 @@ output file: dimethyl_(E)-1-methy.md
 > 
 > proc.time()
    user  system elapsed 
-  1.492   0.244   1.859 
+  1.056   0.244   1.489 

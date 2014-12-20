@@ -60,4 +60,4 @@ output file: halfenprox.md
 > 
 > proc.time()
    user  system elapsed 
-  1.556   0.184   1.866 
+  1.040   0.264   1.492 

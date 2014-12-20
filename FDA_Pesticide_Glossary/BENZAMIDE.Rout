@@ -60,4 +60,4 @@ output file: BENZAMIDE.md
 > 
 > proc.time()
    user  system elapsed 
-  1.560   0.192   1.910 
+  1.024   0.260   1.437 

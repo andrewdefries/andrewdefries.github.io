@@ -60,4 +60,4 @@ output file: furilazole.md
 > 
 > proc.time()
    user  system elapsed 
-  1.672   0.192   1.995 
+  1.024   0.260   1.489 

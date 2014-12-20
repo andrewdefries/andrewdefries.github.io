@@ -60,4 +60,4 @@ output file: tiocarbazil.md
 > 
 > proc.time()
    user  system elapsed 
-  1.032   0.252   1.490 
+  1.068   0.220   1.504 

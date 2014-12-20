@@ -60,4 +60,4 @@ output file: Pyridate.md
 > 
 > proc.time()
    user  system elapsed 
-  1.072   0.212   1.489 
+  1.040   0.248   1.480 

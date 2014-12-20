@@ -60,4 +60,4 @@ output file: Acetate.md
 > 
 > proc.time()
    user  system elapsed 
-  1.396   0.248   1.776 
+  1.092   0.196   1.423 

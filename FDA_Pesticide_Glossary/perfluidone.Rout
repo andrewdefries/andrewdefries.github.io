@@ -60,4 +60,4 @@ output file: perfluidone.md
 > 
 > proc.time()
    user  system elapsed 
-  1.040   0.232   1.483 
+  0.984   0.280   1.476 

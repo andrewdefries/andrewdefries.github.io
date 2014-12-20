@@ -60,4 +60,4 @@ output file: Butan-2-amin.md
 > 
 > proc.time()
    user  system elapsed 
-  1.476   0.208   1.802 
+  1.076   0.212   1.492 

@@ -60,4 +60,4 @@ output file: (carboxymethylamino).md
 > 
 > proc.time()
    user  system elapsed 
-  1.460   0.212   1.798 
+  1.056   0.236   1.497 

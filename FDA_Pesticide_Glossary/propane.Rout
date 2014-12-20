@@ -60,4 +60,4 @@ output file: propane.md
 > 
 > proc.time()
    user  system elapsed 
-  1.040   0.248   1.493 
+  1.048   0.244   1.494 

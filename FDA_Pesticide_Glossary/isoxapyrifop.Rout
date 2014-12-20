@@ -60,4 +60,4 @@ output file: isoxapyrifop.md
 > 
 > proc.time()
    user  system elapsed 
-  1.584   0.176   1.884 
+  1.052   0.244   1.498 

@@ -60,4 +60,4 @@ output file: Propargite.md
 > 
 > proc.time()
    user  system elapsed 
-  1.056   0.228   1.485 
+  1.028   0.248   1.487 

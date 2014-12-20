@@ -60,4 +60,4 @@ output file: vamidothion.md
 > 
 > proc.time()
    user  system elapsed 
-  1.080   0.212   1.500 
+  1.044   0.244   1.499 

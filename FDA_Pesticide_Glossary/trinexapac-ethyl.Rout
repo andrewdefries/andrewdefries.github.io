@@ -60,4 +60,4 @@ output file: trinexapac-ethyl.md
 > 
 > proc.time()
    user  system elapsed 
-  1.036   0.272   1.492 
+  1.056   0.240   1.499 

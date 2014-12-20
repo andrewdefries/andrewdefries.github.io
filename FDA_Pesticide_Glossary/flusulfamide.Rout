@@ -60,4 +60,4 @@ output file: flusulfamide.md
 > 
 > proc.time()
    user  system elapsed 
-  1.444   0.236   1.801 
+  1.072   0.228   1.501 

@@ -60,4 +60,4 @@ output file: fluorodifen.md
 > 
 > proc.time()
    user  system elapsed 
-  1.432   0.208   1.755 
+  1.044   0.220   1.489 

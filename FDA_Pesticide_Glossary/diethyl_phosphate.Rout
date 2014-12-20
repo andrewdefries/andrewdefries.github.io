@@ -60,4 +60,4 @@ output file: diethyl_phosphate.md
 > 
 > proc.time()
    user  system elapsed 
-  1.452   0.220   1.784 
+  1.048   0.220   1.491 

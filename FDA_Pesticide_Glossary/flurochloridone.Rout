@@ -60,4 +60,4 @@ output file: flurochloridone.md
 > 
 > proc.time()
    user  system elapsed 
-  1.488   0.272   1.916 
+  1.052   0.204   1.466 

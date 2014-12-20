@@ -60,4 +60,4 @@ output file: thiadiazinane-2-thio.md
 > 
 > proc.time()
    user  system elapsed 
-  1.032   0.240   1.475 
+  1.076   0.228   1.499 

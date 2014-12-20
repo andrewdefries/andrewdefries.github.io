@@ -60,4 +60,4 @@ output file: resmethrin.md
 > 
 > proc.time()
    user  system elapsed 
-  1.108   0.192   1.498 
+  1.044   0.212   1.469 

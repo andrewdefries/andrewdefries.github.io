@@ -60,4 +60,4 @@ output file: Binapacryl.md
 > 
 > proc.time()
    user  system elapsed 
-  1.488   0.212   1.813 
+  1.032   0.236   1.419 

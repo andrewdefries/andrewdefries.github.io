@@ -60,4 +60,4 @@ output file: FICAM.md
 > 
 > proc.time()
    user  system elapsed 
-  1.436   0.156   1.710 
+  1.040   0.232   1.490 

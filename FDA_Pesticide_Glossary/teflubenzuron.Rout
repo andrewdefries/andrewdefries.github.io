@@ -60,4 +60,4 @@ output file: teflubenzuron.md
 > 
 > proc.time()
    user  system elapsed 
-  1.036   0.216   1.475 
+  1.052   0.236   1.491 

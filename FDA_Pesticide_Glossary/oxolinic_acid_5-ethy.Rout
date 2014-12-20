@@ -60,4 +60,4 @@ output file: oxolinic_acid_5-ethy.md
 > 
 > proc.time()
    user  system elapsed 
-  1.056   0.244   1.521 
+  1.024   0.240   1.486 

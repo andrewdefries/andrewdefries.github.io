@@ -60,4 +60,4 @@ output file: InChI_1S_C48H72O14.C.md
 > 
 > proc.time()
    user  system elapsed 
-  1.444   0.232   1.796 
+  1.036   0.264   1.509 

@@ -60,4 +60,4 @@ output file: DCBN.md
 > 
 > proc.time()
    user  system elapsed 
-  1.480   0.224   1.816 
+  1.040   0.252   1.501 

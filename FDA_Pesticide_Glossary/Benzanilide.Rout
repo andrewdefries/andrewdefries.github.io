@@ -60,4 +60,4 @@ output file: Benzanilide.md
 > 
 > proc.time()
    user  system elapsed 
-  1.472   0.188   1.809 
+  1.052   0.240   1.493 

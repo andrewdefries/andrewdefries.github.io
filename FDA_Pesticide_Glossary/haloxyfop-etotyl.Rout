@@ -60,4 +60,4 @@ output file: haloxyfop-etotyl.md
 > 
 > proc.time()
    user  system elapsed 
-  1.568   0.240   1.921 
+  1.072   0.212   1.489 

@@ -60,4 +60,4 @@ output file: thifensulfuron-methy.md
 > 
 > proc.time()
    user  system elapsed 
-  1.052   0.240   1.502 
+  1.072   0.204   1.494 

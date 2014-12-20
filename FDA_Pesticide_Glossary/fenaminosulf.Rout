@@ -60,4 +60,4 @@ output file: fenaminosulf.md
 > 
 > proc.time()
    user  system elapsed 
-  1.524   0.196   1.825 
+  1.068   0.208   1.472 

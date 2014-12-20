@@ -60,4 +60,4 @@ output file: Telar.md
 > 
 > proc.time()
    user  system elapsed 
-  1.084   0.252   1.525 
+  1.060   0.236   1.497 

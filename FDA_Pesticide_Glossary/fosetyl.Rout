@@ -60,4 +60,4 @@ output file: fosetyl.md
 > 
 > proc.time()
    user  system elapsed 
-  1.288   0.212   1.610 
+  1.088   0.208   1.543 

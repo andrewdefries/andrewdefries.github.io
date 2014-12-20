@@ -60,4 +60,4 @@ output file: methoxycarbamate.md
 > 
 > proc.time()
    user  system elapsed 
-  1.508   0.248   1.881 
+  1.068   0.188   1.470 

@@ -60,4 +60,4 @@ output file: Isoniazid.md
 > 
 > proc.time()
    user  system elapsed 
-  1.544   0.204   1.875 
+  1.060   0.208   1.481 

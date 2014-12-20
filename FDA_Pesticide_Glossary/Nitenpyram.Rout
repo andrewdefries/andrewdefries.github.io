@@ -60,4 +60,4 @@ output file: Nitenpyram.md
 > 
 > proc.time()
    user  system elapsed 
-  1.520   0.236   1.954 
+  1.068   0.232   1.490 

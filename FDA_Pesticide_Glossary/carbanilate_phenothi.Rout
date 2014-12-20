@@ -60,4 +60,4 @@ output file: carbanilate_phenothi.md
 > 
 > proc.time()
    user  system elapsed 
-  1.544   0.188   1.846 
+  1.064   0.180   1.465 

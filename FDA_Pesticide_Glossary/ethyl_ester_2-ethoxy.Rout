@@ -60,4 +60,4 @@ output file: ethyl_ester_2-ethoxy.md
 > 
 > proc.time()
    user  system elapsed 
-   1.56    0.18    1.90 
+  1.024   0.244   1.483 

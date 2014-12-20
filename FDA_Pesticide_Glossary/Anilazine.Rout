@@ -60,4 +60,4 @@ output file: Anilazine.md
 > 
 > proc.time()
    user  system elapsed 
-  1.488   0.184   1.797 
+  1.040   0.256   1.440 

@@ -60,4 +60,4 @@ output file: ferbam.md
 > 
 > proc.time()
    user  system elapsed 
-  1.452   0.184   1.753 
+  1.028   0.252   1.462 

@@ -60,4 +60,4 @@ output file: Ethoprop.md
 > 
 > proc.time()
    user  system elapsed 
-  1.560   0.200   1.881 
+  1.064   0.212   1.497 

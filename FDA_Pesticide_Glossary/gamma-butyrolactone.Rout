@@ -60,4 +60,4 @@ output file: gamma-butyrolactone.md
 > 
 > proc.time()
    user  system elapsed 
-  1.580   0.212   1.918 
+  1.076   0.224   1.496 

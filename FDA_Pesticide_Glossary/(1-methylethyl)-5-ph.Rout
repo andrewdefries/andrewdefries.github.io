@@ -60,4 +60,4 @@ output file: (1-methylethyl)-5-ph.md
 > 
 > proc.time()
    user  system elapsed 
-  1.416   0.260   1.813 
+  1.080   0.228   1.448 

@@ -60,4 +60,4 @@ output file: xylylcarb.md
 > 
 > proc.time()
    user  system elapsed 
-  1.000   0.232   1.460 
+  1.040   0.248   1.547 

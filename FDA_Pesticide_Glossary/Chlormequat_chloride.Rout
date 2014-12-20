@@ -60,4 +60,4 @@ output file: Chlormequat_chloride.md
 > 
 > proc.time()
    user  system elapsed 
-  1.456   0.172   1.761 
+  1.068   0.212   1.503 

@@ -60,4 +60,4 @@ output file: Dioxathion.md
 > 
 > proc.time()
    user  system elapsed 
-  1.492   0.220   1.828 
+  1.076   0.212   1.514 

@@ -60,4 +60,4 @@ output file: Dimethoxon.md
 > 
 > proc.time()
    user  system elapsed 
-  1.528   0.212   1.862 
+  1.056   0.232   1.517 

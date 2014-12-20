@@ -60,4 +60,4 @@ output file: oxychlordane.md
 > 
 > proc.time()
    user  system elapsed 
-  1.108   0.208   1.522 
+  1.072   0.220   1.500 

@@ -60,4 +60,4 @@ output file: chlorosulfamic_acid.md
 > 
 > proc.time()
    user  system elapsed 
-  1.488   0.184   1.809 
+  1.064   0.212   1.476 

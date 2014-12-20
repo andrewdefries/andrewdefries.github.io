@@ -60,4 +60,4 @@ output file: carbetamid.md
 > 
 > proc.time()
    user  system elapsed 
-  1.436   0.212   1.769 
+  1.048   0.236   1.493 

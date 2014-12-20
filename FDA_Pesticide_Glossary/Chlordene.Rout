@@ -60,4 +60,4 @@ output file: Chlordene.md
 > 
 > proc.time()
    user  system elapsed 
-  1.436   0.236   1.833 
+  1.040   0.256   1.496 

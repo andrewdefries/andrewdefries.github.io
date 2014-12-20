@@ -60,4 +60,4 @@ output file: cis-Dichloropropene.md
 > 
 > proc.time()
    user  system elapsed 
-  1.548   0.208   1.867 
+  1.072   0.236   1.502 

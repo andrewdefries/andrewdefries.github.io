@@ -60,4 +60,4 @@ output file: dicumarol.md
 > 
 > proc.time()
    user  system elapsed 
-  1.548   0.196   1.865 
+  1.072   0.192   1.488 

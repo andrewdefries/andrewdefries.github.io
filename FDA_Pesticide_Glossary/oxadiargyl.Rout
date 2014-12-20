@@ -60,4 +60,4 @@ output file: oxadiargyl.md
 > 
 > proc.time()
    user  system elapsed 
-  0.984   0.260   1.454 
+  1.012   0.260   1.473 

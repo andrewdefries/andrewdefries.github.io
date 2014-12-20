@@ -60,4 +60,4 @@ output file: dibromethen.md
 > 
 > proc.time()
    user  system elapsed 
-  1.512   0.216   1.839 
+  1.024   0.256   1.490 

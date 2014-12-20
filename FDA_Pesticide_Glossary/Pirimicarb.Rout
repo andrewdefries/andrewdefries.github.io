@@ -60,4 +60,4 @@ output file: Pirimicarb.md
 > 
 > proc.time()
    user  system elapsed 
-  1.092   0.204   1.573 
+  1.072   0.196   1.485 

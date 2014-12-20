@@ -60,4 +60,4 @@ output file: 3-(2-pentenyl)-2-cyc.md
 > 
 > proc.time()
    user  system elapsed 
-  1.484   0.212   1.806 
+  1.060   0.232   1.428 

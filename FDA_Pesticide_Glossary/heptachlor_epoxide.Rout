@@ -60,4 +60,4 @@ output file: heptachlor_epoxide.md
 > 
 > proc.time()
    user  system elapsed 
-  1.556   0.212   1.881 
+  1.072   0.232   1.523 

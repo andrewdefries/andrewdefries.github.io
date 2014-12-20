@@ -60,4 +60,4 @@ output file: flumiclorac-pentyl.md
 > 
 > proc.time()
    user  system elapsed 
-  1.468   0.204   1.784 
+  1.076   0.212   1.488 

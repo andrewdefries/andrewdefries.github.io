@@ -60,4 +60,4 @@ output file: Sulfotep.md
 > 
 > proc.time()
    user  system elapsed 
-  1.068   0.212   1.479 
+  1.060   0.216   1.486 

@@ -60,4 +60,4 @@ output file: diflubenzuron.md
 > 
 > proc.time()
    user  system elapsed 
-  1.492   0.204   1.880 
+  1.096   0.192   1.481 

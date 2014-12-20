@@ -60,4 +60,4 @@ output file: 2-Imidazolidinethion.md
 > 
 > proc.time()
    user  system elapsed 
-  1.408   0.244   1.781 
+  1.012   0.296   1.434 

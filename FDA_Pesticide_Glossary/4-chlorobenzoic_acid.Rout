@@ -60,4 +60,4 @@ output file: 4-chlorobenzoic_acid.md
 > 
 > proc.time()
    user  system elapsed 
-  1.532   0.156   1.819 
+  1.044   0.224   1.453 

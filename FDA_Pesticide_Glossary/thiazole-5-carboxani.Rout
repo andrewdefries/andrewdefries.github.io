@@ -60,4 +60,4 @@ output file: thiazole-5-carboxani.md
 > 
 > proc.time()
    user  system elapsed 
-  1.012   0.288   1.500 
+  1.056   0.220   1.495 

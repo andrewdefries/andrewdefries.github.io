@@ -60,4 +60,4 @@ output file: azafenidin.md
 > 
 > proc.time()
    user  system elapsed 
-  1.412   0.248   1.778 
+   1.08    0.22    1.42 

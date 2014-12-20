@@ -60,4 +60,4 @@ output file: fenfuram.md
 > 
 > proc.time()
    user  system elapsed 
-  1.436   0.204   1.763 
+  1.040   0.272   1.512 

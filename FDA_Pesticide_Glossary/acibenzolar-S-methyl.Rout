@@ -60,4 +60,4 @@ output file: acibenzolar-S-methyl.md
 > 
 > proc.time()
    user  system elapsed 
-  1.544   0.228   1.884 
+  1.020   0.248   1.430 

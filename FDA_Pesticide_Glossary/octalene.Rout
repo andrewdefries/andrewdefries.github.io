@@ -60,4 +60,4 @@ output file: octalene.md
 > 
 > proc.time()
    user  system elapsed 
-  1.056   0.216   1.479 
+  1.052   0.228   1.480 

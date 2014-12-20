@@ -60,4 +60,4 @@ output file: drazoxolon.md
 > 
 > proc.time()
    user  system elapsed 
-  1.492   0.168   1.790 
+  1.064   0.172   1.452 

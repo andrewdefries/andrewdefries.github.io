@@ -60,4 +60,4 @@ output file: chlorphonium_chlorid.md
 > 
 > proc.time()
    user  system elapsed 
-  1.460   0.212   1.790 
+  1.048   0.232   1.491 

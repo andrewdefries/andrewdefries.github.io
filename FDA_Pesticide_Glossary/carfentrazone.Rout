@@ -60,4 +60,4 @@ output file: carfentrazone.md
 > 
 > proc.time()
    user  system elapsed 
-  1.420   0.228   1.815 
+  1.040   0.248   1.490 

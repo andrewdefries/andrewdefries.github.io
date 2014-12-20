@@ -60,4 +60,4 @@ output file: trichlorophenyl_etha.md
 > 
 > proc.time()
    user  system elapsed 
-  1.044   0.232   1.471 
+  1.020   0.248   1.472 

@@ -60,4 +60,4 @@ output file: sulfite.md
 > 
 > proc.time()
    user  system elapsed 
-  0.984   0.244   1.453 
+  1.060   0.192   1.469 

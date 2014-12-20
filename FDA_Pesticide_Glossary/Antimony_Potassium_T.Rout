@@ -60,4 +60,4 @@ output file: Antimony_Potassium_T.md
 > 
 > proc.time()
    user  system elapsed 
-  1.488   0.168   1.775 
+  1.068   0.228   1.413 

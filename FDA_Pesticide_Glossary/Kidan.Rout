@@ -60,4 +60,4 @@ output file: Kidan.md
 > 
 > proc.time()
    user  system elapsed 
-  1.516   0.264   1.896 
+  1.016   0.256   1.482 

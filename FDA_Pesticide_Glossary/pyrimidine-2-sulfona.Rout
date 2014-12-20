@@ -60,4 +60,4 @@ output file: pyrimidine-2-sulfona.md
 > 
 > proc.time()
    user  system elapsed 
-  1.096   0.192   1.491 
+  1.052   0.240   1.494 

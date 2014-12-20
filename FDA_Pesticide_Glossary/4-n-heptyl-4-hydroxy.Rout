@@ -60,4 +60,4 @@ output file: 4-n-heptyl-4-hydroxy.md
 > 
 > proc.time()
    user  system elapsed 
-  1.564   0.192   1.888 
+  1.116   0.212   1.464 

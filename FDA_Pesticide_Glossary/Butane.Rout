@@ -60,4 +60,4 @@ output file: Butane.md
 > 
 > proc.time()
    user  system elapsed 
-  1.608   0.208   1.929 
+  1.064   0.216   1.498 

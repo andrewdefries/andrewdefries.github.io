@@ -60,4 +60,4 @@ output file: Endrin_ketone.md
 > 
 > proc.time()
    user  system elapsed 
-  1.504   0.204   1.891 
+  1.080   0.220   1.515 

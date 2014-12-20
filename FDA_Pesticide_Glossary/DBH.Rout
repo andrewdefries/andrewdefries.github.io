@@ -60,4 +60,4 @@ output file: DBH.md
 > 
 > proc.time()
    user  system elapsed 
-  1.468   0.216   1.852 
+  1.052   0.228   1.482 

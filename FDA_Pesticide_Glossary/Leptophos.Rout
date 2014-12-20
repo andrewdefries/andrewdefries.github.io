@@ -60,4 +60,4 @@ output file: Leptophos.md
 > 
 > proc.time()
    user  system elapsed 
-  1.492   0.192   1.816 
+  1.056   0.232   1.494 

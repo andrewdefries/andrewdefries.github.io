@@ -60,4 +60,4 @@ output file: Ametrine.md
 > 
 > proc.time()
    user  system elapsed 
-  1.508   0.200   1.827 
+  1.040   0.244   1.427 

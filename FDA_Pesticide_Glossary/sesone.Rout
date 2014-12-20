@@ -60,4 +60,4 @@ output file: sesone.md
 > 
 > proc.time()
    user  system elapsed 
-  1.048   0.224   1.482 
+  1.064   0.240   1.517 

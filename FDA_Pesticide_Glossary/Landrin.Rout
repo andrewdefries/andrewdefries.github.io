@@ -60,4 +60,4 @@ output file: Landrin.md
 > 
 > proc.time()
    user  system elapsed 
-  1.592   0.204   1.914 
+  1.024   0.248   1.478 

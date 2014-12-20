@@ -60,4 +60,4 @@ output file: nitrothal-isopropyl.md
 > 
 > proc.time()
    user  system elapsed 
-  1.500   0.228   1.937 
+  1.020   0.256   1.477 

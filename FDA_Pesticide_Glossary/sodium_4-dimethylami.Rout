@@ -60,4 +60,4 @@ output file: sodium_4-dimethylami.md
 > 
 > proc.time()
    user  system elapsed 
-  1.056   0.220   1.482 
+  1.056   0.204   1.456 

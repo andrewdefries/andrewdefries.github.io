@@ -60,4 +60,4 @@ output file: benazolin.md
 > 
 > proc.time()
    user  system elapsed 
-  1.456   0.204   1.792 
+  1.064   0.224   1.426 

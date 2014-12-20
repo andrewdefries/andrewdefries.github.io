@@ -60,4 +60,4 @@ output file: nicosulfuron.md
 > 
 > proc.time()
    user  system elapsed 
-  1.504   0.232   1.937 
+  1.036   0.200   1.449 

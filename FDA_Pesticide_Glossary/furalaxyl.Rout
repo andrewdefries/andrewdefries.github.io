@@ -60,4 +60,4 @@ output file: furalaxyl.md
 > 
 > proc.time()
    user  system elapsed 
-  1.576   0.248   1.947 
+  1.052   0.212   1.480 

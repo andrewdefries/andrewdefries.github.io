@@ -60,4 +60,4 @@ output file: amino_sulfonic_acid.md
 > 
 > proc.time()
    user  system elapsed 
-  1.492   0.184   1.797 
+  1.024   0.252   1.398 

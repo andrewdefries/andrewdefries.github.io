@@ -60,4 +60,4 @@ output file: Sulfosulfuron.md
 > 
 > proc.time()
    user  system elapsed 
-  1.060   0.204   1.466 
+  1.084   0.212   1.490 

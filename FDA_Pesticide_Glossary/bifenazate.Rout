@@ -60,4 +60,4 @@ output file: bifenazate.md
 > 
 > proc.time()
    user  system elapsed 
-  1.488   0.180   1.785 
+  1.096   0.224   1.442 

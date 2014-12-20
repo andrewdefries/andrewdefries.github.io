@@ -60,4 +60,4 @@ output file: N-furfuryladenine.md
 > 
 > proc.time()
    user  system elapsed 
-  1.504   0.228   1.934 
+  1.032   0.276   1.511 

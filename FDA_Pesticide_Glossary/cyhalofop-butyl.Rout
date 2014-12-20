@@ -60,4 +60,4 @@ output file: cyhalofop-butyl.md
 > 
 > proc.time()
    user  system elapsed 
-  1.468   0.208   1.804 
+  1.064   0.200   1.470 

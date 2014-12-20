@@ -60,4 +60,4 @@ output file: 3-isopropyl-5-methyl.md
 > 
 > proc.time()
    user  system elapsed 
-  1.448   0.160   1.736 
+  1.064   0.220   1.413 

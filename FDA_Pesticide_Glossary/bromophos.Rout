@@ -60,4 +60,4 @@ output file: bromophos.md
 > 
 > proc.time()
    user  system elapsed 
-  1.484   0.212   1.818 
+  1.040   0.240   1.476 

@@ -60,4 +60,4 @@ output file: alloxydim-sodium.md
 > 
 > proc.time()
    user  system elapsed 
-  1.528   0.200   1.840 
+  1.100   0.208   1.452 

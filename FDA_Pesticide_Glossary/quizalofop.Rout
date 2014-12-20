@@ -60,4 +60,4 @@ output file: quizalofop.md
 > 
 > proc.time()
    user  system elapsed 
-  1.056   0.236   1.509 
+  1.012   0.272   1.487 

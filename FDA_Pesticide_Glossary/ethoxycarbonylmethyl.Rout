@@ -60,4 +60,4 @@ output file: ethoxycarbonylmethyl.md
 > 
 > proc.time()
    user  system elapsed 
-  1.516   0.208   1.846 
+  1.056   0.216   1.463 

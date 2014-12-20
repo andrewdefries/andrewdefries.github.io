@@ -60,4 +60,4 @@ output file: HOCN.md
 > 
 > proc.time()
    user  system elapsed 
-  1.540   0.260   1.942 
+  1.076   0.236   1.517 

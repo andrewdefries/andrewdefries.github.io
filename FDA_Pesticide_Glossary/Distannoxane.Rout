@@ -60,4 +60,4 @@ output file: Distannoxane.md
 > 
 > proc.time()
    user  system elapsed 
-  1.528   0.188   1.839 
+  1.072   0.224   1.506 

@@ -60,4 +60,4 @@ output file: Azocyclotin.md
 > 
 > proc.time()
    user  system elapsed 
-  1.452   0.236   1.855 
+  1.048   0.248   1.428 

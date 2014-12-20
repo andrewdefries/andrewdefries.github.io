@@ -60,4 +60,4 @@ output file: thiourea.md
 > 
 > proc.time()
    user  system elapsed 
-  1.056   0.236   1.517 
+  1.032   0.240   1.482 

@@ -60,4 +60,4 @@ output file: furmecyclox.md
 > 
 > proc.time()
    user  system elapsed 
-  1.504   0.216   1.889 
+  1.040   0.224   1.479 

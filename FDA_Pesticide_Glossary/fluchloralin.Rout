@@ -60,4 +60,4 @@ output file: fluchloralin.md
 > 
 > proc.time()
    user  system elapsed 
-  1.444   0.204   1.782 
+  1.044   0.212   1.472 

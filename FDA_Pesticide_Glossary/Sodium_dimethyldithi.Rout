@@ -60,4 +60,4 @@ output file: Sodium_dimethyldithi.md
 > 
 > proc.time()
    user  system elapsed 
-  1.056   0.228   1.478 
+  1.036   0.272   1.526 

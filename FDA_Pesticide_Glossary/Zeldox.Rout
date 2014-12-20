@@ -60,4 +60,4 @@ output file: Zeldox.md
 > 
 > proc.time()
    user  system elapsed 
-  1.048   0.252   1.492 
+  1.064   0.220   1.520 

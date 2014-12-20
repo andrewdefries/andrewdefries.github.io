@@ -60,4 +60,4 @@ output file: flucythrinate.md
 > 
 > proc.time()
    user  system elapsed 
-  1.508   0.200   1.826 
+  1.012   0.228   1.456 

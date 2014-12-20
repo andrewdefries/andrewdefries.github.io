@@ -60,4 +60,4 @@ output file: isopropylamine_salt_.md
 > 
 > proc.time()
    user  system elapsed 
-  1.560   0.184   1.884 
+  1.080   0.200   1.489 

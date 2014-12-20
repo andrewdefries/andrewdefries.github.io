@@ -60,4 +60,4 @@ output file: bromuconazole.md
 > 
 > proc.time()
    user  system elapsed 
-  1.540   0.184   1.833 
+  1.064   0.236   1.496 

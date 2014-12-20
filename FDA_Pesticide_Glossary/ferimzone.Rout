@@ -60,4 +60,4 @@ output file: ferimzone.md
 > 
 > proc.time()
    user  system elapsed 
-  1.392   0.252   1.759 
+  1.060   0.232   1.486 

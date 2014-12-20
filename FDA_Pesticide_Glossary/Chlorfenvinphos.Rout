@@ -60,4 +60,4 @@ output file: Chlorfenvinphos.md
 > 
 > proc.time()
    user  system elapsed 
-  1.440   0.176   1.727 
+  1.056   0.236   1.501 

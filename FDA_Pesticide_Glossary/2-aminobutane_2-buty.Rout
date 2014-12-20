@@ -60,4 +60,4 @@ output file: 2-aminobutane_2-buty.md
 > 
 > proc.time()
    user  system elapsed 
-  1.520   0.184   1.813 
+  1.060   0.240   1.449 

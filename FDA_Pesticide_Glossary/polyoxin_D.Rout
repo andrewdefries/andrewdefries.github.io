@@ -60,4 +60,4 @@ output file: polyoxin_D.md
 > 
 > proc.time()
    user  system elapsed 
-  1.036   0.260   1.498 
+  1.052   0.252   1.506 

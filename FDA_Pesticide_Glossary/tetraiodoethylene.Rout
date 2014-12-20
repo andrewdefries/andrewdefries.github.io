@@ -60,4 +60,4 @@ output file: tetraiodoethylene.md
 > 
 > proc.time()
    user  system elapsed 
-  1.036   0.244   1.483 
+  1.048   0.228   1.473 

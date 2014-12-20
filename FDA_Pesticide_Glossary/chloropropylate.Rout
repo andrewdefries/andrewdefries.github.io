@@ -60,4 +60,4 @@ output file: chloropropylate.md
 > 
 > proc.time()
    user  system elapsed 
-  1.424   0.196   1.749 
+  1.068   0.212   1.480 

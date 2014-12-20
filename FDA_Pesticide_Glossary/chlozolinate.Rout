@@ -60,4 +60,4 @@ output file: chlozolinate.md
 > 
 > proc.time()
    user  system elapsed 
-  1.552   0.232   1.886 
+  1.040   0.256   1.490 

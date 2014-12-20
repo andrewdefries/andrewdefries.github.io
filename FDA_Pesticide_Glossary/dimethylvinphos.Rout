@@ -60,4 +60,4 @@ output file: dimethylvinphos.md
 > 
 > proc.time()
    user  system elapsed 
-  1.440   0.208   1.799 
+  1.068   0.240   1.514 

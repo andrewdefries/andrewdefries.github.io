@@ -60,4 +60,4 @@ output file: indeno[1,2-e][1,3,4].md
 > 
 > proc.time()
    user  system elapsed 
-  1.464   0.220   1.833 
+  1.068   0.268   1.521 

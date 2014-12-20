@@ -60,4 +60,4 @@ output file: Cyclanilide.md
 > 
 > proc.time()
    user  system elapsed 
-  1.520   0.208   1.879 
+  1.048   0.228   1.472 

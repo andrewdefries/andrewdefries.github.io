@@ -60,4 +60,4 @@ output file: bis(trichloromethyl).md
 > 
 > proc.time()
    user  system elapsed 
-  1.420   0.216   1.762 
+  1.064   0.236   1.431 

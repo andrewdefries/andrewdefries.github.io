@@ -60,4 +60,4 @@ output file: heptenophos.md
 > 
 > proc.time()
    user  system elapsed 
-  1.544   0.184   1.848 
+  1.060   0.232   1.500 

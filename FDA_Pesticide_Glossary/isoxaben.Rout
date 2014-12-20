@@ -60,4 +60,4 @@ output file: isoxaben.md
 > 
 > proc.time()
    user  system elapsed 
-   1.52    0.20    1.83 
+  1.080   0.216   1.483 

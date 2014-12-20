@@ -60,4 +60,4 @@ output file: tetrathiin.md
 > 
 > proc.time()
    user  system elapsed 
-  1.032   0.240   1.488 
+  0.976   0.340   1.530 

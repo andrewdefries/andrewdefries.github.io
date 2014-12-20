@@ -60,4 +60,4 @@ output file: dimethirimol.md
 > 
 > proc.time()
    user  system elapsed 
-  1.456   0.208   1.785 
+  1.036   0.232   1.470 

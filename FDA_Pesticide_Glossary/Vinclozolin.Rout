@@ -60,4 +60,4 @@ output file: Vinclozolin.md
 > 
 > proc.time()
    user  system elapsed 
-  1.036   0.264   1.515 
+  1.048   0.224   1.472 

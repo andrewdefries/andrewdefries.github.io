@@ -60,4 +60,4 @@ output file: Dilan.md
 > 
 > proc.time()
    user  system elapsed 
-  1.492   0.212   1.826 
+  1.092   0.204   1.575 

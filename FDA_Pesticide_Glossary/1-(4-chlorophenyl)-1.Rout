@@ -60,4 +60,4 @@ output file: 1-(4-chlorophenyl)-1.md
 > 
 > proc.time()
    user  system elapsed 
-  1.264   0.208   1.608 
+  1.068   0.228   1.424 

@@ -60,4 +60,4 @@ output file: Methoxyfenozide.md
 > 
 > proc.time()
    user  system elapsed 
-  1.612   0.220   1.944 
+  1.076   0.212   1.518 

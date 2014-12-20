@@ -60,4 +60,4 @@ output file: buprofezin.md
 > 
 > proc.time()
    user  system elapsed 
-  1.492   0.224   1.836 
+  1.052   0.264   1.539 

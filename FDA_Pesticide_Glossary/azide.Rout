@@ -60,4 +60,4 @@ output file: azide.md
 > 
 > proc.time()
    user  system elapsed 
-  1.448   0.236   1.791 
+  1.060   0.248   1.432 

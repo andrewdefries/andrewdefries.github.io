@@ -60,4 +60,4 @@ output file: prometon.md
 > 
 > proc.time()
    user  system elapsed 
-  1.100   0.212   1.508 
+  1.064   0.232   1.500 

@@ -60,4 +60,4 @@ output file: ethanesulphonylamino.md
 > 
 > proc.time()
    user  system elapsed 
-  1.488   0.260   1.945 
+  1.048   0.208   1.462 

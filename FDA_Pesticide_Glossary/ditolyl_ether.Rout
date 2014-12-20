@@ -60,4 +60,4 @@ output file: ditolyl_ether.md
 > 
 > proc.time()
    user  system elapsed 
-  1.456   0.176   1.803 
+  1.072   0.208   1.507 

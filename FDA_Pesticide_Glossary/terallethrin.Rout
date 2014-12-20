@@ -60,4 +60,4 @@ output file: terallethrin.md
 > 
 > proc.time()
    user  system elapsed 
-  1.056   0.220   1.487 
+  1.064   0.228   1.492 

@@ -60,4 +60,4 @@ output file: arsorate.md
 > 
 > proc.time()
    user  system elapsed 
-  1.492   0.224   1.823 
+  1.064   0.228   1.420 

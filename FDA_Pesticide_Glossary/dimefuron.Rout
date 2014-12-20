@@ -60,4 +60,4 @@ output file: dimefuron.md
 > 
 > proc.time()
    user  system elapsed 
-  1.452   0.232   1.795 
+  1.036   0.240   1.482 

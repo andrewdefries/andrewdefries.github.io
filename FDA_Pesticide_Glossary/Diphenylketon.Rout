@@ -60,4 +60,4 @@ output file: Diphenylketon.md
 > 
 > proc.time()
    user  system elapsed 
-  1.496   0.216   1.828 
+  1.052   0.240   1.506 

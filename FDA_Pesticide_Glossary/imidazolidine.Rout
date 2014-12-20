@@ -60,4 +60,4 @@ output file: imidazolidine.md
 > 
 > proc.time()
    user  system elapsed 
-  1.404   0.252   1.800 
+  0.992   0.276   1.474 

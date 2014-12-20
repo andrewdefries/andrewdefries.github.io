@@ -60,4 +60,4 @@ output file: copper_sulfate_penta.md
 > 
 > proc.time()
    user  system elapsed 
-  1.532   0.228   1.892 
+  1.048   0.216   1.480 

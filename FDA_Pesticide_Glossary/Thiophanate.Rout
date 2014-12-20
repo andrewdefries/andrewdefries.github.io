@@ -60,4 +60,4 @@ output file: Thiophanate.md
 > 
 > proc.time()
    user  system elapsed 
-  1.052   0.252   1.508 
+  1.028   0.268   1.506 

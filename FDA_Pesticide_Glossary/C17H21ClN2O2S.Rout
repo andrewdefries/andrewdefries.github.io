@@ -60,4 +60,4 @@ output file: C17H21ClN2O2S.md
 > 
 > proc.time()
    user  system elapsed 
-  1.532   0.176   1.823 
+  1.000   0.248   1.468 

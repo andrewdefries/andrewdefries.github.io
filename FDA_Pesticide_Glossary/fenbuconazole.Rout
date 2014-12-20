@@ -60,4 +60,4 @@ output file: fenbuconazole.md
 > 
 > proc.time()
    user  system elapsed 
-  1.500   0.184   1.803 
+  1.052   0.244   1.500 

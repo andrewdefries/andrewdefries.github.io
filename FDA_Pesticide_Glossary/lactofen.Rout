@@ -60,4 +60,4 @@ output file: lactofen.md
 > 
 > proc.time()
    user  system elapsed 
-  1.524   0.252   1.896 
+  1.060   0.216   1.504 

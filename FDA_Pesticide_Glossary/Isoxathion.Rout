@@ -60,4 +60,4 @@ output file: Isoxathion.md
 > 
 > proc.time()
    user  system elapsed 
-  1.508   0.200   1.840 
+  1.084   0.208   1.512 

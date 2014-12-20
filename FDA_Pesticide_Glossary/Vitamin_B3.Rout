@@ -60,4 +60,4 @@ output file: Vitamin_B3.md
 > 
 > proc.time()
    user  system elapsed 
-  1.064   0.228   1.497 
+  1.044   0.244   1.478 

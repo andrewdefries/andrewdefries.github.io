@@ -60,4 +60,4 @@ output file: inabenfide.md
 > 
 > proc.time()
    user  system elapsed 
-  1.500   0.176   1.793 
+  1.044   0.252   1.488 

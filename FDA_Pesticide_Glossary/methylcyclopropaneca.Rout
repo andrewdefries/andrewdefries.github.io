@@ -60,4 +60,4 @@ output file: methylcyclopropaneca.md
 > 
 > proc.time()
    user  system elapsed 
-  1.588   0.260   2.075 
+  1.080   0.240   1.516 

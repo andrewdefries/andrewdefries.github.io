@@ -60,4 +60,4 @@ output file: chlorimuron_ethyl.md
 > 
 > proc.time()
    user  system elapsed 
-  1.484   0.208   1.816 
+  1.080   0.220   1.488 

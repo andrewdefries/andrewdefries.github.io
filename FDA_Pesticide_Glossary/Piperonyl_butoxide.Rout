@@ -60,4 +60,4 @@ output file: Piperonyl_butoxide.md
 > 
 > proc.time()
    user  system elapsed 
-  1.024   0.260   1.493 
+  1.056   0.232   1.486 

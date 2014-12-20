@@ -60,4 +60,4 @@ output file: logran.md
 > 
 > proc.time()
    user  system elapsed 
-  1.544   0.252   1.909 
+  1.060   0.228   1.485 

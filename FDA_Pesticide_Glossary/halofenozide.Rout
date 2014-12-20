@@ -60,4 +60,4 @@ output file: halofenozide.md
 > 
 > proc.time()
    user  system elapsed 
-  1.564   0.212   1.902 
+  1.068   0.244   1.513 

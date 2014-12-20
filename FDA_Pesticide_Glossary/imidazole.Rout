@@ -60,4 +60,4 @@ output file: imidazole.md
 > 
 > proc.time()
    user  system elapsed 
-  1.468   0.220   1.806 
+  1.076   0.216   1.496 

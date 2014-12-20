@@ -60,4 +60,4 @@ output file: monomethylarsonic_ac.md
 > 
 > proc.time()
    user  system elapsed 
-  1.460   0.272   1.946 
+  1.040   0.256   1.492 

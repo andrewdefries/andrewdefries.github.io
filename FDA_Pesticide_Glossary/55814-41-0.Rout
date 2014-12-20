@@ -60,4 +60,4 @@ output file: 55814-41-0.md
 > 
 > proc.time()
    user  system elapsed 
-  1.528   0.164   1.800 
+  1.020   0.256   1.424 

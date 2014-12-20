@@ -60,4 +60,4 @@ output file: Gencor.md
 > 
 > proc.time()
    user  system elapsed 
-  1.504   0.204   1.836 
+  1.084   0.208   1.496 

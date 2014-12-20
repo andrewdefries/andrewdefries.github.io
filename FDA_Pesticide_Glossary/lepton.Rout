@@ -60,4 +60,4 @@ output file: lepton.md
 > 
 > proc.time()
    user  system elapsed 
-  1.532   0.216   1.894 
+  1.044   0.252   1.510 

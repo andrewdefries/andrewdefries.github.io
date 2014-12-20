@@ -60,4 +60,4 @@ output file: eleven.md
 > 
 > proc.time()
    user  system elapsed 
-  1.464   0.244   1.913 
+  1.040   0.252   1.513 

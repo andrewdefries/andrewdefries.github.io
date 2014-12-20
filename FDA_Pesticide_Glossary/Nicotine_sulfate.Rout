@@ -60,4 +60,4 @@ output file: Nicotine_sulfate.md
 > 
 > proc.time()
    user  system elapsed 
-  1.508   0.216   1.926 
+  1.060   0.212   1.487 

@@ -60,4 +60,4 @@ output file: Flumetralin.md
 > 
 > proc.time()
    user  system elapsed 
-  1.476   0.188   1.781 
+  1.052   0.228   1.485 

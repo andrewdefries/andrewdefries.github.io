@@ -60,4 +60,4 @@ output file: metobenzuron.md
 > 
 > proc.time()
    user  system elapsed 
-  1.496   0.212   1.960 
+  1.060   0.204   1.482 

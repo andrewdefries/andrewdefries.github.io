@@ -60,4 +60,4 @@ output file: torque.md
 > 
 > proc.time()
    user  system elapsed 
-  1.028   0.256   1.474 
+  1.016   0.280   1.491 

@@ -60,4 +60,4 @@ output file: flufenoxuron.md
 > 
 > proc.time()
    user  system elapsed 
-  1.440   0.196   1.750 
+  1.080   0.224   1.510 

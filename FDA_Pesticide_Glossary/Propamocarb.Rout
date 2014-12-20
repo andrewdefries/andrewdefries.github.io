@@ -60,4 +60,4 @@ output file: Propamocarb.md
 > 
 > proc.time()
    user  system elapsed 
-  1.044   0.232   1.472 
+  1.072   0.232   1.516 

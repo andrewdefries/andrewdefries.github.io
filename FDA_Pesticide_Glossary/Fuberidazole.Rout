@@ -60,4 +60,4 @@ output file: Fuberidazole.md
 > 
 > proc.time()
    user  system elapsed 
-  1.436   0.208   1.773 
+  1.052   0.244   1.488 

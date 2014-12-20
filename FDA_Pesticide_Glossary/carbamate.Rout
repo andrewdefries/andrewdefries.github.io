@@ -60,4 +60,4 @@ output file: carbamate.md
 > 
 > proc.time()
    user  system elapsed 
-  1.460   0.228   1.803 
+  1.060   0.208   1.503 

@@ -60,4 +60,4 @@ output file: 2-chloro-4-trichloro.md
 > 
 > proc.time()
    user  system elapsed 
-  1.532   0.168   1.872 
+  1.048   0.260   1.471 

@@ -60,4 +60,4 @@ output file: propanecarboxylate_2.md
 > 
 > proc.time()
    user  system elapsed 
-  1.060   0.208   1.467 
+  1.028   0.244   1.475 

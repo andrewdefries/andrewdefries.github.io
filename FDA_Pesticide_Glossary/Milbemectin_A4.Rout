@@ -60,4 +60,4 @@ output file: Milbemectin_A4.md
 > 
 > proc.time()
    user  system elapsed 
-  1.476   0.244   1.927 
+  1.084   0.212   1.488 
