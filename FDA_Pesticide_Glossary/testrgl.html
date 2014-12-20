@@ -230,34 +230,10 @@ plot3d(x, y, z, col=rainbow(1000))
 </code></pre>
 
 <pre><code class="r">data&lt;-read.table(&quot;data.xyz&quot;)
-</code></pre>
-
-<pre><code>## Warning in file(file, &quot;rt&quot;): cannot open file &#39;data.xyz&#39;: No such file or
-## directory
-</code></pre>
-
-<pre><code>## Error in file(file, &quot;rt&quot;): cannot open the connection
-</code></pre>
-
-<pre><code class="r">x&lt;-data$V2
-</code></pre>
-
-<pre><code>## Error in data$V2: object of type &#39;closure&#39; is not subsettable
-</code></pre>
-
-<pre><code class="r">y&lt;-data$V3
-</code></pre>
-
-<pre><code>## Error in data$V3: object of type &#39;closure&#39; is not subsettable
-</code></pre>
-
-<pre><code class="r">z&lt;-data$V4
-</code></pre>
-
-<pre><code>## Error in data$V4: object of type &#39;closure&#39; is not subsettable
-</code></pre>
-
-<pre><code class="r">atomcolor=c(rep(&quot;blue&quot;, 1), rep(&quot;red&quot;, 5), rep(&quot;black&quot;, 7), rep(&quot;white&quot;, 15))
+x&lt;-data$V2
+y&lt;-data$V3
+z&lt;-data$V4
+atomcolor=c(rep(&quot;blue&quot;, 1), rep(&quot;red&quot;, 5), rep(&quot;black&quot;, 7), rep(&quot;white&quot;, 15))
 #spheres3d(x, y, z, col=rainbow(1000))
 spheres3d(x, y, z, col=atomcolor)
 </code></pre>
