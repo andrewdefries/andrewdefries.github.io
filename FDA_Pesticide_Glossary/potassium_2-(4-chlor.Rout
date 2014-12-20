@@ -1,0 +1,40 @@
+
+R version 3.1.1 (2014-07-10) -- "Sock it to Me"
+Copyright (C) 2014 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> library("knitr")
+> 
+> #knit("potassium_2-(4-chlor.Rmd")
+> #markdownToHTML('potassium_2-(4-chlor.md', 'potassium_2-(4-chlor.html', options=c("use_xhml"))
+> #system("pandoc -s potassium_2-(4-chlor.html -o potassium_2-(4-chlor.pdf")
+> 
+> 
+> knit2html('potassium_2-(4-chlor.Rmd')
+
+
+processing file: potassium_2-(4-chlor.Rmd
+  |                                                                         |                                                                 |   0%  |                                                                         |.................................................................| 100%
+  ordinary text without R code
+
+
+output file: potassium_2-(4-chlor.md
+
+> 
+> proc.time()
+   user  system elapsed 
+  0.284   0.020   0.299 

@@ -1,0 +1,40 @@
+
+R version 3.1.1 (2014-07-10) -- "Sock it to Me"
+Copyright (C) 2014 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> library("knitr")
+> 
+> #knit("5-methoxy-3-(2-metho.Rmd")
+> #markdownToHTML('5-methoxy-3-(2-metho.md', '5-methoxy-3-(2-metho.html', options=c("use_xhml"))
+> #system("pandoc -s 5-methoxy-3-(2-metho.html -o 5-methoxy-3-(2-metho.pdf")
+> 
+> 
+> knit2html('5-methoxy-3-(2-metho.Rmd')
+
+
+processing file: 5-methoxy-3-(2-metho.Rmd
+  |                                                                         |                                                                 |   0%  |                                                                         |.................................................................| 100%
+  ordinary text without R code
+
+
+output file: 5-methoxy-3-(2-metho.md
+
+> 
+> proc.time()
+   user  system elapsed 
+  0.280   0.028   0.302 

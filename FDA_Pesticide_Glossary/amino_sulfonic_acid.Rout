@@ -1,0 +1,40 @@
+
+R version 3.1.1 (2014-07-10) -- "Sock it to Me"
+Copyright (C) 2014 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> library("knitr")
+> 
+> #knit("amino_sulfonic_acid.Rmd")
+> #markdownToHTML('amino_sulfonic_acid.md', 'amino_sulfonic_acid.html', options=c("use_xhml"))
+> #system("pandoc -s amino_sulfonic_acid.html -o amino_sulfonic_acid.pdf")
+> 
+> 
+> knit2html('amino_sulfonic_acid.Rmd')
+
+
+processing file: amino_sulfonic_acid.Rmd
+  |                                                                         |                                                                 |   0%  |                                                                         |.................................................................| 100%
+  ordinary text without R code
+
+
+output file: amino_sulfonic_acid.md
+
+> 
+> proc.time()
+   user  system elapsed 
+  0.264   0.044   0.301 

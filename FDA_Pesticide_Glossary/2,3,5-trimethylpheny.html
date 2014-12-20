@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+<title></title>
+
+<script type="text/javascript">
+window.onload = function() {
+  var imgs = document.getElementsByTagName('img'), i, img;
+  for (i = 0; i < imgs.length; i++) {
+    img = imgs[i];
+    // center an image if it is the only element of its parent
+    if (img.parentElement.childElementCount === 1)
+      img.parentElement.style.textAlign = 'center';
+  }
+};
+</script>
+
+
+
+
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 13px;
+}
+
+body {
+  max-width: 800px;
+  margin: auto;
+  padding: 1em;
+  line-height: 20px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 {
+   font-size:2.2em;
+}
+
+h2 {
+   font-size:1.8em;
+}
+
+h3 {
+   font-size:1.4em;
+}
+
+h4 {
+   font-size:1.0em;
+}
+
+h5 {
+   font-size:0.9em;
+}
+
+h6 {
+   font-size:0.8em;
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre, img {
+  max-width: 100%;
+}
+pre {
+  overflow-x: auto;
+}
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code {
+  font-size: 92%;
+  border: 1px solid #ccc;
+}
+
+code[class] {
+  background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * {
+      background: transparent !important;
+      color: black !important;
+      filter:none !important;
+      -ms-filter: none !important;
+   }
+
+   body {
+      font-size:12pt;
+      max-width:100%;
+   }
+
+   a, a:visited {
+      text-decoration: underline;
+   }
+
+   hr {
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote {
+      padding-right: 1em;
+      page-break-inside: avoid;
+   }
+
+   tr, img {
+      page-break-inside: avoid;
+   }
+
+   img {
+      max-width: 100% !important;
+   }
+
+   @page :left {
+      margin: 15mm 20mm 15mm 10mm;
+   }
+
+   @page :right {
+      margin: 15mm 10mm 15mm 20mm;
+   }
+
+   p, h2, h3 {
+      orphans: 3; widows: 3;
+   }
+
+   h2, h3 {
+      page-break-after: avoid;
+   }
+}
+</style>
+
+
+
+</head>
+
+<body>
+<p>printf&mdash;\n
+printfoutput:\n
+printf  html_document:\n
+printf    self_contained: no\n
+printf&mdash;\n
+printf<code>{r setup, results=&#39;asis&#39;}\n
+printflibrary(knitr)\n
+printfknit_hooks$set(webgl = hook_webgl)\n
+printfcat(&#39;&lt;script type=&quot;text/javascript&quot;&gt;&#39;, readLines(system.file(&#39;WebGL&#39;, &#39;CanvasMatrix.js&#39;, package = &#39;rgl&#39;)), &#39;&lt;/script&gt;&#39;, sep = &#39;\n&#39;)\n
+printf</code>\n
+printf\n
+printfThis works fine.\n
+printf\n
+printf<code>{r testgl, webgl=TRUE}\n
+printfx &lt;- sort(rnorm(1000))\n
+printfy &lt;- rnorm(1000)\n
+printfz &lt;- rnorm(1000) + atan2(x,y)\n
+printfplot3d(x, y, z, col=rainbow(1000))\n
+printf</code>\n
+printf\n
+printfThe following a 3D image is of Atrazine rendered from the 3D conformer file derived from here (<a href="http://pubchem.ncbi.nlm.nih.gov/compound/2256">http://pubchem.ncbi.nlm.nih.gov/compound/2256</a>). The atoms are represented as spheres Nitrogen as blue, carbon as black, hydrogen as white, and chlorine as blue.\n
+printf\n
+printf<code>{r testgl2, webgl=TRUE}\n
+printfopen3d()\n
+printf2,3,5-trimethylpheny&lt;-read.table(&quot;2,3,5-trimethylpheny.xyz&quot;)\n
+printfx&lt;-2,3,5-trimethylpheny$V2\n
+printfy&lt;-2,3,5-trimethylpheny$V3\n
+printfz&lt;-2,3,5-trimethylpheny$V4\n
+printfatomcolor=c(rep(&quot;blue&quot;, 1), rep(&quot;red&quot;, 5), rep(&quot;black&quot;, 7), rep(&quot;white&quot;, 15))\n
+printf#spheres3d(x, y, z, col=rainbow(1000))\n
+printfspheres3d(x, y, z, col=atomcolor)\n
+printf</code>\n</p>
+
+</body>
+
+</html>

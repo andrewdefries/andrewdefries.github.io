@@ -1,0 +1,31 @@
+
+R version 3.1.1 (2014-07-10) -- "Sock it to Me"
+Copyright (C) 2014 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> library("knitr")
+> 
+> #knit("Benzene,_1,1'-(2-nit.Rmd")
+> #markdownToHTML('Benzene,_1,1'-(2-nit.md', 'Benzene,_1,1'-(2-nit.html', options=c("use_xhml"))
+> #system("pandoc -s Benzene,_1,1'-(2-nit.html -o Benzene,_1,1'-(2-nit.pdf")
+> 
+> 
+> knit2html('Benzene,_1,1'-(2-nit.Rmd')
++ 
+> proc.time()
+   user  system elapsed 
+  0.260   0.024   0.275 
