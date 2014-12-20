@@ -17,6 +17,8 @@ Type 'demo()' for some demos, 'help()' for on-line help, or
 'help.start()' for an HTML browser interface to help.
 Type 'q()' to quit R.
 
+[Previously saved workspace restored]
+
 > library("knitr")
 > 
 > #knit("2'-methylacetophenon.Rmd")
@@ -28,4 +30,4 @@ Type 'q()' to quit R.
 + 
 > proc.time()
    user  system elapsed 
-  0.248   0.040   0.280 
+  0.268   0.028   0.287 

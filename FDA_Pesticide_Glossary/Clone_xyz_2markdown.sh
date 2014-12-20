@@ -17,7 +17,7 @@ cat testrgl.Rmd | sed "s/data/$name/g" >  $name.Rmd
 
 echo "finishing $name Rmd file"
 
-cat $name.Rmd | sed 's/^/printf/g' | sed 's/$/\\n/g' >  $name.Rmd
+#cat $name.Rmd | sed 's/^/printf/g' | sed 's/$/\\n/g' >  $name.Rmd
 
 echo "executing $name.R"
 

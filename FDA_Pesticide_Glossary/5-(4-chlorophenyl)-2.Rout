@@ -17,15 +17,6 @@ Type 'demo()' for some demos, 'help()' for on-line help, or
 'help.start()' for an HTML browser interface to help.
 Type 'q()' to quit R.
 
+[Previously saved workspace restored]
+
 > library("knitr")
-> 
-> #knit("5-(4-chlorophenyl)-2.Rmd")
-> #markdownToHTML('5-(4-chlorophenyl)-2.md', '5-(4-chlorophenyl)-2.html', options=c("use_xhml"))
-> #system("pandoc -s 5-(4-chlorophenyl)-2.html -o 5-(4-chlorophenyl)-2.pdf")
-> 
-> 
-> knit2html('5-(4-chlorophenyl)-2.Rmd')
-Error in renderMarkdown(file = NULL, output = NULL, text, renderer = "HTML",  : 
-  CHAR() can only be applied to a 'CHARSXP', not a 'NULL'
-Calls: knit2html -> <Anonymous> -> renderMarkdown -> .Call
-Execution halted
