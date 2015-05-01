@@ -1,35 +1,87 @@
 ---
 output:
   html_document:
-    self_contained: no
+    keep_md: yes
 ---
 ```{r setup, results='asis'}
 library(knitr)
-#knit_hooks$set(webgl = hook_webgl)
-#cat('<script type="text/javascript">', readLines(system.file('WebGL', 'CanvasMatrix.js', package = 'rgl')), '</script>', sep = '\n')
+knit_hooks$set(webgl = hook_webgl)
 ```
 
-This works fine. Gonna put the RGL webGL 3D MDS of nn compounds myquery is shown in red
+#Pesticide Report: myquery
+
+##This is a 2-dimensional projection of the molecule
+
+![myquery](mywd/myquery.png)
+
+The following is a cladogram to find nearest neighbors by the PubChem IDs indicated
+
+![myquery](mywd/hclust.png)
 
 ```{r testgl, webgl=TRUE}
 library(rgl)
-x <- sort(rnorm(1000))
-y <- rnorm(1000)
-z <- rnorm(1000) + atan2(x,y)
-plot3d(x, y, z, col=rainbow(1000))
-rgl.close()
-```
-
-The following a 3D image is of myquery rendered from the 3D conformer file derived from here (http://pubchem.ncbi.nlm.nih.gov/compound/myquery). The atoms are represented as spheres Nitrogen as blue, carbon as black, hydrogen as white, and chlorine as blue.
-
-```{r testgl2, webgl=TRUE}
 open3d()
+
+#load data file
 data<-read.table("myquery.xyz")
 x<-data$V2
 y<-data$V3
 z<-data$V4
-atomcolor=c(rep("blue", 1), rep("red", 5), rep("black", 7), rep("white", 15))
-#spheres3d(x, y, z, col=rainbow(1000))
+
+#color atoms by legend
+atomcolor<-data$V1
+
+#https://en.wikipedia.org/wiki/CPK_coloring
+atomcolor<-gsub("H", "white", atomcolor)
+atomcolor<-gsub("Cl", "green", atomcolor)
+atomcolor<-gsub("C", "black", atomcolor)
+atomcolor<-gsub("N", "blue", atomcolor)
+atomcolor<-gsub("F", "green", atomcolor)
+atomcolor<-gsub("O", "red", atomcolor)
+atomcolor<-gsub("Br", "brown", atomcolor)
+atomcolor<-gsub("P", "orange", atomcolor)
+atomcolor<-gsub("Na", "violet", atomcolor)
+atomcolor<-gsub("S", "yellow", atomcolor)
+
+#atomcolor=c(rep("blue", 1), rep("red", 5), rep("black", 7), rep("white", 15))
+
 spheres3d(x, y, z, col=atomcolor)
-rgl.close()
 ```
+
+This one also works.
+
+
+```{r testgl2, webgl=TRUE}
+library(rgl)
+
+#prepare the chemical space
+#source("ChemicalSpace.R")
+
+#load the 3D coordinates of the MDS space
+load("Query_coord.rda")
+
+rgl.open(); offset <- 50; par3d(windowRect=c(offset, offset, 640+offset, 640+offset))
+rm(offset); rgl.clear(); rgl.viewpoint(theta=45, phi=30, fov=60, zoom=1)
+spheres3d(coord[,1], coord[,2], coord[,3], radius=0.005, color="black", alpha=1, shininess=20); aspect3d(1, 1, 1)
+axes3d(col="black"); title3d("", "", "", "", "", col="black"); bg3d("white")
+
+#need to add text labels
+
+#source("Cladogram.R")
+```
+
+#Grep Reports
+
+Find a way to workcloud the grep output
+
+```{r testgl3, webgl=TRUE}
+#library(ChemmineR)
+#sdfset<-read.SDFset("Query.sdf")
+#write.table(sdfid(sdfset), file="Query.name", row.name=F, quote=F, sep="")
+
+#system('grep -i -A 3 -B 3 "\tQuery*$" /home/cheminfused/Desktop/PLOS_FULLTEXT/txt/*.txt > Query.grep')
+readLines("Query.grep")
+
+```
+
+		
