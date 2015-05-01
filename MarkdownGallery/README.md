@@ -10,3 +10,12 @@ Dependencies
 ============
 
 Requires an R working environment as well as latex dependencies, markdown and knitr. A bootstrap scripts will be included soon.
+
+
+LINKS
+=====
+
+RGL test
+http://andrewdefries.github.io/MarkdownGallery/testrgl.html
+
+
