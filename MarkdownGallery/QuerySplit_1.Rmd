@@ -1,0 +1,86 @@
+---
+output:
+  html_document:
+    keep_md: yes
+---
+```{r setup, results='asis'}
+library(knitr)
+knit_hooks$set(webgl = hook_webgl)
+```
+
+#Pesticide Report: cypermethrinSplit_1
+
+##This is a 2-dimensional projection of the molecule
+
+![cypermethrinSplit_1](/home/cheminfused/Desktop/andrewdefries.github.io/MarkdownGallery/cypermethrinSplit_1.png)
+
+The following is a cladogram to find nearest neighbors by the PubChem IDs indicated
+
+![cypermethrinSplit_1](/home/cheminfused/Desktop/andrewdefries.github.io/MarkdownGallery/hclust.png)
+
+```{r testgl, webgl=TRUE}
+library(rgl)
+open3d()
+
+#load data file
+data<-read.table("cypermethrinSplit_1.xyz")
+x<-data$V2
+y<-data$V3
+z<-data$V4
+
+#color atoms by legend
+atomcolor<-data$V1
+
+#https://en.wikipedia.org/wiki/CPK_coloring
+atomcolor<-gsub("H", "white", atomcolor)
+atomcolor<-gsub("Cl", "green", atomcolor)
+atomcolor<-gsub("C", "black", atomcolor)
+atomcolor<-gsub("N", "blue", atomcolor)
+atomcolor<-gsub("F", "green", atomcolor)
+atomcolor<-gsub("O", "red", atomcolor)
+atomcolor<-gsub("Br", "brown", atomcolor)
+atomcolor<-gsub("P", "orange", atomcolor)
+atomcolor<-gsub("Na", "violet", atomcolor)
+atomcolor<-gsub("S", "yellow", atomcolor)
+
+#atomcolor=c(rep("blue", 1), rep("red", 5), rep("black", 7), rep("white", 15))
+
+spheres3d(x, y, z, col=atomcolor)
+```
+
+This one also works.
+
+
+```{r testgl2, webgl=TRUE}
+library(rgl)
+
+#prepare the chemical space
+#source("ChemicalSpace.R")
+
+#load the 3D coordinates of the MDS space
+load("cypermethrin_coord.rda")
+
+rgl.open(); offset <- 50; par3d(windowRect=c(offset, offset, 640+offset, 640+offset))
+rm(offset); rgl.clear(); rgl.viewpoint(theta=45, phi=30, fov=60, zoom=1)
+spheres3d(coord[,1], coord[,2], coord[,3], radius=0.005, color="black", alpha=1, shininess=20); aspect3d(1, 1, 1)
+axes3d(col="black"); title3d("", "", "", "", "", col="black"); bg3d("white")
+
+#need to add text labels
+
+#source("Cladogram.R")
+```
+
+#Grep Reports
+
+
+```{r testgl3, webgl=TRUE}
+#library(ChemmineR)
+#sdfset<-read.SDFset("cypermethrin.sdf")
+#write.table(sdfid(sdfset), file="cypermethrin.name", row.name=F, quote=F, sep="")
+
+#system('grep -i -A 3 -B 3 "\tcypermethrin*$" /home/cheminfused/Desktop/PLOS_FULLTEXT/txt/*.txt > cypermethrin.grep')
+readLines("cypermethrin.grep")
+
+```
+
+		
