@@ -1,0 +1,78 @@
+
+R version 3.1.2 (2014-10-31) -- "Pumpkin Helmet"
+Copyright (C) 2014 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+[Previously saved workspace restored]
+
+> library(knitr)
+> library(markdown)
+> 
+> knit("QuerySplit_1.Rmd")
+
+
+processing file: QuerySplit_1.Rmd
+  |                                                                         |                                                                 |   0%  |                                                                         |.......                                                          |  11%
+  ordinary text without R code
+
+  |                                                                         |..............                                                   |  22%
+label: setup (with options) 
+List of 1
+ $ results: chr "asis"
+
+  |                                                                         |......................                                           |  33%
+  ordinary text without R code
+
+  |                                                                         |.............................                                    |  44%
+label: testgl (with options) 
+List of 1
+ $ webgl: logi TRUE
+
+  |                                                                         |....................................                             |  56%
+  ordinary text without R code
+
+  |                                                                         |...........................................                      |  67%
+label: testgl2 (with options) 
+List of 1
+ $ webgl: logi TRUE
+
+  |                                                                         |...................................................              |  78%
+  ordinary text without R code
+
+  |                                                                         |..........................................................       |  89%
+label: testgl3 (with options) 
+List of 1
+ $ webgl: logi TRUE
+
+  |                                                                         |.................................................................| 100%
+  ordinary text without R code
+
+
+output file: QuerySplit_1.md
+
+[1] "QuerySplit_1.md"
+Warning messages:
+1: In mouseHandlers() :
+  Mouse mode(s) 'polar' not supported.  'trackball' used.
+2: In mouseHandlers() :
+  Mouse mode(s) 'polar' not supported.  'trackball' used.
+> 
+> markdownToHTML("QuerySplit_1.md", "QuerySplit_1.html", options=c("use_xhtml"))
+> 
+> proc.time()
+   user  system elapsed 
+  4.199   0.075   4.664 
